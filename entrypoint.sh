@@ -2,7 +2,6 @@
 
 set -e
 
-cp -r /go-tests .
 cp -a student piscine-go
 cd piscine-go
 
@@ -44,6 +43,7 @@ if test "$ALLOWED_FUNCTIONS" && test "$FILE"; then
 	rc "$FILE" $ALLOWED_FUNCTIONS
 fi
 
+cp -r /go-tests ~
 cd ~/go-tests
 
 # Compile and run test
