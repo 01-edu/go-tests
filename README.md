@@ -2,8 +2,8 @@
 
 To run the tests make sure the two repositories are right next to each other:
 
-- github.com/01-edu/piscine-go
-- github.com/01-edu/go-tests
+- https://github.com/01-edu/piscine-go
+- https://github.com/01-edu/go-tests
 
 To test an exercise, run this command in the `go-tests`:
 
