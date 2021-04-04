@@ -1,17 +1,17 @@
-# Tests
+# go-tests
 
 To run the tests make sure the two repositories are right next to each other:
 
 - github.com/01-edu/piscine-go
-- github.com/01-edu/public
+- github.com/01-edu/go-tests
 
-To test an exercise, run this command in this folder (`public/test-go`):
+To test an exercise, run this command in the `go-tests`:
 
 ```
-go run github.com/01-edu/public/test-go/tests/isnegative_test
+go run github.com/01-edu/go-tests/tests/isnegative_test
 ```
 
-Relative paths work anywhere in `public/test-go`:
+Relative paths work:
 
 ```
 go run ./tests/printalphabet_test
