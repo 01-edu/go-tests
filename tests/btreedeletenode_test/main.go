@@ -3,8 +3,8 @@ package main
 import (
 	student "student"
 
-	"github.com/01-edu/public/test-go/lib"
-	"github.com/01-edu/public/test-go/solutions"
+	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/solutions"
 )
 
 func parentListDelete(root *student.TreeNode) string {

@@ -3,7 +3,7 @@ package main
 import (
 	student "student"
 
-	"github.com/01-edu/public/test-go/lib"
+	"github.com/01-edu/go-tests/lib"
 )
 
 func min3(a, b, c int) int {

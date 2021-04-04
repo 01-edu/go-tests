@@ -5,7 +5,7 @@ import (
 
 	student "student"
 
-	"github.com/01-edu/public/test-go/lib"
+	"github.com/01-edu/go-tests/lib"
 )
 
 func show(n int, table [9]int, tmax [9]int) {

@@ -3,7 +3,7 @@ package main
 import (
 	student "student"
 
-	"github.com/01-edu/public/test-go/lib"
+	"github.com/01-edu/go-tests/lib"
 )
 
 // Function that return the number of active bits in the number passed as the argument

@@ -7,7 +7,7 @@ import (
 
 	student "student"
 
-	"github.com/01-edu/public/test-go/lib"
+	"github.com/01-edu/go-tests/lib"
 )
 
 func advancedSortWordArr(a []string, f func(a, b string) int) {

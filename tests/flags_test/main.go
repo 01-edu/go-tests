@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/01-edu/public/test-go/lib"
+	"github.com/01-edu/go-tests/lib"
 )
 
 type node struct {

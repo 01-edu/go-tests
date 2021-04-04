@@ -6,7 +6,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/01-edu/public/test-go/lib"
+	"github.com/01-edu/go-tests/lib"
 )
 
 func FormatTree(root *TreeNode) string {

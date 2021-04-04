@@ -2,7 +2,7 @@
 
 set -e
 
-cp -r /public .
+cp -r /go-tests .
 cp -a student piscine-go
 cd piscine-go
 
@@ -44,7 +44,7 @@ if test "$ALLOWED_FUNCTIONS" && test "$FILE"; then
 	rc "$FILE" $ALLOWED_FUNCTIONS
 fi
 
-cd ~/public/test-go
+cd ~/go-tests
 
 # Compile and run test
 if command -v "${EXERCISE}_test" >/dev/null 2>&1; then

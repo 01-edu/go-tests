@@ -3,8 +3,8 @@ package main
 import (
 	student "student"
 
-	"github.com/01-edu/public/test-go/lib"
-	"github.com/01-edu/public/test-go/lib/base"
+	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/lib/base"
 )
 
 func convertNbrBase(n int, base string) string {

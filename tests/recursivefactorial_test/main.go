@@ -5,7 +5,7 @@ import (
 
 	student "student"
 
-	"github.com/01-edu/public/test-go/lib"
+	"github.com/01-edu/go-tests/lib"
 )
 
 func recursiveFactorial(nb int) int {

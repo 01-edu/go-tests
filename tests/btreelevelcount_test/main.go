@@ -5,8 +5,8 @@ import (
 
 	student "student"
 
-	"github.com/01-edu/public/test-go/lib"
-	"github.com/01-edu/public/test-go/solutions"
+	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/solutions"
 )
 
 func errorMessage_level(fn interface{}, root, a *solutions.TreeNode, b *student.TreeNode) {
