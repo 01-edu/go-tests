@@ -15,7 +15,7 @@ func main() {
 		9,
 		2,
 	}
-	table = append(table, random.IntsBetween(1, 1500)...)
+	table = append(table, random.IntSliceBetween(1, 1500)...)
 
 	for _, arg := range table {
 		challenge.Function("InterestingNumber", student.InterestingNumber, solutions.InterestingNumber, arg)

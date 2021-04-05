@@ -4,22 +4,19 @@ import (
 	student "student"
 
 	"github.com/01-edu/go-tests/lib/challenge"
+	"github.com/01-edu/go-tests/lib/chars"
 	"github.com/01-edu/go-tests/lib/random"
 	"github.com/01-edu/go-tests/solutions"
 )
 
 func main() {
-	table := [][]string{}
+	args := [][]string{{"Hello!", " How are you?"}}
 
 	// 30 valid pair of ramdom strings to concatenate
 	for i := 0; i < 30; i++ {
-		value := []string{random.RandASCII(), random.RandASCII()}
-		table = append(table, value)
+		args = append(args, []string{random.Str(chars.ASCII, 13), random.Str(chars.ASCII, 13)})
 	}
-	table = append(table,
-		[]string{"Hello!", " How are you?"},
-	)
-	for _, arg := range table {
+	for _, arg := range args {
 		challenge.Function("Concat", student.Concat, solutions.Concat, arg[0], arg[1])
 	}
 }

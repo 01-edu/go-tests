@@ -9,11 +9,11 @@ import (
 )
 
 func main() {
-	arg := random.Ints()
+	arg := random.IntSlice()
 	arg = append(arg, random.Int())
 	for i := 0; i < 15; i++ {
 		challenge.Function("Abort", student.Abort, solutions.Abort, arg[0], arg[1], arg[2], arg[3], arg[4])
-		arg = random.Ints()
+		arg = random.IntSlice()
 		arg = append(arg, random.Int())
 	}
 }

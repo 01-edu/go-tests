@@ -6,6 +6,7 @@ import (
 	student "student"
 
 	"github.com/01-edu/go-tests/lib/challenge"
+	"github.com/01-edu/go-tests/lib/chars"
 	"github.com/01-edu/go-tests/lib/random"
 )
 
@@ -33,9 +34,8 @@ func main() {
 		numPos := random.IntBetween(1, n-1)
 
 		for i := 0; i < numPos; i++ {
-			word := random.RandWords()
 			randPos := random.IntBetween(0, n-1)
-			orig[randPos] = word
+			orig[randPos] = random.Str(chars.Words, 13)
 		}
 		arg = append(arg, orig)
 	}

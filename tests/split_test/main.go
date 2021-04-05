@@ -4,11 +4,11 @@ import (
 	"math/rand"
 	"strings"
 
-	"github.com/01-edu/go-tests/lib/random"
-
 	student "student"
 
 	"github.com/01-edu/go-tests/lib/challenge"
+	"github.com/01-edu/go-tests/lib/chars"
+	"github.com/01-edu/go-tests/lib/random"
 	"github.com/01-edu/go-tests/solutions"
 )
 
@@ -19,7 +19,7 @@ func main() {
 		"    ",
 		"|=choumi=|",
 		"|<=>|",
-		random.RandStr(3, random.Upper),
+		random.Str(chars.Upper, 3),
 		"<<==123==>>",
 		"[<>abc<>]",
 	}
@@ -28,22 +28,15 @@ func main() {
 		s   string
 		sep string
 	}
-	table := []node{}
-	// 15 random slice of strings
-
+	args := []node{{s: "HelloHAhowHAareHAyou?", sep: "HA"}}
 	for i := 0; i < 15; i++ {
 		separator := separators[rand.Intn(len(separators))]
-		val := node{
-			s:   strings.Join(random.MultRandAlnum(), separator),
+		args = append(args, node{
+			s:   strings.Join(random.StrSlice(chars.Alnum), separator),
 			sep: separator,
-		}
-		table = append(table, val)
+		})
 	}
-
-	table = append(table,
-		node{s: "HelloHAhowHAareHAyou?", sep: "HA"})
-
-	for _, arg := range table {
+	for _, arg := range args {
 		challenge.Function("Split", student.Split, solutions.Split, arg.s, arg.sep)
 	}
 }

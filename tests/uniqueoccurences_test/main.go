@@ -2,22 +2,21 @@ package main
 
 import (
 	"github.com/01-edu/go-tests/lib/challenge"
+	"github.com/01-edu/go-tests/lib/chars"
 	"github.com/01-edu/go-tests/lib/random"
 )
 
 func main() {
-	table := []string{
+	args := []string{
 		"abbaac",
 		"ab",
 		"abcacccazb",
 		"",
 	}
-
 	for i := 0; i < 15; i++ {
-		table = append(table, random.RandStr(random.IntBetween(5, 10), random.Lower))
+		args = append(args, random.Str(chars.Lower, random.IntBetween(5, 10)))
 	}
-
-	for _, arg := range table {
+	for _, arg := range args {
 		challenge.Program("uniqueoccurences", arg)
 	}
 }

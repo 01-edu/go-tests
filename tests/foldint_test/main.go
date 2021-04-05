@@ -30,7 +30,7 @@ func main() {
 	table := []node{}
 
 	for i := 0; i < 8; i++ {
-		argInt = append(argInt, random.IntsBetween(0, 50)...)
+		argInt = append(argInt, random.IntSliceBetween(0, 50)...)
 		table = append(table, node{
 			a:         argInt,
 			functions: f,

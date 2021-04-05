@@ -2,6 +2,7 @@ package main
 
 import (
 	"github.com/01-edu/go-tests/lib/challenge"
+	"github.com/01-edu/go-tests/lib/chars"
 	"github.com/01-edu/go-tests/lib/random"
 )
 
@@ -15,8 +16,8 @@ func main() {
 	}
 	for i := 0; i < 30; i++ {
 		args = append(args,
-			[2]string{random.RandLower()[:1], random.RandLower()},
-			[2]string{random.RandUpper()[:1], random.RandUpper()},
+			[2]string{random.Str(chars.Lower, 1), random.Str(chars.Lower, 13)},
+			[2]string{random.Str(chars.Upper, 1), random.Str(chars.Upper, 13)},
 		)
 	}
 	for _, v := range args {

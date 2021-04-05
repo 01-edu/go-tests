@@ -31,7 +31,7 @@ func main() {
 		function := functions[random.IntBetween(0, len(functions)-1)]
 		val := node{
 			f: function,
-			a: random.IntsBetween(-1000000, 1000000),
+			a: random.IntSliceBetween(-1000000, 1000000),
 		}
 		table = append(table, val)
 	}

@@ -16,7 +16,7 @@ func sortIntegerTable(a []int) {
 
 func main() {
 	for i := 0; i < 8; i++ {
-		table1 := random.IntsBetween(-100, 100)
+		table1 := random.IntSliceBetween(-100, 100)
 
 		tableCopyBefore := make([]int, len(table1))
 		copy(tableCopyBefore, table1)

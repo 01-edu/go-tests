@@ -2,6 +2,7 @@ package main
 
 import (
 	"github.com/01-edu/go-tests/lib/challenge"
+	"github.com/01-edu/go-tests/lib/chars"
 	"github.com/01-edu/go-tests/lib/random"
 )
 
@@ -12,39 +13,33 @@ func main() {
 		letterReplacing string
 	}
 
-	table := []nodeTest{}
-
-	for i := 0; i < 20; i++ {
-		letter1 := []rune(random.RandAlnum())
-		letter2 := []rune(random.RandAlnum())
-
-		table = append(table,
-			nodeTest{
-				dataSearched:    random.RandWords(),
-				letterLookedFor: string(letter1[0]),
-				letterReplacing: string(letter2[0]),
-			})
-	}
-
-	table = append(table,
-		nodeTest{
+	args := []nodeTest{
+		{
 			dataSearched:    "hélla",
 			letterLookedFor: "é",
 			letterReplacing: "o",
 		},
-		nodeTest{
+		{
 			dataSearched:    "hella",
 			letterLookedFor: "z",
 			letterReplacing: "o",
 		},
-		nodeTest{
+		{
 			dataSearched:    "hella",
 			letterLookedFor: "h",
 			letterReplacing: "o",
 		},
-	)
+	}
 
-	for _, arg := range table {
+	for i := 0; i < 20; i++ {
+		args = append(args, nodeTest{
+			dataSearched:    random.Str(chars.Words, 13),
+			letterLookedFor: random.Str(chars.Alnum, 1),
+			letterReplacing: random.Str(chars.Alnum, 1),
+		})
+	}
+
+	for _, arg := range args {
 		challenge.Program("searchreplace", arg.dataSearched, arg.letterLookedFor, arg.letterReplacing)
 	}
 }

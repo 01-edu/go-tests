@@ -2,11 +2,12 @@ package main
 
 import (
 	"github.com/01-edu/go-tests/lib/challenge"
+	"github.com/01-edu/go-tests/lib/chars"
 	"github.com/01-edu/go-tests/lib/random"
 )
 
 func main() {
-	oneArgs := []string{
+	args := []string{
 		"(johndoe)",
 		")()",
 		"([)]",
@@ -15,19 +16,19 @@ func main() {
 
 	// 18 random tests ( at least half are valid)
 	for i := 0; i < 3; i++ {
-		oneArgs = append(oneArgs,
-			"("+random.RandASCII()+")",
-			"["+random.RandASCII()+"]",
-			"{"+random.RandASCII()+"}",
-			"("+random.RandAlnum()+")",
-			"["+random.RandAlnum()+"]",
-			"{"+random.RandAlnum()+"}",
+		args = append(args,
+			"("+random.Str(chars.ASCII, 13)+")",
+			"["+random.Str(chars.ASCII, 13)+"]",
+			"{"+random.Str(chars.ASCII, 13)+"}",
+			"("+random.Str(chars.Alnum, 13)+")",
+			"["+random.Str(chars.Alnum, 13)+"]",
+			"{"+random.Str(chars.Alnum, 13)+"}",
 		)
 	}
 
 	challenge.Program("brackets")
 
-	for _, v := range oneArgs {
+	for _, v := range args {
 		challenge.Program("brackets", v)
 	}
 

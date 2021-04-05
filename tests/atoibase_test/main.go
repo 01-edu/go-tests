@@ -14,7 +14,13 @@ func main() {
 		base string
 	}
 
-	table := []node{}
+	args := []node{
+		{s: "125", base: "0123456789"},
+		{s: "1111101", base: "01"},
+		{s: "7D", base: "0123456789ABCDEF"},
+		{s: "uoi", base: "choumi"},
+		{s: "bbbbbab", base: "-ab"},
+	}
 
 	// 15 random pairs of string numbers with valid bases
 	for i := 0; i < 15; i++ {
@@ -23,7 +29,7 @@ func main() {
 			s:    base.StringFrom(validBaseToInput),
 			base: validBaseToInput,
 		}
-		table = append(table, val)
+		args = append(args, val)
 	}
 	// 15 random pairs of string numbers with invalid bases
 	for i := 0; i < 15; i++ {
@@ -32,16 +38,9 @@ func main() {
 			s:    "thisinputshouldnotmatter",
 			base: invalidBaseToInput,
 		}
-		table = append(table, val)
+		args = append(args, val)
 	}
-	table = append(table,
-		node{s: "125", base: "0123456789"},
-		node{s: "1111101", base: "01"},
-		node{s: "7D", base: "0123456789ABCDEF"},
-		node{s: "uoi", base: "choumi"},
-		node{s: "bbbbbab", base: "-ab"},
-	)
-	for _, arg := range table {
+	for _, arg := range args {
 		challenge.Function("AtoiBase", student.AtoiBase, solutions.AtoiBase, arg.s, arg.base)
 	}
 }

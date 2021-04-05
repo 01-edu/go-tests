@@ -2,11 +2,12 @@ package main
 
 import (
 	"github.com/01-edu/go-tests/lib/challenge"
+	"github.com/01-edu/go-tests/lib/chars"
 	"github.com/01-edu/go-tests/lib/random"
 )
 
 func main() {
-	table := []string{
+	args := []string{
 		"",
 		"abcdefghijklm",
 		"the time of contempt precedes that of indifference",
@@ -17,15 +18,15 @@ func main() {
 	// 3 valid random sentences with no spaces at the beginning nor the end and only one space for separator.
 	for i := 0; i < 3; i++ {
 		numberOfWords := random.IntBetween(1, 6)
-		sentence := random.RandAlnum()
+		sentence := random.Str(chars.Alnum, 13)
 		for j := 0; j < numberOfWords; j++ {
-			sentence += " " + random.RandAlnum()
+			sentence += " " + random.Str(chars.Alnum, 13)
 		}
-		sentence += random.RandAlnum()
-		table = append(table, sentence)
+		sentence += random.Str(chars.Alnum, 13)
+		args = append(args, sentence)
 	}
 
-	for _, s := range table {
+	for _, s := range args {
 		challenge.Program("revwstr", s)
 	}
 

@@ -4,6 +4,7 @@ import (
 	student "student"
 
 	"github.com/01-edu/go-tests/lib/challenge"
+	"github.com/01-edu/go-tests/lib/chars"
 	"github.com/01-edu/go-tests/lib/is"
 	"github.com/01-edu/go-tests/lib/random"
 	"github.com/01-edu/go-tests/solutions"
@@ -17,47 +18,44 @@ func main() {
 		a []string
 	}
 
-	table := []node{}
-
-	for i := 0; i < 5; i++ {
-		function := functions[random.IntBetween(0, len(functions)-1)]
-		table = append(table, node{
-			f: function,
-			a: random.MultRandWords(),
-		})
-	}
-	for i := 0; i < 5; i++ {
-		table = append(table, node{
-			f: is.Digit,
-			a: random.MultRandDigit(),
-		})
-	}
-
-	for i := 0; i < 5; i++ {
-		table = append(table, node{
-			f: is.Lower,
-			a: random.MultRandLower(),
-		})
-	}
-	for i := 0; i < 5; i++ {
-		table = append(table, node{
-			f: is.Upper,
-			a: random.MultRandUpper(),
-		})
-	}
-
-	table = append(table,
-		node{
+	args := []node{
+		{
 			f: is.Digit,
 			a: []string{"Hello", "how", "are", "you"},
 		},
-		node{
+		{
 			f: is.Digit,
 			a: []string{"This", "is", "4", "you"},
 		},
-	)
+	}
 
-	for _, arg := range table {
+	for i := 0; i < 5; i++ {
+		args = append(args, node{
+			f: functions[random.IntBetween(0, len(functions)-1)],
+			a: random.StrSlice(chars.Words),
+		})
+	}
+	for i := 0; i < 5; i++ {
+		args = append(args, node{
+			f: is.Digit,
+			a: random.StrSlice(chars.Digit),
+		})
+	}
+
+	for i := 0; i < 5; i++ {
+		args = append(args, node{
+			f: is.Lower,
+			a: random.StrSlice(chars.Lower),
+		})
+	}
+	for i := 0; i < 5; i++ {
+		args = append(args, node{
+			f: is.Upper,
+			a: random.StrSlice(chars.Upper),
+		})
+	}
+
+	for _, arg := range args {
 		challenge.Function("Any", student.Any, solutions.Any, arg.f, arg.a)
 	}
 }

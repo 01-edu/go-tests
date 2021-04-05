@@ -9,16 +9,16 @@ import (
 )
 
 func main() {
-	table := []int{
+	args := []int{
 		20,
 		1,
 		9,
 		2,
 	}
 	for i := 0; i < 25; i++ {
-		table = append(table, random.IntsBetween(1, 877)...)
+		args = append(args, random.IntSliceBetween(1, 877)...)
 	}
-	for _, arg := range table {
+	for _, arg := range args {
 		challenge.Function("ReachableNumber", student.ReachableNumber, solutions.ReachableNumber, arg)
 	}
 }

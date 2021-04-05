@@ -9,7 +9,7 @@ import (
 )
 
 func main() {
-	table := append(random.IntsBetween(0, 1000),
+	args := append(random.IntSliceBetween(0, 1000),
 		50,
 		13,
 		10,
@@ -17,7 +17,7 @@ func main() {
 		1,
 		2,
 	)
-	for _, arg := range table {
+	for _, arg := range args {
 		challenge.Function("PriorPrime", student.PriorPrime, solutions.PriorPrime, arg)
 	}
 }

@@ -11,11 +11,11 @@ import (
 )
 
 func main() {
-	table := make([]string, 30)
-	for i := range table {
-		table[i] = strconv.Itoa(random.IntBetween(0, random.MaxInt))
+	args := make([]string, 30)
+	for i := range args {
+		args[i] = strconv.Itoa(random.IntBetween(0, random.MaxInt))
 	}
-	table = append(table,
+	args = append(args,
 		strconv.Itoa(random.MaxInt),
 		"",
 		"0",
@@ -23,7 +23,7 @@ func main() {
 		"0000012345",
 		"000000",
 	)
-	for _, arg := range table {
+	for _, arg := range args {
 		challenge.Function("BasicAtoi", student.BasicAtoi, solutions.BasicAtoi, arg)
 	}
 }

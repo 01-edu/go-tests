@@ -21,23 +21,24 @@ func main() {
 		slice []int
 		ch    int
 	}
-	table := []node{}
+	args := []node{
+		{
+			slice: []int{},
+			ch:    0,
+		}, {
+			slice: []int{1, 2, 3, 4, 5, 6, 7, 8},
+			ch:    0,
+		},
+	}
 
 	for i := 0; i <= 7; i++ {
 		value := node{
 			slice: randomSize(),
 			ch:    random.IntBetween(0, 10),
 		}
-		table = append(table, value)
+		args = append(args, value)
 	}
-	table = append(table, node{
-		slice: []int{},
-		ch:    0,
-	}, node{
-		slice: []int{1, 2, 3, 4, 5, 6, 7, 8},
-		ch:    0,
-	})
-	for _, args := range table {
-		challenge.Function("Chunk", student.Chunk, solutions.Chunk, args.slice, args.ch)
+	for _, arg := range args {
+		challenge.Function("Chunk", student.Chunk, solutions.Chunk, arg.slice, arg.ch)
 	}
 }

@@ -8,6 +8,7 @@ import (
 	student "student"
 
 	"github.com/01-edu/go-tests/lib/challenge"
+	"github.com/01-edu/go-tests/lib/chars"
 	"github.com/01-edu/go-tests/lib/random"
 )
 
@@ -18,18 +19,18 @@ func advancedSortWordArr(a []string, f func(a, b string) int) {
 }
 
 func main() {
-	table := [][]string{{"a", "A", "1", "b", "B", "2", "c", "C", "3"}}
+	args := [][]string{{"a", "A", "1", "b", "B", "2", "c", "C", "3"}}
 
-	table = append(table, random.MultRandWords())
+	args = append(args, random.StrSlice(chars.Words))
 
-	for _, org := range table {
+	for _, arg := range args {
 		// copy for using the solution function
-		cp_sol := make([]string, len(org))
+		cp_sol := make([]string, len(arg))
 		// copy for using the student function
-		cp_stu := make([]string, len(org))
+		cp_stu := make([]string, len(arg))
 
-		copy(cp_sol, org)
-		copy(cp_stu, org)
+		copy(cp_sol, arg)
+		copy(cp_stu, arg)
 
 		advancedSortWordArr(cp_sol, strings.Compare)
 		student.AdvancedSortWordArr(cp_stu, strings.Compare)
@@ -37,7 +38,7 @@ func main() {
 		if !reflect.DeepEqual(cp_stu, cp_sol) {
 			challenge.Fatalf("%s(%v) == %v instead of %v\n",
 				"AdvancedSortWordArr",
-				org,
+				arg,
 				cp_stu,
 				cp_sol,
 			)

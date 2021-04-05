@@ -9,7 +9,7 @@ import (
 )
 
 func main() {
-	table := append(random.Ints(),
+	table := append(random.IntSlice(),
 		random.MinInt,
 		random.MaxInt,
 		0,

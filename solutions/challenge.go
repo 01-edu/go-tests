@@ -7,6 +7,7 @@ import (
 	"strings"
 
 	"github.com/01-edu/go-tests/lib/challenge"
+	"github.com/01-edu/go-tests/lib/chars"
 	"github.com/01-edu/go-tests/lib/random"
 )
 
@@ -171,13 +172,13 @@ func ElementsToTest(table []NodeTest) []NodeTest {
 	)
 	for i := 0; i < 3; i++ {
 		val := NodeTest{
-			Data: ConvertIntToInterface(random.Ints()),
+			Data: ConvertIntToInterface(random.IntSlice()),
 		}
 		table = append(table, val)
 	}
 	for i := 0; i < 3; i++ {
 		val := NodeTest{
-			Data: ConvertIntToStringface(random.MultRandWords()),
+			Data: ConvertIntToStringface(random.StrSlice(chars.Words)),
 		}
 		table = append(table, val)
 	}

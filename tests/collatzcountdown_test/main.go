@@ -9,7 +9,7 @@ import (
 )
 
 func main() {
-	args := append(random.IntsBetween(2, 20),
+	args := append(random.IntSliceBetween(2, 20),
 		random.IntBetween(-6, 20),
 		-5,
 		0,

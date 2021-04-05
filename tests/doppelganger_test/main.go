@@ -4,51 +4,39 @@ import (
 	student "student"
 
 	"github.com/01-edu/go-tests/lib/challenge"
+	"github.com/01-edu/go-tests/lib/chars"
 	"github.com/01-edu/go-tests/lib/random"
 	"github.com/01-edu/go-tests/solutions"
 )
 
-type node struct {
-	big, little string
-}
-
 func main() {
-	table := []node{}
+	type node struct {
+		s, substr string
+	}
 
-	table = append(table,
-		node{"aaaaaaa", "a"},
-		node{"qwerty", "t"},
-		node{"a", "b"},
-	)
+	args := []node{
+		{"aaaaaaa", "a"},
+		{"qwerty", "t"},
+		{"a", "b"},
+	}
 
 	for i := 0; i < 10; i++ {
 		l := random.IntBetween(5, 30)
-		big := random.RandStr(l, random.Lower)
+		s := random.Str(chars.Lower, l)
 		start := random.IntBetween(0, l-1)
 		end := random.IntBetween(start+1, l-1)
-		little := big[start:end]
-
-		value := node{
-			big:    big,
-			little: little,
-		}
-
-		table = append(table, value)
+		substr := s[start:end]
+		args = append(args, node{s, substr})
 	}
 
 	for i := 0; i < 10; i++ {
-		big := random.RandStr(random.IntBetween(5, 30), random.Lower)
-		little := random.RandStr(random.IntBetween(1, 29), random.Lower)
-
-		value := node{
-			big:    big,
-			little: little,
-		}
-
-		table = append(table, value)
+		args = append(args, node{
+			s:      random.Str(chars.Lower, random.IntBetween(5, 30)),
+			substr: random.Str(chars.Lower, random.IntBetween(1, 29)),
+		})
 	}
 
-	for _, arg := range table {
-		challenge.Function("DoppelGanger", student.DoppelGanger, solutions.DoppelGanger, arg.big, arg.little)
+	for _, arg := range args {
+		challenge.Function("DoppelGanger", student.DoppelGanger, solutions.DoppelGanger, arg.s, arg.substr)
 	}
 }

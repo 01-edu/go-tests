@@ -4,13 +4,14 @@ import (
 	student "student"
 
 	"github.com/01-edu/go-tests/lib/challenge"
+	"github.com/01-edu/go-tests/lib/chars"
 	"github.com/01-edu/go-tests/lib/random"
 	"github.com/01-edu/go-tests/solutions"
 )
 
 func main() {
 	table := append(
-		random.MultRandASCII(),
+		random.StrSlice(chars.ASCII),
 		"Hello!",
 		"Bonjour!",
 		"Hola!",

@@ -4,6 +4,7 @@ import (
 	student "student"
 
 	"github.com/01-edu/go-tests/lib/challenge"
+	"github.com/01-edu/go-tests/lib/chars"
 	"github.com/01-edu/go-tests/lib/is"
 	"github.com/01-edu/go-tests/lib/random"
 	"github.com/01-edu/go-tests/solutions"
@@ -21,33 +22,29 @@ func main() {
 
 	for i := 0; i < 5; i++ {
 		function := functions[random.IntBetween(0, len(functions)-1)]
-		val := node{
+		table = append(table, node{
 			f: function,
-			a: random.MultRandWords(),
-		}
-		table = append(table, val)
+			a: random.StrSlice(chars.Words),
+		})
 	}
 	for i := 0; i < 5; i++ {
-		val := node{
+		table = append(table, node{
 			f: is.Digit,
-			a: random.MultRandDigit(),
-		}
-		table = append(table, val)
+			a: random.StrSlice(chars.Digit),
+		})
 	}
 
 	for i := 0; i < 5; i++ {
-		val := node{
+		table = append(table, node{
 			f: is.Lower,
-			a: random.MultRandLower(),
-		}
-		table = append(table, val)
+			a: random.StrSlice(chars.Lower),
+		})
 	}
 	for i := 0; i < 5; i++ {
-		val := node{
+		table = append(table, node{
 			f: is.Upper,
-			a: random.MultRandUpper(),
-		}
-		table = append(table, val)
+			a: random.StrSlice(chars.Upper),
+		})
 	}
 
 	table = append(table,

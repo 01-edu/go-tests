@@ -4,6 +4,7 @@ import (
 	student "student"
 
 	"github.com/01-edu/go-tests/lib/challenge"
+	"github.com/01-edu/go-tests/lib/chars"
 	"github.com/01-edu/go-tests/lib/random"
 	"github.com/01-edu/go-tests/solutions"
 )
@@ -14,38 +15,30 @@ func main() {
 		toCompare string
 	}
 
-	table := []node{}
+	args := []node{
+		{s: "Hello!", toCompare: "Hello!"},
+		{s: "Salut!", toCompare: "lut!"},
+		{s: "Ola!", toCompare: "Ol"},
+	}
 
 	// the first 15 values are returning 0 for this test
 	for i := 0; i < 15; i++ {
-		wordToTest := random.RandASCII()
-
-		val := node{
+		wordToTest := random.Str(chars.ASCII, 13)
+		args = append(args, node{
 			s:         wordToTest,
 			toCompare: wordToTest,
-		}
-		table = append(table, val)
+		})
 	}
 
 	// the next 15 values are supposed to return 1 or -1 for this test
 	for i := 0; i < 15; i++ {
-		wordToTest := random.RandASCII()
-		wrongMatch := random.RandASCII()
-
-		val := node{
-			s:         wordToTest,
-			toCompare: wrongMatch,
-		}
-		table = append(table, val)
+		args = append(args, node{
+			s:         random.Str(chars.ASCII, 13),
+			toCompare: random.Str(chars.ASCII, 13),
+		})
 	}
-	// those are the test values from the README examples
-	table = append(table,
-		node{s: "Hello!", toCompare: "Hello!"},
-		node{s: "Salut!", toCompare: "lut!"},
-		node{s: "Ola!", toCompare: "Ol"},
-	)
 
-	for _, arg := range table {
+	for _, arg := range args {
 		challenge.Function("Compare", student.Compare, solutions.Compare, arg.s, arg.toCompare)
 	}
 }

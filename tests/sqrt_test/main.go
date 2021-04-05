@@ -9,7 +9,7 @@ import (
 )
 
 func main() {
-	table := append(random.IntsBetween(-1000000, 1000000),
+	table := append(random.IntSliceBetween(-1000000, 1000000),
 		0,
 		1,
 		2,

@@ -49,7 +49,7 @@ func main() {
 		function := functions[random.IntBetween(0, len(functions)-1)]
 		val := node{
 			f: function,
-			a: random.IntsBetween(-1000000, 1000000),
+			a: random.IntSliceBetween(-1000000, 1000000),
 		}
 		table = append(table, val)
 	}
@@ -57,7 +57,7 @@ func main() {
 	// 5 slices ordered in ascending order
 	for i := 0; i < 5; i++ {
 		function := functions[random.IntBetween(0, len(functions)-1)]
-		ordered := random.IntsBetween(-1000000, 1000000)
+		ordered := random.IntSliceBetween(-1000000, 1000000)
 		sort.Ints(ordered)
 
 		val := node{
@@ -70,7 +70,7 @@ func main() {
 	// 5 slices ordered in descending order
 	for i := 0; i < 5; i++ {
 		function := functions[random.IntBetween(0, len(functions)-1)]
-		reversed := random.IntsBetween(-1000000, 1000000)
+		reversed := random.IntSliceBetween(-1000000, 1000000)
 		sort.Sort(sort.Reverse(sort.IntSlice(reversed)))
 		val := node{
 			f: function,

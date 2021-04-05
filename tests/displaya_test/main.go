@@ -4,11 +4,12 @@ import (
 	"strings"
 
 	"github.com/01-edu/go-tests/lib/challenge"
+	"github.com/01-edu/go-tests/lib/chars"
 	"github.com/01-edu/go-tests/lib/random"
 )
 
 func main() {
-	table := append(random.MultRandWords(),
+	table := append(random.StrSlice(chars.Words),
 		"dsfda",
 		"",
 		"1",

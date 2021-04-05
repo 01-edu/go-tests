@@ -4,12 +4,13 @@ import (
 	student "student"
 
 	"github.com/01-edu/go-tests/lib/challenge"
+	"github.com/01-edu/go-tests/lib/chars"
 	"github.com/01-edu/go-tests/lib/random"
 	"github.com/01-edu/go-tests/solutions"
 )
 
 func main() {
-	table := [][2]string{
+	args := [][2]string{
 		{"listen", "silent"},
 		{"alem", "school"},
 		{"neat", "a net"},
@@ -28,13 +29,13 @@ func main() {
 		{"pulp", "fiction"},
 	}
 	for i := 0; i < 15; i++ {
-		table = append(table, [2]string{
-			random.RandStr(random.IntBetween(15, 20), "qwertyuiopasdfghjklzxcvbnm "),
-			random.RandStr(random.IntBetween(15, 20), "qwertyuiopasdfghjklzxcvbnm "),
+		args = append(args, [2]string{
+			random.Str(chars.Words, random.IntBetween(15, 20)),
+			random.Str(chars.Words, random.IntBetween(15, 20)),
 		})
 	}
 
-	for _, arg := range table {
+	for _, arg := range args {
 		challenge.Function("IsAnagram", student.IsAnagram, solutions.IsAnagram, arg[0], arg[1])
 	}
 }

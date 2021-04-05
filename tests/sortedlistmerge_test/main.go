@@ -68,8 +68,8 @@ func main() {
 
 	for i := 0; i < 3; i++ {
 		val := nodeTest{
-			data1: random.Ints(),
-			data2: random.Ints(),
+			data1: random.IntSlice(),
+			data2: random.IntSlice(),
 		}
 		table = append(table, val)
 	}

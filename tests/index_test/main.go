@@ -4,6 +4,7 @@ import (
 	student "student"
 
 	"github.com/01-edu/go-tests/lib/challenge"
+	"github.com/01-edu/go-tests/lib/chars"
 	"github.com/01-edu/go-tests/lib/random"
 	"github.com/01-edu/go-tests/solutions"
 )
@@ -14,11 +15,15 @@ func main() {
 		toFind string
 	}
 
-	table := []node{}
+	args := []node{
+		{s: "Hello!", toFind: "l"},
+		{s: "Salut!", toFind: "alu"},
+		{s: "Ola!", toFind: "hOl"},
+	}
 
 	// the first 15 values are valid for this test
 	for i := 0; i < 15; i++ {
-		wordToTest := random.RandASCII()
+		wordToTest := random.Str(chars.ASCII, 13)
 		firstLetterIndex := random.IntBetween(0, (len(wordToTest)-1)/2)
 		lastLetterIndex := random.IntBetween(firstLetterIndex, len(wordToTest)-1)
 
@@ -26,28 +31,19 @@ func main() {
 			s:      wordToTest,
 			toFind: wordToTest[firstLetterIndex:lastLetterIndex],
 		}
-		table = append(table, val)
+		args = append(args, val)
 	}
 
 	// the next 15 values are supposed to be invalid for this test
 	for i := 0; i < 15; i++ {
-		wordToTest := random.RandASCII()
-		wrongMatch := random.RandASCII()
-
 		val := node{
-			s:      wordToTest,
-			toFind: wrongMatch,
+			s:      random.Str(chars.ASCII, 13),
+			toFind: random.Str(chars.ASCII, 13),
 		}
-		table = append(table, val)
+		args = append(args, val)
 	}
-	// those are the test values from the README examples
-	table = append(table,
-		node{s: "Hello!", toFind: "l"},
-		node{s: "Salut!", toFind: "alu"},
-		node{s: "Ola!", toFind: "hOl"},
-	)
 
-	for _, arg := range table {
+	for _, arg := range args {
 		challenge.Function("Index", student.Index, solutions.Index, arg.s, arg.toFind)
 	}
 }

@@ -4,14 +4,14 @@ import (
 	"strings"
 
 	"github.com/01-edu/go-tests/lib/challenge"
+	"github.com/01-edu/go-tests/lib/chars"
 	"github.com/01-edu/go-tests/lib/random"
 )
 
 func main() {
-	letters := random.Lower + random.Upper + " "
 	a := []string{""}
 	for i := 0; i < 10; i++ {
-		a = append(a, random.RandStr(random.IntBetween(2, 20), letters))
+		a = append(a, random.Str(chars.Words, random.IntBetween(2, 20)))
 	}
 
 	for _, v := range a {

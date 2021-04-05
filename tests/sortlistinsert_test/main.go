@@ -111,14 +111,14 @@ func main() {
 
 	for i := 0; i < 2; i++ {
 		table = append(table, nodeTest{
-			data:     random.Ints(),
-			data_ref: random.Ints(),
+			data:     random.IntSlice(),
+			data_ref: random.IntSlice(),
 		})
 	}
 	table = append(table,
 		nodeTest{
 			data:     []int{5, 4, 3, 2, 1},
-			data_ref: random.Ints(),
+			data_ref: random.IntSlice(),
 		},
 	)
 	for _, arg := range table {

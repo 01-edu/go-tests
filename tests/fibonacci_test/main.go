@@ -9,12 +9,12 @@ import (
 )
 
 func main() {
-	table := append(random.IntsBetween(0, 25),
+	args := append(random.IntSliceBetween(0, 25),
 		4,
 		5,
 		-5,
 	)
-	for _, arg := range table {
+	for _, arg := range args {
 		challenge.Function("Fibonacci", student.Fibonacci, solutions.Fibonacci, arg)
 	}
 }

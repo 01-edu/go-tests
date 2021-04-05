@@ -19,7 +19,7 @@ func decrypt(a ***int, b *int, c *******int, d ****int) {
 }
 
 func main() {
-	args := random.IntsBetween(2, 20)
+	args := random.IntSliceBetween(2, 20)
 
 	aval := args[0]
 	x := args[0]

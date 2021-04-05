@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	table := []string{
+	args := []string{
 		"CDCCDDCDCD",
 		"CDDDDCCCDC",
 		"DDDDCCCC",
@@ -26,7 +26,7 @@ func main() {
 			tmpC := countC
 			tmpD := countD
 			for tmpC > 0 || tmpD > 0 {
-				letter := random.RandStr(1, "CD")
+				letter := random.Str("CD", 1)
 				if tmpC > 0 && letter == "C" {
 					tmpC--
 					s += letter
@@ -39,7 +39,7 @@ func main() {
 			tmpC = countC
 			tmpD = countD
 			for tmpC > 0 || tmpD > 0 {
-				letter := random.RandStr(1, "CD")
+				letter := random.Str("CD", 1)
 				if tmpC > 0 && letter == "D" {
 					tmpC--
 					s += letter
@@ -49,10 +49,10 @@ func main() {
 				}
 			}
 		}
-		table = append(table, s)
+		args = append(args, s)
 	}
 
-	for _, arg := range table {
+	for _, arg := range args {
 		challenge.Program("balancedstring", arg)
 	}
 }

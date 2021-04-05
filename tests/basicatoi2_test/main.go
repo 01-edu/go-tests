@@ -11,11 +11,7 @@ import (
 )
 
 func main() {
-	table := make([]string, 30)
-	for i := range table {
-		table[i] = strconv.Itoa(random.IntBetween(0, random.MaxInt))
-	}
-	table = append(table,
+	args := []string{
 		strconv.Itoa(random.MaxInt),
 		"",
 		"0",
@@ -26,8 +22,12 @@ func main() {
 		"123",
 		"123.",
 		"123.0",
-	)
-	for _, arg := range table {
+	}
+	for i := 0; i < 30; i++ {
+		args = append(args, strconv.Itoa(random.IntBetween(0, random.MaxInt)))
+	}
+
+	for _, arg := range args {
 		challenge.Function("BasicAtoi2", student.BasicAtoi2, solutions.BasicAtoi2, arg)
 	}
 }

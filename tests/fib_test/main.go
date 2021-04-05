@@ -9,13 +9,13 @@ import (
 )
 
 func main() {
-	table := append(random.IntsBetween(-100, 150),
+	args := append(random.IntSliceBetween(-100, 150),
 		20,
 		0,
 		9,
 		2,
 	)
-	for _, arg := range table {
+	for _, arg := range args {
 		challenge.Function("Fib", student.Fib, solutions.Fib, arg)
 	}
 }

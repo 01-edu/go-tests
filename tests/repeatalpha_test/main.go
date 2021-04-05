@@ -2,6 +2,7 @@ package main
 
 import (
 	"github.com/01-edu/go-tests/lib/challenge"
+	"github.com/01-edu/go-tests/lib/chars"
 	"github.com/01-edu/go-tests/lib/random"
 )
 
@@ -18,7 +19,7 @@ func main() {
 		"MaTheMatiCs",
 	}
 
-	args = append(args, random.MultRandAlnum()...)
+	args = append(args, random.StrSlice(chars.Alnum)...)
 
 	for _, v := range args {
 		challenge.Program("repeatalpha", v)

@@ -6,6 +6,7 @@ import (
 	student "student"
 
 	"github.com/01-edu/go-tests/lib/challenge"
+	"github.com/01-edu/go-tests/lib/chars"
 	"github.com/01-edu/go-tests/lib/random"
 	"github.com/01-edu/go-tests/solutions"
 )
@@ -94,22 +95,22 @@ func main() {
 		})
 	table = append(table,
 		nodeTest{
-			data1: solutions.ConvertIntToInterface(random.Ints()),
+			data1: solutions.ConvertIntToInterface(random.IntSlice()),
 			data2: []interface{}{},
 		})
 	// jut ints
 	for i := 0; i < 3; i++ {
 		val := nodeTest{
-			data1: solutions.ConvertIntToInterface(random.Ints()),
-			data2: solutions.ConvertIntToInterface(random.Ints()),
+			data1: solutions.ConvertIntToInterface(random.IntSlice()),
+			data2: solutions.ConvertIntToInterface(random.IntSlice()),
 		}
 		table = append(table, val)
 	}
 	// just strings
 	for i := 0; i < 2; i++ {
 		val := nodeTest{
-			data1: solutions.ConvertIntToStringface(random.MultRandWords()),
-			data2: solutions.ConvertIntToStringface(random.MultRandWords()),
+			data1: solutions.ConvertIntToStringface(random.StrSlice(chars.Words)),
+			data2: solutions.ConvertIntToStringface(random.StrSlice(chars.Words)),
 		}
 		table = append(table, val)
 	}

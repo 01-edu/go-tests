@@ -6,16 +6,16 @@ import (
 )
 
 func main() {
-	table := []string{
+	args := []string{
 		"UD",
 		"LL",
 	}
 
 	for i := 0; i < 15; i++ {
-		table = append(table, random.RandStr(random.IntBetween(5, 1000), "UDLR"))
+		args = append(args, random.Str("UDLR", random.IntBetween(5, 1000)))
 	}
 
-	for _, arg := range table {
+	for _, arg := range args {
 		challenge.Program("robottoorigin", arg)
 	}
 }

@@ -4,6 +4,7 @@ import (
 	"strconv"
 
 	"github.com/01-edu/go-tests/lib/challenge"
+	"github.com/01-edu/go-tests/lib/chars"
 	"github.com/01-edu/go-tests/lib/random"
 )
 
@@ -25,7 +26,7 @@ func main() {
 	}
 
 	for i := 0; i < 1; i++ {
-		args = append(args, random.MultRandWords())
+		args = append(args, random.StrSlice(chars.Words))
 	}
 
 	for _, v := range args {
