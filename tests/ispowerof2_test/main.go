@@ -3,8 +3,8 @@ package main
 import (
 	"strconv"
 
-	"github.com/01-edu/go-tests/lib"
 	"github.com/01-edu/go-tests/lib/challenge"
+	"github.com/01-edu/go-tests/lib/rand"
 )
 
 func main() {
@@ -20,7 +20,7 @@ func main() {
 		{},
 	}
 	for i := 0; i < 12; i++ {
-		args = append(args, []string{strconv.Itoa(lib.RandIntBetween(1, 2048))})
+		args = append(args, []string{strconv.Itoa(rand.IntBetween(1, 2048))})
 	}
 	for _, v := range args {
 		challenge.Program("ispowerof2", v...)

@@ -3,8 +3,8 @@ package main
 import (
 	student "student"
 
-	"github.com/01-edu/go-tests/lib"
 	"github.com/01-edu/go-tests/lib/challenge"
+	"github.com/01-edu/go-tests/lib/rand"
 	"github.com/01-edu/go-tests/solutions"
 )
 
@@ -22,10 +22,10 @@ func main() {
 	)
 
 	for i := 0; i < 10; i++ {
-		l := lib.RandIntBetween(5, 30)
-		big := lib.RandStr(l, "qwertyuiopasdfghjklzxcvbnm")
-		start := lib.RandIntBetween(0, l-1)
-		end := lib.RandIntBetween(start+1, l-1)
+		l := rand.IntBetween(5, 30)
+		big := rand.RandStr(l, rand.Lower)
+		start := rand.IntBetween(0, l-1)
+		end := rand.IntBetween(start+1, l-1)
 		little := big[start:end]
 
 		value := node{
@@ -37,8 +37,8 @@ func main() {
 	}
 
 	for i := 0; i < 10; i++ {
-		big := lib.RandStr(lib.RandIntBetween(5, 30), "qwertyuiopasdfghjklzxcvbnm")
-		little := lib.RandStr(lib.RandIntBetween(1, 29), "qwertyuiopasdfghjklzxcvbnm")
+		big := rand.RandStr(rand.IntBetween(5, 30), rand.Lower)
+		little := rand.RandStr(rand.IntBetween(1, 29), rand.Lower)
 
 		value := node{
 			big:    big,

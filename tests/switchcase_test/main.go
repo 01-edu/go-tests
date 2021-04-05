@@ -1,12 +1,12 @@
 package main
 
 import (
-	"github.com/01-edu/go-tests/lib"
 	"github.com/01-edu/go-tests/lib/challenge"
+	"github.com/01-edu/go-tests/lib/rand"
 )
 
 func main() {
-	table := append(lib.MultRandWords(),
+	table := append(rand.MultRandWords(),
 		" ",
 		"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ",
 		"abcdefghi jklmnop qrstuvwxyz ABCDEFGHI JKLMNOPQR STUVWXYZ ! ",

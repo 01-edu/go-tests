@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/01-edu/go-tests/lib"
 	"github.com/01-edu/go-tests/lib/challenge"
+	"github.com/01-edu/go-tests/lib/rand"
 )
 
 func main() {
@@ -16,12 +16,12 @@ func main() {
 	// 18 random tests ( at least half are valid)
 	for i := 0; i < 3; i++ {
 		oneArgs = append(oneArgs,
-			"("+lib.RandASCII()+")",
-			"["+lib.RandASCII()+"]",
-			"{"+lib.RandASCII()+"}",
-			"("+lib.RandAlnum()+")",
-			"["+lib.RandAlnum()+"]",
-			"{"+lib.RandAlnum()+"}",
+			"("+rand.RandASCII()+")",
+			"["+rand.RandASCII()+"]",
+			"{"+rand.RandASCII()+"}",
+			"("+rand.RandAlnum()+")",
+			"["+rand.RandAlnum()+"]",
+			"{"+rand.RandAlnum()+"}",
 		)
 	}
 

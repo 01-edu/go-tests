@@ -4,8 +4,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/01-edu/go-tests/lib"
 	"github.com/01-edu/go-tests/lib/challenge"
+	"github.com/01-edu/go-tests/lib/rand"
 )
 
 func main() {
@@ -16,7 +16,7 @@ func main() {
 		"0",
 	}
 	for i := 0; i < 10; i++ {
-		table = append(table, strconv.Itoa(lib.RandIntBetween(-1000, lib.MaxInt)))
+		table = append(table, strconv.Itoa(rand.IntBetween(-1000, rand.MaxInt)))
 	}
 	for i := 0; i < 15; i++ {
 		table = append(table, strconv.Itoa(i))

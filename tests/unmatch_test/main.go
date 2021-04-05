@@ -3,15 +3,15 @@ package main
 import (
 	student "student"
 
-	"github.com/01-edu/go-tests/lib"
 	"github.com/01-edu/go-tests/lib/challenge"
+	"github.com/01-edu/go-tests/lib/rand"
 	"github.com/01-edu/go-tests/solutions"
 )
 
 func main() {
-	i1 := lib.RandIntBetween(-100, 100)
-	i2 := lib.RandIntBetween(-1000, 1000)
-	i3 := lib.RandIntBetween(-10, 10)
+	i1 := rand.IntBetween(-100, 100)
+	i2 := rand.IntBetween(-1000, 1000)
+	i3 := rand.IntBetween(-10, 10)
 	args := [][]int{
 		{1, 1, 2, 3, 4, 3, 4},
 		{1, 1, 2, 4, 3, 4, 2, 3, 4},

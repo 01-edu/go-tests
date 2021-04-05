@@ -3,15 +3,15 @@ package main
 import (
 	student "student"
 
-	"github.com/01-edu/go-tests/lib"
 	"github.com/01-edu/go-tests/lib/challenge"
+	"github.com/01-edu/go-tests/lib/rand"
 )
 
 func main() {
 	i := 0
 	for i < 30 {
-		a := lib.RandInt()
-		b := lib.RandInt()
+		a := rand.Int()
+		b := rand.Int()
 		aCopy := a
 		bCopy := b
 		student.Swap(&a, &b)

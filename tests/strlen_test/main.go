@@ -3,24 +3,18 @@ package main
 import (
 	student "student"
 
-	"github.com/01-edu/go-tests/lib"
 	"github.com/01-edu/go-tests/lib/challenge"
+	"github.com/01-edu/go-tests/lib/rand"
 	"github.com/01-edu/go-tests/solutions"
 )
 
 func main() {
-	randomStringCharset := "a b c d e f g h ijklmnopqrstuvwxyz A B C D E FGHIJKLMNOPRSTUVWXYZ"
-
-	table := []string{}
+	args := []string{"Héllo!", rand.Words}
 	for i := 0; i < 10; i++ {
-		randomLenghtOfWord := lib.RandIntBetween(1, 20)
-		randomStrRandomLenght := lib.RandStr(randomLenghtOfWord, randomStringCharset)
-		table = append(table, randomStrRandomLenght)
+		length := rand.IntBetween(1, 20)
+		args = append(args, rand.RandStr(length, rand.Words))
 	}
-	table = append(table, "Héllo!")
-	table = append(table, randomStringCharset)
-
-	for _, s := range table {
+	for _, s := range args {
 		challenge.Function("StrLen", student.StrLen, solutions.StrLen, s)
 	}
 }

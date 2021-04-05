@@ -3,8 +3,8 @@ package main
 import (
 	"strconv"
 
-	"github.com/01-edu/go-tests/lib"
 	"github.com/01-edu/go-tests/lib/challenge"
+	"github.com/01-edu/go-tests/lib/rand"
 )
 
 func main() {
@@ -17,15 +17,15 @@ func main() {
 
 	for i := 0; i < 10; i++ {
 		var arg []string
-		init := lib.RandIntBetween(0, 10)
-		for i := init; i < init+lib.RandIntBetween(5, 10); i++ {
+		init := rand.IntBetween(0, 10)
+		for i := init; i < init+rand.IntBetween(5, 10); i++ {
 			arg = append(arg, strconv.Itoa(i))
 		}
 		args = append(args, arg)
 	}
 
 	for i := 0; i < 1; i++ {
-		args = append(args, lib.MultRandWords())
+		args = append(args, rand.MultRandWords())
 	}
 
 	for _, v := range args {

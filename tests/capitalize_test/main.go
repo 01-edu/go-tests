@@ -3,14 +3,14 @@ package main
 import (
 	student "student"
 
-	"github.com/01-edu/go-tests/lib"
 	"github.com/01-edu/go-tests/lib/challenge"
+	"github.com/01-edu/go-tests/lib/rand"
 	"github.com/01-edu/go-tests/solutions"
 )
 
 func main() {
 	table := append(
-		lib.MultRandASCII(),
+		rand.MultRandASCII(),
 		"Hello! How are you? How+are+things+4you?",
 		"Hello! How are you?",
 		"a",

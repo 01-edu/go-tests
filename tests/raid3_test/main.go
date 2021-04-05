@@ -4,8 +4,8 @@ import (
 	"os/exec"
 	"strconv"
 
-	"github.com/01-edu/go-tests/lib"
 	"github.com/01-edu/go-tests/lib/challenge"
+	"github.com/01-edu/go-tests/lib/rand"
 )
 
 func main() {
@@ -39,8 +39,8 @@ func main() {
 	// testing all raids1
 	names := []string{"raid1a", "raid1b", "raid1c", "raid1d", "raid1e"}
 	for _, name := range names {
-		x := lib.RandIntBetween(1, 50)
-		y := lib.RandIntBetween(1, 50)
+		x := rand.IntBetween(1, 50)
+		y := rand.IntBetween(1, 50)
 		executeTest(name, x, y)
 	}
 

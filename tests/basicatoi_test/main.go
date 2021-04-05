@@ -5,18 +5,18 @@ import (
 
 	student "student"
 
-	"github.com/01-edu/go-tests/lib"
 	"github.com/01-edu/go-tests/lib/challenge"
+	"github.com/01-edu/go-tests/lib/rand"
 	"github.com/01-edu/go-tests/solutions"
 )
 
 func main() {
 	table := make([]string, 30)
 	for i := range table {
-		table[i] = strconv.Itoa(lib.RandPosZ())
+		table[i] = strconv.Itoa(rand.IntBetween(0, rand.MaxInt))
 	}
 	table = append(table,
-		strconv.Itoa(lib.MaxInt),
+		strconv.Itoa(rand.MaxInt),
 		"",
 		"0",
 		"12345",

@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/01-edu/go-tests/lib"
 	"github.com/01-edu/go-tests/lib/challenge"
+	"github.com/01-edu/go-tests/lib/rand"
 )
 
 func main() {
@@ -11,7 +11,7 @@ func main() {
 		" only  it's   harder  ",
 		"how   funny",
 		"",
-		lib.RandSpace(),
+		rand.RandSpace(),
 	}
 
 	for _, v := range args {

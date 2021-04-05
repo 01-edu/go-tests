@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/01-edu/go-tests/lib"
 	"github.com/01-edu/go-tests/lib/challenge"
+	"github.com/01-edu/go-tests/lib/rand"
 )
 
 func main() {
@@ -12,7 +12,7 @@ func main() {
 		"     AkjhZ zLKIJz , 23y",
 		"",
 	}
-	args = append(args, lib.MultRandWords()...)
+	args = append(args, rand.MultRandWords()...)
 
 	for _, arg := range args {
 		challenge.Program("rostring", arg)

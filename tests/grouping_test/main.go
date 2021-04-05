@@ -1,17 +1,17 @@
 package main
 
 import (
-	"github.com/01-edu/go-tests/lib"
 	"github.com/01-edu/go-tests/lib/challenge"
+	"github.com/01-edu/go-tests/lib/rand"
 )
 
 func validRegExp(n int) string {
 	result := "("
 
 	for i := 0; i < n; i++ {
-		result += lib.RandStr(1, lib.Lower)
-		if lib.RandInt()%2 == 0 {
-			result += lib.RandStr(1, lib.Lower)
+		result += rand.RandStr(1, rand.Lower)
+		if rand.Int()%2 == 0 {
+			result += rand.RandStr(1, rand.Lower)
 		}
 		if i != n-1 {
 			result += "|"
@@ -29,10 +29,10 @@ func main() {
 		{"(hi)", "He swore he just saw his sushi move."},
 		{"(s)", ""},
 		{"i", "Something in the air"},
-		{validRegExp(2), lib.RandStr(60, lib.Lower+lib.Space)},
-		{validRegExp(2), lib.RandStr(60, lib.Lower+lib.Space)},
-		{validRegExp(6), lib.RandStr(60, lib.Lower+lib.Space)},
-		{lib.RandStr(1, "axyz"), lib.RandStr(10, "axyzdassbzzxxxyy cdq     ")},
+		{validRegExp(2), rand.RandStr(60, rand.Lower+rand.Space)},
+		{validRegExp(2), rand.RandStr(60, rand.Lower+rand.Space)},
+		{validRegExp(6), rand.RandStr(60, rand.Lower+rand.Space)},
+		{rand.RandStr(1, "axyz"), rand.RandStr(10, "axyzdassbzzxxxyy cdq     ")},
 	}
 	for _, s := range args {
 		challenge.Program("grouping", s[0], s[1])

@@ -3,15 +3,15 @@ package main
 import (
 	"strings"
 
-	"github.com/01-edu/go-tests/lib"
 	"github.com/01-edu/go-tests/lib/challenge"
+	"github.com/01-edu/go-tests/lib/rand"
 )
 
 func main() {
-	letters := lib.Lower + lib.Upper + " "
+	letters := rand.Lower + rand.Upper + " "
 	a := []string{""}
 	for i := 0; i < 10; i++ {
-		a = append(a, lib.RandStr(lib.RandIntBetween(2, 20), letters))
+		a = append(a, rand.RandStr(rand.IntBetween(2, 20), letters))
 	}
 
 	for _, v := range a {

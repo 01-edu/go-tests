@@ -3,9 +3,9 @@ package main
 import (
 	student "student"
 
-	"github.com/01-edu/go-tests/lib"
 	"github.com/01-edu/go-tests/lib/base"
 	"github.com/01-edu/go-tests/lib/challenge"
+	"github.com/01-edu/go-tests/lib/rand"
 	"github.com/01-edu/go-tests/solutions"
 )
 
@@ -20,7 +20,7 @@ func main() {
 	for i := 0; i < 30; i++ {
 		validBaseToInput1 := base.Valid()
 		validBaseToInput2 := base.Valid()
-		str := base.ConvertNbr(lib.RandIntBetween(0, 1000000), validBaseToInput1)
+		str := base.ConvertNbr(rand.IntBetween(0, 1000000), validBaseToInput1)
 		val := node{
 			nbr:      str,
 			baseFrom: validBaseToInput1,

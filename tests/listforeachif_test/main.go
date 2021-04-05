@@ -5,8 +5,8 @@ import (
 
 	student "student"
 
-	"github.com/01-edu/go-tests/lib"
 	"github.com/01-edu/go-tests/lib/challenge"
+	"github.com/01-edu/go-tests/lib/rand"
 	"github.com/01-edu/go-tests/solutions"
 )
 
@@ -116,14 +116,14 @@ func main() {
 	// just numbers/ints
 	for i := 0; i < 3; i++ {
 		val := solutions.NodeTest{
-			Data: solutions.ConvertIntToInterface(lib.MultRandInt()),
+			Data: solutions.ConvertIntToInterface(rand.Ints()),
 		}
 		table = append(table, val)
 	}
 	// just strings
 	for i := 0; i < 3; i++ {
 		val := solutions.NodeTest{
-			Data: solutions.ConvertIntToStringface(lib.MultRandWords()),
+			Data: solutions.ConvertIntToStringface(rand.MultRandWords()),
 		}
 		table = append(table, val)
 	}

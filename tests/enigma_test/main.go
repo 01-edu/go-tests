@@ -3,8 +3,8 @@ package main
 import (
 	student "student"
 
-	"github.com/01-edu/go-tests/lib"
 	"github.com/01-edu/go-tests/lib/challenge"
+	"github.com/01-edu/go-tests/lib/rand"
 )
 
 // Helper function used in the test for checking the function Enigma()
@@ -19,7 +19,7 @@ func decrypt(a ***int, b *int, c *******int, d ****int) {
 }
 
 func main() {
-	args := lib.MultRandIntBetween(2, 20)
+	args := rand.IntsBetween(2, 20)
 
 	aval := args[0]
 	x := args[0]

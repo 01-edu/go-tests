@@ -3,8 +3,8 @@ package main
 import (
 	student "student"
 
-	"github.com/01-edu/go-tests/lib"
 	"github.com/01-edu/go-tests/lib/challenge"
+	"github.com/01-edu/go-tests/lib/rand"
 	"github.com/01-edu/go-tests/solutions"
 )
 
@@ -16,9 +16,9 @@ func main() {
 	}
 
 	for i := 0; i < 25; i++ {
-		first := lib.RandIntBetween(0, 877)
-		second := lib.RandIntBetween(0, 877)
-		third := lib.RandIntBetween(0, 877)
+		first := rand.IntBetween(0, 877)
+		second := rand.IntBetween(0, 877)
+		third := rand.IntBetween(0, 877)
 		table = append(table, [4]int{
 			first + second,
 			second + third,

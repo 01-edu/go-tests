@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/01-edu/go-tests/lib"
 	"github.com/01-edu/go-tests/lib/challenge"
+	"github.com/01-edu/go-tests/lib/rand"
 )
 
 func main() {
@@ -15,8 +15,8 @@ func main() {
 	}
 	for i := 0; i < 30; i++ {
 		args = append(args,
-			[2]string{lib.RandStr(1, lib.Lower), lib.RandLower()},
-			[2]string{lib.RandStr(1, lib.Upper), lib.RandUpper()},
+			[2]string{rand.RandLower()[:1], rand.RandLower()},
+			[2]string{rand.RandUpper()[:1], rand.RandUpper()},
 		)
 	}
 	for _, v := range args {

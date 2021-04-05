@@ -3,18 +3,18 @@ package main
 import (
 	student "student"
 
-	"github.com/01-edu/go-tests/lib"
 	"github.com/01-edu/go-tests/lib/challenge"
+	"github.com/01-edu/go-tests/lib/rand"
 	"github.com/01-edu/go-tests/solutions"
 )
 
 func main() {
-	table := lib.MultRandASCII()
+	table := rand.MultRandASCII()
 	table = append(table,
 		"Hello!",
 		"Salut!",
 		"Ola!",
-		lib.RandStr(lib.RandIntBetween(1, 15), lib.RandAlnum()),
+		rand.RandStr(rand.IntBetween(1, 15), rand.RandAlnum()),
 	)
 	for _, arg := range table {
 		challenge.Function("LastRune", student.LastRune, solutions.LastRune, arg)

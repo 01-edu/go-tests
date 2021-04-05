@@ -5,8 +5,8 @@ import (
 
 	student "student"
 
-	"github.com/01-edu/go-tests/lib"
 	"github.com/01-edu/go-tests/lib/challenge"
+	"github.com/01-edu/go-tests/lib/rand"
 	"github.com/01-edu/go-tests/solutions"
 )
 
@@ -68,8 +68,8 @@ func main() {
 
 	for i := 0; i < 3; i++ {
 		val := nodeTest{
-			data1: lib.MultRandInt(),
-			data2: lib.MultRandInt(),
+			data1: rand.Ints(),
+			data2: rand.Ints(),
 		}
 		table = append(table, val)
 	}

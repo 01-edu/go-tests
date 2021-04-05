@@ -3,8 +3,8 @@ package main
 import (
 	student "student"
 
-	"github.com/01-edu/go-tests/lib"
 	"github.com/01-edu/go-tests/lib/challenge"
+	"github.com/01-edu/go-tests/lib/rand"
 	"github.com/01-edu/go-tests/solutions"
 )
 
@@ -17,8 +17,8 @@ func main() {
 
 	// 15 random pairs of ints for a Valid Range
 	for i := 0; i < 15; i++ {
-		minVal := lib.RandIntBetween(-10000000, 1000000)
-		gap := lib.RandIntBetween(1, 20)
+		minVal := rand.IntBetween(-10000000, 1000000)
+		gap := rand.IntBetween(1, 20)
 		val := node{
 			min: minVal,
 			max: minVal + gap,
@@ -28,8 +28,8 @@ func main() {
 
 	// 15 random pairs of ints with ||invalid range||
 	for i := 0; i < 15; i++ {
-		minVal := lib.RandIntBetween(-10000000, 1000000)
-		gap := lib.RandIntBetween(1, 20)
+		minVal := rand.IntBetween(-10000000, 1000000)
+		gap := rand.IntBetween(1, 20)
 		val := node{
 			min: minVal,
 			max: minVal - gap,

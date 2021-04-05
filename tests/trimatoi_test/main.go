@@ -3,22 +3,20 @@ package main
 import (
 	student "student"
 
-	"github.com/01-edu/go-tests/lib"
 	"github.com/01-edu/go-tests/lib/challenge"
+	"github.com/01-edu/go-tests/lib/rand"
 	"github.com/01-edu/go-tests/solutions"
 )
 
 func stringsToTrimAtoi(a []string) []string {
-	alpha := "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789012345678901234567890123456789"
-
 	for index := 0; index < 4; index++ {
 		s := ""
-		s += lib.RandStr(lib.RandIntBetween(0, 2), alpha)
-		x := lib.RandIntBetween(0, 14)
+		s += rand.RandStr(rand.IntBetween(0, 2), rand.Alnum)
+		x := rand.IntBetween(0, 14)
 		if x <= 4 {
 			s += "-"
 		}
-		s += lib.RandStr(lib.RandIntBetween(0, 10), alpha)
+		s += rand.RandStr(rand.IntBetween(0, 10), rand.Alnum)
 		a = append(a, s)
 	}
 	return a
@@ -34,7 +32,7 @@ func main() {
 		"sd+x1fa2W3s4",
 		"sd-x1fa2W3s4",
 		"sdx1-fa2W3s4",
-		lib.RandAlnum(),
+		rand.RandAlnum(),
 	}
 	a = stringsToTrimAtoi(a)
 	for _, elem := range a {

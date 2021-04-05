@@ -3,15 +3,15 @@ package main
 import (
 	student "student"
 
-	"github.com/01-edu/go-tests/lib"
 	"github.com/01-edu/go-tests/lib/challenge"
+	"github.com/01-edu/go-tests/lib/rand"
 	"github.com/01-edu/go-tests/solutions"
 )
 
 func randomSize() []int {
 	var randSlice []int
-	for i := 0; i <= lib.RandIntBetween(0, 20); i++ {
-		randSlice = append(randSlice, lib.RandInt())
+	for i := 0; i <= rand.IntBetween(0, 20); i++ {
+		randSlice = append(randSlice, rand.Int())
 	}
 	return randSlice
 }
@@ -26,7 +26,7 @@ func main() {
 	for i := 0; i <= 7; i++ {
 		value := node{
 			slice: randomSize(),
-			ch:    lib.RandIntBetween(0, 10),
+			ch:    rand.IntBetween(0, 10),
 		}
 		table = append(table, value)
 	}

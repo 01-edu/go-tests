@@ -3,8 +3,8 @@ package main
 import (
 	"strconv"
 
-	"github.com/01-edu/go-tests/lib"
 	"github.com/01-edu/go-tests/lib/challenge"
+	"github.com/01-edu/go-tests/lib/rand"
 )
 
 func main() {
@@ -16,8 +16,8 @@ func main() {
 		{"11", "77"},
 	}
 	for i := 0; i < 25; i++ {
-		a := strconv.Itoa(lib.RandIntBetween(1, 100000))
-		b := strconv.Itoa(lib.RandIntBetween(1, 100))
+		a := strconv.Itoa(rand.IntBetween(1, 100000))
+		b := strconv.Itoa(rand.IntBetween(1, 100))
 		args = append(args, []string{a, b})
 	}
 	for _, v := range args {

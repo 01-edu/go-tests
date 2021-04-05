@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/01-edu/go-tests/lib"
 	"github.com/01-edu/go-tests/lib/challenge"
+	"github.com/01-edu/go-tests/lib/rand"
 )
 
 func main() {
@@ -19,14 +19,14 @@ func main() {
 
 	for i := 0; i < 15; i++ {
 		s := ""
-		chunks := lib.RandIntBetween(5, 10)
+		chunks := rand.IntBetween(5, 10)
 		for j := 0; j < chunks; j++ {
-			countC := lib.RandIntBetween(1, 5)
-			countD := lib.RandIntBetween(1, 5)
+			countC := rand.IntBetween(1, 5)
+			countD := rand.IntBetween(1, 5)
 			tmpC := countC
 			tmpD := countD
 			for tmpC > 0 || tmpD > 0 {
-				letter := lib.RandStr(1, "CD")
+				letter := rand.RandStr(1, "CD")
 				if tmpC > 0 && letter == "C" {
 					tmpC--
 					s += letter
@@ -39,7 +39,7 @@ func main() {
 			tmpC = countC
 			tmpD = countD
 			for tmpC > 0 || tmpD > 0 {
-				letter := lib.RandStr(1, "CD")
+				letter := rand.RandStr(1, "CD")
 				if tmpC > 0 && letter == "D" {
 					tmpC--
 					s += letter

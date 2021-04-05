@@ -4,17 +4,17 @@ import (
 	"io/ioutil"
 	"os"
 
-	"github.com/01-edu/go-tests/lib"
 	"github.com/01-edu/go-tests/lib/challenge"
+	"github.com/01-edu/go-tests/lib/rand"
 )
 
 func main() {
 	file1 := "quest8.txt"
 	file2 := "quest8T.txt"
-	if err := ioutil.WriteFile(file1, []byte(lib.RandWords()+"\n"), os.ModePerm); err != nil {
+	if err := ioutil.WriteFile(file1, []byte(rand.RandWords()+"\n"), os.ModePerm); err != nil {
 		panic(err)
 	}
-	if err := ioutil.WriteFile(file2, []byte(lib.RandWords()+"\n"), os.ModePerm); err != nil {
+	if err := ioutil.WriteFile(file2, []byte(rand.RandWords()+"\n"), os.ModePerm); err != nil {
 		panic(err)
 	}
 	table := [][]string{

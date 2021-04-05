@@ -5,19 +5,19 @@ import (
 
 	student "student"
 
-	"github.com/01-edu/go-tests/lib"
 	"github.com/01-edu/go-tests/lib/challenge"
+	"github.com/01-edu/go-tests/lib/rand"
 	"github.com/01-edu/go-tests/solutions"
 )
 
 func main() {
 	table := make([]string, 30)
 	for i := range table {
-		table[i] = strconv.Itoa(lib.RandInt())
+		table[i] = strconv.Itoa(rand.Int())
 	}
 	table = append(table,
-		strconv.Itoa(lib.MinInt),
-		strconv.Itoa(lib.MaxInt),
+		strconv.Itoa(rand.MinInt),
+		strconv.Itoa(rand.MaxInt),
 		"",
 		"-",
 		"+",

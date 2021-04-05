@@ -3,9 +3,9 @@ package main
 import (
 	student "student"
 
-	"github.com/01-edu/go-tests/lib"
 	"github.com/01-edu/go-tests/lib/challenge"
 	"github.com/01-edu/go-tests/lib/is"
+	"github.com/01-edu/go-tests/lib/rand"
 	"github.com/01-edu/go-tests/solutions"
 )
 
@@ -20,17 +20,17 @@ func main() {
 	table := []node{}
 
 	for i := 0; i < 5; i++ {
-		function := functions[lib.RandIntBetween(0, len(functions)-1)]
+		function := functions[rand.IntBetween(0, len(functions)-1)]
 		val := node{
 			f: function,
-			a: lib.MultRandWords(),
+			a: rand.MultRandWords(),
 		}
 		table = append(table, val)
 	}
 	for i := 0; i < 5; i++ {
 		val := node{
 			f: is.Digit,
-			a: lib.MultRandDigit(),
+			a: rand.MultRandDigit(),
 		}
 		table = append(table, val)
 	}
@@ -38,14 +38,14 @@ func main() {
 	for i := 0; i < 5; i++ {
 		val := node{
 			f: is.Lower,
-			a: lib.MultRandLower(),
+			a: rand.MultRandLower(),
 		}
 		table = append(table, val)
 	}
 	for i := 0; i < 5; i++ {
 		val := node{
 			f: is.Upper,
-			a: lib.MultRandUpper(),
+			a: rand.MultRandUpper(),
 		}
 		table = append(table, val)
 	}

@@ -6,8 +6,8 @@ import (
 
 	student "student"
 
-	"github.com/01-edu/go-tests/lib"
 	"github.com/01-edu/go-tests/lib/challenge"
+	"github.com/01-edu/go-tests/lib/rand"
 )
 
 func sortIntegerTable(a []int) {
@@ -15,9 +15,8 @@ func sortIntegerTable(a []int) {
 }
 
 func main() {
-	i := 0
-	for i < lib.SliceLen {
-		table1 := lib.MultRandIntBetween(-100, 100)
+	for i := 0; i < 8; i++ {
+		table1 := rand.IntsBetween(-100, 100)
 
 		tableCopyBefore := make([]int, len(table1))
 		copy(tableCopyBefore, table1)
@@ -30,6 +29,5 @@ func main() {
 		if !reflect.DeepEqual(table1, table2) {
 			challenge.Fatalf("SortIntegerTable(%v), table1 == %v instead of %v ", tableCopyBefore, table1, table2)
 		}
-		i++
 	}
 }

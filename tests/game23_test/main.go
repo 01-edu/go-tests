@@ -3,8 +3,8 @@ package main
 import (
 	student "student"
 
-	"github.com/01-edu/go-tests/lib"
 	"github.com/01-edu/go-tests/lib/challenge"
+	"github.com/01-edu/go-tests/lib/rand"
 	"github.com/01-edu/go-tests/solutions"
 )
 
@@ -38,8 +38,8 @@ func main() {
 
 	for i := 0; i < 20; i++ {
 		table = append(table, node{
-			init: lib.RandIntBetween(1, 1000),
-			fin:  lib.RandIntBetween(1, 1000),
+			init: rand.IntBetween(1, 1000),
+			fin:  rand.IntBetween(1, 1000),
 		})
 	}
 

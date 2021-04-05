@@ -3,15 +3,14 @@ package main
 import (
 	student "student"
 
-	"github.com/01-edu/go-tests/lib"
 	"github.com/01-edu/go-tests/lib/challenge"
+	"github.com/01-edu/go-tests/lib/rand"
 )
 
 func main() {
-	i := 0
-	for i < lib.SliceLen {
-		a := lib.RandInt()
-		b := lib.RandInt()
+	for i := 0; i < 8; i++ {
+		a := rand.Int()
+		b := rand.Int()
 		aCopy := a
 		bCopy := b
 		div := a / b
@@ -23,6 +22,5 @@ func main() {
 		if b != mod {
 			challenge.Fatalf("DivMod(%d, %d), b == %d instead of %d", aCopy, bCopy, b, mod)
 		}
-		i++
 	}
 }

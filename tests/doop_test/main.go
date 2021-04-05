@@ -4,8 +4,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/01-edu/go-tests/lib"
 	"github.com/01-edu/go-tests/lib/challenge"
+	"github.com/01-edu/go-tests/lib/rand"
 )
 
 func main() {
@@ -14,8 +14,8 @@ func main() {
 	table := []string{}
 
 	for i := 0; i < 4; i++ {
-		firstArg := strconv.Itoa(lib.RandIntBetween(-1000, 1000))
-		secondArg := strconv.Itoa(lib.RandIntBetween(0, 1000))
+		firstArg := strconv.Itoa(rand.IntBetween(-1000, 1000))
+		secondArg := strconv.Itoa(rand.IntBetween(0, 1000))
 
 		for _, operator := range operatorsTable {
 			table = append(table, firstArg+" "+operator+" "+secondArg)

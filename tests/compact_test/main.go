@@ -5,8 +5,8 @@ import (
 
 	student "student"
 
-	"github.com/01-edu/go-tests/lib"
 	"github.com/01-edu/go-tests/lib/challenge"
+	"github.com/01-edu/go-tests/lib/rand"
 )
 
 func compact(slice *[]string) int {
@@ -26,15 +26,15 @@ func main() {
 	arg := [][]string{{"hello", "", "hi", "", "salut", "", ""}}
 
 	for i := 0; i < 20; i++ {
-		n := lib.RandIntBetween(5, 20)
+		n := rand.IntBetween(5, 20)
 
 		orig := make([]string, n)
 
-		numPos := lib.RandIntBetween(1, n-1)
+		numPos := rand.IntBetween(1, n-1)
 
 		for i := 0; i < numPos; i++ {
-			word := lib.RandWords()
-			randPos := lib.RandIntBetween(0, n-1)
+			word := rand.RandWords()
+			randPos := rand.IntBetween(0, n-1)
 			orig[randPos] = word
 		}
 		arg = append(arg, orig)

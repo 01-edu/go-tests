@@ -3,8 +3,8 @@ package main
 import (
 	student "student"
 
-	"github.com/01-edu/go-tests/lib"
 	"github.com/01-edu/go-tests/lib/challenge"
+	"github.com/01-edu/go-tests/lib/rand"
 	"github.com/01-edu/go-tests/solutions"
 )
 
@@ -16,7 +16,7 @@ func main() {
 	table := []nodeTest{}
 	for i := 0; i < 5; i++ {
 		val := nodeTest{
-			data: lib.MultRandWords(),
+			data: rand.MultRandWords(),
 		}
 		table = append(table, val)
 	}

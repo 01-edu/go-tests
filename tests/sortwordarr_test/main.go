@@ -6,15 +6,15 @@ import (
 
 	student "student"
 
-	"github.com/01-edu/go-tests/lib"
 	"github.com/01-edu/go-tests/lib/challenge"
+	"github.com/01-edu/go-tests/lib/rand"
 )
 
 func main() {
 	table := [][]string{{"a", "A", "1", "b", "B", "2", "c", "C", "3"}}
 
 	for i := 0; i < 15; i++ {
-		table = append(table, lib.MultRandWords())
+		table = append(table, rand.MultRandWords())
 	}
 
 	for _, org := range table {

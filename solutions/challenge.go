@@ -6,8 +6,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/01-edu/go-tests/lib"
 	"github.com/01-edu/go-tests/lib/challenge"
+	"github.com/01-edu/go-tests/lib/rand"
 )
 
 func FormatTree(root *TreeNode) string {
@@ -138,10 +138,10 @@ func ListToString(n *NodeL) string {
 }
 
 func ConvertIntToInterface(t []int) []interface{} {
-	RandLen := lib.RandIntBetween(0, len(t))
+	RandLen := rand.IntBetween(0, len(t))
 	s := make([]interface{}, RandLen)
 	for j := 0; j < RandLen; j++ {
-		for i := 0; i < lib.RandIntBetween(1, len(t)); i++ {
+		for i := 0; i < rand.IntBetween(1, len(t)); i++ {
 			s[j] = t[i]
 		}
 	}
@@ -149,10 +149,10 @@ func ConvertIntToInterface(t []int) []interface{} {
 }
 
 func ConvertIntToStringface(t []string) []interface{} {
-	RandLen := lib.RandIntBetween(0, len(t))
+	RandLen := rand.IntBetween(0, len(t))
 	s := make([]interface{}, RandLen)
 	for j := 0; j < RandLen; j++ {
-		for i := 0; i < lib.RandIntBetween(1, len(t)); i++ {
+		for i := 0; i < rand.IntBetween(1, len(t)); i++ {
 			s[j] = t[i]
 		}
 	}
@@ -171,13 +171,13 @@ func ElementsToTest(table []NodeTest) []NodeTest {
 	)
 	for i := 0; i < 3; i++ {
 		val := NodeTest{
-			Data: ConvertIntToInterface(lib.MultRandInt()),
+			Data: ConvertIntToInterface(rand.Ints()),
 		}
 		table = append(table, val)
 	}
 	for i := 0; i < 3; i++ {
 		val := NodeTest{
-			Data: ConvertIntToStringface(lib.MultRandWords()),
+			Data: ConvertIntToStringface(rand.MultRandWords()),
 		}
 		table = append(table, val)
 	}

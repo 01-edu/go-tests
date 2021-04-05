@@ -3,9 +3,9 @@ package main
 import (
 	student "student"
 
-	"github.com/01-edu/go-tests/lib"
 	"github.com/01-edu/go-tests/lib/base"
 	"github.com/01-edu/go-tests/lib/challenge"
+	"github.com/01-edu/go-tests/lib/rand"
 	"github.com/01-edu/go-tests/solutions"
 )
 
@@ -21,7 +21,7 @@ func main() {
 	for i := 0; i < 15; i++ {
 		validBaseToInput := base.Valid()
 		val := node{
-			n:    lib.RandIntBetween(-1000000, 1000000),
+			n:    rand.IntBetween(-1000000, 1000000),
 			base: validBaseToInput,
 		}
 		table = append(table, val)
@@ -31,7 +31,7 @@ func main() {
 	for i := 0; i < 15; i++ {
 		invalidBaseToInput := base.Invalid()
 		val := node{
-			n:    lib.RandIntBetween(-1000000, 1000000),
+			n:    rand.IntBetween(-1000000, 1000000),
 			base: invalidBaseToInput,
 		}
 		table = append(table, val)
@@ -43,7 +43,7 @@ func main() {
 		node{n: 125, base: "0123456789ABCDEF"},
 		node{n: -125, base: "choumi"},
 		node{n: 125, base: "-ab"},
-		node{n: lib.MinInt, base: "0123456789"},
+		node{n: rand.MinInt, base: "0123456789"},
 	)
 	for _, arg := range table {
 		challenge.Function("PrintNbrBase", student.PrintNbrBase, solutions.PrintNbrBase, arg.n, arg.base)

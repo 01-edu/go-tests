@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/01-edu/go-tests/lib"
 	"github.com/01-edu/go-tests/lib/challenge"
+	"github.com/01-edu/go-tests/lib/rand"
 )
 
 func main() {
@@ -16,12 +16,12 @@ func main() {
 
 	// 3 valid random sentences with no spaces at the beginning nor the end and only one space for separator.
 	for i := 0; i < 3; i++ {
-		numberOfWords := lib.RandIntBetween(1, 6)
-		sentence := lib.RandAlnum()
+		numberOfWords := rand.IntBetween(1, 6)
+		sentence := rand.RandAlnum()
 		for j := 0; j < numberOfWords; j++ {
-			sentence += " " + lib.RandAlnum()
+			sentence += " " + rand.RandAlnum()
 		}
-		sentence += lib.RandAlnum()
+		sentence += rand.RandAlnum()
 		table = append(table, sentence)
 	}
 

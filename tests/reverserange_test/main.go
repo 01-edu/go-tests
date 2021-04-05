@@ -3,14 +3,14 @@ package main
 import (
 	"strconv"
 
-	"github.com/01-edu/go-tests/lib"
 	"github.com/01-edu/go-tests/lib/challenge"
+	"github.com/01-edu/go-tests/lib/rand"
 )
 
 func main() {
 	for i := 0; i < 10; i++ {
-		start := lib.RandIntBetween(-20, 20)
-		end := lib.RandIntBetween(-20, 20)
+		start := rand.IntBetween(-20, 20)
+		end := rand.IntBetween(-20, 20)
 		challenge.Program("reverserange", strconv.Itoa(start), strconv.Itoa(end))
 	}
 	challenge.Program("reverserange", "2", "1", "3")

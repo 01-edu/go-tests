@@ -6,8 +6,8 @@ import (
 
 	student "student"
 
-	"github.com/01-edu/go-tests/lib"
 	"github.com/01-edu/go-tests/lib/challenge"
+	"github.com/01-edu/go-tests/lib/rand"
 )
 
 func reverseBits(octet byte) byte {
@@ -31,7 +31,7 @@ func main() {
 	args := []byte{0x26, 0x27, 0x28, 0x29, 0xAA, 0xBB}
 
 	for i := 0; i < 10; i++ {
-		n := lib.RandIntBetween(0, 255)
+		n := rand.IntBetween(0, 255)
 		args = append(args, byte(n))
 	}
 

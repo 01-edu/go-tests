@@ -3,12 +3,12 @@ package main
 import (
 	"strings"
 
-	"github.com/01-edu/go-tests/lib"
 	"github.com/01-edu/go-tests/lib/challenge"
+	"github.com/01-edu/go-tests/lib/rand"
 )
 
 func main() {
-	args := append(lib.MultRandWords(),
+	args := append(rand.MultRandWords(),
 		"padinton paqefwtdjetyiytjneytjoeyjnejeyj",
 		"ddf6vewg64f  twthgdwthdwfteewhrtag6h4ffdhsd",
 		"abcdefghij efghijlmnopq",
@@ -18,11 +18,11 @@ func main() {
 	)
 
 	for i := 0; i < 5; i++ {
-		s1 := lib.RandAlnum()
-		s2 := lib.RandAlnum() + s1 + lib.RandAlnum()
+		s1 := rand.RandAlnum()
+		s2 := rand.RandAlnum() + s1 + rand.RandAlnum()
 		args = append(args,
 			s1+" "+s2,
-			lib.RandAlnum()+" "+lib.RandAlnum(),
+			rand.RandAlnum()+" "+rand.RandAlnum(),
 		)
 	}
 

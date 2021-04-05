@@ -3,8 +3,8 @@ package main
 import (
 	"strconv"
 
-	"github.com/01-edu/go-tests/lib"
 	"github.com/01-edu/go-tests/lib/challenge"
+	"github.com/01-edu/go-tests/lib/rand"
 )
 
 func main() {
@@ -23,7 +23,7 @@ func main() {
 		"1000003",
 	}
 	for i := 0; i < 10; i++ {
-		table = append(table, strconv.Itoa(lib.RandIntBetween(1, 100)))
+		table = append(table, strconv.Itoa(rand.IntBetween(1, 100)))
 	}
 	for _, s := range table {
 		challenge.Program("fprime", s)

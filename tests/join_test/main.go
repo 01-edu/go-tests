@@ -3,8 +3,8 @@ package main
 import (
 	student "student"
 
-	"github.com/01-edu/go-tests/lib"
 	"github.com/01-edu/go-tests/lib/challenge"
+	"github.com/01-edu/go-tests/lib/rand"
 	"github.com/01-edu/go-tests/solutions"
 )
 
@@ -19,9 +19,9 @@ func main() {
 
 	for i := 0; i < 5; i++ {
 		// random position for the slice of arguments
-		posA := lib.RandIntBetween(0, len(args)-1)
+		posA := rand.IntBetween(0, len(args)-1)
 		// random position for the slice of separators
-		posS := lib.RandIntBetween(0, len(seps)-1)
+		posS := rand.IntBetween(0, len(seps)-1)
 
 		challenge.Function("Join", student.Join, solutions.Join, args[posA], seps[posS])
 	}

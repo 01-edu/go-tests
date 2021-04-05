@@ -1,12 +1,12 @@
 package main
 
 import (
-	"math/rand"
 	"strings"
+
+	"github.com/01-edu/go-tests/lib/rand"
 
 	student "student"
 
-	"github.com/01-edu/go-tests/lib"
 	"github.com/01-edu/go-tests/lib/challenge"
 	"github.com/01-edu/go-tests/solutions"
 )
@@ -18,7 +18,7 @@ func main() {
 		"    ",
 		"|=choumi=|",
 		"|<=>|",
-		lib.RandStr(3, lib.RuneRange('A', 'Z')),
+		rand.RandStr(3, rand.Upper),
 		"<<==123==>>",
 		"[<>abc<>]",
 	}
@@ -33,7 +33,7 @@ func main() {
 	for i := 0; i < 15; i++ {
 		separator := separators[rand.Intn(len(separators))]
 		val := node{
-			s:   strings.Join(lib.MultRandAlnum(), separator),
+			s:   strings.Join(rand.MultRandAlnum(), separator),
 			sep: separator,
 		}
 		table = append(table, val)

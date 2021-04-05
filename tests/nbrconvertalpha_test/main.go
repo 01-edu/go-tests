@@ -4,8 +4,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/01-edu/go-tests/lib"
 	"github.com/01-edu/go-tests/lib/challenge"
+	"github.com/01-edu/go-tests/lib/rand"
 )
 
 func main() {
@@ -18,7 +18,7 @@ func main() {
 		"",
 	}
 	for i := 0; i < 5; i++ {
-		m := lib.MultRandIntBetween(1, 46)
+		m := rand.IntsBetween(1, 46)
 		s := ""
 		for _, j := range m {
 			s += strconv.Itoa(j) + " "

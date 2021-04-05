@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/01-edu/go-tests/lib"
 	"github.com/01-edu/go-tests/lib/challenge"
+	"github.com/01-edu/go-tests/lib/rand"
 )
 
 func main() {
@@ -15,12 +15,12 @@ func main() {
 	table := []nodeTest{}
 
 	for i := 0; i < 20; i++ {
-		letter1 := []rune(lib.RandAlnum())
-		letter2 := []rune(lib.RandAlnum())
+		letter1 := []rune(rand.RandAlnum())
+		letter2 := []rune(rand.RandAlnum())
 
 		table = append(table,
 			nodeTest{
-				dataSearched:    lib.RandWords(),
+				dataSearched:    rand.RandWords(),
 				letterLookedFor: string(letter1[0]),
 				letterReplacing: string(letter2[0]),
 			})

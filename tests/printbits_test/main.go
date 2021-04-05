@@ -4,14 +4,14 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/01-edu/go-tests/lib"
 	"github.com/01-edu/go-tests/lib/challenge"
+	"github.com/01-edu/go-tests/lib/rand"
 )
 
 func main() {
 	var args []string
 	for i := 0; i < 20; i++ {
-		args = append(args, strconv.Itoa(lib.RandIntBetween(0, 255)))
+		args = append(args, strconv.Itoa(rand.IntBetween(0, 255)))
 	}
 	args = append(args,
 		"",
@@ -19,7 +19,7 @@ func main() {
 		"bc",
 		"def",
 		"notanumber",
-		lib.RandBasic(),
+		rand.RandBasic(),
 	)
 	for _, v := range args {
 		challenge.Program("printbits", strings.Fields(v)...)

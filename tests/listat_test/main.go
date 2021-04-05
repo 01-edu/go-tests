@@ -3,8 +3,8 @@ package main
 import (
 	student "student"
 
-	"github.com/01-edu/go-tests/lib"
 	"github.com/01-edu/go-tests/lib/challenge"
+	"github.com/01-edu/go-tests/lib/rand"
 	"github.com/01-edu/go-tests/solutions"
 )
 
@@ -67,21 +67,21 @@ func main() {
 
 	for i := 0; i < 4; i++ {
 		table = append(table, nodeTest{
-			data: solutions.ConvertIntToInterface(lib.MultRandInt()),
-			pos:  lib.RandIntBetween(1, 12),
+			data: solutions.ConvertIntToInterface(rand.Ints()),
+			pos:  rand.IntBetween(1, 12),
 		})
 	}
 
 	for i := 0; i < 4; i++ {
 		table = append(table, nodeTest{
-			data: solutions.ConvertIntToStringface(lib.MultRandWords()),
-			pos:  lib.RandIntBetween(1, 12),
+			data: solutions.ConvertIntToStringface(rand.MultRandWords()),
+			pos:  rand.IntBetween(1, 12),
 		})
 	}
 
 	table = append(table, nodeTest{
 		data: []interface{}{"I", 1, "something", 2},
-		pos:  lib.RandIntBetween(1, 4),
+		pos:  rand.IntBetween(1, 4),
 	})
 
 	for _, arg := range table {
