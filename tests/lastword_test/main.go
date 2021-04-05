@@ -15,9 +15,9 @@ func main() {
 	args = append(args, lib.MultRandWords()...)
 
 	for _, v := range args {
-		lib.ChallengeMain("lastword", v)
+		lib.Program("lastword", v)
 	}
 
-	lib.ChallengeMain("lastword", "a", "b")
-	lib.ChallengeMain("lastword")
+	lib.Program("lastword", "a", "b")
+	lib.Program("lastword")
 }

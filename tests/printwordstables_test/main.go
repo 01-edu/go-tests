@@ -16,6 +16,6 @@ func main() {
 	}
 
 	for _, arg := range table {
-		lib.Challenge("PrintWordsTables", student.PrintWordsTables, solutions.PrintWordsTables, arg)
+		lib.Function("PrintWordsTables", student.PrintWordsTables, solutions.PrintWordsTables, arg)
 	}
 }

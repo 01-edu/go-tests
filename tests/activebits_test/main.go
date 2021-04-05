@@ -13,6 +13,6 @@ func main() {
 	args = append(args, lib.MultRandIntBetween(2, 20)...)
 
 	for _, v := range args {
-		lib.Challenge("ActiveBits", student.ActiveBits, solutions.ActiveBits, v)
+		lib.Function("ActiveBits", student.ActiveBits, solutions.ActiveBits, v)
 	}
 }

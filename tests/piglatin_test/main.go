@@ -15,6 +15,6 @@ func main() {
 	}
 
 	for _, v := range args {
-		lib.ChallengeMain("piglatin", v...)
+		lib.Program("piglatin", v...)
 	}
 }

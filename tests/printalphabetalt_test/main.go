@@ -5,5 +5,5 @@ import (
 )
 
 func main() {
-	lib.ChallengeMain("printalphabetalt")
+	lib.Program("printalphabetalt")
 }

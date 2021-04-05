@@ -26,6 +26,6 @@ func main() {
 		})
 	}
 	for _, arg := range table {
-		lib.Challenge("Revivethreenums", student.ReviveThreeNums, solutions.ReviveThreeNums, arg[0], arg[1], arg[2], arg[3])
+		lib.Function("Revivethreenums", student.ReviveThreeNums, solutions.ReviveThreeNums, arg[0], arg[1], arg[2], arg[3])
 	}
 }

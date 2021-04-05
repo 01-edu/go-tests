@@ -8,5 +8,5 @@ import (
 )
 
 func main() {
-	lib.Challenge("EightQueens", student.EightQueens, solutions.EightQueens)
+	lib.Function("EightQueens", student.EightQueens, solutions.EightQueens)
 }

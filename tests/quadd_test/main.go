@@ -24,7 +24,7 @@ func main() {
 
 	for i := 0; i < len(table); i += 2 {
 		if i != len(table)-1 {
-			lib.Challenge("QuadD", student.QuadD, solutions.QuadD, table[i], table[i+1])
+			lib.Function("QuadD", student.QuadD, solutions.QuadD, table[i], table[i+1])
 		}
 	}
 }

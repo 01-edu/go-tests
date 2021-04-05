@@ -12,9 +12,9 @@ func main() {
 	for i < 30 {
 		nb := lib.RandIntBetween(-8, 8)
 		power := lib.RandIntBetween(-10, 10)
-		lib.Challenge("RecursivePower", student.RecursivePower, solutions.RecursivePower, nb, power)
+		lib.Function("RecursivePower", student.RecursivePower, solutions.RecursivePower, nb, power)
 		i++
 	}
-	lib.Challenge("RecursivePower", student.RecursivePower, solutions.RecursivePower, 0, 0)
-	lib.Challenge("RecursivePower", student.RecursivePower, solutions.RecursivePower, 0, 1)
+	lib.Function("RecursivePower", student.RecursivePower, solutions.RecursivePower, 0, 0)
+	lib.Function("RecursivePower", student.RecursivePower, solutions.RecursivePower, 0, 1)
 }

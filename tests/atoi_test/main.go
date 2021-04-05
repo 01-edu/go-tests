@@ -33,6 +33,6 @@ func main() {
 		"123a45",
 	)
 	for _, arg := range table {
-		lib.Challenge("Atoi", student.Atoi, solutions.Atoi, arg)
+		lib.Function("Atoi", student.Atoi, solutions.Atoi, arg)
 	}
 }

@@ -42,6 +42,6 @@ func main() {
 		node{s: "HelloHAhowHAareHAyou?", sep: "HA"})
 
 	for _, arg := range table {
-		lib.Challenge("Split", student.Split, solutions.Split, arg.s, arg.sep)
+		lib.Function("Split", student.Split, solutions.Split, arg.s, arg.sep)
 	}
 }

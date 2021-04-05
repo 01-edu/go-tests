@@ -61,6 +61,6 @@ func main() {
 	)
 
 	for _, arg := range table {
-		lib.Challenge("CountIf", student.CountIf, solutions.CountIf, arg.f, arg.a)
+		lib.Function("CountIf", student.CountIf, solutions.CountIf, arg.f, arg.a)
 	}
 }

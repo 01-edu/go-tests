@@ -15,6 +15,6 @@ func main() {
 	}
 
 	for _, arg := range table {
-		lib.ChallengeMain("robottoorigin", arg)
+		lib.Program("robottoorigin", arg)
 	}
 }

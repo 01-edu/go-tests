@@ -25,6 +25,6 @@ func main() {
 		table = append(table, strconv.Itoa(lib.RandIntBetween(1, 100)))
 	}
 	for _, s := range table {
-		lib.ChallengeMain("fprime", s)
+		lib.Program("fprime", s)
 	}
 }

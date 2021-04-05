@@ -34,6 +34,6 @@ func main() {
 	}
 
 	for _, arg := range table {
-		lib.Challenge("IsAnagram", student.IsAnagram, solutions.IsAnagram, arg[0], arg[1])
+		lib.Function("IsAnagram", student.IsAnagram, solutions.IsAnagram, arg[0], arg[1])
 	}
 }

@@ -19,6 +19,6 @@ func main() {
 		)
 	}
 	for _, v := range args {
-		lib.ChallengeMain("hiddenp", v[0], v[1])
+		lib.Program("hiddenp", v[0], v[1])
 	}
 }

@@ -14,6 +14,6 @@ func main() {
 		0,
 	)
 	for _, v := range args {
-		lib.Challenge("CollatzCountdown", student.CollatzCountdown, solutions.CollatzCountdown, v)
+		lib.Function("CollatzCountdown", student.CollatzCountdown, solutions.CollatzCountdown, v)
 	}
 }

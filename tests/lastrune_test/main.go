@@ -16,6 +16,6 @@ func main() {
 		lib.RandStr(lib.RandIntBetween(1, 15), lib.RandAlnum()),
 	)
 	for _, arg := range table {
-		lib.Challenge("LastRune", student.LastRune, solutions.LastRune, arg)
+		lib.Function("LastRune", student.LastRune, solutions.LastRune, arg)
 	}
 }

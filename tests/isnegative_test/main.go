@@ -15,6 +15,6 @@ func main() {
 		0,
 	)
 	for _, arg := range table {
-		lib.Challenge("IsNegative", student.IsNegative, solutions.IsNegative, arg)
+		lib.Function("IsNegative", student.IsNegative, solutions.IsNegative, arg)
 	}
 }

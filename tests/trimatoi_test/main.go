@@ -37,7 +37,7 @@ func main() {
 	}
 	a = stringsToTrimAtoi(a)
 	for _, elem := range a {
-		lib.Challenge("TrimAtoi", student.TrimAtoi, solutions.TrimAtoi, elem)
+		lib.Function("TrimAtoi", student.TrimAtoi, solutions.TrimAtoi, elem)
 	}
 }
 

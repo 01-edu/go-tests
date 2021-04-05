@@ -5,5 +5,5 @@ import (
 )
 
 func main() {
-	lib.ChallengeMain("printrevcomb")
+	lib.Program("printrevcomb")
 }

@@ -37,7 +37,7 @@ func main() {
 
 	for _, v := range table {
 		for _, f := range v.functions {
-			lib.Challenge("ReduceInt", student.ReduceInt, solutions.ReduceInt, v.a, f)
+			lib.Function("ReduceInt", student.ReduceInt, solutions.ReduceInt, v.a, f)
 		}
 	}
 }

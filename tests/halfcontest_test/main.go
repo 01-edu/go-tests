@@ -29,6 +29,6 @@ func main() {
 	}
 
 	for _, arg := range table {
-		lib.Challenge("HalfContest", student.HalfContest, solutions.HalfContest, arg.h1, arg.m1, arg.h2, arg.m2)
+		lib.Function("HalfContest", student.HalfContest, solutions.HalfContest, arg.h1, arg.m1, arg.h2, arg.m2)
 	}
 }

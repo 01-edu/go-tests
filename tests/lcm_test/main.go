@@ -24,6 +24,6 @@ func main() {
 	}
 
 	for _, arg := range table {
-		lib.Challenge("Lcm", student.Lcm, solutions.Lcm, arg[0], arg[1])
+		lib.Function("Lcm", student.Lcm, solutions.Lcm, arg[0], arg[1])
 	}
 }

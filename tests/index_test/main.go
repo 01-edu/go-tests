@@ -47,6 +47,6 @@ func main() {
 	)
 
 	for _, arg := range table {
-		lib.Challenge("Index", student.Index, solutions.Index, arg.s, arg.toFind)
+		lib.Function("Index", student.Index, solutions.Index, arg.s, arg.toFind)
 	}
 }

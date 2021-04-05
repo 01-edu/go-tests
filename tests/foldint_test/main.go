@@ -51,7 +51,7 @@ func main() {
 
 	for _, v := range table {
 		for _, f := range v.functions {
-			lib.Challenge("FoldInt", student.FoldInt, solutions.FoldInt, f, v.a, v.n)
+			lib.Function("FoldInt", student.FoldInt, solutions.FoldInt, f, v.a, v.n)
 		}
 	}
 }

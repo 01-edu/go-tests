@@ -45,6 +45,6 @@ func main() {
 	)
 
 	for _, arg := range table {
-		lib.Challenge("Compare", student.Compare, solutions.Compare, arg.s, arg.toCompare)
+		lib.Function("Compare", student.Compare, solutions.Compare, arg.s, arg.toCompare)
 	}
 }

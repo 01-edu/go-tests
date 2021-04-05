@@ -56,6 +56,6 @@ func main() {
 		table = append(table, value)
 	}
 	for _, arg := range table {
-		lib.Challenge("Game23", student.Game23, solutions.Game23, arg.init, arg.fin)
+		lib.Function("Game23", student.Game23, solutions.Game23, arg.init, arg.fin)
 	}
 }

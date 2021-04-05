@@ -24,6 +24,6 @@ func main() {
 		{"-c", "1", file1, file2},
 	}
 	for _, args := range table {
-		lib.ChallengeMain("ztail", args...)
+		lib.Program("ztail", args...)
 	}
 }

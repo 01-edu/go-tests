@@ -34,6 +34,6 @@ func main() {
 		"01,02,03",
 	)
 	for _, arg := range table {
-		lib.Challenge("IsNumeric", student.IsNumeric, solutions.IsNumeric, arg)
+		lib.Function("IsNumeric", student.IsNumeric, solutions.IsNumeric, arg)
 	}
 }

@@ -16,6 +16,6 @@ func main() {
 		"♥01",
 	)
 	for _, arg := range table {
-		lib.Challenge("FirstRune", student.FirstRune, solutions.FirstRune, arg)
+		lib.Function("FirstRune", student.FirstRune, solutions.FirstRune, arg)
 	}
 }

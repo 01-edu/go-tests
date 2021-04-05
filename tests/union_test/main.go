@@ -22,6 +22,6 @@ func main() {
 	}
 
 	for _, v := range args {
-		lib.ChallengeMain("union", v...)
+		lib.Program("union", v...)
 	}
 }

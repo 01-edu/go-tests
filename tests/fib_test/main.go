@@ -15,6 +15,6 @@ func main() {
 		2,
 	)
 	for _, arg := range table {
-		lib.Challenge("Fib", student.Fib, solutions.Fib, arg)
+		lib.Function("Fib", student.Fib, solutions.Fib, arg)
 	}
 }

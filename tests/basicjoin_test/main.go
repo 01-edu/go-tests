@@ -18,6 +18,6 @@ func main() {
 		[]string{"Hello!", " How are you?", "well and yourself?"},
 	)
 	for _, arg := range table {
-		lib.Challenge("BasicJoin", student.BasicJoin, solutions.BasicJoin, arg)
+		lib.Function("BasicJoin", student.BasicJoin, solutions.BasicJoin, arg)
 	}
 }

@@ -25,6 +25,6 @@ func main() {
 		100,
 	)
 	for _, arg := range table {
-		lib.Challenge("Sqrt", student.Sqrt, solutions.Sqrt, arg)
+		lib.Function("Sqrt", student.Sqrt, solutions.Sqrt, arg)
 	}
 }

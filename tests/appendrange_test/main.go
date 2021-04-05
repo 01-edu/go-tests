@@ -44,6 +44,6 @@ func main() {
 	)
 
 	for _, arg := range table {
-		lib.Challenge("AppendRange", student.AppendRange, solutions.AppendRange, arg.min, arg.max)
+		lib.Function("AppendRange", student.AppendRange, solutions.AppendRange, arg.min, arg.max)
 	}
 }

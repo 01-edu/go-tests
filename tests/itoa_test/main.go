@@ -9,6 +9,6 @@ import (
 
 func main() {
 	for i := 0; i < 50; i++ {
-		lib.Challenge("Itoa", student.Itoa, solutions.Itoa, lib.RandInt())
+		lib.Function("Itoa", student.Itoa, solutions.Itoa, lib.RandInt())
 	}
 }

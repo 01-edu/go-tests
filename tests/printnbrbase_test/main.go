@@ -45,6 +45,6 @@ func main() {
 		node{n: lib.MinInt, base: "0123456789"},
 	)
 	for _, arg := range table {
-		lib.Challenge("PrintNbrBase", student.PrintNbrBase, solutions.PrintNbrBase, arg.n, arg.base)
+		lib.Function("PrintNbrBase", student.PrintNbrBase, solutions.PrintNbrBase, arg.n, arg.base)
 	}
 }

@@ -18,6 +18,6 @@ func main() {
 		table = append(table, lib.MultRandIntBetween(1, 877)...)
 	}
 	for _, arg := range table {
-		lib.Challenge("ReachableNumber", student.ReachableNumber, solutions.ReachableNumber, arg)
+		lib.Function("ReachableNumber", student.ReachableNumber, solutions.ReachableNumber, arg)
 	}
 }

@@ -22,6 +22,6 @@ func main() {
 		// random position for the slice of separators
 		posS := lib.RandIntBetween(0, len(seps)-1)
 
-		lib.Challenge("Join", student.Join, solutions.Join, args[posA], seps[posS])
+		lib.Function("Join", student.Join, solutions.Join, args[posA], seps[posS])
 	}
 }

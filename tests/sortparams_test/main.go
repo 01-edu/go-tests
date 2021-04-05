@@ -5,5 +5,5 @@ import (
 )
 
 func main() {
-	lib.ChallengeMain("sortparams", lib.MultRandWords()...)
+	lib.Program("sortparams", lib.MultRandWords()...)
 }

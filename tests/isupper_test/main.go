@@ -42,6 +42,6 @@ func main() {
 		"HELLO!",
 	)
 	for _, arg := range table {
-		lib.Challenge("IsUpper", student.IsUpper, solutions.IsUpper, arg)
+		lib.Function("IsUpper", student.IsUpper, solutions.IsUpper, arg)
 	}
 }

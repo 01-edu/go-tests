@@ -14,7 +14,7 @@ func main() {
 	}
 
 	for _, v := range args {
-		lib.ChallengeMain("cleanstr", v)
+		lib.Program("cleanstr", v)
 	}
-	lib.ChallengeMain("cleanstr", "this is   not", "happening")
+	lib.Program("cleanstr", "this is   not", "happening")
 }

@@ -15,6 +15,6 @@ func main() {
 	}
 	table := []string{"", fileName, fileName + " asdsada"}
 	for _, s := range table {
-		lib.ChallengeMain("displayfile", strings.Fields(s)...)
+		lib.Program("displayfile", strings.Fields(s)...)
 	}
 }

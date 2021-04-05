@@ -23,8 +23,8 @@ func main() {
 	}
 
 	for _, v := range args {
-		lib.ChallengeMain("rpncalc", v)
+		lib.Program("rpncalc", v)
 	}
-	lib.ChallengeMain("rpncalc")
-	lib.ChallengeMain("rpncalc", "1 2 * 3 * 4 +", "10 33 - 12 %")
+	lib.Program("rpncalc")
+	lib.Program("rpncalc", "1 2 * 3 * 4 +", "10 33 - 12 %")
 }

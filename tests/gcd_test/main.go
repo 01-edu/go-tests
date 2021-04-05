@@ -20,6 +20,6 @@ func main() {
 		args = append(args, []string{a, b})
 	}
 	for _, v := range args {
-		lib.ChallengeMain("gcd", v...)
+		lib.Program("gcd", v...)
 	}
 }

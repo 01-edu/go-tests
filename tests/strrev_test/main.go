@@ -15,6 +15,6 @@ func main() {
 		"Hola!",
 	)
 	for _, arg := range table {
-		lib.Challenge("StrRev", student.StrRev, solutions.StrRev, arg)
+		lib.Function("StrRev", student.StrRev, solutions.StrRev, arg)
 	}
 }

@@ -20,8 +20,8 @@ func main() {
 	args = append(args, lib.MultRandAlnum()...)
 
 	for _, v := range args {
-		lib.ChallengeMain("repeatalpha", v)
+		lib.Program("repeatalpha", v)
 	}
-	lib.ChallengeMain("repeatalpha")
-	lib.ChallengeMain("repeatalpha", "", "")
+	lib.Program("repeatalpha")
+	lib.Program("repeatalpha", "", "")
 }

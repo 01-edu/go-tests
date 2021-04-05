@@ -8,7 +8,7 @@ import (
 
 func main() {
 	for i := 0; i < 25; i++ {
-		lib.ChallengeMain("costumeprofit",
+		lib.Program("costumeprofit",
 			strconv.Itoa(lib.RandIntBetween(0, 1000)),
 			strconv.Itoa(lib.RandIntBetween(0, 1000)),
 			strconv.Itoa(lib.RandIntBetween(0, 1000)),

@@ -21,6 +21,6 @@ func main() {
 		})
 	}
 	for _, arg := range table {
-		lib.Challenge("Volumechanger", student.Volumechanger, solutions.Volumechanger, arg[0], arg[1])
+		lib.Function("Volumechanger", student.Volumechanger, solutions.Volumechanger, arg[0], arg[1])
 	}
 }

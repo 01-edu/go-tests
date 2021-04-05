@@ -17,6 +17,6 @@ func main() {
 	}
 
 	for _, arg := range table {
-		lib.ChallengeMain("uniqueoccurences", arg)
+		lib.Program("uniqueoccurences", arg)
 	}
 }

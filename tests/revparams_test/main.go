@@ -5,6 +5,6 @@ import (
 )
 
 func main() {
-	lib.ChallengeMain("revparams", "choumi", "is", "the", "best", "cat")
-	lib.ChallengeMain("revparams", lib.MultRandWords()...)
+	lib.Program("revparams", "choumi", "is", "the", "best", "cat")
+	lib.Program("revparams", lib.MultRandWords()...)
 }

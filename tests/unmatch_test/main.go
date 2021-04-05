@@ -22,6 +22,6 @@ func main() {
 		{i1, i2, i1, i2, i1 + i3, i2 - i3},
 	}
 	for _, v := range args {
-		lib.Challenge("Unmatch", student.Unmatch, solutions.Unmatch, v)
+		lib.Function("Unmatch", student.Unmatch, solutions.Unmatch, v)
 	}
 }

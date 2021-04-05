@@ -25,6 +25,6 @@ func main() {
 	}
 
 	for _, v := range table {
-		lib.ChallengeMain("printchessboard", v...)
+		lib.Program("printchessboard", v...)
 	}
 }

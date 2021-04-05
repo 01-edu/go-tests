@@ -14,12 +14,12 @@ func main() {
 	}
 
 	for _, v := range a {
-		lib.ChallengeMain("rotatevowels", strings.Fields(v)...)
+		lib.Program("rotatevowels", strings.Fields(v)...)
 	}
-	lib.ChallengeMain("rotatevowels", "Hello World")
-	lib.ChallengeMain("rotatevowels", "HEllO World", "problem solved")
-	lib.ChallengeMain("rotatevowels", "str", "shh", "psst")
-	lib.ChallengeMain("rotatevowels", "happy thoughts", "good luck")
-	lib.ChallengeMain("rotatevowels", "al's elEphAnt is overly underweight!")
-	lib.ChallengeMain("rotatevowels", "aEi", "Ou")
+	lib.Program("rotatevowels", "Hello World")
+	lib.Program("rotatevowels", "HEllO World", "problem solved")
+	lib.Program("rotatevowels", "str", "shh", "psst")
+	lib.Program("rotatevowels", "happy thoughts", "good luck")
+	lib.Program("rotatevowels", "al's elEphAnt is overly underweight!")
+	lib.Program("rotatevowels", "aEi", "Ou")
 }

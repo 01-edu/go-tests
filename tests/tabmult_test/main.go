@@ -16,6 +16,6 @@ func main() {
 	}
 
 	for _, arg := range table {
-		lib.ChallengeMain("tabmult", arg)
+		lib.Program("tabmult", arg)
 	}
 }

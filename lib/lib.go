@@ -78,7 +78,7 @@ func Monitor(fn interface{}, args []interface{}) (out Output) {
 	return out
 }
 
-func Challenge(name string, fn1, fn2 interface{}, args ...interface{}) {
+func Function(name string, fn1, fn2 interface{}, args ...interface{}) {
 	st1 := Monitor(fn1, args)
 	st2 := Monitor(fn2, args)
 	if !reflect.DeepEqual(st1.Results, st2.Results) {
@@ -131,7 +131,7 @@ func execute(cmd *exec.Cmd) (string, int) {
 	return string(b), 0
 }
 
-func ChallengeMainStdin(exercise, input string, args ...string) {
+func ProgramStdin(exercise, input string, args ...string) {
 	run := func(pkg string) (string, int) {
 		binaryPath := path.Join(os.TempDir(), "binaries", path.Base(path.Dir(pkg)), path.Base(pkg))
 		if s, code := execute(exec.Command("go", "build", "-o", binaryPath, pkg)); code != 0 {
@@ -198,8 +198,8 @@ func GCD(a, b int) int {
 	return a
 }
 
-func ChallengeMain(exercise string, args ...string) {
-	ChallengeMainStdin(exercise, "", args...)
+func Program(exercise string, args ...string) {
+	ProgramStdin(exercise, "", args...)
 }
 
 // TODO: check unhandled errors on all solutions (it should contains "ERROR" on the first line to prove we correctly handle the error)

@@ -40,6 +40,6 @@ func main() {
 		"hello!",
 	)
 	for _, arg := range table {
-		lib.Challenge("IsLower", student.IsLower, solutions.IsLower, arg)
+		lib.Function("IsLower", student.IsLower, solutions.IsLower, arg)
 	}
 }

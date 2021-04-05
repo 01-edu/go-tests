@@ -11,6 +11,6 @@ func main() {
 		"abcdefghi jklmnop qrstuvwxyz ABCDEFGHI JKLMNOPQR STUVWXYZ ! ",
 	)
 	for _, s := range table {
-		lib.ChallengeMain("switchcase", s)
+		lib.Program("switchcase", s)
 	}
 }

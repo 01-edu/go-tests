@@ -52,6 +52,6 @@ func main() {
 	}
 
 	for _, arg := range table {
-		lib.ChallengeMain("balancedstring", arg)
+		lib.Program("balancedstring", arg)
 	}
 }

@@ -40,6 +40,6 @@ func main() {
 		"4 arguments so invalid",
 	}
 	for _, s := range table {
-		lib.ChallengeMain("printrot", strings.Fields(s)...)
+		lib.Program("printrot", strings.Fields(s)...)
 	}
 }

@@ -17,6 +17,6 @@ func main() {
 	table = append(table, lib.MultRandIntBetween(1, 1500)...)
 
 	for _, arg := range table {
-		lib.Challenge("InterestingNumber", student.InterestingNumber, solutions.InterestingNumber, arg)
+		lib.Function("InterestingNumber", student.InterestingNumber, solutions.InterestingNumber, arg)
 	}
 }

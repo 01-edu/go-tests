@@ -26,6 +26,6 @@ func main() {
 	}
 
 	for _, args := range table {
-		lib.ChallengeMain("nbrconvertalpha", strings.Fields(args)...)
+		lib.Program("nbrconvertalpha", strings.Fields(args)...)
 	}
 }

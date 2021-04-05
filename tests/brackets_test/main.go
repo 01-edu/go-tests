@@ -24,10 +24,10 @@ func main() {
 		)
 	}
 
-	lib.ChallengeMain("brackets")
+	lib.Program("brackets")
 
 	for _, v := range oneArgs {
-		lib.ChallengeMain("brackets", v)
+		lib.Program("brackets", v)
 	}
 
 	multArg := [][]string{
@@ -37,6 +37,6 @@ func main() {
 	}
 
 	for _, v := range multArg {
-		lib.ChallengeMain("brackets", v...)
+		lib.Program("brackets", v...)
 	}
 }

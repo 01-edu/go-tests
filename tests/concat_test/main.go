@@ -19,6 +19,6 @@ func main() {
 		[]string{"Hello!", " How are you?"},
 	)
 	for _, arg := range table {
-		lib.Challenge("Concat", student.Concat, solutions.Concat, arg[0], arg[1])
+		lib.Function("Concat", student.Concat, solutions.Concat, arg[0], arg[1])
 	}
 }

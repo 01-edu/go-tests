@@ -41,6 +41,6 @@ func main() {
 	}
 
 	for _, a := range elems {
-		lib.Challenge("Slice", student.Slice, solutions.Slice, a...)
+		lib.Function("Slice", student.Slice, solutions.Slice, a...)
 	}
 }

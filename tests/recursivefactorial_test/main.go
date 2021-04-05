@@ -13,6 +13,6 @@ func main() {
 		lib.IntRange(0, 20)...,
 	)
 	for _, arg := range table {
-		lib.Challenge("RecursiveFactorial", student.RecursiveFactorial, solutions.RecursiveFactorial, arg)
+		lib.Function("RecursiveFactorial", student.RecursiveFactorial, solutions.RecursiveFactorial, arg)
 	}
 }

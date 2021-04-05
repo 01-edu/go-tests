@@ -14,9 +14,9 @@ func main() {
 	args = append(args, lib.MultRandWords()...)
 
 	for _, arg := range args {
-		lib.ChallengeMain("rostring", arg)
+		lib.Program("rostring", arg)
 	}
-	lib.ChallengeMain("rostring")
-	lib.ChallengeMain("rostring", "this", "is")
-	lib.ChallengeMain("rostring", "not", "good", "for  you")
+	lib.Program("rostring")
+	lib.Program("rostring", "this", "is")
+	lib.Program("rostring", "not", "good", "for  you")
 }

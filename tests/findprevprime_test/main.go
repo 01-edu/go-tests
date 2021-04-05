@@ -10,6 +10,6 @@ import (
 func main() {
 	elems := append(lib.MultRandIntBetween(0, 99999), 5, 4, 1)
 	for _, elem := range elems {
-		lib.Challenge("FindPrevPrime", student.FindPrevPrime, solutions.FindPrevPrime, elem)
+		lib.Function("FindPrevPrime", student.FindPrevPrime, solutions.FindPrevPrime, elem)
 	}
 }

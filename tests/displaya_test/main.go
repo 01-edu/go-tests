@@ -14,7 +14,7 @@ func main() {
 		"1",
 	)
 	for _, s := range table {
-		lib.ChallengeMain("displaya", strings.Fields(s)...)
+		lib.Program("displaya", strings.Fields(s)...)
 	}
-	lib.ChallengeMain("displaya", "1", "a")
+	lib.Program("displaya", "1", "a")
 }

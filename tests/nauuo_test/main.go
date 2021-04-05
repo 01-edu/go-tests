@@ -28,6 +28,6 @@ func main() {
 		})
 	}
 	for _, arg := range table {
-		lib.Challenge("Nauuo", student.Nauuo, solutions.Nauuo, arg.plus, arg.minus, arg.rand)
+		lib.Function("Nauuo", student.Nauuo, solutions.Nauuo, arg.plus, arg.minus, arg.rand)
 	}
 }

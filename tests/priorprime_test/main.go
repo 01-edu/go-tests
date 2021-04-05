@@ -17,6 +17,6 @@ func main() {
 		2,
 	)
 	for _, arg := range table {
-		lib.Challenge("PriorPrime", student.PriorPrime, solutions.PriorPrime, arg)
+		lib.Function("PriorPrime", student.PriorPrime, solutions.PriorPrime, arg)
 	}
 }

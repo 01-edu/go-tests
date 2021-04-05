@@ -12,9 +12,9 @@ func main() {
 	for i < 30 {
 		nb := lib.RandIntBetween(-8, 8)
 		power := lib.RandIntBetween(-10, 10)
-		lib.Challenge("IterativePower", student.IterativePower, solutions.IterativePower, nb, power)
+		lib.Function("IterativePower", student.IterativePower, solutions.IterativePower, nb, power)
 		i++
 	}
-	lib.Challenge("IterativePower", student.IterativePower, solutions.IterativePower, 0, 0)
-	lib.Challenge("IterativePower", student.IterativePower, solutions.IterativePower, 0, 1)
+	lib.Function("IterativePower", student.IterativePower, solutions.IterativePower, 0, 0)
+	lib.Function("IterativePower", student.IterativePower, solutions.IterativePower, 0, 1)
 }

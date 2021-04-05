@@ -16,6 +16,6 @@ func main() {
 		0,
 	)
 	for _, arg := range table {
-		lib.Challenge("PrintNbrInOrder", student.PrintNbrInOrder, solutions.PrintNbrInOrder, arg)
+		lib.Function("PrintNbrInOrder", student.PrintNbrInOrder, solutions.PrintNbrInOrder, arg)
 	}
 }

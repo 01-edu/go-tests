@@ -48,6 +48,6 @@ func main() {
 	}
 
 	for _, arg := range table {
-		lib.Challenge("DoppelGanger", student.DoppelGanger, solutions.DoppelGanger, arg.big, arg.little)
+		lib.Function("DoppelGanger", student.DoppelGanger, solutions.DoppelGanger, arg.big, arg.little)
 	}
 }

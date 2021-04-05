@@ -28,8 +28,8 @@ func main() {
 	}
 
 	for _, v := range args {
-		lib.ChallengeMain("paramcount", v...)
+		lib.Program("paramcount", v...)
 	}
 
-	lib.ChallengeMain("paramcount")
+	lib.Program("paramcount")
 }

@@ -5,5 +5,5 @@ import (
 )
 
 func main() {
-	lib.ChallengeMain("countdown")
+	lib.Program("countdown")
 }

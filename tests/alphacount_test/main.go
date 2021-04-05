@@ -19,6 +19,6 @@ func main() {
 	}
 
 	for _, arg := range table {
-		lib.Challenge("AlphaCount", student.AlphaCount, solutions.AlphaCount, arg)
+		lib.Function("AlphaCount", student.AlphaCount, solutions.AlphaCount, arg)
 	}
 }

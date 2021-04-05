@@ -14,5 +14,5 @@ func main() {
 		args = append(args, lib.RandInt())
 	}
 
-	lib.Challenge("Max", student.Max, solutions.Max, args)
+	lib.Function("Max", student.Max, solutions.Max, args)
 }

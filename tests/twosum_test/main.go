@@ -13,6 +13,6 @@ func main() {
 	for i := 0; i < 20; i++ {
 		token := rand.Perm(20)
 		target := rand.Intn(30)
-		lib.Challenge("TwoSum", student.TwoSum, solutions.TwoSum, token, target)
+		lib.Function("TwoSum", student.TwoSum, solutions.TwoSum, token, target)
 	}
 }

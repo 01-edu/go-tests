@@ -23,6 +23,6 @@ func main() {
 		"000000",
 	)
 	for _, arg := range table {
-		lib.Challenge("BasicAtoi", student.BasicAtoi, solutions.BasicAtoi, arg)
+		lib.Function("BasicAtoi", student.BasicAtoi, solutions.BasicAtoi, arg)
 	}
 }

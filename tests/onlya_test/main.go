@@ -5,5 +5,5 @@ import (
 )
 
 func main() {
-	lib.ChallengeMain("onlya")
+	lib.Program("onlya")
 }

@@ -44,6 +44,6 @@ func main() {
 		"\n",
 	)
 	for _, arg := range table {
-		lib.Challenge("IsPrintable", student.IsPrintable, solutions.IsPrintable, arg)
+		lib.Function("IsPrintable", student.IsPrintable, solutions.IsPrintable, arg)
 	}
 }

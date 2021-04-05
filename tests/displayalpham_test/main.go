@@ -5,5 +5,5 @@ import (
 )
 
 func main() {
-	lib.ChallengeMain("displayalpham")
+	lib.Program("displayalpham")
 }

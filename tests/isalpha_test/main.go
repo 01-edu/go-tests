@@ -21,6 +21,6 @@ func main() {
 		"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!",
 	)
 	for _, arg := range table {
-		lib.Challenge("IsAlpha", student.IsAlpha, solutions.IsAlpha, arg)
+		lib.Function("IsAlpha", student.IsAlpha, solutions.IsAlpha, arg)
 	}
 }

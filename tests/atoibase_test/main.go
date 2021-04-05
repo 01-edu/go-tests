@@ -42,6 +42,6 @@ func main() {
 		node{s: "bbbbbab", base: "-ab"},
 	)
 	for _, arg := range table {
-		lib.Challenge("AtoiBase", student.AtoiBase, solutions.AtoiBase, arg.s, arg.base)
+		lib.Function("AtoiBase", student.AtoiBase, solutions.AtoiBase, arg.s, arg.base)
 	}
 }

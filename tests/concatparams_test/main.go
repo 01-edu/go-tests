@@ -15,6 +15,6 @@ func main() {
 		table = append(table, lib.MultRandASCII())
 	}
 	for _, arg := range table {
-		lib.Challenge("ConcatParams", student.ConcatParams, solutions.ConcatParams, arg)
+		lib.Function("ConcatParams", student.ConcatParams, solutions.ConcatParams, arg)
 	}
 }

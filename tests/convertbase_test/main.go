@@ -35,7 +35,7 @@ func main() {
 	})
 
 	for _, arg := range table {
-		lib.Challenge("ConvertBase", student.ConvertBase, solutions.ConvertBase, arg.nbr, arg.baseFrom, arg.baseTo)
+		lib.Function("ConvertBase", student.ConvertBase, solutions.ConvertBase, arg.nbr, arg.baseFrom, arg.baseTo)
 	}
 }
 

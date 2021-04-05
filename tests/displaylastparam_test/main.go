@@ -14,6 +14,6 @@ func main() {
 		"1 2 3",
 	)
 	for _, s := range table {
-		lib.ChallengeMain("displaylastparam", strings.Fields(s)...)
+		lib.Program("displaylastparam", strings.Fields(s)...)
 	}
 }

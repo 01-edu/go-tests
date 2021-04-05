@@ -29,6 +29,6 @@ func main() {
 	)
 
 	for _, s := range table {
-		lib.ChallengeMain("options", strings.Fields(s)...)
+		lib.Program("options", strings.Fields(s)...)
 	}
 }

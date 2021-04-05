@@ -39,6 +39,6 @@ func main() {
 	)
 
 	for _, arg := range table {
-		lib.Challenge("NRune", student.NRune, solutions.NRune, arg.word, arg.n)
+		lib.Function("NRune", student.NRune, solutions.NRune, arg.word, arg.n)
 	}
 }

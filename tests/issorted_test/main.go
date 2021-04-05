@@ -99,6 +99,6 @@ func main() {
 	})
 
 	for _, arg := range table {
-		lib.Challenge("IsSorted", student.IsSorted, solutions.IsSorted, arg.f, arg.a)
+		lib.Function("IsSorted", student.IsSorted, solutions.IsSorted, arg.f, arg.a)
 	}
 }

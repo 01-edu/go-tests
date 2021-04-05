@@ -22,6 +22,6 @@ func main() {
 		args = append(args, []string{strconv.Itoa(lib.RandIntBetween(1, 2048))})
 	}
 	for _, v := range args {
-		lib.ChallengeMain("ispowerof2", v...)
+		lib.Program("ispowerof2", v...)
 	}
 }

@@ -10,6 +10,6 @@ import (
 func main() {
 	table := append(lib.MultRandASCII(), "Hello! How are you?")
 	for _, arg := range table {
-		lib.Challenge("ToUpper", student.ToUpper, solutions.ToUpper, arg)
+		lib.Function("ToUpper", student.ToUpper, solutions.ToUpper, arg)
 	}
 }

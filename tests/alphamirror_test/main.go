@@ -15,6 +15,6 @@ func main() {
 	}
 
 	for _, v := range args {
-		lib.ChallengeMain("alphamirror", v...)
+		lib.Program("alphamirror", v...)
 	}
 }

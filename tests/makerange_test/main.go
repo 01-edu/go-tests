@@ -43,6 +43,6 @@ func main() {
 		node{min: 10, max: 5},
 	)
 	for _, arg := range table {
-		lib.Challenge("MakeRange", student.MakeRange, solutions.MakeRange, arg.min, arg.max)
+		lib.Function("MakeRange", student.MakeRange, solutions.MakeRange, arg.min, arg.max)
 	}
 }

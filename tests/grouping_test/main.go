@@ -34,6 +34,6 @@ func main() {
 		{lib.RandStr(1, "axyz"), lib.RandStr(10, "axyzdassbzzxxxyy cdq     ")},
 	}
 	for _, s := range args {
-		lib.ChallengeMain("grouping", s[0], s[1])
+		lib.Program("grouping", s[0], s[1])
 	}
 }

@@ -19,10 +19,10 @@ func main() {
 	}
 
 	for _, i := range table {
-		lib.ChallengeMain("addprimesum", strconv.Itoa(i))
+		lib.Program("addprimesum", strconv.Itoa(i))
 	}
 	// special cases
-	lib.ChallengeMain("addprimesum")
-	lib.ChallengeMain("addprimesum", `""`)
-	lib.ChallengeMain("addprimesum", "1", "2")
+	lib.Program("addprimesum")
+	lib.Program("addprimesum", `""`)
+	lib.Program("addprimesum", "1", "2")
 }

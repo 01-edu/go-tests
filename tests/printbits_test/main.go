@@ -21,6 +21,6 @@ func main() {
 		lib.RandBasic(),
 	)
 	for _, v := range args {
-		lib.ChallengeMain("printbits", strings.Fields(v)...)
+		lib.Program("printbits", strings.Fields(v)...)
 	}
 }

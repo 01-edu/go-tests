@@ -286,13 +286,13 @@ func main() {
 	}
 
 	for _, v := range valid {
-		lib.ChallengeMain("sudoku", v...)
+		lib.Program("sudoku", v...)
 	}
 
 	for _, v := range invalid {
-		lib.ChallengeMain("sudoku", v...)
+		lib.Program("sudoku", v...)
 	}
 
-	lib.ChallengeMain("sudoku")
-	lib.ChallengeMain("sudoku", "not", "a", "sudoku")
+	lib.Program("sudoku")
+	lib.Program("sudoku", "not", "a", "sudoku")
 }

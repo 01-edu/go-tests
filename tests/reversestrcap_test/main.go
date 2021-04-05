@@ -16,7 +16,7 @@ func main() {
 	}
 
 	for _, v := range args {
-		lib.ChallengeMain("reversestrcap", v...)
+		lib.Program("reversestrcap", v...)
 	}
-	lib.ChallengeMain("reversestrcap")
+	lib.Program("reversestrcap")
 }

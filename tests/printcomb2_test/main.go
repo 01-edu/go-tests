@@ -8,5 +8,5 @@ import (
 )
 
 func main() {
-	lib.Challenge("PrintComb2", student.PrintComb2, solutions.PrintComb2)
+	lib.Function("PrintComb2", student.PrintComb2, solutions.PrintComb2)
 }

@@ -17,6 +17,6 @@ func main() {
 		table = append(table, strings.Join(lib.MultRandASCII(), " "))
 	}
 	for _, arg := range table {
-		lib.Challenge("SplitWhiteSpaces", student.SplitWhiteSpaces, solutions.SplitWhiteSpaces, arg)
+		lib.Function("SplitWhiteSpaces", student.SplitWhiteSpaces, solutions.SplitWhiteSpaces, arg)
 	}
 }

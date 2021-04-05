@@ -28,6 +28,6 @@ func main() {
 		1000000087,
 	)
 	for _, arg := range table {
-		lib.Challenge("IsPrime", student.IsPrime, solutions.IsPrime, arg)
+		lib.Function("IsPrime", student.IsPrime, solutions.IsPrime, arg)
 	}
 }

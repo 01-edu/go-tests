@@ -15,6 +15,6 @@ func main() {
 		"salut ! !",
 	)
 	for _, s := range table {
-		lib.ChallengeMain("firstword", s)
+		lib.Program("firstword", s)
 	}
 }

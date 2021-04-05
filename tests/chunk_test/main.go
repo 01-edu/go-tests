@@ -37,6 +37,6 @@ func main() {
 		ch:    0,
 	})
 	for _, args := range table {
-		lib.Challenge("Chunk", student.Chunk, solutions.Chunk, args.slice, args.ch)
+		lib.Function("Chunk", student.Chunk, solutions.Chunk, args.slice, args.ch)
 	}
 }

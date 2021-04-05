@@ -5,5 +5,5 @@ import (
 )
 
 func main() {
-	lib.ChallengeMain("rectangle")
+	lib.Program("rectangle")
 }

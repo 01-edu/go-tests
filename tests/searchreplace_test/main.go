@@ -44,6 +44,6 @@ func main() {
 	)
 
 	for _, arg := range table {
-		lib.ChallengeMain("searchreplace", arg.dataSearched, arg.letterLookedFor, arg.letterReplacing)
+		lib.Program("searchreplace", arg.dataSearched, arg.letterLookedFor, arg.letterReplacing)
 	}
 }

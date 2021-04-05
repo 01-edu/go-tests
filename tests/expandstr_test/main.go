@@ -14,7 +14,7 @@ func main() {
 	args = append(args, lib.MultRandWords())
 
 	for _, v := range args {
-		lib.ChallengeMain("expandstr", v...)
+		lib.Program("expandstr", v...)
 	}
-	lib.ChallengeMain("expandstr")
+	lib.Program("expandstr")
 }

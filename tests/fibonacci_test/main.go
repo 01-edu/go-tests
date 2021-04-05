@@ -14,6 +14,6 @@ func main() {
 		-5,
 	)
 	for _, arg := range table {
-		lib.Challenge("Fibonacci", student.Fibonacci, solutions.Fibonacci, arg)
+		lib.Function("Fibonacci", student.Fibonacci, solutions.Fibonacci, arg)
 	}
 }

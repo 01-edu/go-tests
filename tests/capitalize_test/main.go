@@ -19,6 +19,6 @@ func main() {
 		"9a LALALA!",
 	)
 	for _, arg := range table {
-		lib.Challenge("Capitalize", student.Capitalize, solutions.Capitalize, arg)
+		lib.Function("Capitalize", student.Capitalize, solutions.Capitalize, arg)
 	}
 }

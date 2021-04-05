@@ -13,6 +13,6 @@ func main() {
 		lib.IntRange(0, 20)...,
 	)
 	for _, arg := range table {
-		lib.Challenge("IterativeFactorial", student.IterativeFactorial, solutions.IterativeFactorial, arg)
+		lib.Function("IterativeFactorial", student.IterativeFactorial, solutions.IterativeFactorial, arg)
 	}
 }

@@ -28,6 +28,6 @@ func main() {
 		1000000088,
 	)
 	for _, arg := range table {
-		lib.Challenge("FindNextPrime", student.FindNextPrime, solutions.FindNextPrime, arg)
+		lib.Function("FindNextPrime", student.FindNextPrime, solutions.FindNextPrime, arg)
 	}
 }

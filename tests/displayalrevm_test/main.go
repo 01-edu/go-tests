@@ -5,5 +5,5 @@ import (
 )
 
 func main() {
-	lib.ChallengeMain("displayalrevm")
+	lib.Program("displayalrevm")
 }

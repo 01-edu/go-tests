@@ -21,6 +21,6 @@ func main() {
 		table = append(table, strconv.Itoa(i))
 	}
 	for _, s := range table {
-		lib.ChallengeMain("printhex", strings.Fields(s)...)
+		lib.Program("printhex", strings.Fields(s)...)
 	}
 }

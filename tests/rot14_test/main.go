@@ -22,7 +22,7 @@ func main() {
 
 	for _, arg := range table {
 		for _, s := range arg.data {
-			lib.Challenge("Rot14", student.Rot14, solutions.Rot14, s)
+			lib.Function("Rot14", student.Rot14, solutions.Rot14, s)
 		}
 	}
 }

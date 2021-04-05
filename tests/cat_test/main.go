@@ -21,7 +21,7 @@ func main() {
 	table := []string{file1, file1 + " " + file2, "asd", "", file1 + " abc", "abc " + file2}
 
 	for _, s := range table {
-		lib.ChallengeMain("cat", strings.Fields(s)...)
+		lib.Program("cat", strings.Fields(s)...)
 	}
-	lib.ChallengeMainStdin("cat", lib.RandWords()+"\n")
+	lib.ProgramStdin("cat", lib.RandWords()+"\n")
 }

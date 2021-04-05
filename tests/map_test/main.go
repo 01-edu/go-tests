@@ -41,6 +41,6 @@ func main() {
 	})
 
 	for _, arg := range table {
-		lib.Challenge("Map", student.Map, solutions.Map, arg.f, arg.a)
+		lib.Function("Map", student.Map, solutions.Map, arg.f, arg.a)
 	}
 }

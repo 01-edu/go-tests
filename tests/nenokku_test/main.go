@@ -38,6 +38,6 @@ func main() {
 	}
 
 	for _, arg := range table {
-		lib.ChallengeMain("nenokku", arg...)
+		lib.Program("nenokku", arg...)
 	}
 }

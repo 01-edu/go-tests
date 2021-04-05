@@ -26,6 +26,6 @@ func main() {
 	}
 
 	for _, s := range args {
-		lib.ChallengeMain("inter", strings.Fields(s)...)
+		lib.Program("inter", strings.Fields(s)...)
 	}
 }
