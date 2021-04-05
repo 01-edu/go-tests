@@ -16,7 +16,7 @@ RUN go mod download
 COPY lib lib
 COPY solutions solutions
 COPY tests tests
-RUN go install $(grep -rl ChallengeMain ./tests | rev | cut -d/ -f2- | rev)
+RUN go install $(grep -rl 'challenge.Program' ./tests | rev | cut -d/ -f2- | rev)
 
 RUN rm -rf /piscine-go
 
