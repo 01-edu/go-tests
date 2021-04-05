@@ -6,6 +6,7 @@ import (
 	student "student"
 
 	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/lib/challenge"
 )
 
 func compact(slice *[]string) int {
@@ -50,14 +51,14 @@ func main() {
 		stuSize := student.Compact(&stuSlice)
 
 		if !reflect.DeepEqual(stuSlice, solSlice) {
-			lib.Fatalf("Produced slice: %v, instead of %v\n",
+			challenge.Fatalf("Produced slice: %v, instead of %v\n",
 				stuSlice,
 				solSlice,
 			)
 		}
 
 		if solSize != stuSize {
-			lib.Fatalf("%s(%v) == %v instead of %v\n",
+			challenge.Fatalf("%s(%v) == %v instead of %v\n",
 				"Compact",
 				v,
 				stuSlice,

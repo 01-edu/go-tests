@@ -7,6 +7,7 @@ import (
 	student "student"
 
 	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/lib/challenge"
 )
 
 func sortIntegerTable(a []int) {
@@ -27,7 +28,7 @@ func main() {
 		student.SortIntegerTable(table1)
 		sortIntegerTable(table2)
 		if !reflect.DeepEqual(table1, table2) {
-			lib.Fatalf("SortIntegerTable(%v), table1 == %v instead of %v ", tableCopyBefore, table1, table2)
+			challenge.Fatalf("SortIntegerTable(%v), table1 == %v instead of %v ", tableCopyBefore, table1, table2)
 		}
 		i++
 	}

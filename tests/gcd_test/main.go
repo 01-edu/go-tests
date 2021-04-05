@@ -4,6 +4,7 @@ import (
 	"strconv"
 
 	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/lib/challenge"
 )
 
 func main() {
@@ -20,6 +21,6 @@ func main() {
 		args = append(args, []string{a, b})
 	}
 	for _, v := range args {
-		lib.Program("gcd", v...)
+		challenge.Program("gcd", v...)
 	}
 }

@@ -5,6 +5,7 @@ import (
 	"os"
 
 	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/lib/challenge"
 )
 
 func main() {
@@ -24,6 +25,6 @@ func main() {
 		{"-c", "1", file1, file2},
 	}
 	for _, args := range table {
-		lib.Program("ztail", args...)
+		challenge.Program("ztail", args...)
 	}
 }

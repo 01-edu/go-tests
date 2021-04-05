@@ -2,6 +2,7 @@ package main
 
 import (
 	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/lib/challenge"
 )
 
 func main() {
@@ -24,10 +25,10 @@ func main() {
 		)
 	}
 
-	lib.Program("brackets")
+	challenge.Program("brackets")
 
 	for _, v := range oneArgs {
-		lib.Program("brackets", v)
+		challenge.Program("brackets", v)
 	}
 
 	multArg := [][]string{
@@ -37,6 +38,6 @@ func main() {
 	}
 
 	for _, v := range multArg {
-		lib.Program("brackets", v...)
+		challenge.Program("brackets", v...)
 	}
 }

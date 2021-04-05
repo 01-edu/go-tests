@@ -5,7 +5,7 @@ import (
 
 	student "student"
 
-	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/lib/challenge"
 	"github.com/01-edu/go-tests/solutions"
 )
 
@@ -17,7 +17,7 @@ func BTreeMinStu(root *student.TreeNode) *student.TreeNode {
 }
 
 func errorMessage_isbin(fn interface{}, root, a *solutions.TreeNode, b *student.TreeNode) {
-	lib.Fatalf("%s(\n%s\n) == %s instead of %s\n",
+	challenge.Fatalf("%s(\n%s\n) == %s instead of %s\n",
 		"BTreeIsBinary",
 		solutions.FormatTree(root),
 		b.Data,
@@ -27,31 +27,31 @@ func errorMessage_isbin(fn interface{}, root, a *solutions.TreeNode, b *student.
 
 func CompareNode_isbin(fn interface{}, arg1, a *solutions.TreeNode, b *student.TreeNode) {
 	if a == nil || b == nil {
-		lib.Fatalf("Expected %v instead of %v\n", a, b)
+		challenge.Fatalf("Expected %v instead of %v\n", a, b)
 	}
 	if a.Data != b.Data {
 		errorMessage_isbin(fn, arg1, a, b)
 	}
 	if a.Parent != nil && b.Parent != nil && a.Parent.Data != b.Parent.Data {
 		errorMessage_isbin(fn, arg1, a, b)
-		lib.Fatalf("Expected parent value %v instead of %v\n", a.Parent.Data, b.Parent.Data)
+		challenge.Fatalf("Expected parent value %v instead of %v\n", a.Parent.Data, b.Parent.Data)
 	}
 	if (a.Parent == nil && b.Parent != nil) || (a.Parent != nil && b.Parent == nil) {
-		lib.Fatalf("Expected parent value %v instead of %v\n", a.Parent, b.Parent)
+		challenge.Fatalf("Expected parent value %v instead of %v\n", a.Parent, b.Parent)
 	}
 	if a.Right != nil && b.Right != nil && a.Right.Data != b.Right.Data {
 		errorMessage_isbin(fn, arg1, a, b)
-		lib.Fatalf("Expected right child value %v instead of %v\n", a.Right.Data, b.Right.Data)
+		challenge.Fatalf("Expected right child value %v instead of %v\n", a.Right.Data, b.Right.Data)
 	}
 	if (a.Right == nil && b.Right != nil) || (a.Right != nil && b.Right == nil) {
-		lib.Fatalf("Expected right child value %v instead of %v\n", a.Right, b.Right)
+		challenge.Fatalf("Expected right child value %v instead of %v\n", a.Right, b.Right)
 	}
 	if a.Left != nil && b.Left != nil && a.Left.Data != b.Left.Data {
 		errorMessage_isbin(fn, arg1, a, b)
-		lib.Fatalf("Expected left child value %v instead of %v\n", a.Left, b.Left)
+		challenge.Fatalf("Expected left child value %v instead of %v\n", a.Left, b.Left)
 	}
 	if (a.Left == nil && b.Left != nil) || (a.Left != nil && b.Left == nil) {
-		lib.Fatalf("Expected left child value %v instead of %v\n", a, b)
+		challenge.Fatalf("Expected left child value %v instead of %v\n", a, b)
 	}
 }
 
@@ -59,8 +59,8 @@ func CompareReturn_isbin(fn1, fn2 interface{}, arg1 *solutions.TreeNode, arg2 in
 	arar1 := []interface{}{arg1}
 	arar2 := []interface{}{arg2}
 
-	out1 := lib.Monitor(fn1, arar1)
-	out2 := lib.Monitor(fn2, arar2)
+	out1 := challenge.Monitor(fn1, arar1)
+	out2 := challenge.Monitor(fn2, arar2)
 
 	for i, v := range out1.Results {
 		switch str := v.(type) {
@@ -68,11 +68,11 @@ func CompareReturn_isbin(fn1, fn2 interface{}, arg1 *solutions.TreeNode, arg2 in
 			CompareNode_isbin(fn1, arg1, str, out2.Results[i].(*student.TreeNode))
 		default:
 			if !reflect.DeepEqual(str, out2.Results[i]) {
-				lib.Fatalf("%s(\n%s) == %s instead of %s\n",
+				challenge.Fatalf("%s(\n%s) == %s instead of %s\n",
 					"BTreeIsBinary",
 					solutions.FormatTree(arg1),
-					lib.Format(out2.Results...),
-					lib.Format(out1.Results...),
+					challenge.Format(out2.Results...),
+					challenge.Format(out1.Results...),
 				)
 			}
 		}

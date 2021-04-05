@@ -1,9 +1,7 @@
 package main
 
-import (
-	"github.com/01-edu/go-tests/lib"
-)
+import "github.com/01-edu/go-tests/lib/challenge"
 
 func main() {
-	lib.Program("printalphabetalt2")
+	challenge.Program("printalphabetalt2")
 }

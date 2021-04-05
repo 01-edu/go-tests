@@ -3,7 +3,7 @@ package main
 import (
 	student "student"
 
-	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/lib/challenge"
 	"github.com/01-edu/go-tests/solutions"
 )
 
@@ -55,7 +55,7 @@ func main() {
 		aux := solutions.ListSize(link)
 		aux2 := student.ListSize(link2)
 		if aux != aux2 {
-			lib.Fatalf("ListSize(%v) == %d instead of %d\n", solutions.ListToString(link.Head), aux2, aux)
+			challenge.Fatalf("ListSize(%v) == %d instead of %d\n", solutions.ListToString(link.Head), aux2, aux)
 		}
 		link = &List2{}
 		link2 = &ListS2{}

@@ -4,6 +4,7 @@ import (
 	student "student"
 
 	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/lib/challenge"
 	"github.com/01-edu/go-tests/solutions"
 )
 
@@ -19,6 +20,6 @@ func main() {
 		[]string{"Hello!", " How are you?"},
 	)
 	for _, arg := range table {
-		lib.Function("Concat", student.Concat, solutions.Concat, arg[0], arg[1])
+		challenge.Function("Concat", student.Concat, solutions.Concat, arg[0], arg[1])
 	}
 }

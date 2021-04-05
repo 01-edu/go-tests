@@ -4,6 +4,7 @@ import (
 	student "student"
 
 	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/lib/challenge"
 )
 
 // Helper function used in the test for checking the function Enigma()
@@ -51,25 +52,25 @@ func main() {
 	decrypt(a, b, c, d)
 
 	if aval != ***a {
-		lib.Fatalf("Expected ***a = %d instead of %d\n",
+		challenge.Fatalf("Expected ***a = %d instead of %d\n",
 			aval,
 			***a,
 		)
 	}
 	if bval != *b {
-		lib.Fatalf("Expected *b = %d instead of %d\n",
+		challenge.Fatalf("Expected *b = %d instead of %d\n",
 			bval,
 			*b,
 		)
 	}
 	if cval != *******c {
-		lib.Fatalf("Expected *******c = %d instead of %d\n",
+		challenge.Fatalf("Expected *******c = %d instead of %d\n",
 			cval,
 			*******c,
 		)
 	}
 	if dval != ****d {
-		lib.Fatalf("Expected ****d = %d instead of %d\n",
+		challenge.Fatalf("Expected ****d = %d instead of %d\n",
 			dval,
 			****d,
 		)

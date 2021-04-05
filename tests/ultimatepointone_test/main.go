@@ -3,7 +3,7 @@ package main
 import (
 	student "student"
 
-	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/lib/challenge"
 )
 
 func main() {
@@ -12,6 +12,6 @@ func main() {
 	n := &b
 	student.UltimatePointOne(&n)
 	if a != 1 {
-		lib.Fatalf("UltimatePointOne(&n), a == %d instead of 1", a)
+		challenge.Fatalf("UltimatePointOne(&n), a == %d instead of 1", a)
 	}
 }

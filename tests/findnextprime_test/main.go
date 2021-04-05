@@ -4,6 +4,7 @@ import (
 	student "student"
 
 	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/lib/challenge"
 	"github.com/01-edu/go-tests/solutions"
 )
 
@@ -28,6 +29,6 @@ func main() {
 		1000000088,
 	)
 	for _, arg := range table {
-		lib.Function("FindNextPrime", student.FindNextPrime, solutions.FindNextPrime, arg)
+		challenge.Function("FindNextPrime", student.FindNextPrime, solutions.FindNextPrime, arg)
 	}
 }

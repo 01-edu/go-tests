@@ -5,7 +5,7 @@ import (
 
 	student "student"
 
-	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/lib/challenge"
 	"github.com/01-edu/go-tests/solutions"
 )
 
@@ -82,7 +82,7 @@ func formatSubTree_transp(root *student.TreeNode, prefix string) string {
 }
 
 func errorMessage_transp(fn interface{}, root, sel, repl *solutions.TreeNode, rootA *solutions.TreeNode, rootAS *student.TreeNode) {
-	lib.Fatalf("%s(\nRoot:\n %s, Selected:\n%s, Replacement:\n%s\n) ==\n%s instead of\n%s\n",
+	challenge.Fatalf("%s(\nRoot:\n %s, Selected:\n%s, Replacement:\n%s\n) ==\n%s instead of\n%s\n",
 		"BTreeTransplant",
 		solutions.FormatTree(root),
 		solutions.FormatTree(sel),
@@ -104,7 +104,7 @@ func CompareTrees_transp(fn interface{}, root, sel, repl *solutions.TreeNode, ro
 
 	if parentSol != parentStu {
 		fmt.Println("Tree:\n", solTree)
-		lib.Fatalf("Expected\n%s instead of\n%s\n", parentSol, parentStu)
+		challenge.Fatalf("Expected\n%s instead of\n%s\n", parentSol, parentStu)
 	}
 }
 

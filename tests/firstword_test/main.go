@@ -2,6 +2,7 @@ package main
 
 import (
 	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/lib/challenge"
 )
 
 func main() {
@@ -15,6 +16,6 @@ func main() {
 		"salut ! !",
 	)
 	for _, s := range table {
-		lib.Program("firstword", s)
+		challenge.Program("firstword", s)
 	}
 }

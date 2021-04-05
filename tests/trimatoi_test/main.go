@@ -4,6 +4,7 @@ import (
 	student "student"
 
 	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/lib/challenge"
 	"github.com/01-edu/go-tests/solutions"
 )
 
@@ -37,7 +38,7 @@ func main() {
 	}
 	a = stringsToTrimAtoi(a)
 	for _, elem := range a {
-		lib.Function("TrimAtoi", student.TrimAtoi, solutions.TrimAtoi, elem)
+		challenge.Function("TrimAtoi", student.TrimAtoi, solutions.TrimAtoi, elem)
 	}
 }
 

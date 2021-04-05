@@ -1,8 +1,6 @@
 package main
 
-import (
-	"github.com/01-edu/go-tests/lib"
-)
+import "github.com/01-edu/go-tests/lib/challenge"
 
 func main() {
 	args := []string{
@@ -23,8 +21,8 @@ func main() {
 	}
 
 	for _, v := range args {
-		lib.Program("rpncalc", v)
+		challenge.Program("rpncalc", v)
 	}
-	lib.Program("rpncalc")
-	lib.Program("rpncalc", "1 2 * 3 * 4 +", "10 33 - 12 %")
+	challenge.Program("rpncalc")
+	challenge.Program("rpncalc", "1 2 * 3 * 4 +", "10 33 - 12 %")
 }

@@ -4,6 +4,7 @@ import (
 	"strings"
 
 	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/lib/challenge"
 )
 
 func main() {
@@ -14,8 +15,8 @@ func main() {
 		"1",
 	)
 	for _, s := range table {
-		lib.Program("displayz", strings.Fields(s)...)
+		challenge.Program("displayz", strings.Fields(s)...)
 	}
 
-	lib.Program("displayz", "1", "z")
+	challenge.Program("displayz", "1", "z")
 }

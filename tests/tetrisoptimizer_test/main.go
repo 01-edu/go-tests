@@ -12,7 +12,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/lib/challenge"
 )
 
 type (
@@ -73,12 +73,12 @@ func main() {
 	// load samples
 	f, err := os.Open(samples)
 	if err != nil {
-		lib.Fatal("Cannot open directory", err)
+		challenge.Fatal("Cannot open directory", err)
 	}
 	defer f.Close()
 	filenames, err := f.Readdirnames(0)
 	if err != nil {
-		lib.Fatal("Cannot read directory", err)
+		challenge.Fatal("Cannot read directory", err)
 	}
 
 	// separate samples into good (valid) and bad (invalid) files
@@ -97,7 +97,7 @@ func main() {
 	cmd := exec.Command("go", "build", "-o", exe, "-trimpath", "-ldflags", "-s -w", student)
 	cmd.Env = append(os.Environ(), "CGO_ENABLED=0", "GOARCH=amd64")
 	if out, err := cmd.CombinedOutput(); err != nil {
-		lib.Fatal("Cannot compile :", string(out))
+		challenge.Fatal("Cannot compile :", string(out))
 	}
 
 	ctx, cancel := context.WithTimeout(context.Background(), timeout)
@@ -107,7 +107,7 @@ func main() {
 	for _, badFile := range badFiles {
 		b, _ := exec.CommandContext(ctx, exe, badFile).CombinedOutput()
 		if string(b) != "ERROR\n" {
-			lib.Fatal(`Failed to handle bad format, should output : "ERROR\n"`)
+			challenge.Fatal(`Failed to handle bad format, should output : "ERROR\n"`)
 		}
 	}
 
@@ -123,35 +123,35 @@ func main() {
 			return
 		}
 		if err != nil {
-			lib.Fatal("Failed to process a valid map : execution failed")
+			challenge.Fatal("Failed to process a valid map : execution failed")
 		}
 		s := string(b)
 		lines := strings.Split(s, "\n")
 		if lines[len(lines)-1] != "" {
-			lib.Fatal(`Failed to process a valid map : missing final '\n'`)
+			challenge.Fatal(`Failed to process a valid map : missing final '\n'`)
 		}
 		lines = lines[:len(lines)-1]
 		for _, line := range lines {
 			if len(line) != len(lines) {
-				lib.Fatal("Failed to process a valid map : invalid square, it is expected as many lines as characters")
+				challenge.Fatal("Failed to process a valid map : invalid square, it is expected as many lines as characters")
 			}
 		}
 		if len(lines) < size {
-			lib.Fatal("Failed to process a valid map : the square cannot be that small")
+			challenge.Fatal("Failed to process a valid map : the square cannot be that small")
 		}
 		b, err = ioutil.ReadFile(goodFile)
 		if err != nil {
-			lib.Fatal("Failed to read a valid map")
+			challenge.Fatal("Failed to read a valid map")
 		}
 		pieces := strings.Split(string(b), "\n\n")
 		surface := len(lines) * len(lines)
 		if strings.Count(s, ".") != surface-len(pieces)*4 {
-			lib.Fatal("Failed to process a valid map : the number of holes (character '.') is not correct")
+			challenge.Fatal("Failed to process a valid map : the number of holes (character '.') is not correct")
 		}
 		letter := 'A'
 		for _, piece := range pieces {
 			if read(s, letter) != read(piece, '#') {
-				lib.Fatal("Failed to process a valid map : a tetromino is missing")
+				challenge.Fatal("Failed to process a valid map : a tetromino is missing")
 			}
 			letter += 1
 		}

@@ -3,7 +3,7 @@ package main
 import (
 	student "student"
 
-	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/lib/challenge"
 	"github.com/01-edu/go-tests/solutions"
 )
 
@@ -80,7 +80,7 @@ func formatSubTree_insert(root *student.TreeNode, prefix string) string {
 }
 
 func errorMessage_insert(fn interface{}, inserted string, root *solutions.TreeNode, rootS *student.TreeNode) {
-	lib.Fatalf("%s(\n%s, %s\n) ==\n%s instead of\n%s\n",
+	challenge.Fatalf("%s(\n%s, %s\n) ==\n%s instead of\n%s\n",
 		"BTreeInsertData",
 		solutions.FormatTree(root),
 		inserted,

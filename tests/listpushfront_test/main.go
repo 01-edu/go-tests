@@ -5,7 +5,7 @@ import (
 
 	student "student"
 
-	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/lib/challenge"
 	"github.com/01-edu/go-tests/solutions"
 )
 
@@ -34,11 +34,11 @@ func listToStringStu11(l *Lista) string {
 func comparFuncList1(l *Lista, l1 *ListSa, data []interface{}) {
 	for l.Head != nil || l1.Head != nil {
 		if (l.Head == nil && l1.Head != nil) || (l.Head != nil && l1.Head == nil) {
-			lib.Fatalf("\ndata used: %v\nstudent list:%s\nlist:%s\n\nListPushFront()== %v instead of %v\n\n",
+			challenge.Fatalf("\ndata used: %v\nstudent list:%s\nlist:%s\n\nListPushFront()== %v instead of %v\n\n",
 				data, listToStringStu11(l), solutions.ListToString(l1.Head), l.Head, l1.Head)
 		}
 		if l.Head.Data != l1.Head.Data {
-			lib.Fatalf("\ndata used: %v\nstudent list:%s\nlist:%s\n\nListPushFront()== %v instead of %v\n\n",
+			challenge.Fatalf("\ndata used: %v\nstudent list:%s\nlist:%s\n\nListPushFront()== %v instead of %v\n\n",
 				data, listToStringStu11(l), solutions.ListToString(l1.Head), l.Head, l1.Head)
 		}
 		l1.Head = l1.Head.Next

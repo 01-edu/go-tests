@@ -2,6 +2,7 @@ package main
 
 import (
 	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/lib/challenge"
 )
 
 func main() {
@@ -11,6 +12,6 @@ func main() {
 		"abcdefghi jklmnop qrstuvwxyz ABCDEFGHI JKLMNOPQR STUVWXYZ ! ",
 	)
 	for _, s := range table {
-		lib.Program("switchcase", s)
+		challenge.Program("switchcase", s)
 	}
 }

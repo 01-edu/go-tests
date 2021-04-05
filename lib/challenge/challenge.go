@@ -1,4 +1,4 @@
-package lib
+package challenge
 
 import (
 	"bytes"
@@ -184,18 +184,6 @@ func ProgramStdin(exercise, input string, args ...string) {
 			"Expected :\n" +
 			console(solution))
 	}
-}
-
-// GCD returns greatest common divisor of a and b.
-func GCD(a, b int) int {
-	for a != b {
-		if a > b {
-			a -= b
-		} else {
-			b -= a
-		}
-	}
-	return a
 }
 
 func Program(exercise string, args ...string) {

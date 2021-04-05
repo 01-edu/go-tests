@@ -5,6 +5,7 @@ import (
 
 	"github.com/01-edu/go-tests/lib"
 	"github.com/01-edu/go-tests/lib/base"
+	"github.com/01-edu/go-tests/lib/challenge"
 	"github.com/01-edu/go-tests/solutions"
 )
 
@@ -35,7 +36,7 @@ func main() {
 	})
 
 	for _, arg := range table {
-		lib.Function("ConvertBase", student.ConvertBase, solutions.ConvertBase, arg.nbr, arg.baseFrom, arg.baseTo)
+		challenge.Function("ConvertBase", student.ConvertBase, solutions.ConvertBase, arg.nbr, arg.baseFrom, arg.baseTo)
 	}
 }
 

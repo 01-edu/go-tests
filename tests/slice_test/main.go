@@ -4,6 +4,7 @@ import (
 	student "student"
 
 	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/lib/challenge"
 	"github.com/01-edu/go-tests/solutions"
 )
 
@@ -41,6 +42,6 @@ func main() {
 	}
 
 	for _, a := range elems {
-		lib.Function("Slice", student.Slice, solutions.Slice, a...)
+		challenge.Function("Slice", student.Slice, solutions.Slice, a...)
 	}
 }

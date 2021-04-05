@@ -5,7 +5,7 @@ import (
 
 	student "student"
 
-	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/lib/challenge"
 	"github.com/01-edu/go-tests/solutions"
 )
 
@@ -59,11 +59,11 @@ func comparFuncList7(l1 *List7, l2 *ListS7, f func(*Node7)) {
 	funcName := solutions.GetName(f)
 	for l1.Head != nil || l2.Head != nil {
 		if (l1.Head == nil && l2.Head != nil) || (l1.Head != nil && l2.Head == nil) {
-			lib.Fatalf("\nstudent list: %s\nlist: %s\nfunction used: %s\n\nListForEach() == %v instead of %v\n\n",
+			challenge.Fatalf("\nstudent list: %s\nlist: %s\nfunction used: %s\n\nListForEach() == %v instead of %v\n\n",
 				listToStringStu8(l2), solutions.ListToString(l1.Head), funcName, l2.Head, l1.Head)
 		}
 		if l1.Head.Data != l2.Head.Data {
-			lib.Fatalf("\nstudent list: %s\nlist: %s\nfunction used: %s\n\nListForEach() == %v instead of %v\n\n",
+			challenge.Fatalf("\nstudent list: %s\nlist: %s\nfunction used: %s\n\nListForEach() == %v instead of %v\n\n",
 				listToStringStu8(l2), solutions.ListToString(l1.Head), funcName, l2.Head.Data, l1.Head.Data)
 		}
 		l1.Head = l1.Head.Next

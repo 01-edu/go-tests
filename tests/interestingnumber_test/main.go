@@ -4,6 +4,7 @@ import (
 	student "student"
 
 	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/lib/challenge"
 	"github.com/01-edu/go-tests/solutions"
 )
 
@@ -17,6 +18,6 @@ func main() {
 	table = append(table, lib.MultRandIntBetween(1, 1500)...)
 
 	for _, arg := range table {
-		lib.Function("InterestingNumber", student.InterestingNumber, solutions.InterestingNumber, arg)
+		challenge.Function("InterestingNumber", student.InterestingNumber, solutions.InterestingNumber, arg)
 	}
 }

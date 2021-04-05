@@ -4,6 +4,7 @@ import (
 	student "student"
 
 	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/lib/challenge"
 	"github.com/01-edu/go-tests/solutions"
 )
 
@@ -20,7 +21,7 @@ func main() {
 	table = append(table, randomStringCharset)
 
 	for _, s := range table {
-		lib.Function("StrLen", student.StrLen, solutions.StrLen, s)
+		challenge.Function("StrLen", student.StrLen, solutions.StrLen, s)
 	}
 }
 

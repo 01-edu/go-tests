@@ -3,7 +3,7 @@ package main
 import (
 	student "student"
 
-	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/lib/challenge"
 	"github.com/01-edu/go-tests/solutions"
 )
 
@@ -59,7 +59,7 @@ func main() {
 
 			if aux1 != nil || aux2 != nil {
 				if *aux1 != *aux2 {
-					lib.Fatalf("ListFind(ref: %s) == %s instead of %s\n", arg.Data[(len(arg.Data)-1)/2], *aux1, *aux2)
+					challenge.Fatalf("ListFind(ref: %s) == %s instead of %s\n", arg.Data[(len(arg.Data)-1)/2], *aux1, *aux2)
 				}
 			}
 		}
@@ -75,7 +75,7 @@ func main() {
 	aux2 := solutions.ListFind(link1, "lksdf", solutions.CompStr)
 	if aux1 != nil && aux2 != nil {
 		if *aux1 != *aux2 {
-			lib.Fatalf("ListFind(ref: lksdf) == %s instead of %s\n", *aux1, *aux2)
+			challenge.Fatalf("ListFind(ref: lksdf) == %s instead of %s\n", *aux1, *aux2)
 		}
 	}
 }

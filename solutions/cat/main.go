@@ -5,7 +5,7 @@ import (
 	"io/ioutil"
 	"os"
 
-	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/lib/challenge"
 )
 
 func main() {
@@ -17,7 +17,7 @@ func main() {
 		for _, arg := range os.Args[1:] {
 			b, err := ioutil.ReadFile(arg)
 			if err != nil {
-				lib.Fatalln("ERROR:", err)
+				challenge.Fatalln("ERROR:", err)
 			}
 			os.Stdout.Write(b)
 		}

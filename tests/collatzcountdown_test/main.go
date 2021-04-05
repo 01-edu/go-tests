@@ -4,6 +4,7 @@ import (
 	student "student"
 
 	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/lib/challenge"
 	"github.com/01-edu/go-tests/solutions"
 )
 
@@ -14,6 +15,6 @@ func main() {
 		0,
 	)
 	for _, v := range args {
-		lib.Function("CollatzCountdown", student.CollatzCountdown, solutions.CollatzCountdown, v)
+		challenge.Function("CollatzCountdown", student.CollatzCountdown, solutions.CollatzCountdown, v)
 	}
 }

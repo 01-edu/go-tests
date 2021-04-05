@@ -2,6 +2,7 @@ package main
 
 import (
 	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/lib/challenge"
 )
 
 func main() {
@@ -15,9 +16,9 @@ func main() {
 	args = append(args, lib.MultRandWords()...)
 
 	for _, v := range args {
-		lib.Program("lastword", v)
+		challenge.Program("lastword", v)
 	}
 
-	lib.Program("lastword", "a", "b")
-	lib.Program("lastword")
+	challenge.Program("lastword", "a", "b")
+	challenge.Program("lastword")
 }

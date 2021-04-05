@@ -6,6 +6,7 @@ import (
 	student "student"
 
 	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/lib/challenge"
 	"github.com/01-edu/go-tests/solutions"
 )
 
@@ -62,11 +63,11 @@ func listPushBackTest11(l1 *ListS11, l2 *List11, data interface{}) {
 func comparFuncList11(l1 *List11, l2 *ListS11) {
 	for l1.Head != nil || l2.Head != nil {
 		if (l1.Head == nil && l2.Head != nil) || (l1.Head != nil && l2.Head == nil) {
-			lib.Fatalf("\nstudent list:%s\nlist:%s\n\nListMerge() == %v instead of %v\n\n",
+			challenge.Fatalf("\nstudent list:%s\nlist:%s\n\nListMerge() == %v instead of %v\n\n",
 				listToStringStu(l2), solutions.ListToString(l1.Head), l2.Head, l1.Head)
 		}
 		if l1.Head.Data != l2.Head.Data {
-			lib.Fatalf("\nstudent list:%s\nlist:%s\n\nListMerge() == %v instead of %v\n\n",
+			challenge.Fatalf("\nstudent list:%s\nlist:%s\n\nListMerge() == %v instead of %v\n\n",
 				listToStringStu(l2), solutions.ListToString(l1.Head), l2.Head.Data, l1.Head.Data)
 		}
 		l1.Head = l1.Head.Next

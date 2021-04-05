@@ -4,6 +4,7 @@ import (
 	student "student"
 
 	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/lib/challenge"
 	"github.com/01-edu/go-tests/solutions"
 )
 
@@ -24,7 +25,7 @@ func main() {
 
 	for i := 0; i < len(table); i += 2 {
 		if i != len(table)-1 {
-			lib.Function("QuadB", student.QuadB, solutions.QuadB, table[i], table[i+1])
+			challenge.Function("QuadB", student.QuadB, solutions.QuadB, table[i], table[i+1])
 		}
 	}
 }

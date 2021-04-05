@@ -7,6 +7,7 @@ import (
 	"strings"
 
 	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/lib/challenge"
 )
 
 func FormatTree(root *TreeNode) string {
@@ -96,15 +97,15 @@ func ChallengeTree(
 			args2 = append(args2, v)
 		}
 	}
-	st1 := lib.Monitor(fn1, args1)
-	st2 := lib.Monitor(fn2, args2)
+	st1 := challenge.Monitor(fn1, args1)
+	st2 := challenge.Monitor(fn2, args2)
 
 	if st1.Stdout != st2.Stdout {
-		lib.Fatalf("%s(\n%s)\n prints %s instead of %s\n",
+		challenge.Fatalf("%s(\n%s)\n prints %s instead of %s\n",
 			name,
 			FormatTree(arg1),
-			lib.Format(st2.Stdout),
-			lib.Format(st1.Stdout),
+			challenge.Format(st2.Stdout),
+			challenge.Format(st1.Stdout),
 		)
 	}
 }

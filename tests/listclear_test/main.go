@@ -5,7 +5,7 @@ import (
 
 	student "student"
 
-	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/lib/challenge"
 	"github.com/01-edu/go-tests/solutions"
 )
 
@@ -78,7 +78,7 @@ func main() {
 		student.ListClear(link2)
 
 		if link2.Head != nil {
-			lib.Fatalf("\nstudent list:%s\nlist:%s\n\nListClear() == %v instead of %v\n\n",
+			challenge.Fatalf("\nstudent list:%s\nlist:%s\n\nListClear() == %v instead of %v\n\n",
 				listToStringStu5(link2), solutions.ListToString(link1.Head), link2.Head, link1.Head)
 		}
 	}

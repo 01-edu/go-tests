@@ -5,15 +5,16 @@ import (
 	"strconv"
 
 	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/lib/challenge"
 )
 
 func main() {
 	execFatal := func(name string, arg ...string) string {
 		b, err := exec.Command(name, arg...).CombinedOutput()
 		if _, ok := err.(*exec.ExitError); ok {
-			lib.Fatalf("%s\n", b)
+			challenge.Fatalf("%s\n", b)
 		} else {
-			lib.Fatalf("%s\n", err)
+			challenge.Fatalf("%s\n", err)
 		}
 		return string(b)
 	}
@@ -30,7 +31,7 @@ func main() {
 			correct = execFatal("sh", "-c", "./"+name+" "+strconv.Itoa(x)+" "+strconv.Itoa(y)+" | raid3_prog")
 		}
 		if output != correct {
-			lib.Fatalf("./%s %d %d | ./raid3 prints %q instead of %q\n",
+			challenge.Fatalf("./%s %d %d | ./raid3 prints %q instead of %q\n",
 				name, x, y, output, correct)
 		}
 	}

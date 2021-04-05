@@ -5,7 +5,7 @@ import (
 
 	student "student"
 
-	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/lib/challenge"
 	"github.com/01-edu/go-tests/solutions"
 )
 
@@ -72,7 +72,7 @@ func main() {
 		aux2 := student.ListLast(link2)
 
 		if aux1 != aux2 {
-			lib.Fatalf("\nlist:%s\n\nListLast() == %v instead of %v\n\n",
+			challenge.Fatalf("\nlist:%s\n\nListLast() == %v instead of %v\n\n",
 				listToStringStu9(link2), aux2, aux1)
 		}
 		link1 = &List3{}

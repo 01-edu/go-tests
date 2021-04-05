@@ -4,6 +4,7 @@ import (
 	"strconv"
 
 	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/lib/challenge"
 )
 
 func main() {
@@ -19,6 +20,6 @@ func main() {
 		rand = append(rand, strconv.Itoa(lib.RandIntBetween(0, 4000)))
 	}
 	for _, v := range rand {
-		lib.Program("romannumbers", v)
+		challenge.Program("romannumbers", v)
 	}
 }

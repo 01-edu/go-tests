@@ -2,6 +2,7 @@ package main
 
 import (
 	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/lib/challenge"
 )
 
 func main() {
@@ -14,7 +15,7 @@ func main() {
 	}
 
 	for _, v := range args {
-		lib.Program("cleanstr", v)
+		challenge.Program("cleanstr", v)
 	}
-	lib.Program("cleanstr", "this is   not", "happening")
+	challenge.Program("cleanstr", "this is   not", "happening")
 }

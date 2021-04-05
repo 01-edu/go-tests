@@ -6,6 +6,7 @@ import (
 	student "student"
 
 	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/lib/challenge"
 	"github.com/01-edu/go-tests/solutions"
 )
 
@@ -23,6 +24,6 @@ func main() {
 		"000000",
 	)
 	for _, arg := range table {
-		lib.Function("BasicAtoi", student.BasicAtoi, solutions.BasicAtoi, arg)
+		challenge.Function("BasicAtoi", student.BasicAtoi, solutions.BasicAtoi, arg)
 	}
 }

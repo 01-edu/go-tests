@@ -4,6 +4,7 @@ import (
 	student "student"
 
 	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/lib/challenge"
 	"github.com/01-edu/go-tests/solutions"
 )
 
@@ -22,6 +23,6 @@ func main() {
 		{i1, i2, i1, i2, i1 + i3, i2 - i3},
 	}
 	for _, v := range args {
-		lib.Function("Unmatch", student.Unmatch, solutions.Unmatch, v)
+		challenge.Function("Unmatch", student.Unmatch, solutions.Unmatch, v)
 	}
 }

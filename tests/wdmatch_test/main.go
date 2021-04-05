@@ -4,6 +4,7 @@ import (
 	"strings"
 
 	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/lib/challenge"
 )
 
 func main() {
@@ -16,6 +17,6 @@ func main() {
 	)
 
 	for _, s := range table {
-		lib.Program("wdmatch", strings.Fields(s)...)
+		challenge.Program("wdmatch", strings.Fields(s)...)
 	}
 }

@@ -4,6 +4,7 @@ import (
 	student "student"
 
 	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/lib/challenge"
 	"github.com/01-edu/go-tests/solutions"
 )
 
@@ -13,6 +14,6 @@ func main() {
 	args = append(args, lib.MultRandIntBetween(2, 20)...)
 
 	for _, v := range args {
-		lib.Function("ActiveBits", student.ActiveBits, solutions.ActiveBits, v)
+		challenge.Function("ActiveBits", student.ActiveBits, solutions.ActiveBits, v)
 	}
 }

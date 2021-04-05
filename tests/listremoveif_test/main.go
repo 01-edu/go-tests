@@ -6,6 +6,7 @@ import (
 	student "student"
 
 	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/lib/challenge"
 	"github.com/01-edu/go-tests/solutions"
 )
 
@@ -58,11 +59,11 @@ func listPushBackTest10(l *ListS10, l1 *List10, data interface{}) {
 func comparFuncList10(l *List10, l1 *ListS10, data interface{}) {
 	for l.Head != nil || l1.Head != nil {
 		if (l.Head == nil && l1.Head != nil) || (l.Head != nil && l1.Head == nil) {
-			lib.Fatalf("\ndata used: %v\nstudent list:%s\nlist:%s\n\nListRemoveIf() == %v instead of %v\n\n",
+			challenge.Fatalf("\ndata used: %v\nstudent list:%s\nlist:%s\n\nListRemoveIf() == %v instead of %v\n\n",
 				data, listToStringStu12(l1), solutions.ListToString(l.Head), l1.Head, l.Head)
 		}
 		if l.Head.Data != l1.Head.Data {
-			lib.Fatalf("\ndata used: %v\nstudent list:%s\nlist:%s\n\nListRemoveIf() == %v instead of %v\n\n",
+			challenge.Fatalf("\ndata used: %v\nstudent list:%s\nlist:%s\n\nListRemoveIf() == %v instead of %v\n\n",
 				data, listToStringStu12(l1), solutions.ListToString(l.Head), l1.Head.Data, l.Head.Data)
 		}
 		l.Head = l.Head.Next

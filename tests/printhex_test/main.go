@@ -5,6 +5,7 @@ import (
 	"strings"
 
 	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/lib/challenge"
 )
 
 func main() {
@@ -21,6 +22,6 @@ func main() {
 		table = append(table, strconv.Itoa(i))
 	}
 	for _, s := range table {
-		lib.Program("printhex", strings.Fields(s)...)
+		challenge.Program("printhex", strings.Fields(s)...)
 	}
 }

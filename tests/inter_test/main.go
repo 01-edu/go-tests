@@ -4,6 +4,7 @@ import (
 	"strings"
 
 	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/lib/challenge"
 )
 
 func main() {
@@ -26,6 +27,6 @@ func main() {
 	}
 
 	for _, s := range args {
-		lib.Program("inter", strings.Fields(s)...)
+		challenge.Program("inter", strings.Fields(s)...)
 	}
 }

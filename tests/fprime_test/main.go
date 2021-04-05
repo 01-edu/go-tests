@@ -4,6 +4,7 @@ import (
 	"strconv"
 
 	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/lib/challenge"
 )
 
 func main() {
@@ -25,6 +26,6 @@ func main() {
 		table = append(table, strconv.Itoa(lib.RandIntBetween(1, 100)))
 	}
 	for _, s := range table {
-		lib.Program("fprime", s)
+		challenge.Program("fprime", s)
 	}
 }

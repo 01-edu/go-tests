@@ -4,6 +4,7 @@ import (
 	student "student"
 
 	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/lib/challenge"
 	"github.com/01-edu/go-tests/solutions"
 )
 
@@ -14,5 +15,5 @@ func main() {
 		args = append(args, lib.RandInt())
 	}
 
-	lib.Function("Max", student.Max, solutions.Max, args)
+	challenge.Function("Max", student.Max, solutions.Max, args)
 }

@@ -4,6 +4,7 @@ import (
 	student "student"
 
 	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/lib/challenge"
 	"github.com/01-edu/go-tests/solutions"
 )
 
@@ -16,6 +17,6 @@ func main() {
 		lib.RandStr(lib.RandIntBetween(1, 15), lib.RandAlnum()),
 	)
 	for _, arg := range table {
-		lib.Function("LastRune", student.LastRune, solutions.LastRune, arg)
+		challenge.Function("LastRune", student.LastRune, solutions.LastRune, arg)
 	}
 }

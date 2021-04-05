@@ -2,6 +2,7 @@ package main
 
 import (
 	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/lib/challenge"
 )
 
 func main() {
@@ -19,6 +20,6 @@ func main() {
 		)
 	}
 	for _, v := range args {
-		lib.Program("hiddenp", v[0], v[1])
+		challenge.Program("hiddenp", v[0], v[1])
 	}
 }

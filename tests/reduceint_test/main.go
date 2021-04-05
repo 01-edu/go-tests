@@ -4,6 +4,7 @@ import (
 	student "student"
 
 	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/lib/challenge"
 	"github.com/01-edu/go-tests/solutions"
 )
 
@@ -37,7 +38,7 @@ func main() {
 
 	for _, v := range table {
 		for _, f := range v.functions {
-			lib.Function("ReduceInt", student.ReduceInt, solutions.ReduceInt, v.a, f)
+			challenge.Function("ReduceInt", student.ReduceInt, solutions.ReduceInt, v.a, f)
 		}
 	}
 }

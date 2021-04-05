@@ -4,6 +4,7 @@ import (
 	student "student"
 
 	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/lib/challenge"
 	"github.com/01-edu/go-tests/solutions"
 )
 
@@ -43,11 +44,11 @@ func comparFuncNode5(solutionList *NodeS5, l1 *Node5, l2 *NodeS5, arg int) {
 		return
 	}
 	if l1 != nil && l2 == nil {
-		lib.Fatalf("\nListAt(%s, %d) == %v instead of %v\n\n",
+		challenge.Fatalf("\nListAt(%s, %d) == %v instead of %v\n\n",
 			solutions.ListToString(solutionList), arg, l1, l2)
 	}
 	if l1.Data != l2.Data {
-		lib.Fatalf("\nListAt(%s, %d) == %v instead of %v\n\n",
+		challenge.Fatalf("\nListAt(%s, %d) == %v instead of %v\n\n",
 			solutions.ListToString(solutionList), arg, l1.Data, l2.Data)
 	}
 }

@@ -5,7 +5,7 @@ import (
 
 	student "student"
 
-	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/lib/challenge"
 	"github.com/01-edu/go-tests/solutions"
 )
 
@@ -35,11 +35,11 @@ func listToStringStu13(l *ListS6) string {
 func comparFuncList6(l *List6, l1 *ListS6) {
 	for l.Head != nil || l1.Head != nil {
 		if (l.Head == nil && l1.Head != nil) || (l.Head != nil && l1.Head == nil) {
-			lib.Fatalf("\nstudent list:%s\nlist:%s\n\nListReverse() == %v instead of %v\n\n",
+			challenge.Fatalf("\nstudent list:%s\nlist:%s\n\nListReverse() == %v instead of %v\n\n",
 				listToStringStu13(l1), solutions.ListToString(l.Head), l1.Head, l.Head)
 		}
 		if l.Head.Data != l1.Head.Data {
-			lib.Fatalf("\nstudent list:%s\nlist:%s\n\nListReverse() == %v instead of %v\n\n",
+			challenge.Fatalf("\nstudent list:%s\nlist:%s\n\nListReverse() == %v instead of %v\n\n",
 				listToStringStu13(l1), solutions.ListToString(l.Head), l1.Head.Data, l.Head.Data)
 		}
 		l.Head = l.Head.Next

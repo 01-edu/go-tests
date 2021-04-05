@@ -5,6 +5,7 @@ import (
 	"strings"
 
 	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/lib/challenge"
 )
 
 func main() {
@@ -35,6 +36,6 @@ func main() {
 	table = append(table, "9223372036854775809 - 3")
 	table = append(table, "9223372036854775807 * 3")
 	for _, s := range table {
-		lib.Program("doop", strings.Fields(s)...)
+		challenge.Program("doop", strings.Fields(s)...)
 	}
 }

@@ -3,7 +3,7 @@ package main
 import (
 	"strings"
 
-	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/lib/challenge"
 )
 
 func main() {
@@ -40,6 +40,6 @@ func main() {
 		"4 arguments so invalid",
 	}
 	for _, s := range table {
-		lib.Program("printrot", strings.Fields(s)...)
+		challenge.Program("printrot", strings.Fields(s)...)
 	}
 }

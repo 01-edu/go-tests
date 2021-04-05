@@ -4,6 +4,7 @@ import (
 	"strconv"
 
 	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/lib/challenge"
 )
 
 func main() {
@@ -22,6 +23,6 @@ func main() {
 		args = append(args, []string{strconv.Itoa(lib.RandIntBetween(1, 2048))})
 	}
 	for _, v := range args {
-		lib.Program("ispowerof2", v...)
+		challenge.Program("ispowerof2", v...)
 	}
 }

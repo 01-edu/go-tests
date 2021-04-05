@@ -4,6 +4,7 @@ import (
 	student "student"
 
 	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/lib/challenge"
 	"github.com/01-edu/go-tests/solutions"
 )
 
@@ -40,6 +41,6 @@ func main() {
 		"hello!",
 	)
 	for _, arg := range table {
-		lib.Function("IsLower", student.IsLower, solutions.IsLower, arg)
+		challenge.Function("IsLower", student.IsLower, solutions.IsLower, arg)
 	}
 }

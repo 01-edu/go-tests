@@ -8,6 +8,7 @@ import (
 	student "student"
 
 	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/lib/challenge"
 )
 
 func advancedSortWordArr(a []string, f func(a, b string) int) {
@@ -34,7 +35,7 @@ func main() {
 		student.AdvancedSortWordArr(cp_stu, strings.Compare)
 
 		if !reflect.DeepEqual(cp_stu, cp_sol) {
-			lib.Fatalf("%s(%v) == %v instead of %v\n",
+			challenge.Fatalf("%s(%v) == %v instead of %v\n",
 				"AdvancedSortWordArr",
 				org,
 				cp_stu,

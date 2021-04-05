@@ -3,8 +3,8 @@ package main
 import (
 	student "student"
 
-	"github.com/01-edu/go-tests/lib"
 	"github.com/01-edu/go-tests/lib/base"
+	"github.com/01-edu/go-tests/lib/challenge"
 	"github.com/01-edu/go-tests/solutions"
 )
 
@@ -42,6 +42,6 @@ func main() {
 		node{s: "bbbbbab", base: "-ab"},
 	)
 	for _, arg := range table {
-		lib.Function("AtoiBase", student.AtoiBase, solutions.AtoiBase, arg.s, arg.base)
+		challenge.Function("AtoiBase", student.AtoiBase, solutions.AtoiBase, arg.s, arg.base)
 	}
 }

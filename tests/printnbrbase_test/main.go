@@ -5,6 +5,7 @@ import (
 
 	"github.com/01-edu/go-tests/lib"
 	"github.com/01-edu/go-tests/lib/base"
+	"github.com/01-edu/go-tests/lib/challenge"
 	"github.com/01-edu/go-tests/solutions"
 )
 
@@ -45,6 +46,6 @@ func main() {
 		node{n: lib.MinInt, base: "0123456789"},
 	)
 	for _, arg := range table {
-		lib.Function("PrintNbrBase", student.PrintNbrBase, solutions.PrintNbrBase, arg.n, arg.base)
+		challenge.Function("PrintNbrBase", student.PrintNbrBase, solutions.PrintNbrBase, arg.n, arg.base)
 	}
 }

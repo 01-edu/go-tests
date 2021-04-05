@@ -2,6 +2,7 @@ package main
 
 import (
 	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/lib/challenge"
 )
 
 func validRegExp(n int) string {
@@ -34,6 +35,6 @@ func main() {
 		{lib.RandStr(1, "axyz"), lib.RandStr(10, "axyzdassbzzxxxyy cdq     ")},
 	}
 	for _, s := range args {
-		lib.Program("grouping", s[0], s[1])
+		challenge.Program("grouping", s[0], s[1])
 	}
 }

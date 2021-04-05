@@ -5,7 +5,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/lib/challenge"
 )
 
 func main() {
@@ -15,6 +15,6 @@ func main() {
 	}
 	table := []string{"", fileName, fileName + " asdsada"}
 	for _, s := range table {
-		lib.Program("displayfile", strings.Fields(s)...)
+		challenge.Program("displayfile", strings.Fields(s)...)
 	}
 }

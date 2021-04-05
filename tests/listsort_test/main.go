@@ -6,6 +6,7 @@ import (
 	student "student"
 
 	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/lib/challenge"
 	"github.com/01-edu/go-tests/solutions"
 )
 
@@ -53,11 +54,11 @@ func nodePushBackListInt12(l1 *NodeI12, l2 *NodeIS12, data int) {
 func comparFuncNodeInt12(l1 *NodeI12, l2 *NodeIS12) {
 	for l1 != nil || l2 != nil {
 		if (l1 == nil && l2 != nil) || (l1 != nil && l2 == nil) {
-			lib.Fatalf("\nstudent list:%s\nlist:%s\n\nListSort() == %v instead of %v\n\n",
+			challenge.Fatalf("\nstudent list:%s\nlist:%s\n\nListSort() == %v instead of %v\n\n",
 				printListStudent(l1), solutions.PrintList(l2), l1, l2)
 		}
 		if l1.Data != l2.Data {
-			lib.Fatalf("\nstudent list:%s\nlist:%s\n\nListSort() == %v instead of %v\n\n",
+			challenge.Fatalf("\nstudent list:%s\nlist:%s\n\nListSort() == %v instead of %v\n\n",
 				printListStudent(l1), solutions.PrintList(l2), l1.Data, l2.Data)
 		}
 		l1 = l1.Next

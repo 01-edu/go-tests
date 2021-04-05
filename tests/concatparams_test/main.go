@@ -4,6 +4,7 @@ import (
 	student "student"
 
 	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/lib/challenge"
 	"github.com/01-edu/go-tests/solutions"
 )
 
@@ -15,6 +16,6 @@ func main() {
 		table = append(table, lib.MultRandASCII())
 	}
 	for _, arg := range table {
-		lib.Function("ConcatParams", student.ConcatParams, solutions.ConcatParams, arg)
+		challenge.Function("ConcatParams", student.ConcatParams, solutions.ConcatParams, arg)
 	}
 }

@@ -4,21 +4,21 @@ import (
 	"os"
 	"os/exec"
 
-	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/lib/challenge"
 )
 
 var oldName = "exe"
 
 func test(name string) {
 	if err := os.Rename(oldName, name); err != nil {
-		lib.Fatalln(err)
+		challenge.Fatalln(err)
 	}
 	b, err := exec.Command("./" + name).CombinedOutput()
 	if err != nil {
-		lib.Fatalln(err)
+		challenge.Fatalln(err)
 	}
 	if string(b) != name+"\n" {
-		lib.Fatalln("Failed to print the program name :", string(b))
+		challenge.Fatalln("Failed to print the program name :", string(b))
 	}
 	oldName = name
 }

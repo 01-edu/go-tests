@@ -4,6 +4,7 @@ import (
 	"strconv"
 
 	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/lib/challenge"
 )
 
 func main() {
@@ -16,6 +17,6 @@ func main() {
 	}
 
 	for _, arg := range table {
-		lib.Program("tabmult", arg)
+		challenge.Program("tabmult", arg)
 	}
 }

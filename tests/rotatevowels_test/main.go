@@ -4,6 +4,7 @@ import (
 	"strings"
 
 	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/lib/challenge"
 )
 
 func main() {
@@ -14,12 +15,12 @@ func main() {
 	}
 
 	for _, v := range a {
-		lib.Program("rotatevowels", strings.Fields(v)...)
+		challenge.Program("rotatevowels", strings.Fields(v)...)
 	}
-	lib.Program("rotatevowels", "Hello World")
-	lib.Program("rotatevowels", "HEllO World", "problem solved")
-	lib.Program("rotatevowels", "str", "shh", "psst")
-	lib.Program("rotatevowels", "happy thoughts", "good luck")
-	lib.Program("rotatevowels", "al's elEphAnt is overly underweight!")
-	lib.Program("rotatevowels", "aEi", "Ou")
+	challenge.Program("rotatevowels", "Hello World")
+	challenge.Program("rotatevowels", "HEllO World", "problem solved")
+	challenge.Program("rotatevowels", "str", "shh", "psst")
+	challenge.Program("rotatevowels", "happy thoughts", "good luck")
+	challenge.Program("rotatevowels", "al's elEphAnt is overly underweight!")
+	challenge.Program("rotatevowels", "aEi", "Ou")
 }

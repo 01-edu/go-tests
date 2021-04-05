@@ -7,6 +7,7 @@ import (
 	student "student"
 
 	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/lib/challenge"
 )
 
 func main() {
@@ -29,7 +30,7 @@ func main() {
 		student.SortWordArr(copyStu)
 
 		if !reflect.DeepEqual(copyStu, copySol) {
-			lib.Fatalf("%s(%v) == %v instead of %v\n",
+			challenge.Fatalf("%s(%v) == %v instead of %v\n",
 				"SortWordArr",
 				org,
 				copyStu,

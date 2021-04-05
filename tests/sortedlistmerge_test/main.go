@@ -6,6 +6,7 @@ import (
 	student "student"
 
 	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/lib/challenge"
 	"github.com/01-edu/go-tests/solutions"
 )
 
@@ -96,10 +97,10 @@ func main() {
 
 		if aux1 == nil && aux2 == nil {
 		} else if aux1 != nil && aux2 == nil {
-			lib.Fatalf("\nstudent merged lists:%s\nmerged lists:%s\n\nSortListMerge() == %v instead of %v\n\n",
+			challenge.Fatalf("\nstudent merged lists:%s\nmerged lists:%s\n\nSortListMerge() == %v instead of %v\n\n",
 				printListStudent1(aux1), solutions.PrintList(aux2), aux1, aux2)
 		} else if aux1.Data != aux2.Data {
-			lib.Fatalf("\nstudent merged lists:%s\nmerged lists:%s\n\nSortListMerge() == %v instead of %v\n\n",
+			challenge.Fatalf("\nstudent merged lists:%s\nmerged lists:%s\n\nSortListMerge() == %v instead of %v\n\n",
 				printListStudent1(aux1), solutions.PrintList(aux2), aux1, aux2)
 		}
 

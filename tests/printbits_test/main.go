@@ -5,6 +5,7 @@ import (
 	"strings"
 
 	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/lib/challenge"
 )
 
 func main() {
@@ -21,6 +22,6 @@ func main() {
 		lib.RandBasic(),
 	)
 	for _, v := range args {
-		lib.Program("printbits", strings.Fields(v)...)
+		challenge.Program("printbits", strings.Fields(v)...)
 	}
 }

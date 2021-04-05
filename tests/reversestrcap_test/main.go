@@ -2,6 +2,7 @@ package main
 
 import (
 	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/lib/challenge"
 )
 
 func main() {
@@ -16,7 +17,7 @@ func main() {
 	}
 
 	for _, v := range args {
-		lib.Program("reversestrcap", v...)
+		challenge.Program("reversestrcap", v...)
 	}
-	lib.Program("reversestrcap")
+	challenge.Program("reversestrcap")
 }

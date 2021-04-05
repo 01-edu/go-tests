@@ -3,7 +3,7 @@ package main
 import (
 	student "student"
 
-	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/lib/challenge"
 	"github.com/01-edu/go-tests/solutions"
 )
 
@@ -80,7 +80,7 @@ func formatSubTree_delete(root *student.TreeNode, prefix string) string {
 }
 
 func errorMessage_delete(fn interface{}, deleted string, rootOr, root *solutions.TreeNode, rootS *student.TreeNode) {
-	lib.Fatalf("%s(\n%s, %s\n) ==\n%s instead of\n%s\n",
+	challenge.Fatalf("%s(\n%s, %s\n) ==\n%s instead of\n%s\n",
 		"BTreeDeleteNode",
 		solutions.FormatTree(rootOr),
 		deleted,

@@ -7,6 +7,7 @@ import (
 	student "student"
 
 	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/lib/challenge"
 )
 
 func reverseBits(octet byte) byte {
@@ -14,10 +15,10 @@ func reverseBits(octet byte) byte {
 }
 
 func challengeBytes(fn1, fn2 interface{}, args ...interface{}) {
-	st1 := lib.Monitor(fn1, args)
-	st2 := lib.Monitor(fn2, args)
+	st1 := challenge.Monitor(fn1, args)
+	st2 := challenge.Monitor(fn2, args)
 	if !reflect.DeepEqual(st1.Results, st2.Results) {
-		lib.Fatalf("%s(%08b) == %08b instead of %08b\n",
+		challenge.Fatalf("%s(%08b) == %08b instead of %08b\n",
 			"ReverseBits",
 			args[0].(byte),
 			st1.Results[0].(byte),

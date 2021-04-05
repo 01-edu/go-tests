@@ -6,6 +6,7 @@ import (
 	"strings"
 
 	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/lib/challenge"
 )
 
 func main() {
@@ -21,7 +22,7 @@ func main() {
 	table := []string{file1, file1 + " " + file2, "asd", "", file1 + " abc", "abc " + file2}
 
 	for _, s := range table {
-		lib.Program("cat", strings.Fields(s)...)
+		challenge.Program("cat", strings.Fields(s)...)
 	}
-	lib.ProgramStdin("cat", lib.RandWords()+"\n")
+	challenge.ProgramStdin("cat", lib.RandWords()+"\n")
 }

@@ -2,6 +2,7 @@ package main
 
 import (
 	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/lib/challenge"
 )
 
 func main() {
@@ -52,6 +53,6 @@ func main() {
 	}
 
 	for _, arg := range table {
-		lib.Program("balancedstring", arg)
+		challenge.Program("balancedstring", arg)
 	}
 }

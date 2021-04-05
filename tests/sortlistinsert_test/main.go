@@ -6,6 +6,7 @@ import (
 	student "student"
 
 	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/lib/challenge"
 	"github.com/01-edu/go-tests/solutions"
 )
 
@@ -56,11 +57,11 @@ func nodepushback2(l *NodeIS14, data int) *NodeIS14 {
 func comparFuncNodeInt14(l1 *NodeI14, l2 *NodeIS14, data []int) {
 	for l1 != nil || l2 != nil {
 		if (l1 == nil && l2 != nil) || (l1 != nil && l2 == nil) {
-			lib.Fatalf("\ndata used to insert: %d\nstudent list:%s\nlist:%s\n\nSortListInsert() == %v instead of %v\n\n",
+			challenge.Fatalf("\ndata used to insert: %d\nstudent list:%s\nlist:%s\n\nSortListInsert() == %v instead of %v\n\n",
 				data, listToStringStu3(l1), solutions.PrintList(l2), l1, l2)
 		}
 		if l1.Data != l2.Data {
-			lib.Fatalf("\ndata used to insert: %d\nstudent list:%s\nlist:%s\n\nSortListInsert() == %v instead of %v\n\n",
+			challenge.Fatalf("\ndata used to insert: %d\nstudent list:%s\nlist:%s\n\nSortListInsert() == %v instead of %v\n\n",
 				data, listToStringStu3(l1), solutions.PrintList(l2), l1.Data, l2.Data)
 		}
 		l1 = l1.Next

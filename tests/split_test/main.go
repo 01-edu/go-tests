@@ -7,6 +7,7 @@ import (
 	student "student"
 
 	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/lib/challenge"
 	"github.com/01-edu/go-tests/solutions"
 )
 
@@ -42,6 +43,6 @@ func main() {
 		node{s: "HelloHAhowHAareHAyou?", sep: "HA"})
 
 	for _, arg := range table {
-		lib.Function("Split", student.Split, solutions.Split, arg.s, arg.sep)
+		challenge.Function("Split", student.Split, solutions.Split, arg.s, arg.sep)
 	}
 }

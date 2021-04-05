@@ -2,6 +2,7 @@ package main
 
 import (
 	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/lib/challenge"
 )
 
 func main() {
@@ -25,9 +26,9 @@ func main() {
 	}
 
 	for _, s := range table {
-		lib.Program("revwstr", s)
+		challenge.Program("revwstr", s)
 	}
 
-	lib.Program("revwstr")
-	lib.Program("revwstr", "1param", "2param", "3param", "4param")
+	challenge.Program("revwstr")
+	challenge.Program("revwstr", "1param", "2param", "3param", "4param")
 }

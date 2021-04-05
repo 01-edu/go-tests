@@ -2,6 +2,7 @@ package main
 
 import (
 	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/lib/challenge"
 )
 
 func main() {
@@ -20,8 +21,8 @@ func main() {
 	args = append(args, lib.MultRandAlnum()...)
 
 	for _, v := range args {
-		lib.Program("repeatalpha", v)
+		challenge.Program("repeatalpha", v)
 	}
-	lib.Program("repeatalpha")
-	lib.Program("repeatalpha", "", "")
+	challenge.Program("repeatalpha")
+	challenge.Program("repeatalpha", "", "")
 }

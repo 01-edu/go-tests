@@ -1,8 +1,6 @@
 package main
 
-import (
-	"github.com/01-edu/go-tests/lib"
-)
+import "github.com/01-edu/go-tests/lib/challenge"
 
 func main() {
 	valid := [][]string{
@@ -286,13 +284,13 @@ func main() {
 	}
 
 	for _, v := range valid {
-		lib.Program("sudoku", v...)
+		challenge.Program("sudoku", v...)
 	}
 
 	for _, v := range invalid {
-		lib.Program("sudoku", v...)
+		challenge.Program("sudoku", v...)
 	}
 
-	lib.Program("sudoku")
-	lib.Program("sudoku", "not", "a", "sudoku")
+	challenge.Program("sudoku")
+	challenge.Program("sudoku", "not", "a", "sudoku")
 }

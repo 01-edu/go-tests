@@ -4,6 +4,7 @@ import (
 	"strconv"
 
 	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/lib/challenge"
 	"github.com/01-edu/go-tests/lib/is"
 )
 
@@ -19,10 +20,10 @@ func main() {
 	}
 
 	for _, i := range table {
-		lib.Program("addprimesum", strconv.Itoa(i))
+		challenge.Program("addprimesum", strconv.Itoa(i))
 	}
 	// special cases
-	lib.Program("addprimesum")
-	lib.Program("addprimesum", `""`)
-	lib.Program("addprimesum", "1", "2")
+	challenge.Program("addprimesum")
+	challenge.Program("addprimesum", `""`)
+	challenge.Program("addprimesum", "1", "2")
 }
