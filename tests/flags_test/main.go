@@ -2,7 +2,7 @@ package main
 
 import (
 	"github.com/01-edu/go-tests/lib/challenge"
-	"github.com/01-edu/go-tests/lib/rand"
+	"github.com/01-edu/go-tests/lib/random"
 )
 
 type node struct {
@@ -18,8 +18,8 @@ func main() {
 	var randflag []string
 	var randflagarg []string
 	for i := 0; i < 2; i++ {
-		randflagarg = append(randflagarg, rand.RandWords())
-		randflag = append(randflag, rand.RandWords())
+		randflagarg = append(randflagarg, random.RandWords())
+		randflag = append(randflag, random.RandWords())
 	}
 
 	node := &node{

@@ -6,7 +6,7 @@ import (
 	student "student"
 
 	"github.com/01-edu/go-tests/lib/challenge"
-	"github.com/01-edu/go-tests/lib/rand"
+	"github.com/01-edu/go-tests/lib/random"
 )
 
 func swapBits(n byte) byte {
@@ -30,7 +30,7 @@ func main() {
 	args := []byte{0x24, 0x14, 0x11, 0x22, 0xd2, 0x15, 0xff, 0x0, 0x35, 0x58, 0x43}
 
 	for i := 0; i < 10; i++ {
-		n := rand.IntBetween(0, 255)
+		n := random.IntBetween(0, 255)
 		args = append(args, byte(n))
 	}
 

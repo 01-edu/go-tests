@@ -4,7 +4,7 @@ import (
 	student "student"
 
 	"github.com/01-edu/go-tests/lib/challenge"
-	"github.com/01-edu/go-tests/lib/rand"
+	"github.com/01-edu/go-tests/lib/random"
 	"github.com/01-edu/go-tests/solutions"
 )
 
@@ -18,7 +18,7 @@ func main() {
 
 	// the first 15 values are returning 0 for this test
 	for i := 0; i < 15; i++ {
-		wordToTest := rand.RandASCII()
+		wordToTest := random.RandASCII()
 
 		val := node{
 			s:         wordToTest,
@@ -29,8 +29,8 @@ func main() {
 
 	// the next 15 values are supposed to return 1 or -1 for this test
 	for i := 0; i < 15; i++ {
-		wordToTest := rand.RandASCII()
-		wrongMatch := rand.RandASCII()
+		wordToTest := random.RandASCII()
+		wrongMatch := random.RandASCII()
 
 		val := node{
 			s:         wordToTest,

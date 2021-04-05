@@ -6,7 +6,7 @@ import (
 	student "student"
 
 	"github.com/01-edu/go-tests/lib/challenge"
-	"github.com/01-edu/go-tests/lib/rand"
+	"github.com/01-edu/go-tests/lib/random"
 	"github.com/01-edu/go-tests/solutions"
 )
 
@@ -78,7 +78,7 @@ func main() {
 
 	// just numbers/ints
 	for i := 0; i < 2; i++ {
-		table = append(table, nodeTest{rand.Ints()})
+		table = append(table, nodeTest{random.Ints()})
 	}
 	table = append(table, nodeTest{[]int{5, 4, 3, 2, 1}})
 

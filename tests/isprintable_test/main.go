@@ -1,7 +1,9 @@
 package main
 
 import (
-	"github.com/01-edu/go-tests/lib/rand"
+	"math/rand"
+
+	"github.com/01-edu/go-tests/lib/random"
 
 	student "student"
 
@@ -11,12 +13,12 @@ import (
 
 func main() {
 	// 15 unvalid strings in the table
-	table := rand.MultRandASCII()
+	table := random.MultRandASCII()
 
 	// 15 valid lowercase strings of random size between 1 and 20 letters in the table
 	for i := 0; i < 15; i++ {
 		letters := []rune("\a\b\f\r\n\v\t")
-		size := rand.IntBetween(1, 20)
+		size := random.IntBetween(1, 20)
 		r := make([]rune, size)
 		for i := range r {
 			r[i] = letters[rand.Intn(len(letters))]

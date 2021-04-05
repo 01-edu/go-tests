@@ -4,7 +4,7 @@ import (
 	student "student"
 
 	"github.com/01-edu/go-tests/lib/challenge"
-	"github.com/01-edu/go-tests/lib/rand"
+	"github.com/01-edu/go-tests/lib/random"
 	"github.com/01-edu/go-tests/solutions"
 )
 
@@ -16,7 +16,7 @@ func main() {
 	table := []nodeTest{}
 	for i := 0; i < 5; i++ {
 		val := nodeTest{
-			data: rand.MultRandWords(),
+			data: random.MultRandWords(),
 		}
 		table = append(table, val)
 	}

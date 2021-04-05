@@ -6,7 +6,7 @@ import (
 	student "student"
 
 	"github.com/01-edu/go-tests/lib/challenge"
-	"github.com/01-edu/go-tests/lib/rand"
+	"github.com/01-edu/go-tests/lib/random"
 	"github.com/01-edu/go-tests/solutions"
 )
 
@@ -38,10 +38,10 @@ func main() {
 
 	// 15 random slice of random ints with a random function from selection
 	for i := 0; i < 15; i++ {
-		function := functions[rand.IntBetween(0, len(functions)-1)]
+		function := functions[random.IntBetween(0, len(functions)-1)]
 		table = append(table, node{
 			f: function,
-			a: rand.IntsBetween(-1000000, 1000000),
+			a: random.IntsBetween(-1000000, 1000000),
 		})
 	}
 

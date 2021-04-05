@@ -4,14 +4,14 @@ import (
 	student "student"
 
 	"github.com/01-edu/go-tests/lib/challenge"
-	"github.com/01-edu/go-tests/lib/rand"
+	"github.com/01-edu/go-tests/lib/random"
 	"github.com/01-edu/go-tests/solutions"
 )
 
 func main() {
 	table := append(
-		rand.IntsBetween(0, rand.MaxInt),
-		rand.MaxInt,
+		random.IntsBetween(0, random.MaxInt),
+		random.MaxInt,
 		321,
 		321321,
 		0,

@@ -8,7 +8,7 @@ import (
 	student "student"
 
 	"github.com/01-edu/go-tests/lib/challenge"
-	"github.com/01-edu/go-tests/lib/rand"
+	"github.com/01-edu/go-tests/lib/random"
 )
 
 func advancedSortWordArr(a []string, f func(a, b string) int) {
@@ -20,7 +20,7 @@ func advancedSortWordArr(a []string, f func(a, b string) int) {
 func main() {
 	table := [][]string{{"a", "A", "1", "b", "B", "2", "c", "C", "3"}}
 
-	table = append(table, rand.MultRandWords())
+	table = append(table, random.MultRandWords())
 
 	for _, org := range table {
 		// copy for using the solution function

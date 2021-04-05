@@ -4,7 +4,7 @@ import (
 	student "student"
 
 	"github.com/01-edu/go-tests/lib/challenge"
-	"github.com/01-edu/go-tests/lib/rand"
+	"github.com/01-edu/go-tests/lib/random"
 	"github.com/01-edu/go-tests/solutions"
 )
 
@@ -13,7 +13,7 @@ func main() {
 
 	for j := 0; j < 5; j++ {
 		for i := 0; i < 10; i++ {
-			table[i] = rand.IntBetween(0, 1000)
+			table[i] = random.IntBetween(0, 1000)
 		}
 		challenge.Function("PrintMemory", student.PrintMemory, solutions.PrintMemory, table)
 	}

@@ -4,7 +4,7 @@ import (
 	"strings"
 
 	"github.com/01-edu/go-tests/lib/challenge"
-	"github.com/01-edu/go-tests/lib/rand"
+	"github.com/01-edu/go-tests/lib/random"
 )
 
 func main() {
@@ -15,7 +15,7 @@ func main() {
 		"+++++[>++++[>++++H>+++++i<<-]>>>++\n<<<<-]>>--------.>+++++.>.",
 		"++++++++++[>++++++++++>++++++++++>++++++++++<<<-]>---.>--.>-.>++++++++++.",
 		"ld++++++++++++++++++++++++++++++++++++++++++++this+is++a++++comment++++++++++++++[>d+<-]>.+.+.>++++++++++.",
-		strings.Join([]string{"ld++++++++++++++++++++++++++++++++++++++++++++this+is++a++++comment++++++++++++++[>d+<-]>.+", rand.RandStr(rand.IntBetween(1, 10), ".+"), ".+.>++++++++++."}, ""),
+		strings.Join([]string{"ld++++++++++++++++++++++++++++++++++++++++++++this+is++a++++comment++++++++++++++[>d+<-]>.+", random.RandStr(random.IntBetween(1, 10), ".+"), ".+.>++++++++++."}, ""),
 	}
 	for _, v := range args {
 		challenge.Program("brainfuck", v)

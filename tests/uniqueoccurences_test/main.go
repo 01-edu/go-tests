@@ -2,7 +2,7 @@ package main
 
 import (
 	"github.com/01-edu/go-tests/lib/challenge"
-	"github.com/01-edu/go-tests/lib/rand"
+	"github.com/01-edu/go-tests/lib/random"
 )
 
 func main() {
@@ -14,7 +14,7 @@ func main() {
 	}
 
 	for i := 0; i < 15; i++ {
-		table = append(table, rand.RandStr(rand.IntBetween(5, 10), rand.Lower))
+		table = append(table, random.RandStr(random.IntBetween(5, 10), random.Lower))
 	}
 
 	for _, arg := range table {

@@ -4,13 +4,13 @@ import (
 	student "student"
 
 	"github.com/01-edu/go-tests/lib/challenge"
-	"github.com/01-edu/go-tests/lib/rand"
+	"github.com/01-edu/go-tests/lib/random"
 	"github.com/01-edu/go-tests/solutions"
 )
 
 func main() {
-	args := append(rand.IntsBetween(2, 20),
-		rand.IntBetween(-6, 20),
+	args := append(random.IntsBetween(2, 20),
+		random.IntBetween(-6, 20),
 		-5,
 		0,
 	)

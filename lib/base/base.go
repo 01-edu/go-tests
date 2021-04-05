@@ -1,9 +1,10 @@
 package base
 
 import (
+	"math/rand"
 	"strings"
 
-	"github.com/01-edu/go-tests/lib/rand"
+	"github.com/01-edu/go-tests/lib/random"
 )
 
 func uniqueChar(s string) bool {
@@ -88,7 +89,7 @@ func Invalid() string {
 
 func StringFrom(base string) string {
 	letters := []rune(base)
-	size := rand.IntBetween(1, 10)
+	size := random.IntBetween(1, 10)
 	runes := make([]rune, size)
 	for i := range runes {
 		runes[i] = letters[rand.Intn(len(letters))]

@@ -4,13 +4,13 @@ import (
 	"strings"
 
 	"github.com/01-edu/go-tests/lib/challenge"
-	"github.com/01-edu/go-tests/lib/rand"
+	"github.com/01-edu/go-tests/lib/random"
 )
 
 func main() {
 	var table []string
 
-	table = append(table, "-"+rand.RandLower(),
+	table = append(table, "-"+random.RandLower(),
 		" ",
 		"-%",
 		"-?",
@@ -26,7 +26,7 @@ func main() {
 		"-hz",
 		"-zh",
 		"-z -h",
-		strings.Join([]string{"-", rand.RandStr(10, rand.Lower)}, ""),
+		strings.Join([]string{"-", random.RandStr(10, random.Lower)}, ""),
 	)
 
 	for _, s := range table {

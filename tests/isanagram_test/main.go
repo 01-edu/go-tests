@@ -4,7 +4,7 @@ import (
 	student "student"
 
 	"github.com/01-edu/go-tests/lib/challenge"
-	"github.com/01-edu/go-tests/lib/rand"
+	"github.com/01-edu/go-tests/lib/random"
 	"github.com/01-edu/go-tests/solutions"
 )
 
@@ -29,8 +29,8 @@ func main() {
 	}
 	for i := 0; i < 15; i++ {
 		table = append(table, [2]string{
-			rand.RandStr(rand.IntBetween(15, 20), "qwertyuiopasdfghjklzxcvbnm "),
-			rand.RandStr(rand.IntBetween(15, 20), "qwertyuiopasdfghjklzxcvbnm "),
+			random.RandStr(random.IntBetween(15, 20), "qwertyuiopasdfghjklzxcvbnm "),
+			random.RandStr(random.IntBetween(15, 20), "qwertyuiopasdfghjklzxcvbnm "),
 		})
 	}
 

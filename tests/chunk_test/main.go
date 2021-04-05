@@ -4,14 +4,14 @@ import (
 	student "student"
 
 	"github.com/01-edu/go-tests/lib/challenge"
-	"github.com/01-edu/go-tests/lib/rand"
+	"github.com/01-edu/go-tests/lib/random"
 	"github.com/01-edu/go-tests/solutions"
 )
 
 func randomSize() []int {
 	var randSlice []int
-	for i := 0; i <= rand.IntBetween(0, 20); i++ {
-		randSlice = append(randSlice, rand.Int())
+	for i := 0; i <= random.IntBetween(0, 20); i++ {
+		randSlice = append(randSlice, random.Int())
 	}
 	return randSlice
 }
@@ -26,7 +26,7 @@ func main() {
 	for i := 0; i <= 7; i++ {
 		value := node{
 			slice: randomSize(),
-			ch:    rand.IntBetween(0, 10),
+			ch:    random.IntBetween(0, 10),
 		}
 		table = append(table, value)
 	}

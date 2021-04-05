@@ -4,12 +4,12 @@ import (
 	"strings"
 
 	"github.com/01-edu/go-tests/lib/challenge"
-	"github.com/01-edu/go-tests/lib/rand"
+	"github.com/01-edu/go-tests/lib/random"
 )
 
 func main() {
-	s1 := rand.RandAlnum()
-	s2 := strings.Join([]string{rand.RandAlnum(), s1, rand.RandAlnum()}, "")
+	s1 := random.RandAlnum()
+	s2 := strings.Join([]string{random.RandAlnum(), s1, random.RandAlnum()}, "")
 
 	args := [][]string{
 		{"zpadinton", "paqefwtdjetyiytjneytjoeyjnejeyj"},
@@ -19,7 +19,7 @@ func main() {
 		{" this is ", " wait shr"},
 		{" more ", "then", "two", "arguments"},
 		{s1, s2},
-		{rand.RandAlnum(), rand.RandAlnum()},
+		{random.RandAlnum(), random.RandAlnum()},
 	}
 
 	for _, v := range args {

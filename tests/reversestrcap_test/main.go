@@ -2,7 +2,7 @@ package main
 
 import (
 	"github.com/01-edu/go-tests/lib/challenge"
-	"github.com/01-edu/go-tests/lib/rand"
+	"github.com/01-edu/go-tests/lib/random"
 )
 
 func main() {
@@ -13,7 +13,7 @@ func main() {
 	}
 
 	for i := 0; i < 15; i++ {
-		args = append(args, rand.MultRandAlnum())
+		args = append(args, random.MultRandAlnum())
 	}
 
 	for _, v := range args {

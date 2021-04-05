@@ -1,7 +1,9 @@
 package main
 
 import (
-	"github.com/01-edu/go-tests/lib/rand"
+	"math/rand"
+
+	"github.com/01-edu/go-tests/lib/random"
 
 	student "student"
 
@@ -18,7 +20,7 @@ func main() {
 	table := []node{}
 
 	for i := 0; i < 30; i++ {
-		wordToInput := rand.RandASCII()
+		wordToInput := random.RandASCII()
 		val := node{
 			word: wordToInput,
 			n:    rand.Intn(len(wordToInput)) + 1,

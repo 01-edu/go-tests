@@ -4,15 +4,15 @@ import (
 	student "student"
 
 	"github.com/01-edu/go-tests/lib/challenge"
-	"github.com/01-edu/go-tests/lib/rand"
+	"github.com/01-edu/go-tests/lib/random"
 	"github.com/01-edu/go-tests/solutions"
 )
 
 func main() {
-	args := []string{"Héllo!", rand.Words}
+	args := []string{"Héllo!", random.Words}
 	for i := 0; i < 10; i++ {
-		length := rand.IntBetween(1, 20)
-		args = append(args, rand.RandStr(length, rand.Words))
+		length := random.IntBetween(1, 20)
+		args = append(args, random.RandStr(length, random.Words))
 	}
 	for _, s := range args {
 		challenge.Function("StrLen", student.StrLen, solutions.StrLen, s)

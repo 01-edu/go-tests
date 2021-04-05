@@ -2,7 +2,7 @@ package main
 
 import (
 	"github.com/01-edu/go-tests/lib/challenge"
-	"github.com/01-edu/go-tests/lib/rand"
+	"github.com/01-edu/go-tests/lib/random"
 )
 
 func main() {
@@ -12,7 +12,7 @@ func main() {
 		{"testing spaces and #!*"},
 		{"more", "than", "three", "arguments"},
 		{"Upper anD LoWer cAsE"},
-		{rand.RandWords()},
+		{random.RandWords()},
 	}
 
 	for _, v := range args {

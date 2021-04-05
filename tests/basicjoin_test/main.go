@@ -4,7 +4,7 @@ import (
 	student "student"
 
 	"github.com/01-edu/go-tests/lib/challenge"
-	"github.com/01-edu/go-tests/lib/rand"
+	"github.com/01-edu/go-tests/lib/random"
 	"github.com/01-edu/go-tests/solutions"
 )
 
@@ -13,7 +13,7 @@ func main() {
 
 	// 30 valid pair of ramdom slice of strings to concatenate
 	for i := 0; i < 30; i++ {
-		table = append(table, rand.MultRandASCII())
+		table = append(table, random.MultRandASCII())
 	}
 	table = append(table,
 		[]string{"Hello!", " How are you?", "well and yourself?"},

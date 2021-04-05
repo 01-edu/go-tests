@@ -1,4 +1,4 @@
-package rand
+package random
 
 import (
 	"math/big"

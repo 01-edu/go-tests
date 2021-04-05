@@ -7,7 +7,7 @@ import (
 	student "student"
 
 	"github.com/01-edu/go-tests/lib/challenge"
-	"github.com/01-edu/go-tests/lib/rand"
+	"github.com/01-edu/go-tests/lib/random"
 )
 
 func sortIntegerTable(a []int) {
@@ -16,7 +16,7 @@ func sortIntegerTable(a []int) {
 
 func main() {
 	for i := 0; i < 8; i++ {
-		table1 := rand.IntsBetween(-100, 100)
+		table1 := random.IntsBetween(-100, 100)
 
 		tableCopyBefore := make([]int, len(table1))
 		copy(tableCopyBefore, table1)

@@ -4,7 +4,7 @@ import (
 	"strconv"
 
 	"github.com/01-edu/go-tests/lib/challenge"
-	"github.com/01-edu/go-tests/lib/rand"
+	"github.com/01-edu/go-tests/lib/random"
 )
 
 func main() {
@@ -17,7 +17,7 @@ func main() {
 		"good luck",
 	}
 	for i := 0; i < 7; i++ {
-		table = append(table, strconv.Itoa(rand.IntBetween(0, 4000)))
+		table = append(table, strconv.Itoa(random.IntBetween(0, 4000)))
 	}
 	for _, v := range table {
 		challenge.Program("romannumbers", v)

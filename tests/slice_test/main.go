@@ -4,7 +4,7 @@ import (
 	student "student"
 
 	"github.com/01-edu/go-tests/lib/challenge"
-	"github.com/01-edu/go-tests/lib/rand"
+	"github.com/01-edu/go-tests/lib/random"
 	"github.com/01-edu/go-tests/solutions"
 )
 
@@ -32,13 +32,13 @@ func main() {
 		},
 	}
 
-	s := rand.MultRandWords()
+	s := random.MultRandWords()
 
 	elems = append(elems, []interface{}{s, -len(s) - 10, -len(s) - 5})
 
 	for i := 0; i < 3; i++ {
-		s = rand.MultRandWords()
-		elems = append(elems, []interface{}{s, rand.IntBetween(-len(s)-10, len(s)+10), rand.IntBetween(-len(s)-8, len(s)+10)})
+		s = random.MultRandWords()
+		elems = append(elems, []interface{}{s, random.IntBetween(-len(s)-10, len(s)+10), random.IntBetween(-len(s)-8, len(s)+10)})
 	}
 
 	for _, a := range elems {

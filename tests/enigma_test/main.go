@@ -4,7 +4,7 @@ import (
 	student "student"
 
 	"github.com/01-edu/go-tests/lib/challenge"
-	"github.com/01-edu/go-tests/lib/rand"
+	"github.com/01-edu/go-tests/lib/random"
 )
 
 // Helper function used in the test for checking the function Enigma()
@@ -19,7 +19,7 @@ func decrypt(a ***int, b *int, c *******int, d ****int) {
 }
 
 func main() {
-	args := rand.IntsBetween(2, 20)
+	args := random.IntsBetween(2, 20)
 
 	aval := args[0]
 	x := args[0]

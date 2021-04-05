@@ -4,7 +4,7 @@ import (
 	student "student"
 
 	"github.com/01-edu/go-tests/lib/challenge"
-	"github.com/01-edu/go-tests/lib/rand"
+	"github.com/01-edu/go-tests/lib/random"
 	"github.com/01-edu/go-tests/solutions"
 )
 
@@ -18,9 +18,9 @@ func main() {
 
 	// the first 15 values are valid for this test
 	for i := 0; i < 15; i++ {
-		wordToTest := rand.RandASCII()
-		firstLetterIndex := rand.IntBetween(0, (len(wordToTest)-1)/2)
-		lastLetterIndex := rand.IntBetween(firstLetterIndex, len(wordToTest)-1)
+		wordToTest := random.RandASCII()
+		firstLetterIndex := random.IntBetween(0, (len(wordToTest)-1)/2)
+		lastLetterIndex := random.IntBetween(firstLetterIndex, len(wordToTest)-1)
 
 		val := node{
 			s:      wordToTest,
@@ -31,8 +31,8 @@ func main() {
 
 	// the next 15 values are supposed to be invalid for this test
 	for i := 0; i < 15; i++ {
-		wordToTest := rand.RandASCII()
-		wrongMatch := rand.RandASCII()
+		wordToTest := random.RandASCII()
+		wrongMatch := random.RandASCII()
 
 		val := node{
 			s:      wordToTest,

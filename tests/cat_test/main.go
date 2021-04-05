@@ -6,16 +6,16 @@ import (
 	"strings"
 
 	"github.com/01-edu/go-tests/lib/challenge"
-	"github.com/01-edu/go-tests/lib/rand"
+	"github.com/01-edu/go-tests/lib/random"
 )
 
 func main() {
 	file1 := "quest8.txt"
 	file2 := "quest8T.txt"
-	if err := ioutil.WriteFile(file1, []byte(rand.RandWords()+"\n"), os.ModePerm); err != nil {
+	if err := ioutil.WriteFile(file1, []byte(random.RandWords()+"\n"), os.ModePerm); err != nil {
 		panic(err)
 	}
-	if err := ioutil.WriteFile(file2, []byte(rand.RandWords()+"\n"), os.ModePerm); err != nil {
+	if err := ioutil.WriteFile(file2, []byte(random.RandWords()+"\n"), os.ModePerm); err != nil {
 		panic(err)
 	}
 
@@ -24,5 +24,5 @@ func main() {
 	for _, s := range table {
 		challenge.Program("cat", strings.Fields(s)...)
 	}
-	challenge.ProgramStdin("cat", rand.RandWords()+"\n")
+	challenge.ProgramStdin("cat", random.RandWords()+"\n")
 }

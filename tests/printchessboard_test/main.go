@@ -4,7 +4,7 @@ import (
 	"strconv"
 
 	"github.com/01-edu/go-tests/lib/challenge"
-	"github.com/01-edu/go-tests/lib/rand"
+	"github.com/01-edu/go-tests/lib/random"
 )
 
 func main() {
@@ -20,8 +20,8 @@ func main() {
 	}
 	for i := 0; i < 2; i++ {
 		table = append(table, []string{
-			strconv.Itoa(rand.IntBetween(1, 200)),
-			strconv.Itoa(rand.IntBetween(1, 200)),
+			strconv.Itoa(random.IntBetween(1, 200)),
+			strconv.Itoa(random.IntBetween(1, 200)),
 		})
 	}
 

@@ -6,7 +6,7 @@ import (
 	student "student"
 
 	"github.com/01-edu/go-tests/lib/challenge"
-	"github.com/01-edu/go-tests/lib/rand"
+	"github.com/01-edu/go-tests/lib/random"
 	"github.com/01-edu/go-tests/solutions"
 )
 
@@ -68,8 +68,8 @@ func main() {
 
 	for i := 0; i < 3; i++ {
 		val := nodeTest{
-			data1: rand.Ints(),
-			data2: rand.Ints(),
+			data1: random.Ints(),
+			data2: random.Ints(),
 		}
 		table = append(table, val)
 	}

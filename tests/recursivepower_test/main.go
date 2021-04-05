@@ -4,15 +4,15 @@ import (
 	student "student"
 
 	"github.com/01-edu/go-tests/lib/challenge"
-	"github.com/01-edu/go-tests/lib/rand"
+	"github.com/01-edu/go-tests/lib/random"
 	"github.com/01-edu/go-tests/solutions"
 )
 
 func main() {
 	i := 0
 	for i < 30 {
-		nb := rand.IntBetween(-8, 8)
-		power := rand.IntBetween(-10, 10)
+		nb := random.IntBetween(-8, 8)
+		power := random.IntBetween(-10, 10)
 		challenge.Function("RecursivePower", student.RecursivePower, solutions.RecursivePower, nb, power)
 		i++
 	}

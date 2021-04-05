@@ -6,7 +6,7 @@ import (
 	student "student"
 
 	"github.com/01-edu/go-tests/lib/challenge"
-	"github.com/01-edu/go-tests/lib/rand"
+	"github.com/01-edu/go-tests/lib/random"
 	"github.com/01-edu/go-tests/solutions"
 )
 
@@ -46,18 +46,18 @@ func main() {
 
 	// 5 unordered slices
 	for i := 0; i < 5; i++ {
-		function := functions[rand.IntBetween(0, len(functions)-1)]
+		function := functions[random.IntBetween(0, len(functions)-1)]
 		val := node{
 			f: function,
-			a: rand.IntsBetween(-1000000, 1000000),
+			a: random.IntsBetween(-1000000, 1000000),
 		}
 		table = append(table, val)
 	}
 
 	// 5 slices ordered in ascending order
 	for i := 0; i < 5; i++ {
-		function := functions[rand.IntBetween(0, len(functions)-1)]
-		ordered := rand.IntsBetween(-1000000, 1000000)
+		function := functions[random.IntBetween(0, len(functions)-1)]
+		ordered := random.IntsBetween(-1000000, 1000000)
 		sort.Ints(ordered)
 
 		val := node{
@@ -69,8 +69,8 @@ func main() {
 
 	// 5 slices ordered in descending order
 	for i := 0; i < 5; i++ {
-		function := functions[rand.IntBetween(0, len(functions)-1)]
-		reversed := rand.IntsBetween(-1000000, 1000000)
+		function := functions[random.IntBetween(0, len(functions)-1)]
+		reversed := random.IntsBetween(-1000000, 1000000)
 		sort.Sort(sort.Reverse(sort.IntSlice(reversed)))
 		val := node{
 			f: function,

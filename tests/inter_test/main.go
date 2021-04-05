@@ -4,11 +4,11 @@ import (
 	"strings"
 
 	"github.com/01-edu/go-tests/lib/challenge"
-	"github.com/01-edu/go-tests/lib/rand"
+	"github.com/01-edu/go-tests/lib/random"
 )
 
 func main() {
-	args := append(rand.MultRandWords(),
+	args := append(random.MultRandWords(),
 		"padinton paqefwtdjetyiytjneytjoeyjnejeyj",
 		"ddf6vewg64f  twthgdwthdwfteewhrtag6h4ffdhsd",
 		"abcdefghij efghijlmnopq",
@@ -18,11 +18,11 @@ func main() {
 	)
 
 	for i := 0; i < 5; i++ {
-		s1 := rand.RandAlnum()
-		s2 := rand.RandAlnum() + s1 + rand.RandAlnum()
+		s1 := random.RandAlnum()
+		s2 := random.RandAlnum() + s1 + random.RandAlnum()
 		args = append(args,
 			s1+" "+s2,
-			rand.RandAlnum()+" "+rand.RandAlnum(),
+			random.RandAlnum()+" "+random.RandAlnum(),
 		)
 	}
 

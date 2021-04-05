@@ -2,7 +2,7 @@ package main
 
 import (
 	"github.com/01-edu/go-tests/lib/challenge"
-	"github.com/01-edu/go-tests/lib/rand"
+	"github.com/01-edu/go-tests/lib/random"
 )
 
 func main() {
@@ -28,11 +28,11 @@ func main() {
 
 	for i := 0; i < 6; i++ {
 		result := []string{}
-		nOps := rand.IntBetween(3, 15)
-		index := rand.IntBetween(0, len(sets)-1)
+		nOps := random.IntBetween(3, 15)
+		index := random.IntBetween(0, len(sets)-1)
 		for j := 0; j < nOps; j++ {
-			k := rand.IntBetween(0, len(ops)-1)
-			s := rand.IntBetween(0, len(sets[index])-1)
+			k := random.IntBetween(0, len(ops)-1)
+			s := random.IntBetween(0, len(sets[index])-1)
 			result = append(result, ops[k]+" "+sets[index][s])
 		}
 		table = append(table, result)

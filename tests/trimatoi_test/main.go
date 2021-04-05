@@ -4,19 +4,19 @@ import (
 	student "student"
 
 	"github.com/01-edu/go-tests/lib/challenge"
-	"github.com/01-edu/go-tests/lib/rand"
+	"github.com/01-edu/go-tests/lib/random"
 	"github.com/01-edu/go-tests/solutions"
 )
 
 func stringsToTrimAtoi(a []string) []string {
 	for index := 0; index < 4; index++ {
 		s := ""
-		s += rand.RandStr(rand.IntBetween(0, 2), rand.Alnum)
-		x := rand.IntBetween(0, 14)
+		s += random.RandStr(random.IntBetween(0, 2), random.Alnum)
+		x := random.IntBetween(0, 14)
 		if x <= 4 {
 			s += "-"
 		}
-		s += rand.RandStr(rand.IntBetween(0, 10), rand.Alnum)
+		s += random.RandStr(random.IntBetween(0, 10), random.Alnum)
 		a = append(a, s)
 	}
 	return a
@@ -32,7 +32,7 @@ func main() {
 		"sd+x1fa2W3s4",
 		"sd-x1fa2W3s4",
 		"sdx1-fa2W3s4",
-		rand.RandAlnum(),
+		random.RandAlnum(),
 	}
 	a = stringsToTrimAtoi(a)
 	for _, elem := range a {

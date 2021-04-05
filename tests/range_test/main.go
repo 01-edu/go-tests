@@ -4,13 +4,13 @@ import (
 	"strconv"
 
 	"github.com/01-edu/go-tests/lib/challenge"
-	"github.com/01-edu/go-tests/lib/rand"
+	"github.com/01-edu/go-tests/lib/random"
 )
 
 func main() {
 	for i := 0; i < 10; i++ {
-		start := rand.IntBetween(-20, 20)
-		end := rand.IntBetween(-20, 20)
+		start := random.IntBetween(-20, 20)
+		end := random.IntBetween(-20, 20)
 		challenge.Program("range", strconv.Itoa(start), strconv.Itoa(end))
 	}
 	challenge.Program("range", "2", "1", "3")

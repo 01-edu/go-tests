@@ -4,7 +4,7 @@ import (
 	student "student"
 
 	"github.com/01-edu/go-tests/lib/challenge"
-	"github.com/01-edu/go-tests/lib/rand"
+	"github.com/01-edu/go-tests/lib/random"
 	"github.com/01-edu/go-tests/solutions"
 )
 
@@ -19,8 +19,8 @@ func main() {
 
 	for i := 0; i < 15; i++ {
 		table = append(table, [2]int{
-			rand.IntBetween(0, 1000),
-			rand.IntBetween(0, 1000),
+			random.IntBetween(0, 1000),
+			random.IntBetween(0, 1000),
 		})
 	}
 
