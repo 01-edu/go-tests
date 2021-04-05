@@ -4,18 +4,8 @@ import (
 	student "student"
 
 	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/solutions"
 )
-
-func abs(a int) int {
-	if a < 0 {
-		return -a
-	}
-	return a
-}
-
-func volumechanger(a, b int) int {
-	return abs(a-b)/5 + abs(a-b)%5/2 + abs(a-b)%5%2
-}
 
 func main() {
 	table := [][2]int{
@@ -31,6 +21,6 @@ func main() {
 		})
 	}
 	for _, arg := range table {
-		lib.Challenge("Volumechanger", student.Volumechanger, volumechanger, arg[0], arg[1])
+		lib.Challenge("Volumechanger", student.Volumechanger, solutions.Volumechanger, arg[0], arg[1])
 	}
 }

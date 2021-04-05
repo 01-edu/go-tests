@@ -1,28 +1,11 @@
 package main
 
 import (
-	"strings"
-	"unicode"
-
 	student "student"
 
 	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/solutions"
 )
-
-func capitalize(s string) string {
-	r := []rune(strings.ToLower(s))
-
-	if unicode.Is(unicode.Latin, r[0]) {
-		r[0] = unicode.ToUpper(r[0])
-	}
-
-	for i := 1; i < len(r); i++ {
-		if !unicode.IsDigit(r[i-1]) && !unicode.Is(unicode.Latin, r[i-1]) {
-			r[i] = unicode.ToUpper(r[i])
-		}
-	}
-	return string(r)
-}
 
 func main() {
 	table := append(
@@ -36,6 +19,6 @@ func main() {
 		"9a LALALA!",
 	)
 	for _, arg := range table {
-		lib.Challenge("Capitalize", student.Capitalize, capitalize, arg)
+		lib.Challenge("Capitalize", student.Capitalize, solutions.Capitalize, arg)
 	}
 }

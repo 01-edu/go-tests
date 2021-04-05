@@ -4,11 +4,8 @@ import (
 	student "student"
 
 	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/solutions"
 )
-
-func strLen(s string) int {
-	return len([]rune(s))
-}
 
 func main() {
 	randomStringCharset := "a b c d e f g h ijklmnopqrstuvwxyz A B C D E FGHIJKLMNOPRSTUVWXYZ"
@@ -23,7 +20,7 @@ func main() {
 	table = append(table, randomStringCharset)
 
 	for _, s := range table {
-		lib.Challenge("StrLen", student.StrLen, strLen, s)
+		lib.Challenge("StrLen", student.StrLen, solutions.StrLen, s)
 	}
 }
 

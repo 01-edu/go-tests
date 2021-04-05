@@ -4,27 +4,8 @@ import (
 	student "student"
 
 	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/solutions"
 )
-
-func rot14(s string) (result string) {
-	for _, r := range s {
-		if r >= 'a' && r <= 'z' {
-			if r >= 'm' {
-				r -= 12
-			} else {
-				r += 14
-			}
-		} else if r >= 'A' && r <= 'Z' {
-			if r >= 'M' {
-				r -= 12
-			} else {
-				r += 14
-			}
-		}
-		result += string(r)
-	}
-	return result
-}
 
 func main() {
 	type nodeTest struct {
@@ -41,7 +22,7 @@ func main() {
 
 	for _, arg := range table {
 		for _, s := range arg.data {
-			lib.Challenge("Rot14", rot14, student.Rot14, s)
+			lib.Challenge("Rot14", student.Rot14, solutions.Rot14, s)
 		}
 	}
 }

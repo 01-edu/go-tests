@@ -1,16 +1,15 @@
 package main
 
 import (
-	"strings"
-
 	student "student"
 
 	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/solutions"
 )
 
 func main() {
 	table := append(lib.MultRandASCII(), "Hello! How are you?")
 	for _, arg := range table {
-		lib.Challenge("ToLower", student.ToLower, strings.ToLower, arg)
+		lib.Challenge("ToLower", student.ToLower, solutions.ToLower, arg)
 	}
 }

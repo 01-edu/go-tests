@@ -1,15 +1,14 @@
 package main
 
 import (
-	"strconv"
-
 	student "student"
 
 	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/solutions"
 )
 
 func main() {
 	for i := 0; i < 50; i++ {
-		lib.Challenge("Itoa", student.Itoa, strconv.Itoa, lib.RandInt())
+		lib.Challenge("Itoa", student.Itoa, solutions.Itoa, lib.RandInt())
 	}
 }

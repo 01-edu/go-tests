@@ -5,6 +5,7 @@ import (
 
 	"github.com/01-edu/go-tests/lib"
 	"github.com/01-edu/go-tests/lib/base"
+	"github.com/01-edu/go-tests/solutions"
 )
 
 func main() {
@@ -41,6 +42,6 @@ func main() {
 		node{s: "bbbbbab", base: "-ab"},
 	)
 	for _, arg := range table {
-		lib.Challenge("AtoiBase", student.AtoiBase, base.Atoi, arg.s, arg.base)
+		lib.Challenge("AtoiBase", student.AtoiBase, solutions.AtoiBase, arg.s, arg.base)
 	}
 }

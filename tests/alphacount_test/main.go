@@ -1,21 +1,11 @@
 package main
 
 import (
-	"unicode"
-
 	student "student"
 
 	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/solutions"
 )
-
-func alphaCount(s string) (i int) {
-	for _, r := range s {
-		if unicode.IsLetter(r) {
-			i++
-		}
-	}
-	return i
-}
 
 func main() {
 	table := []string{
@@ -29,6 +19,6 @@ func main() {
 	}
 
 	for _, arg := range table {
-		lib.Challenge("AlphaCount", student.AlphaCount, alphaCount, arg)
+		lib.Challenge("AlphaCount", student.AlphaCount, solutions.AlphaCount, arg)
 	}
 }

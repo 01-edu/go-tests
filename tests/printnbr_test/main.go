@@ -1,16 +1,11 @@
 package main
 
 import (
-	"fmt"
-
 	student "student"
 
 	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/solutions"
 )
-
-func printNbr(n int) {
-	fmt.Print(n)
-}
 
 func main() {
 	table := append(lib.MultRandInt(),
@@ -19,6 +14,6 @@ func main() {
 		0,
 	)
 	for _, arg := range table {
-		lib.Challenge("PrintNbr", student.PrintNbr, printNbr, arg)
+		lib.Challenge("PrintNbr", student.PrintNbr, solutions.PrintNbr, arg)
 	}
 }

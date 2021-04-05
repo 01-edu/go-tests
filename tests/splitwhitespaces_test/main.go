@@ -6,6 +6,7 @@ import (
 	student "student"
 
 	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/solutions"
 )
 
 func main() {
@@ -16,6 +17,6 @@ func main() {
 		table = append(table, strings.Join(lib.MultRandASCII(), " "))
 	}
 	for _, arg := range table {
-		lib.Challenge("SplitWhiteSpaces", student.SplitWhiteSpaces, strings.Fields, arg)
+		lib.Challenge("SplitWhiteSpaces", student.SplitWhiteSpaces, solutions.SplitWhiteSpaces, arg)
 	}
 }

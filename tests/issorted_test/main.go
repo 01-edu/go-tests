@@ -6,26 +6,8 @@ import (
 	student "student"
 
 	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/solutions"
 )
-
-func isSorted(f func(int, int) int, a []int) bool {
-	ascendingOrdered := true
-	descendingOrdered := true
-
-	for i := 1; i < len(a); i++ {
-		if f(a[i-1], a[i]) < 0 {
-			ascendingOrdered = false
-		}
-	}
-
-	for i := 1; i < len(a); i++ {
-		if f(a[i-1], a[i]) > 0 {
-			descendingOrdered = false
-		}
-	}
-
-	return ascendingOrdered || descendingOrdered
-}
 
 func isSortedBy1(a, b int) int {
 	if a-b < 0 {
@@ -117,6 +99,6 @@ func main() {
 	})
 
 	for _, arg := range table {
-		lib.Challenge("IsSorted", student.IsSorted, isSorted, arg.f, arg.a)
+		lib.Challenge("IsSorted", student.IsSorted, solutions.IsSorted, arg.f, arg.a)
 	}
 }

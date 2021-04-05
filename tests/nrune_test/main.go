@@ -6,15 +6,8 @@ import (
 	student "student"
 
 	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/solutions"
 )
-
-func nRune(s string, n int) rune {
-	if n > len(s) || n < 1 {
-		return 0
-	}
-	runes := []rune(s)
-	return runes[n-1]
-}
 
 func main() {
 	type node struct {
@@ -46,6 +39,6 @@ func main() {
 	)
 
 	for _, arg := range table {
-		lib.Challenge("NRune", student.NRune, nRune, arg.word, arg.n)
+		lib.Challenge("NRune", student.NRune, solutions.NRune, arg.word, arg.n)
 	}
 }

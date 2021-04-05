@@ -1,16 +1,11 @@
 package main
 
 import (
-	"strings"
-
 	student "student"
 
 	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/solutions"
 )
-
-func index(s string, substr string) int {
-	return strings.Index(s, substr)
-}
 
 func main() {
 	type node struct {
@@ -52,6 +47,6 @@ func main() {
 	)
 
 	for _, arg := range table {
-		lib.Challenge("Index", student.Index, index, arg.s, arg.toFind)
+		lib.Challenge("Index", student.Index, solutions.Index, arg.s, arg.toFind)
 	}
 }

@@ -6,13 +6,8 @@ import (
 	student "student"
 
 	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/solutions"
 )
-
-func forEach(f func(int), a []int) {
-	for _, el := range a {
-		f(el)
-	}
-}
 
 func add0(i int) {
 	fmt.Println(i)
@@ -55,6 +50,6 @@ func main() {
 	})
 
 	for _, arg := range table {
-		lib.Challenge("ForEach", student.ForEach, forEach, arg.f, arg.a)
+		lib.Challenge("ForEach", student.ForEach, solutions.ForEach, arg.f, arg.a)
 	}
 }

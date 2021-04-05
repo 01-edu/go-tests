@@ -4,25 +4,8 @@ import (
 	student "student"
 
 	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/solutions"
 )
-
-func isInteresting(n int) bool {
-	s := 0
-	for n > 0 {
-		s += n % 10
-		n /= 10
-	}
-	return s%7 == 0
-}
-
-func interestingNumber(n int) int {
-	for {
-		if isInteresting(n) {
-			return n
-		}
-		n++
-	}
-}
 
 func main() {
 	table := []int{
@@ -34,6 +17,6 @@ func main() {
 	table = append(table, lib.MultRandIntBetween(1, 1500)...)
 
 	for _, arg := range table {
-		lib.Challenge("InterestingNumber", student.InterestingNumber, interestingNumber, arg)
+		lib.Challenge("InterestingNumber", student.InterestingNumber, solutions.InterestingNumber, arg)
 	}
 }

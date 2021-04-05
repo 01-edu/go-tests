@@ -2,7 +2,7 @@ package solutions
 
 func ListReverse(l *List) {
 	current := l.Head
-	prev := l.Head
+	var prev *NodeL
 	prev = nil
 
 	for current != nil {

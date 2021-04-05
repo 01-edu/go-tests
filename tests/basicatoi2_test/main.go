@@ -6,12 +6,8 @@ import (
 	student "student"
 
 	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/solutions"
 )
-
-func basicAtoi2(s string) int {
-	n, _ := strconv.Atoi(s)
-	return n
-}
 
 func main() {
 	table := make([]string, 30)
@@ -31,6 +27,6 @@ func main() {
 		"123.0",
 	)
 	for _, arg := range table {
-		lib.Challenge("BasicAtoi2", student.BasicAtoi2, basicAtoi2, arg)
+		lib.Challenge("BasicAtoi2", student.BasicAtoi2, solutions.BasicAtoi2, arg)
 	}
 }

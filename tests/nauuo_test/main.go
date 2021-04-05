@@ -4,34 +4,8 @@ import (
 	student "student"
 
 	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/solutions"
 )
-
-func nauuo(plus, minus, rand int) string {
-	if rand == 0 {
-		if plus > minus {
-			return "+"
-		}
-		if plus < minus {
-			return "-"
-		}
-		if plus == minus {
-			return "0"
-		}
-	}
-	if plus > minus+rand {
-		return "+"
-	}
-	if plus+rand < minus {
-		return "-"
-	}
-	if plus+rand >= minus && plus-rand <= minus {
-		return "?"
-	}
-	if minus+rand >= plus && minus-rand <= plus {
-		return "?"
-	}
-	return "?"
-}
 
 func main() {
 	type node struct {
@@ -54,6 +28,6 @@ func main() {
 		})
 	}
 	for _, arg := range table {
-		lib.Challenge("Nauuo", student.Nauuo, nauuo, arg.plus, arg.minus, arg.rand)
+		lib.Challenge("Nauuo", student.Nauuo, solutions.Nauuo, arg.plus, arg.minus, arg.rand)
 	}
 }

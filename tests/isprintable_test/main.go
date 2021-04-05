@@ -2,21 +2,12 @@ package main
 
 import (
 	"math/rand"
-	"unicode"
 
 	student "student"
 
 	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/solutions"
 )
-
-func isPrintable(s string) bool {
-	for _, r := range s {
-		if !unicode.IsPrint(r) {
-			return false
-		}
-	}
-	return true
-}
 
 func main() {
 	// 15 unvalid strings in the table
@@ -53,6 +44,6 @@ func main() {
 		"\n",
 	)
 	for _, arg := range table {
-		lib.Challenge("IsPrintable", student.IsPrintable, isPrintable, arg)
+		lib.Challenge("IsPrintable", student.IsPrintable, solutions.IsPrintable, arg)
 	}
 }

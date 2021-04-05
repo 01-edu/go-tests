@@ -1,33 +1,12 @@
 package main
 
 import (
-	"fmt"
-
 	student "student"
 
 	"github.com/01-edu/go-tests/lib"
 	"github.com/01-edu/go-tests/lib/base"
+	"github.com/01-edu/go-tests/solutions"
 )
-
-func printNbrBase(n int, b string) {
-	if base.IsValid(b) {
-		length := len(b)
-		sign := 1
-		rbase := []rune(b)
-		if n < 0 {
-			fmt.Print("-")
-			sign = -1
-		}
-		if n < length && n >= 0 {
-			fmt.Printf("%c", rbase[n])
-		} else {
-			printNbrBase(sign*(n/length), b)
-			fmt.Printf("%c", rbase[sign*(n%length)])
-		}
-	} else {
-		fmt.Print("NV")
-	}
-}
 
 func main() {
 	type node struct {
@@ -66,6 +45,6 @@ func main() {
 		node{n: lib.MinInt, base: "0123456789"},
 	)
 	for _, arg := range table {
-		lib.Challenge("PrintNbrBase", student.PrintNbrBase, printNbrBase, arg.n, arg.base)
+		lib.Challenge("PrintNbrBase", student.PrintNbrBase, solutions.PrintNbrBase, arg.n, arg.base)
 	}
 }

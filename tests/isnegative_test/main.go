@@ -1,20 +1,11 @@
 package main
 
 import (
-	"fmt"
-
 	student "student"
 
 	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/solutions"
 )
-
-func isNegative(n int) {
-	if n < 0 {
-		fmt.Println("T")
-	} else {
-		fmt.Println("F")
-	}
-}
 
 func main() {
 	table := append(
@@ -24,6 +15,6 @@ func main() {
 		0,
 	)
 	for _, arg := range table {
-		lib.Challenge("IsNegative", student.IsNegative, isNegative, arg)
+		lib.Challenge("IsNegative", student.IsNegative, solutions.IsNegative, arg)
 	}
 }

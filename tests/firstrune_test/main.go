@@ -4,12 +4,8 @@ import (
 	student "student"
 
 	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/solutions"
 )
-
-func firstRune(s string) rune {
-	runes := []rune(s)
-	return runes[0]
-}
 
 func main() {
 	table := append(
@@ -20,6 +16,6 @@ func main() {
 		"♥01",
 	)
 	for _, arg := range table {
-		lib.Challenge("FirstRune", student.FirstRune, firstRune, arg)
+		lib.Challenge("FirstRune", student.FirstRune, solutions.FirstRune, arg)
 	}
 }

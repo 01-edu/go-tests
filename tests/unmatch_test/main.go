@@ -4,24 +4,8 @@ import (
 	student "student"
 
 	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/solutions"
 )
-
-// Returns the element of the slice that doesn't have a correspondant pair
-func unmatch(elems []int) int {
-	var quant int
-	for _, el := range elems {
-		quant = 0
-		for _, v := range elems {
-			if v == el {
-				quant++
-			}
-		}
-		if quant%2 != 0 {
-			return el
-		}
-	}
-	return -1
-}
 
 func main() {
 	i1 := lib.RandIntBetween(-100, 100)
@@ -38,6 +22,6 @@ func main() {
 		{i1, i2, i1, i2, i1 + i3, i2 - i3},
 	}
 	for _, v := range args {
-		lib.Challenge("Unmatch", student.Unmatch, unmatch, v)
+		lib.Challenge("Unmatch", student.Unmatch, solutions.Unmatch, v)
 	}
 }

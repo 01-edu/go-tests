@@ -1,18 +1,11 @@
 package main
 
 import (
-	"fmt"
-
 	student "student"
 
 	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/solutions"
 )
-
-func printWordsTables(a []string) {
-	for _, s := range a {
-		fmt.Println(s)
-	}
-}
 
 func main() {
 	table := [][]string{{"Hello", "how", "are", "you?"}}
@@ -23,6 +16,6 @@ func main() {
 	}
 
 	for _, arg := range table {
-		lib.Challenge("PrintWordsTables", student.PrintWordsTables, printWordsTables, arg)
+		lib.Challenge("PrintWordsTables", student.PrintWordsTables, solutions.PrintWordsTables, arg)
 	}
 }

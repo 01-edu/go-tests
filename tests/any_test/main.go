@@ -5,16 +5,8 @@ import (
 
 	"github.com/01-edu/go-tests/lib"
 	"github.com/01-edu/go-tests/lib/is"
+	"github.com/01-edu/go-tests/solutions"
 )
-
-func any(f func(string) bool, a []string) bool {
-	for _, el := range a {
-		if f(el) {
-			return true
-		}
-	}
-	return false
-}
 
 func main() {
 	functions := []func(string) bool{is.Digit, is.Lower, is.Upper}
@@ -65,6 +57,6 @@ func main() {
 	)
 
 	for _, arg := range table {
-		lib.Challenge("Any", student.Any, any, arg.f, arg.a)
+		lib.Challenge("Any", student.Any, solutions.Any, arg.f, arg.a)
 	}
 }

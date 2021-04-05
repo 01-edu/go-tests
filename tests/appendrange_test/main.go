@@ -4,19 +4,8 @@ import (
 	student "student"
 
 	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/solutions"
 )
-
-func appendRange(min, max int) []int {
-	size := max - min
-	answer := []int{}
-	if size <= 0 {
-		return nil
-	}
-	for i := min; i < max; i++ {
-		answer = append(answer, i)
-	}
-	return answer
-}
 
 func main() {
 	type node struct {
@@ -55,6 +44,6 @@ func main() {
 	)
 
 	for _, arg := range table {
-		lib.Challenge("AppendRange", student.AppendRange, appendRange, arg.min, arg.max)
+		lib.Challenge("AppendRange", student.AppendRange, solutions.AppendRange, arg.min, arg.max)
 	}
 }

@@ -2,7 +2,7 @@ package solutions
 
 func ListClear(l *List) {
 	temp := l.Head
-	next := l.Head
+	var next *NodeL
 	for temp != nil {
 		next = temp.Next
 		temp = nil

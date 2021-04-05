@@ -1,20 +1,11 @@
 package main
 
 import (
-	"fmt"
-
 	student "student"
 
 	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/solutions"
 )
-
-func reduceInt(a []int, f func(int, int) int) {
-	acc := a[0]
-	for i := 1; i < len(a); i++ {
-		acc = f(acc, a[i])
-	}
-	fmt.Println(acc)
-}
 
 func main() {
 	f := []func(int, int) int{
@@ -28,7 +19,7 @@ func main() {
 			return currentValue * accumulator
 		},
 	}
-	argInt := []int{}
+	var argInt []int
 
 	type node struct {
 		a         []int
@@ -46,7 +37,7 @@ func main() {
 
 	for _, v := range table {
 		for _, f := range v.functions {
-			lib.Challenge("ReduceInt", student.ReduceInt, reduceInt, v.a, f)
+			lib.Challenge("ReduceInt", student.ReduceInt, solutions.ReduceInt, v.a, f)
 		}
 	}
 }

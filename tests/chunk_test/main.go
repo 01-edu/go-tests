@@ -1,32 +1,14 @@
 package main
 
 import (
-	"fmt"
-
 	student "student"
 
 	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/solutions"
 )
 
-func chunk(a []int, ch int) {
-	slice := []int{}
-	if ch <= 0 {
-		fmt.Println()
-		return
-	}
-	result := make([][]int, 0, len(a)/ch+1)
-	for len(a) >= ch {
-		slice, a = a[:ch], a[ch:]
-		result = append(result, slice)
-	}
-	if len(a) > 0 {
-		result = append(result, a[:])
-	}
-	fmt.Println(result)
-}
-
 func randomSize() []int {
-	randSlice := []int{}
+	var randSlice []int
 	for i := 0; i <= lib.RandIntBetween(0, 20); i++ {
 		randSlice = append(randSlice, lib.RandInt())
 	}
@@ -55,6 +37,6 @@ func main() {
 		ch:    0,
 	})
 	for _, args := range table {
-		lib.Challenge("Chunk", student.Chunk, chunk, args.slice, args.ch)
+		lib.Challenge("Chunk", student.Chunk, solutions.Chunk, args.slice, args.ch)
 	}
 }

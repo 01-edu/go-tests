@@ -4,18 +4,8 @@ import (
 	student "student"
 
 	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/solutions"
 )
-
-func gcd(first, second int) int {
-	if second == 0 {
-		return first
-	}
-	return gcd(second, first%second)
-}
-
-func lcm(first, second int) int {
-	return first / gcd(second, first%second) * second
-}
 
 func main() {
 	table := [][2]int{
@@ -34,6 +24,6 @@ func main() {
 	}
 
 	for _, arg := range table {
-		lib.Challenge("Lcm", student.Lcm, lcm, arg[0], arg[1])
+		lib.Challenge("Lcm", student.Lcm, solutions.Lcm, arg[0], arg[1])
 	}
 }

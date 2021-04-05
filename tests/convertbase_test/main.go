@@ -5,28 +5,8 @@ import (
 
 	"github.com/01-edu/go-tests/lib"
 	"github.com/01-edu/go-tests/lib/base"
+	"github.com/01-edu/go-tests/solutions"
 )
-
-func convertNbrBase(n int, base string) string {
-	var result string
-	length := len(base)
-
-	for n >= length {
-		result = string(base[(n%length)]) + result
-		n /= length
-	}
-	result = string(base[n]) + result
-
-	return result
-}
-
-func convertBase(nbr, baseFrom, baseTo string) string {
-	resultIntermediary := base.Atoi(nbr, baseFrom)
-
-	resultFinal := convertNbrBase(resultIntermediary, baseTo)
-
-	return resultFinal
-}
 
 func main() {
 	type node struct {
@@ -55,7 +35,7 @@ func main() {
 	})
 
 	for _, arg := range table {
-		lib.Challenge("ConvertBase", student.ConvertBase, convertBase, arg.nbr, arg.baseFrom, arg.baseTo)
+		lib.Challenge("ConvertBase", student.ConvertBase, solutions.ConvertBase, arg.nbr, arg.baseFrom, arg.baseTo)
 	}
 }
 

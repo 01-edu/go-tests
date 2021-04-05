@@ -1,29 +1,20 @@
 package main
 
 import (
-	"math"
-
 	student "student"
 
 	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/solutions"
 )
-
-func iterativePower(nb int, power int) int {
-	if power < 0 {
-		return 0
-	}
-	result := math.Pow(float64(nb), float64(power))
-	return int(result)
-}
 
 func main() {
 	i := 0
 	for i < 30 {
 		nb := lib.RandIntBetween(-8, 8)
 		power := lib.RandIntBetween(-10, 10)
-		lib.Challenge("IterativePower", student.IterativePower, iterativePower, nb, power)
+		lib.Challenge("IterativePower", student.IterativePower, solutions.IterativePower, nb, power)
 		i++
 	}
-	lib.Challenge("IterativePower", student.IterativePower, iterativePower, 0, 0)
-	lib.Challenge("IterativePower", student.IterativePower, iterativePower, 0, 1)
+	lib.Challenge("IterativePower", student.IterativePower, solutions.IterativePower, 0, 0)
+	lib.Challenge("IterativePower", student.IterativePower, solutions.IterativePower, 0, 1)
 }

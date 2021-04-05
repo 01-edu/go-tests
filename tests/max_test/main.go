@@ -1,20 +1,11 @@
 package main
 
 import (
-	"sort"
-
 	student "student"
 
 	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/solutions"
 )
-
-func max(a []int) int {
-	if len(a) == 0 {
-		return 0
-	}
-	sort.Ints(a)
-	return a[len(a)-1]
-}
 
 func main() {
 	args := []int{lib.RandInt()}
@@ -23,5 +14,5 @@ func main() {
 		args = append(args, lib.RandInt())
 	}
 
-	lib.Challenge("Max", student.Max, max, args)
+	lib.Challenge("Max", student.Max, solutions.Max, args)
 }

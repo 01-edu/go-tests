@@ -4,29 +4,8 @@ import (
 	student "student"
 
 	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/solutions"
 )
-
-func isAnagram(s, t string) bool {
-	alph := make([]int, 26)
-	for i := 0; i < len(s); i++ {
-		if s[i] < 'a' || s[i] > 'z' {
-			continue
-		}
-		alph[s[i]-'a']++
-	}
-	for i := 0; i < len(t); i++ {
-		if t[i] < 'a' || t[i] > 'z' {
-			continue
-		}
-		alph[t[i]-'a']--
-	}
-	for i := 0; i < 26; i++ {
-		if alph[i] != 0 {
-			return false
-		}
-	}
-	return true
-}
 
 func main() {
 	table := [][2]string{
@@ -55,6 +34,6 @@ func main() {
 	}
 
 	for _, arg := range table {
-		lib.Challenge("IsAnagram", student.IsAnagram, isAnagram, arg[0], arg[1])
+		lib.Challenge("IsAnagram", student.IsAnagram, solutions.IsAnagram, arg[0], arg[1])
 	}
 }

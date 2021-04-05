@@ -5,18 +5,8 @@ import (
 
 	"github.com/01-edu/go-tests/lib"
 	"github.com/01-edu/go-tests/lib/is"
+	"github.com/01-edu/go-tests/solutions"
 )
-
-func countIf(f func(string) bool, a []string) int {
-	counter := 0
-	for _, el := range a {
-		if f(el) {
-			counter++
-		}
-	}
-
-	return counter
-}
 
 func main() {
 	functions := []func(string) bool{is.Digit, is.Lower, is.Upper}
@@ -71,6 +61,6 @@ func main() {
 	)
 
 	for _, arg := range table {
-		lib.Challenge("CountIf", student.CountIf, countIf, arg.f, arg.a)
+		lib.Challenge("CountIf", student.CountIf, solutions.CountIf, arg.f, arg.a)
 	}
 }

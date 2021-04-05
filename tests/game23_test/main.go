@@ -4,23 +4,8 @@ import (
 	student "student"
 
 	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/solutions"
 )
-
-func game23(a, b int) int {
-	if a > b {
-		return -1
-	}
-	if a == b {
-		return 0
-	}
-	if game23(a*2, b) != -1 {
-		return 1 + game23(a*2, b)
-	}
-	if game23(a*3, b) != -1 {
-		return 1 + game23(a*3, b)
-	}
-	return -1
-}
 
 func nd(a, b int) int {
 	if a > b {
@@ -71,6 +56,6 @@ func main() {
 		table = append(table, value)
 	}
 	for _, arg := range table {
-		lib.Challenge("Game23", student.Game23, game23, arg.init, arg.fin)
+		lib.Challenge("Game23", student.Game23, solutions.Game23, arg.init, arg.fin)
 	}
 }

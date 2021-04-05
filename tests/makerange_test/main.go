@@ -4,21 +4,8 @@ import (
 	student "student"
 
 	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/solutions"
 )
-
-func makeRange(min, max int) []int {
-	size := max - min
-
-	if size <= 0 {
-		return nil
-	}
-	answer := make([]int, size)
-	for i := range answer {
-		answer[i] = min
-		min++
-	}
-	return answer
-}
 
 func main() {
 	type node struct {
@@ -56,6 +43,6 @@ func main() {
 		node{min: 10, max: 5},
 	)
 	for _, arg := range table {
-		lib.Challenge("MakeRange", student.MakeRange, makeRange, arg.min, arg.max)
+		lib.Challenge("MakeRange", student.MakeRange, solutions.MakeRange, arg.min, arg.max)
 	}
 }

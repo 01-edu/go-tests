@@ -1,16 +1,11 @@
 package main
 
 import (
-	"strings"
-
 	student "student"
 
 	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/solutions"
 )
-
-func basicJoin(elems []string) string {
-	return strings.Join(elems, "")
-}
 
 func main() {
 	table := [][]string{}
@@ -23,6 +18,6 @@ func main() {
 		[]string{"Hello!", " How are you?", "well and yourself?"},
 	)
 	for _, arg := range table {
-		lib.Challenge("BasicJoin", student.BasicJoin, basicJoin, arg)
+		lib.Challenge("BasicJoin", student.BasicJoin, solutions.BasicJoin, arg)
 	}
 }

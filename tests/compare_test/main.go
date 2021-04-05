@@ -1,11 +1,10 @@
 package main
 
 import (
-	"strings"
-
 	student "student"
 
 	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/solutions"
 )
 
 func main() {
@@ -46,6 +45,6 @@ func main() {
 	)
 
 	for _, arg := range table {
-		lib.Challenge("Compare", student.Compare, strings.Compare, arg.s, arg.toCompare)
+		lib.Challenge("Compare", student.Compare, solutions.Compare, arg.s, arg.toCompare)
 	}
 }

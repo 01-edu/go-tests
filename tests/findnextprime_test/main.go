@@ -4,15 +4,8 @@ import (
 	student "student"
 
 	"github.com/01-edu/go-tests/lib"
-	"github.com/01-edu/go-tests/lib/is"
+	"github.com/01-edu/go-tests/solutions"
 )
-
-func findNextPrime(nb int) int {
-	if is.Prime(nb) {
-		return nb
-	}
-	return findNextPrime(nb + 1)
-}
 
 func main() {
 	table := append(lib.MultRandIntBetween(-1000000, 1000000),
@@ -35,6 +28,6 @@ func main() {
 		1000000088,
 	)
 	for _, arg := range table {
-		lib.Challenge("FindNextPrime", student.FindNextPrime, findNextPrime, arg)
+		lib.Challenge("FindNextPrime", student.FindNextPrime, solutions.FindNextPrime, arg)
 	}
 }

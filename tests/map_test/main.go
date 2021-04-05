@@ -5,6 +5,7 @@ import (
 
 	"github.com/01-edu/go-tests/lib"
 	"github.com/01-edu/go-tests/lib/is"
+	"github.com/01-edu/go-tests/solutions"
 )
 
 func isPositive(i int) bool {
@@ -13,16 +14,6 @@ func isPositive(i int) bool {
 
 func isNegative(i int) bool {
 	return i < 0
-}
-
-func _map(f func(int) bool, a []int) []bool {
-	result := make([]bool, len(a))
-
-	for i, el := range a {
-		result[i] = f(el)
-	}
-
-	return result
 }
 
 func main() {
@@ -50,6 +41,6 @@ func main() {
 	})
 
 	for _, arg := range table {
-		lib.Challenge("Map", student.Map, _map, arg.f, arg.a)
+		lib.Challenge("Map", student.Map, solutions.Map, arg.f, arg.a)
 	}
 }

@@ -1,11 +1,10 @@
 package main
 
 import (
-	"strings"
-
 	student "student"
 
 	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/solutions"
 )
 
 type node struct {
@@ -49,6 +48,6 @@ func main() {
 	}
 
 	for _, arg := range table {
-		lib.Challenge("DoppelGanger", student.DoppelGanger, strings.LastIndex, arg.big, arg.little)
+		lib.Challenge("DoppelGanger", student.DoppelGanger, solutions.DoppelGanger, arg.big, arg.little)
 	}
 }

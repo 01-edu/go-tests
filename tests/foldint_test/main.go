@@ -1,20 +1,11 @@
 package main
 
 import (
-	"fmt"
-
 	student "student"
 
 	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/solutions"
 )
-
-func foldInt(f func(int, int) int, a []int, n int) {
-	result := n
-	for _, v := range a {
-		result = f(result, v)
-	}
-	fmt.Println(result)
-}
 
 func main() {
 	f := []func(int, int) int{
@@ -34,7 +25,7 @@ func main() {
 		functions []func(int, int) int
 		n         int
 	}
-	argInt := []int{}
+	var argInt []int
 	table := []node{}
 
 	for i := 0; i < 8; i++ {
@@ -60,7 +51,7 @@ func main() {
 
 	for _, v := range table {
 		for _, f := range v.functions {
-			lib.Challenge("FoldInt", student.FoldInt, foldInt, f, v.a, v.n)
+			lib.Challenge("FoldInt", student.FoldInt, solutions.FoldInt, f, v.a, v.n)
 		}
 	}
 }

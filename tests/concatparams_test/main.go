@@ -1,16 +1,11 @@
 package main
 
 import (
-	"strings"
-
 	student "student"
 
 	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/solutions"
 )
-
-func concatParams(args []string) string {
-	return strings.Join(args, "\n")
-}
 
 func main() {
 	table := [][]string{{"Hello", "how", "are", "you?"}}
@@ -20,6 +15,6 @@ func main() {
 		table = append(table, lib.MultRandASCII())
 	}
 	for _, arg := range table {
-		lib.Challenge("ConcatParams", student.ConcatParams, concatParams, arg)
+		lib.Challenge("ConcatParams", student.ConcatParams, solutions.ConcatParams, arg)
 	}
 }

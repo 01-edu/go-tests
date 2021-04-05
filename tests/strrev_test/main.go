@@ -4,19 +4,8 @@ import (
 	student "student"
 
 	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/solutions"
 )
-
-func strRev(s string) string {
-	runes := []rune(s)
-	i := 0
-	j := len(runes) - 1
-	for i < j {
-		runes[i], runes[j] = runes[j], runes[i]
-		i++
-		j--
-	}
-	return string(runes)
-}
 
 func main() {
 	table := append(
@@ -26,6 +15,6 @@ func main() {
 		"Hola!",
 	)
 	for _, arg := range table {
-		lib.Challenge("StrRev", student.StrRev, strRev, arg)
+		lib.Challenge("StrRev", student.StrRev, solutions.StrRev, arg)
 	}
 }

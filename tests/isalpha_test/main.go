@@ -1,21 +1,11 @@
 package main
 
 import (
-	"unicode"
-
 	student "student"
 
 	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/solutions"
 )
-
-func isAlpha(s string) bool {
-	for _, r := range s {
-		if !unicode.IsDigit(r) && !unicode.Is(unicode.Latin, r) {
-			return false
-		}
-	}
-	return true
-}
 
 func main() {
 	table := append(
@@ -31,6 +21,6 @@ func main() {
 		"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!",
 	)
 	for _, arg := range table {
-		lib.Challenge("IsAlpha", student.IsAlpha, isAlpha, arg)
+		lib.Challenge("IsAlpha", student.IsAlpha, solutions.IsAlpha, arg)
 	}
 }

@@ -1,20 +1,11 @@
 package main
 
 import (
-	"math"
-
 	student "student"
 
 	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/solutions"
 )
-
-func sqrt(value int) int {
-	sr := math.Sqrt(float64(value))
-	if math.Mod(sr, 1) == 0 {
-		return int(sr)
-	}
-	return 0
-}
 
 func main() {
 	table := append(lib.MultRandIntBetween(-1000000, 1000000),
@@ -34,6 +25,6 @@ func main() {
 		100,
 	)
 	for _, arg := range table {
-		lib.Challenge("Sqrt", student.Sqrt, sqrt, arg)
+		lib.Challenge("Sqrt", student.Sqrt, solutions.Sqrt, arg)
 	}
 }

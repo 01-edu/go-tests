@@ -4,16 +4,8 @@ import (
 	student "student"
 
 	"github.com/01-edu/go-tests/lib"
+	"github.com/01-edu/go-tests/solutions"
 )
-
-func halfContest(h1, m1, h2, m2 int) int {
-	t1 := h1*60 + m1
-	t2 := h2*60 + m2
-	t2 = (t2 + t1) / 2
-	h2 = t2 / 60
-	m2 = t2 % 60
-	return h2*100 + m2
-}
 
 func main() {
 	type node struct {
@@ -37,6 +29,6 @@ func main() {
 	}
 
 	for _, arg := range table {
-		lib.Challenge("HalfContest", student.HalfContest, halfContest, arg.h1, arg.m1, arg.h2, arg.m2)
+		lib.Challenge("HalfContest", student.HalfContest, solutions.HalfContest, arg.h1, arg.m1, arg.h2, arg.m2)
 	}
 }
