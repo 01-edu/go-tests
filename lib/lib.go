@@ -343,7 +343,12 @@ func panicIfNotNil(err error) {
 func ChallengeMainStdin(exercise, input string, args ...string) {
 	run := func(pkg string) (string, int) {
 		binaryPath := path.Join(os.TempDir(), "binaries", path.Base(pkg))
-		panicIfNotNil(exec.Command("go", "build", "-o", binaryPath, pkg).Run())
+		if b, err := exec.Command("go", "build", "-o", binaryPath, pkg).CombinedOutput(); err != nil {
+			if ee, ok := err.(*exec.ExitError); ok {
+				return string(b), ee.ExitCode()
+			}
+			panic(err)
+		}
 		cmd := exec.Command(binaryPath, args...)
 		if input != "" {
 			cmd.Stdin = bytes.NewBufferString(input)
