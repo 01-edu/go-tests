@@ -340,27 +340,28 @@ func panicIfNotNil(err error) {
 	}
 }
 
+func execute(cmd *exec.Cmd) (string, int) {
+	b, err := cmd.CombinedOutput()
+	if err != nil {
+		if ee, ok := err.(*exec.ExitError); ok {
+			return string(b), ee.ExitCode()
+		}
+		panic(err)
+	}
+	return string(b), 0
+}
+
 func ChallengeMainStdin(exercise, input string, args ...string) {
 	run := func(pkg string) (string, int) {
 		binaryPath := path.Join(os.TempDir(), "binaries", path.Base(path.Dir(pkg)), path.Base(pkg))
-		if b, err := exec.Command("go", "build", "-o", binaryPath, pkg).CombinedOutput(); err != nil {
-			if ee, ok := err.(*exec.ExitError); ok {
-				return string(b), ee.ExitCode()
-			}
-			panic(err)
+		if s, code := execute(exec.Command("go", "build", "-o", binaryPath, pkg)); code != 0 {
+			return s, code
 		}
 		cmd := exec.Command(binaryPath, args...)
 		if input != "" {
 			cmd.Stdin = bytes.NewBufferString(input)
 		}
-		b, err := cmd.CombinedOutput()
-		if err != nil {
-			if ee, ok := err.(*exec.ExitError); ok {
-				return string(b), ee.ExitCode()
-			}
-			panic(err)
-		}
-		return string(b), 0
+		return execute(cmd)
 	}
 	console := func(out string) string {
 		var quotedArgs []string
