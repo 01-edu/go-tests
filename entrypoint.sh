@@ -17,11 +17,11 @@ if test "$EXAM_RUN_ONLY" = true; then
 fi
 
 if ! test "$EXAM_MODE"; then
-	s=$(goimports -d .)
+	s=$(gofumpt -d .)
 	if test "$s"; then
 		echo 'Your Go files are not correctly formatted :'
 		echo
-		echo '$ goimports -d .'
+		echo '$ gofumpt -d .'
 		echo "$s"
 		exit 1
 	fi

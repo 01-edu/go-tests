@@ -3,8 +3,8 @@ FROM docker.01-edu.org/golang:1.16.3-alpine3.13
 ENV GIT_TERMINAL_PROMPT=0
 RUN apk add --no-cache git
 
-RUN go get golang.org/x/tools/cmd/goimports
-RUN go get github.com/01-edu/rc
+RUN go get mvdan.cc/gofumpt@v0.1.1
+RUN go get github.com/01-edu/rc@v0.1.0
 
 WORKDIR /piscine-go
 RUN go mod init piscine-go
