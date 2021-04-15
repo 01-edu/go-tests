@@ -137,7 +137,7 @@ func ProgramStdin(exercise, input string, args ...string) {
 		if s, code := execute(exec.Command("go", "build", "-o", binaryPath, pkg)); code != 0 {
 			return s, code
 		}
-		if _, err := os.Stat(binaryPath); os.IsNotExist(err) {
+		if fi, err := os.Stat(binaryPath); err != nil && fi.Mode()&0111 != 0 {
 			return "Failed to compile your code as a program", 1
 		}
 		cmd := exec.Command(binaryPath, args...)
