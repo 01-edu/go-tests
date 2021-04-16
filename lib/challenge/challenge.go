@@ -1,7 +1,6 @@
 package challenge
 
 import (
-	"bytes"
 	"fmt"
 	"io"
 	"os"
@@ -120,31 +119,10 @@ func panicIfNotNil(err error) {
 	}
 }
 
-func execute(cmd *exec.Cmd) (string, int) {
-	b, err := cmd.CombinedOutput()
-	if err != nil {
-		if ee, ok := err.(*exec.ExitError); ok {
-			return string(b), ee.ExitCode()
-		}
-		panic(err)
-	}
-	return string(b), 0
-}
-
 func ProgramStdin(exercise, input string, args ...string) {
-	run := func(pkg string) (string, int) {
-		binaryPath := path.Join(os.TempDir(), "binaries", path.Base(path.Dir(pkg)), path.Base(pkg))
-		if s, code := execute(exec.Command("go", "build", "-o", binaryPath, pkg)); code != 0 {
-			return s, code
-		}
-		if fi, err := os.Stat(binaryPath); err != nil && fi.Mode()&0111 != 0 {
-			return "Failed to compile your code as a program", 1
-		}
-		cmd := exec.Command(binaryPath, args...)
-		if input != "" {
-			cmd.Stdin = bytes.NewBufferString(input)
-		}
-		return execute(cmd)
+	run := func(pkg string) (string, bool) {
+		b, err := exec.Command("go", "run", pkg).CombinedOutput()
+		return string(b), err == nil
 	}
 	console := func(out string) string {
 		var quotedArgs []string
@@ -155,36 +133,29 @@ func ProgramStdin(exercise, input string, args ...string) {
 		if input != "" {
 			s += "echo -ne " + strconv.Quote(input) + " | "
 		}
-		return fmt.Sprintf(s+"./%s %s\n%s$ ", exercise, strings.Join(quotedArgs, " "), out)
+		return fmt.Sprintf(s+"go run . %s\n%s$", strings.Join(quotedArgs, " "), out)
 	}
-	code := func(code int) string {
-		return fmt.Sprintf("echo $?\n%d\n$", code)
-	}
-	student, studentCode := run(path.Join("student", exercise))
-	solution, solutionCode := run(path.Join("github.com/01-edu/go-tests/solutions", exercise))
-	if solutionCode == 0 {
-		if studentCode != 0 {
+	student, studentOK := run(path.Join("student", exercise))
+	solution, solutionOK := run(path.Join("github.com/01-edu/go-tests/solutions", exercise))
+	if solutionOK {
+		if !studentOK {
 			Fatalln("Your program fails (non-zero exit status) when it should not :\n" +
 				console(student) +
-				code(studentCode) + "\n\n" +
-				"Expected :\n" +
-				console(solution) +
-				code(solutionCode))
+				"\n\nExpected :\n" +
+				console(solution))
 		}
 	} else {
-		if studentCode == 0 {
-			Fatalln("Your program does not fail when it should (with a non-zero exit status) :" + "\n" +
+		if studentOK {
+			Fatalln("Your program does not fail when it should (with a non-zero exit status) :\n" +
 				console(student) +
-				code(studentCode) + "\n\n" +
-				"Expected :\n" +
-				console(solution) +
-				code(solutionCode))
+				"\n\nExpected :\n" +
+				console(solution))
 		}
 	}
 	if student != solution {
 		Fatalln("Your program output is not correct :\n" +
-			console(student) + "\n\n" +
-			"Expected :\n" +
+			console(student) +
+			"\n\nExpected :\n" +
 			console(solution))
 	}
 }
