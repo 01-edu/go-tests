@@ -27,11 +27,6 @@ if ! test "$EXAM_MODE"; then
 	fi
 fi
 
-if ! find . -type f -name '*.go' | grep -q .; then
-	echo "Missing Go file: $FILE"
-	exit 1
-fi
-
 if find . -type f -name '*.go' -exec grep -qE 'print(ln)?\(' {} +; then
 	echo "Your Go files cannot use print & println builtins"
 	exit 1
