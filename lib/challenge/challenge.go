@@ -121,7 +121,7 @@ func panicIfNotNil(err error) {
 
 func ProgramStdin(exercise, input string, args ...string) {
 	run := func(pkg string) (string, bool) {
-		b, err := exec.Command("go", "run", pkg).CombinedOutput()
+		b, err := exec.Command("go", append([]string{"run", pkg}, args...)...).CombinedOutput()
 		return string(b), err == nil
 	}
 	console := func(out string) string {
