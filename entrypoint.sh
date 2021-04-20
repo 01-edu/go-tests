@@ -38,6 +38,12 @@ if test "$ALLOWED_FUNCTIONS" && test "$FILE"; then
 	rc "$FILE" $ALLOWED_FUNCTIONS
 fi
 
+if ! test -e go.mod ; then
+	echo "Cannot find go.mod file, create your module with:"
+	echo "    go mod init piscine"
+	exit 1
+fi
+
 cp -r /go-tests ~
 cd ~/go-tests
 
