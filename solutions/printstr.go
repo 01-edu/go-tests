@@ -2,4 +2,6 @@ package solutions
 
 import "fmt"
 
-var PrintStr = fmt.Print
+func PrintStr(s string) {
+	fmt.Print(s)
+}

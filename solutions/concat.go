@@ -1,5 +1,5 @@
 package solutions
 
-import "fmt"
-
-var Concat = fmt.Sprint
+func Concat(s1 string, s2 string) string {
+	return s1 + s2
+}
