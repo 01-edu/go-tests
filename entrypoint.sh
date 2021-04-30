@@ -11,8 +11,13 @@ if test "$EXAM_MODE"; then
 fi
 
 if test "$EXAM_RUN_ONLY" = true; then
-	go build -o exe "./$EXERCISE"
-	./exe "$@"
+	if command -v "${EXERCISE}_test" >/dev/null 2>&1; then
+		# The exercise is a program
+		go run "./$EXERCISE" "$@"
+	else
+		# The exercise is a function
+		go run . "$@"
+	fi
 	exit
 fi
 
