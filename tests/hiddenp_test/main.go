@@ -14,7 +14,7 @@ func main() {
 		{"DD", "DABC"},
 		{""},
 	}
-	for i := 0; i < 30; i++ {
+	for i := 0; i < 5; i++ {
 		args = append(args,
 			[2]string{random.Str(chars.Lower, 1), random.Str(chars.Lower, 13)},
 			[2]string{random.Str(chars.Upper, 1), random.Str(chars.Upper, 13)},
