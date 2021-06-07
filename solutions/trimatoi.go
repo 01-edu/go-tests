@@ -1,31 +1,27 @@
 package solutions
 
+import (
+	"strconv"
+	"unicode"
+)
+
+func recursion(s string, i int) string {
+	result := ""
+	if i < 0 {
+		return ""
+	}
+	if unicode.IsDigit(rune(s[i])) {
+		result += string(s[i])
+	}
+	if s[i] == '-' && recursion(s[:i], i-1) == "" {
+		return "-"
+	}
+	return recursion(s[:i], i-1) + result
+}
+
 func TrimAtoi(s string) int {
-	runes := []rune(s)
-	for i := range s {
-		runes[i] = rune(s[i])
+	if a, err := strconv.Atoi(recursion(s, len(s)-1)); err == nil {
+		return a
 	}
-	var numbers []rune
-	for _, r := range runes {
-		if (r >= '0' && r <= '9') || (len(numbers) == 0 && (r) == '-' || r == '+') {
-			numbers = append(numbers, r)
-		}
-	}
-	if len(numbers) == 0 || (len(numbers) == 1 && (numbers[0] == '-' || numbers[0] == '+')) {
-		return 0
-	}
-
-	res, i, sign := 0, 0, 1
-
-	if numbers[0] == '-' {
-		sign = -1
-		i++
-	} else if numbers[0] == '+' {
-		i++
-	}
-	for ; i < len(numbers); i++ {
-		res = res*10 + int(numbers[i]) - '0'
-	}
-
-	return sign * res
+	return 0
 }
