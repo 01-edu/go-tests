@@ -2,6 +2,7 @@ package main
 
 import (
 	"reflect"
+	"runtime"
 	"sort"
 	"strings"
 
@@ -36,9 +37,10 @@ func main() {
 		student.AdvancedSortWordArr(cp_stu, strings.Compare)
 
 		if !reflect.DeepEqual(cp_stu, cp_sol) {
-			challenge.Fatalf("%s(%v) == %v instead of %v\n",
+			challenge.Fatalf("%s(%v, %s) == %v instead of %v\n",
 				"AdvancedSortWordArr",
 				arg,
+				runtime.FuncForPC(reflect.ValueOf(strings.Compare).Pointer()).Name(),
 				cp_stu,
 				cp_sol,
 			)
