@@ -7,6 +7,7 @@ import (
 	"os/exec"
 	"path"
 	"reflect"
+	"runtime"
 	"strconv"
 	"strings"
 )
@@ -26,8 +27,13 @@ func Format(a ...interface{}) string {
 			// byte, rune : a single-quoted character literal safely escaped with Go syntax
 			ss[i] = fmt.Sprintf("%q", v)
 		default:
-			// a Go-syntax representation of the value
-			ss[i] = fmt.Sprintf("%#v", v)
+			if reflect.TypeOf(v).Kind() == reflect.Func {
+				// Function passed as parameter should output the name of the function
+				ss[i] = runtime.FuncForPC(reflect.ValueOf(v).Pointer()).Name()
+			} else {
+				// a Go-syntax representation of the value
+				ss[i] = fmt.Sprintf("%#v", v)
+			}
 		}
 	}
 	return strings.Join(ss, ", ")
