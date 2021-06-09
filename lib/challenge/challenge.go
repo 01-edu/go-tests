@@ -68,7 +68,9 @@ type Output struct {
 func Monitor(fn interface{}, args []interface{}) (out Output) {
 	old := os.Stdout
 	r, w, err := os.Pipe()
-	panicIfNotNil(err)
+	if err != nil {
+		panic(err)
+	}
 	os.Stdout = w
 	out.Results = Call(fn, args)
 	outC := make(chan string)
@@ -117,12 +119,6 @@ func Fatalln(a ...interface{}) {
 func Fatalf(format string, a ...interface{}) {
 	fmt.Fprintf(os.Stderr, format, a...)
 	os.Exit(1)
-}
-
-func panicIfNotNil(err error) {
-	if err != nil {
-		panic(err)
-	}
 }
 
 func ProgramStdin(exercise, input string, args ...string) {
