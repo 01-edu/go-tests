@@ -1,6 +1,7 @@
 package main
 
 import (
+	"strconv"
 	student "student"
 
 	"github.com/01-edu/go-tests/lib/challenge"
@@ -8,43 +9,42 @@ import (
 	"github.com/01-edu/go-tests/solutions"
 )
 
-func listPushBack(l *student.NodeI, data int) *student.NodeI {
+func listPushBack(l *student.NodeI, data int) {
 	n := &student.NodeI{Data: data}
 	if l == nil {
-		return n
-	} else {
-		iterator := l
-		for iterator.Next != nil {
-			iterator = iterator.Next
-		}
-		iterator.Next = n
+		l = n
 	}
-	return l
+	iterator := l
+	for iterator.Next != nil {
+		iterator = iterator.Next
+	}
+	iterator.Next = n
 }
 
-func challengeNodeI(l1 *student.NodeI, l2 *solutions.NodeI) {
-	for l1 != nil || l2 != nil {
-		if (l1 == nil && l2 != nil) || (l1 != nil && l2 == nil) {
-			challenge.Fatalf("\nstudent list:%s\nlist:%s\n\nListSort() == %v instead of %v\n\n",
-				solutions.NodeToString(copyList(l1)), solutions.NodeToString(l2), l1, l2)
-		}
-		if l1.Data != l2.Data {
-			challenge.Fatalf("\nstudent list:%s\nlist:%s\n\nListSort() == %v instead of %v\n\n",
-				solutions.NodeToString(copyList(l1)), solutions.NodeToString(l2), l1.Data, l2.Data)
-		}
-		l1 = l1.Next
-		l2 = l2.Next
-	}
-}
-
-func copyList(listStu *student.NodeI) *solutions.NodeI {
-	var listSol *solutions.NodeI
-	it := listStu
+func nodeToString(n *student.NodeI) string {
+	var res string
+	it := n
 	for it != nil {
-		listSol = solutions.ListPushNode(listSol, it.Data)
+		res += strconv.Itoa(it.Data) + "-> "
 		it = it.Next
 	}
-	return listSol
+	res += "<nil>"
+	return res
+}
+
+func challengeNodeI(a *student.NodeI, b *solutions.NodeI) {
+	for a != nil || b != nil {
+		if (a == nil && b != nil) || (a != nil && b == nil) {
+			challenge.Fatalf("\nstudent list:%s\nlist:%s\n\nListSort() == %v instead of %v\n\n",
+				nodeToString(a), solutions.NodeToString(b), a, b)
+		}
+		if a.Data != b.Data {
+			challenge.Fatalf("\nstudent list:%s\nlist:%s\n\nListSort() == %v instead of %v\n\n",
+				nodeToString(a), solutions.NodeToString(b), a.Data, b.Data)
+		}
+		a = a.Next
+		b = b.Next
+	}
 }
 
 func main() {
@@ -64,8 +64,8 @@ func main() {
 
 	for _, arg := range table {
 		for _, item := range arg.data {
-			link2 = listPushBack(link2, item)
-			link1 = solutions.ListPushNode(link1, item)
+			listPushBack(link2, item)
+			solutions.ListPushNode(link1, item)
 		}
 
 		sortedStudent := student.ListSort(link2)

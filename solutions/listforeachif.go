@@ -1,24 +1,22 @@
 package solutions
 
 // compare each element of the linked list to see if it is a String
-func IsPositive_node(node *NodeL) bool {
+func IsPositiveNode(node *NodeL) bool {
 	switch node.Data.(type) {
 	case int, float32, float64, byte:
 		return node.Data.(int) > 0
-	case string, rune:
+	default:
 		return false
 	}
-	return false
 }
 
-func IsAl_node(node *NodeL) bool {
+func IsAlNode(node *NodeL) bool {
 	switch node.Data.(type) {
 	case int, float32, float64, byte:
 		return false
-	case string, rune:
+	default:
 		return true
 	}
-	return true
 }
 
 // applies the function f on each string if the boolean function comp returns true
