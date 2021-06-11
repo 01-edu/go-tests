@@ -23,10 +23,8 @@ func listPushBack(l *student.List, data interface{}) {
 
 func copyList(listStu *student.List) *solutions.List {
 	listSol := &solutions.List{}
-	it := listStu.Head
-	for it != nil {
+	for it := listStu.Head; it != nil; it = it.Next {
 		solutions.ListPushBack(listSol, it.Data)
-		it = it.Next
 	}
 	return listSol
 }
@@ -58,7 +56,7 @@ func main() {
 
 	for i := 0; i < 3; i++ {
 		val := solutions.NodeTest{
-			Data: solutions.IntToStringface(random.StrSlice(chars.Words)),
+			Data: solutions.StringToInterface(random.StrSlice(chars.Words)),
 		}
 		table = append(table, val)
 	}
@@ -68,8 +66,8 @@ func main() {
 			solutions.ListPushBack(link1, item)
 			listPushBack(link2, item)
 		}
-		solutions.ListForEachIf(link1, stringToOneS, solutions.IsAl_node)
-		student.ListForEachIf(link2, stringToOne, student.IsAl_node)
+		solutions.ListForEachIf(link1, stringToOneS, solutions.IsAlNode)
+		student.ListForEachIf(link2, stringToOne, student.IsAlNode)
 
 		solutions.ChallengeList("ListForEachIf",
 			link1,

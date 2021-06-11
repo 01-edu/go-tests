@@ -109,41 +109,39 @@ func ChallengeTree(
 }
 
 // tests the lists, by comparing values in both lists
-func ChallengeList(f string, l, l1 *List, data []interface{}, args ...interface{}) {
-	student := CopyList(l1)
-	solution := CopyList(l)
-	for l.Head != nil || l1.Head != nil {
-		if l.Head == nil || l1.Head == nil {
+func ChallengeList(f string, a, b *List, data []interface{}, args ...interface{}) {
+	student := copyList(b)
+	solution := copyList(a)
+	for a.Head != nil || b.Head != nil {
+		if a.Head == nil || b.Head == nil {
 			challenge.Fatalf("\ndata used: %v\nstudent list:%s\nlist:%s\n\n%s(%s)== %v instead of %v\n\n",
 				data,
 				ListToString(student.Head),
 				ListToString(solution.Head),
 				f,
 				challenge.Format(args...),
-				l1.Head,
-				l.Head)
+				b.Head,
+				a.Head)
 		}
-		if l.Head.Data != l1.Head.Data {
+		if a.Head.Data != b.Head.Data {
 			challenge.Fatalf("\ndata used: %v\nstudent list:%s\nlist:%s\n\n%s(%s)== %v instead of %v\n\n",
 				data,
 				ListToString(student.Head),
 				ListToString(solution.Head),
 				f,
 				challenge.Format(args...),
-				l1.Head.Data,
-				l.Head.Data)
+				b.Head.Data,
+				a.Head.Data)
 		}
-		l.Head = l.Head.Next
-		l1.Head = l1.Head.Next
+		a.Head = a.Head.Next
+		b.Head = b.Head.Next
 	}
 }
 
-func CopyList(listStu *List) *List {
+func copyList(listStu *List) *List {
 	copy := &List{}
-	it := listStu.Head
-	for it != nil {
+	for it := listStu.Head; it != nil; it = it.Next {
 		ListPushBack(copy, it.Data)
-		it = it.Next
 	}
 	return copy
 }
@@ -164,29 +162,24 @@ func ListToString(n *NodeL) string {
 	return res
 }
 
-func ListPushNode(l *NodeI, data int) *NodeI {
+func ListPushNode(l *NodeI, data int) {
 	n := &NodeI{Data: data}
 
-	if l == nil {
-		return n
-	} else {
-		iterator := l
-		for iterator.Next != nil {
-			iterator = iterator.Next
-		}
-		iterator.Next = n
+	iterator := l
+	if iterator == nil {
+		iterator = n
 	}
-	return l
+	for iterator.Next != nil {
+		iterator = iterator.Next
+	}
+	iterator.Next = n
 }
 
-func CopyNode(listStu *NodeI) *NodeI {
-	var listSol *NodeI
-	it := listStu
-	for it != nil {
-		listSol = ListPushNode(listSol, it.Data)
-		it = it.Next
+func CopyNode(listStu *NodeI) (listSol *NodeI) {
+	for it := listStu; it != nil; it = it.Next {
+		ListPushNode(listSol, it.Data)
 	}
-	return listSol
+	return
 }
 
 func NodeToString(n *NodeI) string {
@@ -200,26 +193,18 @@ func NodeToString(n *NodeI) string {
 	return res
 }
 
-func IntToInterface(t []int) []interface{} {
-	RandLen := random.IntBetween(0, len(t))
-	s := make([]interface{}, RandLen)
-	for j := 0; j < RandLen; j++ {
-		for i := 0; i < random.IntBetween(1, len(t)); i++ {
-			s[j] = t[i]
-		}
+func IntToInterface(slice []int) (a []interface{}) {
+	for _, v := range slice {
+		a = append(a, v)
 	}
-	return s
+	return
 }
 
-func IntToStringface(t []string) []interface{} {
-	RandLen := random.IntBetween(0, len(t))
-	s := make([]interface{}, RandLen)
-	for j := 0; j < RandLen; j++ {
-		for i := 0; i < random.IntBetween(1, len(t)); i++ {
-			s[j] = t[i]
-		}
+func StringToInterface(slice []string) (a []interface{}) {
+	for _, v := range slice {
+		a = append(a, v)
 	}
-	return s
+	return
 }
 
 type NodeTest struct {
@@ -232,17 +217,17 @@ func ElementsToTest(table []NodeTest) []NodeTest {
 			Data: []interface{}{},
 		},
 	)
+
 	for i := 0; i < 3; i++ {
-		val := NodeTest{
+		table = append(table, NodeTest{
 			Data: IntToInterface(random.IntSliceBetween(-50, 100)),
-		}
-		table = append(table, val)
+		})
 	}
 	for i := 0; i < 3; i++ {
-		val := NodeTest{
-			Data: IntToStringface(random.StrSlice(chars.Words)),
-		}
-		table = append(table, val)
+		table = append(table, NodeTest{
+			Data: StringToInterface(random.StrSlice(chars.Words)),
+		})
 	}
+
 	return table
 }

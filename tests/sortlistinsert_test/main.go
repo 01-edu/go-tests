@@ -8,45 +8,38 @@ import (
 	"github.com/01-edu/go-tests/solutions"
 )
 
-func challengeNodeI(l1 *student.NodeI, l2, l3 *solutions.NodeI, data []int) {
-	student := copyList(l1)
-	solution := solutions.CopyNode(l2)
-	for l1 != nil || l2 != nil {
-		if (l1 == nil && l2 != nil) || (l1 != nil && l2 == nil) {
+func challengeNodeI(a *student.NodeI, b, c *solutions.NodeI, data []int) {
+	solution := solutions.CopyNode(b)
+	student := copyList(a)
+	for a != nil || b != nil {
+		if (a == nil && b != nil) || (a != nil && b == nil) {
 			challenge.Fatalf("\nlist before insert:%s\ndata used to insert: %d\nstudent list:%s\nlist:%s\n\nSortListInsert() == %v instead of %v\n\n",
-				solutions.NodeToString(l3), data, solutions.NodeToString(student), solutions.NodeToString(solution), l1, l2)
+				solutions.NodeToString(c), data, solutions.NodeToString(student), solutions.NodeToString(solution), a, b)
 		}
-		if l1.Data != l2.Data {
+		if a.Data != b.Data {
 			challenge.Fatalf("\nlist before insert:%s\ndata used to insert: %d\nstudent list:%s\nlist:%s\n\nSortListInsert() == %v instead of %v\n\n",
-				solutions.NodeToString(l3), data, solutions.NodeToString(student), solutions.NodeToString(solution), l1.Data, l2.Data)
+				solutions.NodeToString(c), data, solutions.NodeToString(student), solutions.NodeToString(solution), a.Data, b.Data)
 		}
-		l1 = l1.Next
-		l2 = l2.Next
+		a = a.Next
+		b = b.Next
 	}
 }
 
-func copyList(listStu *student.NodeI) *solutions.NodeI {
-	var listSol *solutions.NodeI
-	it := listStu
-	for it != nil {
-		listSol = solutions.ListPushNode(listSol, it.Data)
-		it = it.Next
+func copyList(listStu *student.NodeI) (listSol *solutions.NodeI) {
+	for it := listStu; it != nil; it = it.Next {
+		solutions.ListPushNode(listSol, it.Data)
 	}
-	return listSol
+	return
 }
 
-func listPushBack(l *student.NodeI, data int) *student.NodeI {
+func listPushBack(l *student.NodeI, data int) {
 	n := &student.NodeI{Data: data}
-	if l == nil {
-		return n
-	} else {
-		iterator := l
-		for iterator.Next != nil {
-			iterator = iterator.Next
-		}
-		iterator.Next = n
+	iterator := l
+	for iterator.Next != nil {
+		iterator = iterator.Next
 	}
-	return l
+	iterator.Next = n
+	l = iterator
 }
 
 func move(l *student.NodeI) *student.NodeI {
@@ -104,11 +97,10 @@ func main() {
 	}
 	for _, arg := range table {
 		for _, item := range arg.data {
-			link1 = solutions.ListPushNode(link1, item)
-			link2 = listPushBack(link2, item)
-			view = solutions.ListPushNode(view, item)
+			solutions.ListPushNode(link1, item)
+			listPushBack(link2, item)
+			solutions.ListPushNode(view, item)
 		}
-
 		link1 = solutions.ListSort(link1)
 		view = solutions.ListSort(view)
 		link2 = listSort(link2)

@@ -8,10 +8,8 @@ import (
 
 func copyList(listStu *student.List) *solutions.List {
 	listSol := &solutions.List{}
-	it := listStu.Head
-	for it != nil {
+	for it := listStu.Head; it != nil; it = it.Next {
 		solutions.ListPushBack(listSol, it.Data)
-		it = it.Next
 	}
 	return listSol
 }

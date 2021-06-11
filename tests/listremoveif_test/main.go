@@ -20,10 +20,8 @@ func listPushBack(l *student.List, data interface{}) {
 
 func copyList(listStu *student.List) *solutions.List {
 	listSol := &solutions.List{}
-	it := listStu.Head
-	for it != nil {
+	for it := listStu.Head; it != nil; it = it.Next {
 		solutions.ListPushBack(listSol, it.Data)
-		it = it.Next
 	}
 	return listSol
 }
@@ -32,10 +30,10 @@ func main() {
 	link1 := &solutions.List{}
 	link2 := &student.List{}
 	var index int
+
 	table := []solutions.NodeTest{{
 		Data: []interface{}{"hello", "hello1", "hello2", "hello3"},
 	}}
-
 	table = solutions.ElementsToTest(table)
 
 	for _, arg := range table {

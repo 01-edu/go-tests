@@ -33,7 +33,7 @@ func main() {
 			listPushBack(link2, item)
 		}
 
-		if len(arg.Data) != 0 {
+		if len(arg.Data) > 0 {
 			stuValue := student.ListFind(link2, arg.Data[(len(arg.Data)-1)/2], student.CompStr)
 			solValue := solutions.ListFind(link1, arg.Data[(len(arg.Data)-1)/2], solutions.CompStr)
 			if stuValue == nil && solValue != nil {

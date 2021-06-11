@@ -1,29 +1,13 @@
 package main
 
 import (
+	"strconv"
 	student "student"
 
 	"github.com/01-edu/go-tests/lib/challenge"
 	"github.com/01-edu/go-tests/lib/random"
 	"github.com/01-edu/go-tests/solutions"
 )
-
-func challengeNodeI(l1 *student.NodeI, l2 *solutions.NodeI, data [][]int) {
-	student := copyList(l1)
-	solution := solutions.CopyNode(l2)
-	for l1 != nil || l2 != nil {
-		if (l1 == nil && l2 != nil) || (l1 != nil && l2 == nil) {
-			challenge.Fatalf("\ndata set:%d\nstudent list:%s\nlist:%s\n\nSortListInsert() == %v instead of %v\n\n",
-				data, solutions.NodeToString(student), solutions.NodeToString(solution), l1, l2)
-		}
-		if l1.Data != l2.Data {
-			challenge.Fatalf("\ndata set:%d\nstudent list:%s\nlist:%s\n\nSortListInsert() == %v instead of %v\n\n",
-				data, solutions.NodeToString(student), solutions.NodeToString(solution), l1.Data, l2.Data)
-		}
-		l1 = l1.Next
-		l2 = l2.Next
-	}
-}
 
 func listPushBack(l *student.NodeI, data int) *student.NodeI {
 	n := &student.NodeI{Data: data}
@@ -39,14 +23,15 @@ func listPushBack(l *student.NodeI, data int) *student.NodeI {
 	return l
 }
 
-func copyList(listStu *student.NodeI) *solutions.NodeI {
-	var listSol *solutions.NodeI
-	it := listStu
+func nodeToString(n *student.NodeI) string {
+	var res string
+	it := n
 	for it != nil {
-		listSol = solutions.ListPushNode(listSol, it.Data)
+		res += strconv.Itoa(it.Data) + "-> "
 		it = it.Next
 	}
-	return listSol
+	res += "<nil>"
+	return res
 }
 
 func move(l *student.NodeI) *student.NodeI {
@@ -104,12 +89,12 @@ func main() {
 
 	for _, arg := range table {
 		for _, item := range arg.data1 {
-			link1 = solutions.ListPushNode(link1, item)
+			solutions.ListPushNode(link1, item)
 			linkTest1 = listPushBack(linkTest1, item)
 		}
 
 		for _, item := range arg.data2 {
-			link2 = solutions.ListPushNode(link2, item)
+			solutions.ListPushNode(link2, item)
 			linkTest2 = listPushBack(linkTest2, item)
 		}
 
@@ -121,11 +106,23 @@ func main() {
 		solutionList := solutions.SortedListMerge(link1, link2)
 		studentList := student.SortedListMerge(linkTest1, linkTest2)
 
-		challengeNodeI(studentList, solutionList, [][]int{arg.data1, arg.data2})
+		data := [][]int{arg.data1, arg.data2}
+		for studentList != nil || solutionList != nil {
+			if (studentList == nil && solutionList != nil) || (studentList != nil && solutionList == nil) {
+				challenge.Fatalf("\ndata set:%d\nstudent list:%s\nlist:%s\n\nSortListInsert() == %v instead of %v\n\n",
+					data, nodeToString(studentList), solutions.NodeToString(solutionList), studentList, solutionList)
+			}
+			if studentList.Data != solutionList.Data {
+				challenge.Fatalf("\ndata set:%d\nstudent list:%s\nlist:%s\n\nSortListInsert() == %v instead of %v\n\n",
+					data, nodeToString(studentList), solutions.NodeToString(solutionList), studentList.Data, solutionList.Data)
+			}
+			studentList = studentList.Next
+			solutionList = solutionList.Next
+		}
 
-		link1 = nil
-		link2 = nil
-		linkTest1 = nil
-		linkTest2 = nil
+		link1 = &solutions.NodeI{}
+		link2 = &solutions.NodeI{}
+		linkTest1 = &student.NodeI{}
+		linkTest2 = &student.NodeI{}
 	}
 }
