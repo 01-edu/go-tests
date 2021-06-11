@@ -1,8 +1,6 @@
 package main
 
 import (
-	"strconv"
-
 	student "student"
 
 	"github.com/01-edu/go-tests/lib/challenge"
@@ -10,29 +8,27 @@ import (
 	"github.com/01-edu/go-tests/solutions"
 )
 
-type (
-	NodeI13  = student.NodeI
-	NodeIS13 = solutions.NodeI
-)
-
-func printListStudent1(n *NodeI13) string {
-	var res string
-	it := n
-	for it != nil {
-		res += strconv.Itoa(it.Data) + "-> "
-		it = it.Next
+func challengeNodeI(l1 *student.NodeI, l2 *solutions.NodeI, data [][]int) {
+	student := copyList(l1)
+	solution := solutions.CopyNode(l2)
+	for l1 != nil || l2 != nil {
+		if (l1 == nil && l2 != nil) || (l1 != nil && l2 == nil) {
+			challenge.Fatalf("\ndata set:%d\nstudent list:%s\nlist:%s\n\nSortListInsert() == %v instead of %v\n\n",
+				data, solutions.NodeToString(student), solutions.NodeToString(solution), l1, l2)
+		}
+		if l1.Data != l2.Data {
+			challenge.Fatalf("\ndata set:%d\nstudent list:%s\nlist:%s\n\nSortListInsert() == %v instead of %v\n\n",
+				data, solutions.NodeToString(student), solutions.NodeToString(solution), l1.Data, l2.Data)
+		}
+		l1 = l1.Next
+		l2 = l2.Next
 	}
-
-	res += "<nil>"
-	return res
 }
 
-func nodePushBackListInt13(l *NodeI13, l1 *NodeIS13, data int) {
-	n := &NodeI13{Data: data}
-	n1 := &NodeIS13{Data: data}
-
+func listPushBack(l *student.NodeI, data int) *student.NodeI {
+	n := &student.NodeI{Data: data}
 	if l == nil {
-		l = n
+		return n
 	} else {
 		iterator := l
 		for iterator.Next != nil {
@@ -40,23 +36,52 @@ func nodePushBackListInt13(l *NodeI13, l1 *NodeIS13, data int) {
 		}
 		iterator.Next = n
 	}
+	return l
+}
 
-	if l1 == nil {
-		l1 = n1
-	} else {
-		iterator1 := l1
-		for iterator1.Next != nil {
-			iterator1 = iterator1.Next
-		}
-		iterator1.Next = n1
+func copyList(listStu *student.NodeI) *solutions.NodeI {
+	var listSol *solutions.NodeI
+	it := listStu
+	for it != nil {
+		listSol = solutions.ListPushNode(listSol, it.Data)
+		it = it.Next
 	}
+	return listSol
+}
+
+func move(l *student.NodeI) *student.NodeI {
+	p := l
+	n := l.Next
+	ret := n
+
+	for n != nil && l.Data > n.Data {
+		p = n
+		n = n.Next
+	}
+	p.Next = l
+	l.Next = n
+	return ret
+}
+
+func listSort(l *student.NodeI) *student.NodeI {
+	head := l
+	if head == nil {
+		return nil
+	}
+	head.Next = listSort(head.Next)
+
+	if head.Next != nil && head.Data > head.Next.Data {
+		head = move(head)
+	}
+	return head
 }
 
 func main() {
-	var link1 *NodeI13
-	var link2 *NodeI13
-	var linkTest1 *NodeIS13
-	var linkTest2 *NodeIS13
+	var link1 *solutions.NodeI
+	var link2 *solutions.NodeI
+	var linkTest1 *student.NodeI
+	var linkTest2 *student.NodeI
+
 	type nodeTest struct {
 		data1 []int
 		data2 []int
@@ -64,49 +89,43 @@ func main() {
 
 	table := []nodeTest{{
 		data1: []int{},
+		data2: []int{},
+	}, {
+		data1: []int{3, 5, 7},
+		data2: []int{1, -2, 4, 6},
 	}}
 
 	for i := 0; i < 3; i++ {
-		val := nodeTest{
-			data1: random.IntSlice(),
-			data2: random.IntSlice(),
-		}
-		table = append(table, val)
+		table = append(table, nodeTest{
+			data1: random.IntSliceBetween(-50, 100),
+			data2: random.IntSliceBetween(-50, 100),
+		})
 	}
-	table = append(table,
-		nodeTest{
-			data1: []int{3, 5, 7},
-			data2: []int{1, -2, 4, 6},
-		},
-	)
+
 	for _, arg := range table {
-		for i := 0; i < len(arg.data1); i++ {
-			nodePushBackListInt13(link1, linkTest1, arg.data1[i])
-		}
-		for i := 0; i < len(arg.data2); i++ {
-			nodePushBackListInt13(link2, linkTest2, arg.data2[i])
+		for _, item := range arg.data1 {
+			link1 = solutions.ListPushNode(link1, item)
+			linkTest1 = listPushBack(linkTest1, item)
 		}
 
-		link1 = student.ListSort(link1)
-		link2 = student.ListSort(link2)
-		linkTest1 = solutions.ListSort(linkTest1)
-		linkTest2 = solutions.ListSort(linkTest2)
-
-		aux1 := student.SortedListMerge(link1, link2)
-		aux2 := solutions.SortedListMerge(linkTest1, linkTest2)
-
-		if aux1 == nil && aux2 == nil {
-		} else if aux1 != nil && aux2 == nil {
-			challenge.Fatalf("\nstudent merged lists:%s\nmerged lists:%s\n\nSortListMerge() == %v instead of %v\n\n",
-				printListStudent1(aux1), solutions.PrintList(aux2), aux1, aux2)
-		} else if aux1.Data != aux2.Data {
-			challenge.Fatalf("\nstudent merged lists:%s\nmerged lists:%s\n\nSortListMerge() == %v instead of %v\n\n",
-				printListStudent1(aux1), solutions.PrintList(aux2), aux1, aux2)
+		for _, item := range arg.data2 {
+			link2 = solutions.ListPushNode(link2, item)
+			linkTest2 = listPushBack(linkTest2, item)
 		}
 
-		link1 = &NodeI13{}
-		link2 = &NodeI13{}
-		linkTest1 = &NodeIS13{}
-		linkTest2 = &NodeIS13{}
+		linkTest1 = listSort(linkTest1)
+		linkTest2 = listSort(linkTest2)
+		link1 = solutions.ListSort(link1)
+		link2 = solutions.ListSort(link2)
+
+		solutionList := solutions.SortedListMerge(link1, link2)
+		studentList := student.SortedListMerge(linkTest1, linkTest2)
+
+		challengeNodeI(studentList, solutionList, [][]int{arg.data1, arg.data2})
+
+		link1 = nil
+		link2 = nil
+		linkTest1 = nil
+		linkTest2 = nil
 	}
 }
