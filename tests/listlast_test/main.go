@@ -7,12 +7,7 @@ import (
 	"github.com/01-edu/go-tests/solutions"
 )
 
-type (
-	ListS = solutions.List
-	List  = student.List
-)
-
-func listPushBack(l *List, data interface{}) {
+func listPushBack(l *student.List, data interface{}) {
 	n := &student.NodeL{Data: data}
 
 	if l.Head == nil {
@@ -24,8 +19,8 @@ func listPushBack(l *List, data interface{}) {
 }
 
 func main() {
-	link1 := &ListS{}
-	link2 := &List{}
+	link1 := &solutions.List{}
+	link2 := &student.List{}
 	table := []solutions.NodeTest{{
 		Data: []interface{}{3, 2, 1},
 	}}
@@ -44,7 +39,7 @@ func main() {
 			challenge.Fatalf("\nlist:%s\n\nListLast() == %v instead of %v\n\n",
 				solutions.ListToString(link1.Head), studentLast, solutionsLast)
 		}
-		link1 = &ListS{}
-		link2 = &List{}
+		link1 = &solutions.List{}
+		link2 = &student.List{}
 	}
 }
