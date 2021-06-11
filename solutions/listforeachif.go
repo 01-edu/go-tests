@@ -11,24 +11,14 @@ func IsPositive_node(node *NodeL) bool {
 	return false
 }
 
-func IsNegative_node(node *NodeL) bool {
+func IsAl_node(node *NodeL) bool {
 	switch node.Data.(type) {
 	case int, float32, float64, byte:
-		return node.Data.(int) > 0
-	case string, rune:
 		return false
-	}
-	return false
-}
-
-func IsNumeric_node(node *NodeL) bool {
-	switch node.Data.(type) {
-	case int, float32, float64, byte:
+	case string, rune:
 		return true
-	case string, rune:
-		return false
 	}
-	return false
+	return true
 }
 
 // applies the function f on each string if the boolean function comp returns true

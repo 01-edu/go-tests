@@ -1,85 +1,53 @@
 package main
 
 import (
-	"strconv"
-
 	student "student"
 
 	"github.com/01-edu/go-tests/lib/challenge"
 	"github.com/01-edu/go-tests/solutions"
 )
 
-type (
-	Node4  = student.NodeL
-	List4  = solutions.List
-	NodeS4 = solutions.NodeL
-	ListS4 = student.List
-)
-
-func listToStringStu5(l *ListS4) string {
-	var res string
-	it := l.Head
+func copyList(listStu *student.List, listSol *solutions.List) *solutions.List {
+	it := listStu.Head
 	for it != nil {
-		switch it.Data.(type) {
-		case int:
-			res += strconv.Itoa(it.Data.(int)) + "-> "
-		case string:
-			res += it.Data.(string) + "-> "
-		}
+		solutions.ListPushBack(listSol, it.Data)
 		it = it.Next
 	}
-	res += "<nil>"
-	return res
+	return listSol
 }
 
-func listPushBackTest4(l1 *ListS4, l2 *List4, data interface{}) {
-	n := &Node4{Data: data}
-	n1 := &NodeS4{Data: data}
-	if l1.Head == nil {
-		l1.Head = n
+func listPushBack(l *student.List, data interface{}) {
+	n := &student.NodeL{Data: data}
+
+	if l.Head == nil {
+		l.Head = n
 	} else {
-		iterator := l1.Head
-		for iterator.Next != nil {
-			iterator = iterator.Next
-		}
-		iterator.Next = n
+		l.Tail.Next = n
 	}
-	if l2.Head == nil {
-		l2.Head = n1
-	} else {
-		iterator1 := l2.Head
-		for iterator1.Next != nil {
-			iterator1 = iterator1.Next
-		}
-		iterator1.Next = n1
-	}
+	l.Tail = n
 }
 
-// simply cleans the linked solutions.ListS
 func main() {
-	link1 := &List4{}
-	link2 := &ListS4{}
+	link1 := &solutions.List{}
+	link2 := &student.List{}
 
-	table := []solutions.NodeTest{}
-
+	table := []solutions.NodeTest{{
+		Data: []interface{}{"I", 1, "something", 2},
+	}}
 	table = solutions.ElementsToTest(table)
-
-	table = append(table,
-		solutions.NodeTest{
-			Data: []interface{}{"I", 1, "something", 2},
-		},
-	)
 
 	for _, arg := range table {
 		for i := 0; i < len(arg.Data); i++ {
-			listPushBackTest4(link2, link1, arg.Data[i])
+			listPushBack(link2, arg.Data[i])
+			solutions.ListPushBack(link1, arg.Data[i])
 		}
 		solutions.ListClear(link1)
 		student.ListClear(link2)
 
 		if link2.Head != nil {
 			challenge.Fatalf("\nstudent list:%s\nlist:%s\n\nListClear() == %v instead of %v\n\n",
-				listToStringStu5(link2), solutions.ListToString(link1.Head), link2.Head, link1.Head)
+				solutions.ListToString(copyList(link2, &solutions.List{}).Head),
+				solutions.ListToString(link1.Head), link2.Head, link1.Head)
 		}
 	}
 }

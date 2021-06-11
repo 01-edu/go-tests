@@ -1,8 +1,6 @@
 package main
 
 import (
-	"strconv"
-
 	student "student"
 
 	"github.com/01-edu/go-tests/lib/challenge"
@@ -10,72 +8,43 @@ import (
 )
 
 type (
-	Node3  = student.NodeL
-	List3  = solutions.List
-	NodeS3 = solutions.NodeL
-	ListS3 = student.List
+	ListS = solutions.List
+	List  = student.List
 )
 
-func listToStringStu9(l *ListS3) string {
-	var res string
-	it := l.Head
-	for it != nil {
-		switch it.Data.(type) {
-		case int:
-			res += strconv.Itoa(it.Data.(int)) + "-> "
-		case string:
-			res += it.Data.(string) + "-> "
-		}
-		it = it.Next
-	}
-	res += "<nil>"
-	return res
-}
+func listPushBack(l *List, data interface{}) {
+	n := &student.NodeL{Data: data}
 
-// inserts node on two lists
-func listPushBackTest3(l *ListS3, l1 *List3, data interface{}) {
-	n := &Node3{Data: data}
-	n1 := &NodeS3{Data: data}
 	if l.Head == nil {
 		l.Head = n
-		l.Tail = n
 	} else {
 		l.Tail.Next = n
-		l.Tail = n
 	}
-	if l1.Head == nil {
-		l1.Head = n1
-		l1.Tail = n1
-	} else {
-		l1.Tail.Next = n1
-		l1.Tail = n1
-	}
+	l.Tail = n
 }
 
-// last element of the solutions.ListS
 func main() {
-	link1 := &List3{}
-	link2 := &ListS3{}
-	table := []solutions.NodeTest{}
+	link1 := &ListS{}
+	link2 := &List{}
+	table := []solutions.NodeTest{{
+		Data: []interface{}{3, 2, 1},
+	}}
 
 	table = solutions.ElementsToTest(table)
-	table = append(table,
-		solutions.NodeTest{
-			Data: []interface{}{3, 2, 1},
-		},
-	)
-	for _, arg := range table {
-		for i := 0; i < len(arg.Data); i++ {
-			listPushBackTest3(link2, link1, arg.Data[i])
-		}
-		aux1 := solutions.ListLast(link1)
-		aux2 := student.ListLast(link2)
 
-		if aux1 != aux2 {
-			challenge.Fatalf("\nlist:%s\n\nListLast() == %v instead of %v\n\n",
-				listToStringStu9(link2), aux2, aux1)
+	for _, arg := range table {
+		for _, item := range arg.Data {
+			listPushBack(link2, item)
+			solutions.ListPushBack(link1, item)
 		}
-		link1 = &List3{}
-		link2 = &ListS3{}
+		solutionsLast := solutions.ListLast(link1)
+		studentLast := student.ListLast(link2)
+
+		if solutionsLast != studentLast {
+			challenge.Fatalf("\nlist:%s\n\nListLast() == %v instead of %v\n\n",
+				solutions.ListToString(link1.Head), studentLast, solutionsLast)
+		}
+		link1 = &ListS{}
+		link2 = &List{}
 	}
 }

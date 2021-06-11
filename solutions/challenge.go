@@ -1,10 +1,7 @@
 package solutions
 
 import (
-	"reflect"
-	"runtime"
 	"strconv"
-	"strings"
 
 	"github.com/01-edu/go-tests/lib/challenge"
 	"github.com/01-edu/go-tests/lib/chars"
@@ -111,15 +108,44 @@ func ChallengeTree(
 	}
 }
 
-func PrintList(n *NodeI) string {
-	var res string
-	it := n
+// tests the lists, by comparing values in both lists
+func ChallengeList(f string, l, l1 *List, data []interface{}, args ...interface{}) {
+	student := CopyList(l1)
+	solution := CopyList(l)
+	for l.Head != nil || l1.Head != nil {
+		if l.Head == nil || l1.Head == nil {
+			challenge.Fatalf("\ndata used: %v\nstudent list:%s\nlist:%s\n\n%s(%s)== %v instead of %v\n\n",
+				data,
+				ListToString(student.Head),
+				ListToString(solution.Head),
+				f,
+				challenge.Format(args...),
+				l1.Head,
+				l.Head)
+		}
+		if l.Head.Data != l1.Head.Data {
+			challenge.Fatalf("\ndata used: %v\nstudent list:%s\nlist:%s\n\n%s(%s)== %v instead of %v\n\n",
+				data,
+				ListToString(student.Head),
+				ListToString(solution.Head),
+				f,
+				challenge.Format(args...),
+				l1.Head.Data,
+				l.Head.Data)
+		}
+		l.Head = l.Head.Next
+		l1.Head = l1.Head.Next
+	}
+}
+
+func CopyList(listStu *List) *List {
+	copy := &List{}
+	it := listStu.Head
 	for it != nil {
-		res += strconv.Itoa(it.Data) + "-> "
+		ListPushBack(copy, it.Data)
 		it = it.Next
 	}
-	res += "<nil>"
-	return res
+	return copy
 }
 
 func ListToString(n *NodeL) string {
@@ -138,7 +164,43 @@ func ListToString(n *NodeL) string {
 	return res
 }
 
-func ConvertIntToInterface(t []int) []interface{} {
+func ListPushNode(l *NodeI, data int) *NodeI {
+	n := &NodeI{Data: data}
+
+	if l == nil {
+		return n
+	} else {
+		iterator := l
+		for iterator.Next != nil {
+			iterator = iterator.Next
+		}
+		iterator.Next = n
+	}
+	return l
+}
+
+func CopyNode(listStu *NodeI) *NodeI {
+	var listSol *NodeI
+	it := listStu
+	for it != nil {
+		listSol = ListPushNode(listSol, it.Data)
+		it = it.Next
+	}
+	return listSol
+}
+
+func NodeToString(n *NodeI) string {
+	var res string
+	it := n
+	for it != nil {
+		res += strconv.Itoa(it.Data) + "-> "
+		it = it.Next
+	}
+	res += "<nil>"
+	return res
+}
+
+func IntToInterface(t []int) []interface{} {
 	RandLen := random.IntBetween(0, len(t))
 	s := make([]interface{}, RandLen)
 	for j := 0; j < RandLen; j++ {
@@ -149,7 +211,7 @@ func ConvertIntToInterface(t []int) []interface{} {
 	return s
 }
 
-func ConvertIntToStringface(t []string) []interface{} {
+func IntToStringface(t []string) []interface{} {
 	RandLen := random.IntBetween(0, len(t))
 	s := make([]interface{}, RandLen)
 	for j := 0; j < RandLen; j++ {
@@ -172,21 +234,15 @@ func ElementsToTest(table []NodeTest) []NodeTest {
 	)
 	for i := 0; i < 3; i++ {
 		val := NodeTest{
-			Data: ConvertIntToInterface(random.IntSlice()),
+			Data: IntToInterface(random.IntSliceBetween(-50, 100)),
 		}
 		table = append(table, val)
 	}
 	for i := 0; i < 3; i++ {
 		val := NodeTest{
-			Data: ConvertIntToStringface(random.StrSlice(chars.Words)),
+			Data: IntToStringface(random.StrSlice(chars.Words)),
 		}
 		table = append(table, val)
 	}
 	return table
-}
-
-// GetName gets the function name
-func GetName(f interface{}) string {
-	pathFuncUsed := strings.Split(runtime.FuncForPC(reflect.ValueOf(f).Pointer()).Name(), "/")
-	return pathFuncUsed[len(pathFuncUsed)-1]
 }

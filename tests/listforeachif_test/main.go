@@ -1,151 +1,83 @@
 package main
 
 import (
-	"strconv"
-
+	"reflect"
+	"runtime"
 	student "student"
 
-	"github.com/01-edu/go-tests/lib/challenge"
 	"github.com/01-edu/go-tests/lib/chars"
 	"github.com/01-edu/go-tests/lib/random"
 	"github.com/01-edu/go-tests/solutions"
 )
 
-type (
-	Node8  = student.NodeL
-	List8  = solutions.List
-	NodeS8 = solutions.NodeL
-	ListS8 = student.List
-)
+func listPushBack(l *student.List, data interface{}) {
+	n := &student.NodeL{Data: data}
 
-// function to apply, in listforeachif
-func addOneS(node *NodeS8) {
-	data := node.Data.(int)
-	data++
-	node.Data = interface{}(data)
+	if l.Head == nil {
+		l.Head = n
+	} else {
+		l.Tail.Next = n
+	}
+	l.Tail = n
 }
 
-// function to apply, in listforeachif
-func addOne(node *Node8) {
-	data := node.Data.(int)
-	data++
-	node.Data = interface{}(data)
-}
-
-func subtract1_sol(node *NodeS8) {
-	data := node.Data.(int)
-	data--
-	node.Data = interface{}(data)
-}
-
-func subtractOne(node *Node8) {
-	data := node.Data.(int)
-	data--
-	node.Data = interface{}(data)
-}
-
-func listToStringStu7(l *ListS8) string {
-	var res string
-	it := l.Head
+func copyList(listStu *student.List) *solutions.List {
+	listSol := &solutions.List{}
+	it := listStu.Head
 	for it != nil {
-		switch it.Data.(type) {
-		case int:
-			res += strconv.Itoa(it.Data.(int)) + "-> "
-		case string:
-			res += it.Data.(string) + "-> "
-		}
+		solutions.ListPushBack(listSol, it.Data)
 		it = it.Next
 	}
-	res += "<nil>"
-	return res
+	return listSol
 }
 
-func listPushBackTest8(l1 *ListS8, l2 *List8, data interface{}) {
-	n1 := &Node8{Data: data}
-	n2 := &NodeS8{Data: data}
-
-	if l1.Head == nil {
-		l1.Head = n1
-	} else {
-		iterator := l1.Head
-		for iterator.Next != nil {
-			iterator = iterator.Next
-		}
-		iterator.Next = n1
-	}
-
-	if l2.Head == nil {
-		l2.Head = n2
-	} else {
-		iterator1 := l2.Head
-		for iterator1.Next != nil {
-			iterator1 = iterator1.Next
-		}
-		iterator1.Next = n2
-	}
+func stringToOneS(node *solutions.NodeL) {
+	node.Data = 1
 }
 
-func comparFuncList8(l1 *List8, l2 *ListS8, f func(*Node8) bool, comp func(*Node8)) {
-	funcFName := solutions.GetName(f)
-	funcComp := solutions.GetName(comp)
-	for l1.Head != nil || l2.Head != nil {
-		if (l1.Head == nil && l2.Head != nil) || (l1.Head != nil && l2.Head == nil) {
-			challenge.Fatalf("\nstudent list:%s\nlist:%s\nfunction f used: %s\nfunction comp: %s\n\nListForEachIf() == %v instead of %v\n\n",
-				listToStringStu7(l2), solutions.ListToString(l1.Head), funcComp, funcFName, l2.Head, l1.Head)
-		}
-		if l1.Head.Data != l2.Head.Data {
-			challenge.Fatalf("\nstudent list:%s\nlist:%s\nfunction f used: %s\nfunction comp: %s\n\nListForEachIf() == %v instead of %v\n\n",
-				listToStringStu7(l2), solutions.ListToString(l1.Head), funcComp, funcFName, l2.Head.Data, l1.Head.Data)
-		}
-		l1.Head = l1.Head.Next
-		l2.Head = l2.Head.Next
-	}
+func stringToOne(node *student.NodeL) {
+	node.Data = 1
 }
 
-// applies a function to an element of the linked solutions.ListS
 func main() {
-	link1 := &ListS8{}
-	link2 := &List8{}
+	link1 := &solutions.List{}
+	link2 := &student.List{}
 
-	table := []solutions.NodeTest{}
-	table = append(table,
-		solutions.NodeTest{
-			Data: []interface{}{},
-		},
-	)
+	table := []solutions.NodeTest{{
+		Data: []interface{}{"I", 1, "something", 2},
+	}, {
+		Data: []interface{}{},
+	}}
 
-	// just numbers/ints
 	for i := 0; i < 3; i++ {
 		val := solutions.NodeTest{
-			Data: solutions.ConvertIntToInterface(random.IntSlice()),
+			Data: solutions.IntToInterface(random.IntSliceBetween(-50, 100)),
 		}
 		table = append(table, val)
 	}
-	// just strings
+
 	for i := 0; i < 3; i++ {
 		val := solutions.NodeTest{
-			Data: solutions.ConvertIntToStringface(random.StrSlice(chars.Words)),
+			Data: solutions.IntToStringface(random.StrSlice(chars.Words)),
 		}
 		table = append(table, val)
 	}
-	table = append(table,
-		solutions.NodeTest{
-			Data: []interface{}{"I", 1, "something", 2},
-		},
-	)
+
 	for _, arg := range table {
-		for i := 0; i < len(arg.Data); i++ {
-			listPushBackTest8(link1, link2, arg.Data[i])
+		for _, item := range arg.Data {
+			solutions.ListPushBack(link1, item)
+			listPushBack(link2, item)
 		}
-		solutions.ListForEachIf(link2, addOneS, solutions.IsPositive_node)
-		student.ListForEachIf(link1, addOne, student.IsPositive_node)
-		comparFuncList8(link2, link1, student.IsPositive_node, addOne)
+		solutions.ListForEachIf(link1, stringToOneS, solutions.IsAl_node)
+		student.ListForEachIf(link2, stringToOne, student.IsAl_node)
 
-		solutions.ListForEachIf(link2, subtract1_sol, solutions.IsPositive_node)
-		student.ListForEachIf(link1, subtractOne, student.IsPositive_node)
-		comparFuncList8(link2, link1, student.IsPositive_node, subtractOne)
+		solutions.ChallengeList("ListForEachIf",
+			link1,
+			copyList(link2),
+			arg.Data,
+			runtime.FuncForPC(reflect.ValueOf(stringToOne).Pointer()).Name())
 
-		link1 = &ListS8{}
-		link2 = &List8{}
+		link1 = &solutions.List{}
+		link2 = &student.List{}
 	}
 }
