@@ -15,6 +15,12 @@ func main() {
 	}
 
 	table := []nodeTest{}
+
+	example := nodeTest{
+		data: []string{"Hello! How are You?"},
+	}
+	table = append(table, example)
+
 	for i := 0; i < 5; i++ {
 		val := nodeTest{
 			data: random.StrSlice(chars.Words),
