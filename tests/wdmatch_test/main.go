@@ -11,6 +11,10 @@ import (
 func main() {
 	table := append(random.StrSlice(chars.Words),
 		" ",
+		"123 123",
+		"abc abc",
+		"ac abc",
+		"13 123",
 		"faya fgvvfdxcacpolhyghbreda",
 		"faya fgvvfdxcacpolhyghbred",
 		"error rrerrrfiiljdfxjyuifrrvcoojh",
