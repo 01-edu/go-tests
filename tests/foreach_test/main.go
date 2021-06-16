@@ -34,7 +34,10 @@ func main() {
 		a []int
 	}
 
-	table := []node{}
+	table := []node{{
+		f: add0,
+		a: []int{1, 2, 3, 4, 5, 6},
+	}}
 
 	// 15 random slice of random ints with a random function from selection
 	for i := 0; i < 15; i++ {
@@ -44,11 +47,6 @@ func main() {
 			a: random.IntSliceBetween(-1000000, 1000000),
 		})
 	}
-
-	table = append(table, node{
-		f: add0,
-		a: []int{1, 2, 3, 4, 5, 6},
-	})
 
 	for _, arg := range table {
 		challenge.Function("ForEach", student.ForEach, solutions.ForEach, arg.f, arg.a)
