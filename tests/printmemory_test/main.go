@@ -8,17 +8,22 @@ import (
 	"github.com/01-edu/go-tests/solutions"
 )
 
-func main() {
-	var table [10]int
-
-	for j := 0; j < 5; j++ {
-		for i := 0; i < 10; i++ {
-			table[i] = random.IntBetween(0, 1000)
-		}
-		challenge.Function("PrintMemory", student.PrintMemory, solutions.PrintMemory, table)
+func randSliceInt() [10]int {
+	var ints [10]int
+	for i := range ints {
+		ints[i] = random.IntBetween(0, 1000)
 	}
-	table2 := [10]int{104, 101, 108, 108, 111, 16, 21, 42}
-	challenge.Function("PrintMemory", student.PrintMemory, solutions.PrintMemory, table2)
+	return ints
 }
 
-// TODO: this can be simplified a lot
+func main() {
+	table := [][10]int{{104, 101, 108, 108, 111, 16, 21, 42}}
+
+	for i := 0; i < 5; i++ {
+		table = append(table, randSliceInt())
+	}
+
+	for _, t := range table {
+		challenge.Function("PrintMemory", student.PrintMemory, solutions.PrintMemory, t)
+	}
+}
