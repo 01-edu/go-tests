@@ -16,6 +16,7 @@ func main() {
 		"-?",
 		"-=",
 		"-abc -ijk",
+		"-something-",
 		"-z",
 		"-abc -hijk",
 		"-abcdefghijklmnopqrstuvwxyz",

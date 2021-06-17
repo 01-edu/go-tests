@@ -3,48 +3,48 @@ package main
 import (
 	"fmt"
 	"os"
+	"strings"
+	"unicode"
 )
 
-func printOptions(op [32]int, i int) {
-	for _, v := range op {
-		if i == 8 {
+func printHelper() {
+	fmt.Println("options: abcdefghijklmnopqrstuvwxyz")
+	os.Exit(0)
+}
+
+func fillOptions(op []string, s string) {
+	for _, r := range s {
+		if !unicode.Is(unicode.Latin, r) {
+			fmt.Println("Invalid Option")
+			os.Exit(0)
+		}
+		op['z'-r+6] = "1"
+	}
+}
+
+func printOptions(op []string) {
+	for i, v := range op {
+		if i%8 == 0 && i != 0 {
 			fmt.Print(" ")
-			i = 0
 		}
 		fmt.Print(v)
-		i++
 	}
 	fmt.Println()
 }
 
 func main() {
-	var options [32]int
-	pos := 1
-	size := len(os.Args)
-	if size < 2 {
-		fmt.Println("options: abcdefghijklmnopqrstuvwxyz")
-	} else {
-		for pos < size {
-			j := 1
-			if os.Args[pos][0] == '-' {
-				if os.Args[pos][1] == 'h' {
-					fmt.Println("options: abcdefghijklmnopqrstuvwxyz")
-					return
-				}
-				for j < len(os.Args[pos]) && os.Args[pos][j] >= 'a' && os.Args[pos][j] <= 'z' {
-					posOption := 'z' - os.Args[pos][j] + 6
-					options[posOption] = 1
-					j++
-				}
-
-				if j < len(os.Args[pos]) && os.Args[pos][j] <= 'a' && os.Args[pos][j] <= 'z' {
-					fmt.Println("Invalid Option")
-					return
-				}
-				j++
-			}
-			pos++
-		}
-		printOptions(options, 0)
+	if len(os.Args) < 2 {
+		printHelper()
 	}
+
+	options := strings.Split(strings.Repeat("0", 32), "")
+	for _, v := range os.Args {
+		if v[0] == '-' {
+			if v[1] == 'h' {
+				printHelper()
+			}
+			fillOptions(options, v[1:])
+		}
+	}
+	printOptions(options)
 }

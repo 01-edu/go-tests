@@ -9,7 +9,7 @@ import (
 )
 
 func main() {
-	args := append(random.IntSliceBetween(0, 99999), 5, 4, 1)
+	args := append(random.IntSliceBetween(0, 99999), 5, 4, 1, 0)
 	for _, arg := range args {
 		challenge.Function("FindPrevPrime", student.FindPrevPrime, solutions.FindPrevPrime, arg)
 	}
