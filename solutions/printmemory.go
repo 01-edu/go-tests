@@ -2,41 +2,80 @@ package solutions
 
 import (
 	"fmt"
-	"strings"
 	"unicode"
 )
 
-func formatHex(hex string) {
-	nbZ := 8 - len(hex)
-	if nbZ > 4 {
-		hex += strings.Repeat("0", nbZ-4) + " 0000"
-	} else {
-		hex = hex[:4] + " " + hex[4:] + strings.Repeat("0", nbZ)
+func printBase(nbr int) int {
+	var result []rune
+	base := "0123456789abcdef"
+	typeBase := []rune(base)
+	a := 0
+	pos := 0
+	i := 0
+	if nbr == 0 {
+		result = append(result, '0', '0')
+		i = 2
 	}
-	fmt.Print(hex)
+	for nbr > 0 {
+		pos = nbr % 16
+		nbr = nbr / 16
+		result = append(result, typeBase[pos])
+		i++
+	}
+	if i == 1 {
+		result = append(result, '0')
+		i = 2
+	}
+	for j := i - 1; j >= 0; j-- {
+		fmt.Printf("%c", result[j])
+		a++
+	}
+	return a
+}
+
+func printLine(elems [10]int, start int) {
+	size := len(elems)
+	a := start
+	var aux, b int
+
+	for a < start+16 && a < size {
+		if a%4 == 0 && a != 0 {
+			fmt.Println()
+		}
+		b = 8 - printBase(elems[a])
+		for aux != b {
+			if b == 6 {
+				fmt.Print("0")
+			}
+			if aux == 1 {
+				fmt.Print(" ")
+			}
+			if b < 6 {
+				fmt.Print("0")
+			}
+			aux++
+		}
+		fmt.Print(" ")
+		aux = 0
+		a++
+	}
+	fmt.Println()
+	c := start
+	for c < start+16 && c < size {
+		if unicode.IsGraphic(rune(elems[c])) {
+			fmt.Printf("%c", rune(elems[c]))
+		} else {
+			fmt.Print(".")
+		}
+		c++
+	}
+	fmt.Println()
 }
 
 func PrintMemory(a [10]int) {
-	str := ""
-	for i, nbr := range a {
-		toForm := fmt.Sprintf("%x", nbr)
-
-		if len(toForm) == 1 {
-			toForm = "0" + toForm
-		}
-
-		formatHex(toForm)
-		if ((i+1)%4 == 0 && i != 0) || i == len(a)-1 {
-			fmt.Println()
-		} else {
-			fmt.Print(" ")
-		}
-
-		if unicode.IsGraphic(rune(nbr)) {
-			str += string(rune(nbr))
-		} else {
-			str += "."
-		}
+	i := 0
+	for i < len(a) {
+		printLine(a, i)
+		i += 16
 	}
-	fmt.Println(str + strings.Repeat(".", 10-len(a)))
 }
