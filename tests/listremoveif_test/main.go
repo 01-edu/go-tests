@@ -31,9 +31,10 @@ func main() {
 	link2 := &student.List{}
 	var index int
 
-	table := []solutions.NodeTest{{
-		Data: []interface{}{"hello", "hello1", "hello2", "hello3"},
-	}}
+	table := []solutions.NodeTest{
+		{Data: []interface{}{"hello", "hello1", "hello2", "hello3"}},
+		{Data: []interface{}{1, "Hello", 1, "There", 1, 1, "How", 1, "are", "you", 1}},
+	}
 	table = solutions.ElementsToTest(table)
 
 	for _, arg := range table {
@@ -43,15 +44,15 @@ func main() {
 		}
 
 		index = random.IntBetween(0, len(arg.Data)-1)
+
 		if link1.Head != nil && link2.Head != nil {
 			chosenOne := arg.Data[index]
+			if link1.Head.Data == 1 {
+				chosenOne = 1
+			}
 			student.ListRemoveIf(link2, chosenOne)
 			solutions.ListRemoveIf(link1, chosenOne)
 			solutions.ChallengeList("ListRemoveIf", link1, copyList(link2), arg.Data, chosenOne)
-		} else {
-			student.ListRemoveIf(link2, 1)
-			solutions.ListRemoveIf(link1, 1)
-			solutions.ChallengeList("ListRemoveIf", link1, copyList(link2), arg.Data, 1)
 		}
 
 		link1 = &solutions.List{}
