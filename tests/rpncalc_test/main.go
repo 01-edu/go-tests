@@ -1,23 +1,34 @@
 package main
 
-import "github.com/01-edu/go-tests/lib/challenge"
+import (
+	"strconv"
+
+	"github.com/01-edu/go-tests/lib/challenge"
+	"github.com/01-edu/go-tests/lib/random"
+)
 
 func main() {
+	ops := []string{"+", "-", "/", "*", "%"}
 	args := []string{
+		"1",
 		"1 2 * 3 * 4 +",
 		"3 1 2 * * 4 %",
 		"5 10 9 / - 50 *",
-		"21 3 2 % 2 3 2 *",
-		"1 2 3 4 +",
-		"324   +    1 - 23 ",
 		"32   / 22",
-		"11 22 +",
-		"23491234 102030932 -",
-		"123 2222 /",
-		"299   255 %",
-		"15 76 *",
 		"88 67 dks -",
 		"     1      3 * 2 -",
+	}
+
+	for i := 0; i < 6; i++ {
+		str := ""
+		for j := 0; j < random.IntBetween(3, 10); j++ {
+			if j%2 == 0 && j != 0 {
+				str += ops[random.IntBetween(0, len(ops)-1)] + " "
+			} else {
+				str += strconv.Itoa(random.IntBetween(1, 100)) + " "
+			}
+		}
+		args = append(args, str)
 	}
 
 	for _, v := range args {
