@@ -3,18 +3,18 @@ package main
 import (
 	"fmt"
 	"os"
-	"regexp"
 	"strings"
 )
 
 func main() {
-	if len(os.Args) != 3 {
-		return
+	var i int
+	for _, r := range os.Args[1] {
+		j := strings.Index(os.Args[2][i:], string(r))
+		if j == -1 {
+			fmt.Println("0")
+			return
+		}
+		i += j + 1
 	}
-	r := regexp.MustCompile(strings.Join(strings.Split(os.Args[1], ""), ".*"))
-	if len(r.FindAllString(os.Args[2], -1)) > 0 {
-		fmt.Println("1")
-	} else {
-		fmt.Println("0")
-	}
+	fmt.Println("1")
 }
