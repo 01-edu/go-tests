@@ -38,9 +38,6 @@ func stringToOne(node *student.NodeL) {
 }
 
 func main() {
-	link1 := &solutions.List{}
-	link2 := &student.List{}
-
 	table := []solutions.NodeTest{{
 		Data: []interface{}{"I", 1, "something", 2},
 	}, {
@@ -62,6 +59,9 @@ func main() {
 	}
 
 	for _, arg := range table {
+		link1 := &solutions.List{}
+		link2 := &student.List{}
+
 		for _, item := range arg.Data {
 			solutions.ListPushBack(link1, item)
 			listPushBack(link2, item)
@@ -74,8 +74,5 @@ func main() {
 			copyList(link2),
 			arg.Data,
 			runtime.FuncForPC(reflect.ValueOf(stringToOne).Pointer()).Name())
-
-		link1 = &solutions.List{}
-		link2 = &student.List{}
 	}
 }

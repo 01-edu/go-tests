@@ -19,15 +19,14 @@ func listPushBack(l *student.List, data interface{}) {
 }
 
 func main() {
-	link := &solutions.List{}
-	link2 := &student.List{}
-
 	table := []solutions.NodeTest{{
 		Data: []interface{}{"Hello", "man", "how are you"},
 	}}
 	table = solutions.ElementsToTest(table)
 
 	for _, arg := range table {
+		link := &solutions.List{}
+		link2 := &student.List{}
 		for _, item := range arg.Data {
 			listPushBack(link2, item)
 			solutions.ListPushBack(link, item)
@@ -41,7 +40,5 @@ func main() {
 				solutionLen,
 				studentLen)
 		}
-		link = &solutions.List{}
-		link2 = &student.List{}
 	}
 }
