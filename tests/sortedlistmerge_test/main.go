@@ -34,33 +34,6 @@ func nodeToString(n *student.NodeI) string {
 	return res
 }
 
-func move(l *student.NodeI) *student.NodeI {
-	p := l
-	n := l.Next
-	ret := n
-
-	for n != nil && l.Data > n.Data {
-		p = n
-		n = n.Next
-	}
-	p.Next = l
-	l.Next = n
-	return ret
-}
-
-func listSort(l *student.NodeI) *student.NodeI {
-	head := l
-	if head == nil {
-		return nil
-	}
-	head.Next = listSort(head.Next)
-
-	if head.Next != nil && head.Data > head.Next.Data {
-		head = move(head)
-	}
-	return head
-}
-
 func main() {
 	var link1 *solutions.NodeI
 	var link2 *solutions.NodeI
@@ -98,8 +71,8 @@ func main() {
 			linkTest2 = listPushBack(linkTest2, item)
 		}
 
-		linkTest1 = listSort(linkTest1)
-		linkTest2 = listSort(linkTest2)
+		linkTest1 = student.ListSort(linkTest1)
+		linkTest2 = student.ListSort(linkTest2)
 		link1 = solutions.ListSort(link1)
 		link2 = solutions.ListSort(link2)
 

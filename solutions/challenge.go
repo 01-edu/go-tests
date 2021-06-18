@@ -168,6 +168,7 @@ func ListPushNode(l *NodeI, data int) {
 	iterator := l
 	if iterator == nil {
 		iterator = n
+		return
 	}
 	for iterator.Next != nil {
 		iterator = iterator.Next
