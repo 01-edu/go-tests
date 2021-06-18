@@ -184,10 +184,8 @@ func CopyNode(listStu *NodeI) (listSol *NodeI) {
 
 func NodeToString(n *NodeI) string {
 	var res string
-	it := n
-	for it != nil {
+	for it := n; it != nil; it = it.Next {
 		res += strconv.Itoa(it.Data) + "-> "
-		it = it.Next
 	}
 	res += "<nil>"
 	return res

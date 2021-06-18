@@ -19,8 +19,6 @@ func listPushBack(l *student.List, data interface{}) {
 }
 
 func main() {
-	link1 := &solutions.List{}
-	link2 := &student.List{}
 	table := []solutions.NodeTest{{
 		Data: []interface{}{3, 2, 1},
 	}}
@@ -28,6 +26,8 @@ func main() {
 	table = solutions.ElementsToTest(table)
 
 	for _, arg := range table {
+		link1 := &solutions.List{}
+		link2 := &student.List{}
 		for _, item := range arg.Data {
 			listPushBack(link2, item)
 			solutions.ListPushBack(link1, item)
@@ -39,7 +39,5 @@ func main() {
 			challenge.Fatalf("\nlist:%s\n\nListLast() == %v instead of %v\n\n",
 				solutions.ListToString(link1.Head), studentLast, solutionsLast)
 		}
-		link1 = &solutions.List{}
-		link2 = &student.List{}
 	}
 }

@@ -27,8 +27,6 @@ func copyList(listStu *student.List) *solutions.List {
 }
 
 func main() {
-	link1 := &solutions.List{}
-	link2 := &student.List{}
 	var index int
 
 	table := []solutions.NodeTest{
@@ -38,6 +36,9 @@ func main() {
 	table = solutions.ElementsToTest(table)
 
 	for _, arg := range table {
+		link1 := &solutions.List{}
+		link2 := &student.List{}
+
 		for _, item := range arg.Data {
 			solutions.ListPushBack(link1, item)
 			listPushBack(link2, item)
@@ -54,8 +55,5 @@ func main() {
 			solutions.ListRemoveIf(link1, chosenOne)
 			solutions.ChallengeList("ListRemoveIf", link1, copyList(link2), arg.Data, chosenOne)
 		}
-
-		link1 = &solutions.List{}
-		link2 = &student.List{}
 	}
 }

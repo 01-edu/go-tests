@@ -28,11 +28,6 @@ func copyList(listStu *student.List) *solutions.List {
 }
 
 func main() {
-	link1 := &solutions.List{}
-	linkTest := &solutions.List{}
-	link2 := &student.List{}
-	link2Test := &student.List{}
-
 	type nodeTest struct {
 		data1 []interface{}
 		data2 []interface{}
@@ -70,6 +65,11 @@ func main() {
 	}
 
 	for _, arg := range table {
+		link1 := &solutions.List{}
+		linkTest := &solutions.List{}
+		link2 := &student.List{}
+		link2Test := &student.List{}
+
 		for _, item := range arg.data1 {
 			solutions.ListPushBack(link1, item)
 			listPushBack(link2, item)
@@ -83,10 +83,5 @@ func main() {
 		student.ListMerge(link2, link2Test)
 
 		solutions.ChallengeList("ListMerge", link1, copyList(link2), []interface{}{arg.data1, arg.data2})
-
-		link1 = &solutions.List{}
-		linkTest = &solutions.List{}
-		link2 = &student.List{}
-		link2Test = &student.List{}
 	}
 }
