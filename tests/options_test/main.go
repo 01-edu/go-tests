@@ -11,6 +11,7 @@ import (
 func main() {
 	args := []string{
 		"-" + random.Str(chars.Lower, 13),
+		"-",
 		" ",
 		"-%",
 		"-?",
