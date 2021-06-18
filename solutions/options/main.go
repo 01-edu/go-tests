@@ -12,24 +12,8 @@ func printHelper() {
 	os.Exit(0)
 }
 
-func fillOptions(op []string, s string) {
-	for _, r := range s {
-		if !unicode.Is(unicode.Latin, r) {
-			fmt.Println("Invalid Option")
-			os.Exit(0)
-		}
-		op['z'-r+6] = "1"
-	}
-}
-
 func printOptions(op []string) {
-	for i, v := range op {
-		if i%8 == 0 && i != 0 {
-			fmt.Print(" ")
-		}
-		fmt.Print(v)
-	}
-	fmt.Println()
+
 }
 
 func main() {
@@ -37,14 +21,30 @@ func main() {
 		printHelper()
 	}
 
-	options := strings.Split(strings.Repeat("0", 32), "")
+	options := strings.Split("00000000000000000000000000000000", "")
 	for _, v := range os.Args {
+		if len(v) < 2 {
+			return
+		}
 		if v[0] == '-' {
 			if v[1] == 'h' {
 				printHelper()
 			}
-			fillOptions(options, v[1:])
+			// fill options
+			for _, r := range v[1:] {
+				if !unicode.Is(unicode.Latin, r) {
+					fmt.Println("Invalid Option")
+					os.Exit(0)
+				}
+				options['z'-r+6] = "1"
+			}
 		}
 	}
-	printOptions(options)
+	for i, v := range options {
+		if i%8 == 0 && i != 0 {
+			fmt.Print(" ")
+		}
+		fmt.Print(v)
+	}
+	fmt.Println()
 }
