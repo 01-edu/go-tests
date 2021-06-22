@@ -12,14 +12,10 @@ func main() {
 	operatorsTable := []string{"+", "-", "*", "/", "%"}
 
 	table := []string{}
-
-	for i := 0; i < 4; i++ {
-		firstArg := strconv.Itoa(random.IntBetween(-1000, 1000))
-		secondArg := strconv.Itoa(random.IntBetween(0, 1000))
-
-		for _, operator := range operatorsTable {
-			table = append(table, firstArg+" "+operator+" "+secondArg)
-		}
+	firstArg := strconv.Itoa(random.IntBetween(-1000, 1000))
+	secondArg := strconv.Itoa(random.IntBetween(0, 1000))
+	for _, operator := range operatorsTable {
+		table = append(table, firstArg+" "+operator+" "+secondArg)
 	}
 
 	table = append(table, "1 + 1")
