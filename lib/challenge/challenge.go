@@ -1,6 +1,7 @@
 package challenge
 
 import (
+	"bytes"
 	"fmt"
 	"io"
 	"os"
@@ -123,8 +124,27 @@ func Fatalf(format string, a ...interface{}) {
 
 func ProgramStdin(exercise, input string, args ...string) {
 	run := func(pkg string) (string, bool) {
-		b, err := exec.Command("go", append([]string{"run", pkg}, args...)...).CombinedOutput()
-		return string(b), err == nil
+		binaryPath := path.Join(os.TempDir(), "binaries", path.Base(path.Dir(pkg)), path.Base(pkg))
+		if _, err := os.Stat(binaryPath); os.IsNotExist(err) {
+			if b, err := exec.Command("go", "build", "-o", binaryPath, pkg).CombinedOutput(); err != nil {
+				return string(b), false
+			}
+		}
+		if fi, err := os.Stat(binaryPath); err != nil || fi.Mode()&0111 == 0 {
+			return "Failed to compile your code as a program", false
+		}
+		cmd := exec.Command(binaryPath, args...)
+		if input != "" {
+			cmd.Stdin = bytes.NewBufferString(input)
+		}
+		b, err := cmd.CombinedOutput()
+		if err != nil {
+			if _, ok := err.(*exec.ExitError); !ok {
+				return err.Error(), false
+			}
+			return string(b) + err.Error(), false
+		}
+		return string(b), true
 	}
 	console := func(out string) string {
 		var quotedArgs []string
