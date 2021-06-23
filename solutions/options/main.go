@@ -15,6 +15,7 @@ func main() {
 	var options [32]bool
 	for _, v := range os.Args {
 		if len(v) < 2 {
+			fmt.Println("Invalid Option")
 			return
 		}
 		if v[0] == '-' {
