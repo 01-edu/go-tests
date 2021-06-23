@@ -3,8 +3,16 @@ package main
 import (
 	"fmt"
 	"os"
-	"unicode"
 )
+
+func isLatin(r rune) bool {
+	for i := 'a'; i <= 'z'; i++ {
+		if r == i {
+			return true
+		}
+	}
+	return false
+}
 
 func main() {
 	if len(os.Args) < 2 {
@@ -24,7 +32,7 @@ func main() {
 			}
 			// fill options
 			for _, r := range v[1:] {
-				if !unicode.Is(unicode.Latin, r) {
+				if !isLatin(r) {
 					fmt.Println("Invalid Option")
 					return
 				}
