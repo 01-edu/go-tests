@@ -5,7 +5,7 @@ import (
 	"strings"
 )
 
-func PrintMemory(a [10]int) {
+func PrintMemory(a [10]byte) {
 	str := ""
 	for i, nbr := range a {
 		fmt.Printf("%.2x", nbr)
