@@ -2,7 +2,7 @@
 
 set -e
 
-cp -a student piscine-go
+cp -r student piscine-go
 cd piscine-go
 
 if test "$EXAM_MODE"; then
