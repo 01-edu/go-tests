@@ -39,7 +39,6 @@ args := []Args{
 	}
 
 	for _, arg := range args {
-		fmt.Println(arg)
 		challenge.Function("MaxWordCountN", student.MaxWordCountN, solutions.MaxWordCountN, arg.Text, arg.N)
 	}
 
