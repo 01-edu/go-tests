@@ -130,7 +130,7 @@ func ProgramStdin(exercise, input string, args ...string) {
 				return string(b), false
 			}
 		}
-		if fi, err := os.Stat(binaryPath); err != nil || fi.Mode()&0111 == 0 {
+		if fi, err := os.Stat(binaryPath); err != nil || fi.Mode()&0o111 == 0 {
 			return "go run: cannot run non-main package\n", false
 		}
 		cmd := exec.Command(binaryPath, args...)
