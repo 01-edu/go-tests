@@ -45,15 +45,18 @@ func main() {
 		"AC",
 	}
 
-	defer rem("quadcheckerprog_solution", "quadcheckerprog_student")
-	execFatal("go", "build", "-o", "quadcheckerprog_solution", "../../solutions/quadchecker")
-	execFatal("go", "build", "-o", "quadcheckerprog_student", path.Join("student", "quadchecker"))
+	solBinary := "quadcheckerprog_solution"
+	studBinary := "quadcheckerprog_student"
+
+	defer removeBinary(solBinary, studBinary)
+	execFatal("go", "build", "-o", solBinary, path.Join("github.com/01-edu/go-tests/solutions", "quadchecker"))
+	execFatal("go", "build", "-o", studBinary, path.Join("student", "quadchecker"))
 
 	testCases := [][]string{quadAB, specialCases, multipleOutputs}
 	for _, c := range testCases {
 		for _, s := range c {
-			cmdCorrect := fmt.Sprintf("echo -e '%s' | ./quadcheckerprog_solution", s)
-			cmdStudent := fmt.Sprintf("echo -e '%s' | ./quadcheckerprog_student", s)
+			cmdCorrect := fmt.Sprintf("echo -e '%s' | ./%s ", s, solBinary)
+			cmdStudent := fmt.Sprintf("echo -e '%s' | ./%s", s, studBinary)
 			correct := execFatal("bash", "-c", cmdCorrect)
 			output := execFatal("bash", "-c", cmdStudent)
 			if output != correct {
@@ -63,7 +66,7 @@ func main() {
 	}
 }
 
-func rem(s ...string) {
+func removeBinary(s ...string) {
 	for _, c := range s {
 		e := os.Remove(c)
 		if e != nil {
