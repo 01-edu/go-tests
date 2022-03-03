@@ -199,13 +199,6 @@ func main() {
 
 	valid := [][]string{arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10}
 	invalid := [][]string{invalidArg1, invalidArg2, invalidArg3, invalidArg4, invalidArg5}
-	path := "/tmp/binaries/student/sudoku"
-	err := os.Remove(path)
-
-	if err != nil {
-		fmt.Println(err)
-		return
-	}
 
 	for _, v := range valid {
 		challenge.Program("sudoku", v...)
@@ -218,4 +211,11 @@ func main() {
 	challenge.Program("sudoku")
 	// Wrong number of arguments
 	challenge.Program("sudoku", "not", "a", "sudoku")
+
+	path := "/tmp/binaries/student/sudoku"
+	err := os.Remove(path)
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
 }

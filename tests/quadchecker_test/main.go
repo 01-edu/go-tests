@@ -60,6 +60,7 @@ func main() {
 			correct := execFatal("bash", "-c", cmdCorrect)
 			output := execFatal("bash", "-c", cmdStudent)
 			if output != correct {
+				removeBinary(solBinary, studBinary)
 				challenge.Fatalf("./quadchecker prints %q instead of %q\n", output, correct)
 			}
 		}
