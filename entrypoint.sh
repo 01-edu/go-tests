@@ -37,7 +37,7 @@ if ! find . -type f -name '*.go' | grep -q .; then
 	exit 1
 fi
 
-if find . -type f -name '*.go' -exec grep -qE '\bprint(ln)?\(' {} +; then
+if find . -type f -name '*.go' -exec grep -qE '\bprint(ln)?\s*\(' {} +; then
 	echo "Your Go files cannot use print & println builtins"
 	exit 1
 fi
