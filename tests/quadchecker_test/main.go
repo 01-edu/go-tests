@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"log"
 	"os"
 	"os/exec"
 	"path"
@@ -71,7 +70,7 @@ func removeBinary(s ...string) {
 	for _, c := range s {
 		e := os.Remove(c)
 		if e != nil {
-			log.Fatal(e)
+			challenge.Fatal(e)
 		}
 	}
 }
