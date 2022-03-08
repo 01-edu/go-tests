@@ -1,7 +1,6 @@
 package main
 
 import (
-	"log"
 	"os"
 
 	"github.com/01-edu/go-tests/lib/challenge"
@@ -220,7 +219,7 @@ func removeBinary(s ...string) {
 	for _, c := range s {
 		e := os.Remove(c)
 		if e != nil {
-			log.Fatal(e)
+			challenge.Fatal(e)
 		}
 	}
 }
