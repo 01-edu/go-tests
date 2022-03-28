@@ -1,6 +1,8 @@
 package main
 
 import (
+	"os"
+
 	"github.com/01-edu/go-tests/lib/challenge"
 )
 
@@ -196,6 +198,10 @@ func main() {
 
 	valid := [][]string{arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10}
 	invalid := [][]string{invalidArg1, invalidArg2, invalidArg3, invalidArg4, invalidArg5}
+	path := "/tmp/binaries/student/sudoku"
+	if _, err := os.Stat(path); !os.IsNotExist(err) {
+		removeBinary(path)
+	}
 	for _, v := range valid {
 		challenge.Program("sudoku", v...)
 	}
@@ -207,4 +213,13 @@ func main() {
 	challenge.Program("sudoku")
 	// Wrong number of arguments
 	challenge.Program("sudoku", "not", "a", "sudoku")
+}
+
+func removeBinary(s ...string) {
+	for _, c := range s {
+		e := os.Remove(c)
+		if e != nil {
+			challenge.Fatal(e)
+		}
+	}
 }
