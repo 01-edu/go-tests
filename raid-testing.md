@@ -2,13 +2,13 @@
 
 ### File structure:
 
-In order to run any test you need to make sure you have a clone of the [go-tests](https://github.com/01-edu/go-tests) repository as well as a repository with the student solution inside.
+In order to run any test you need to make sure you have a clone of the [go-tests](https://github.com/01-edu/go-tests) repository as well as a repository with the student solution inside. It is advisable that the repo is called `piscine-go` otherwise you have to do some changes in the go.mod file.
 
 To run the tests make sure the two repositories are right next to each other:
 
 ```sh
 Desktop/
-    ⌊ Student1
+    ⌊ piscine-go
         ⌊ quadA.go
         ⌊ quadB.go
         ⌊ quadC.go
