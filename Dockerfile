@@ -1,10 +1,10 @@
-FROM docker.01-edu.org/golang:1.16.3-alpine3.13
+FROM docker.01-edu.org/golang:1.18.0-alpine3.15
 
 ENV GIT_TERMINAL_PROMPT=0
 RUN apk add --no-cache git
 
-RUN go get mvdan.cc/gofumpt@v0.1.1
-RUN go get github.com/01-edu/rc@v0.1.0
+RUN go install mvdan.cc/gofumpt@v0.1.1
+RUN go install github.com/01-edu/rc@v0.1.0
 
 WORKDIR /piscine-go
 RUN go mod init piscine-go
