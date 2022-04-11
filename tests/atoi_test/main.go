@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"strconv"
 
 	student "student"
@@ -33,8 +34,13 @@ func main() {
 		"123.",
 		"123.0",
 		"123a45",
+		"+1234",
+		"-1234",
+		"+123456",
+		"-123456",
 	)
 	for _, arg := range table {
+		fmt.Println(arg)
 		challenge.Function("Atoi", student.Atoi, solutions.Atoi, arg)
 	}
 }
