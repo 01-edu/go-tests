@@ -152,11 +152,11 @@ func main() {
 	// Tests all possibilities including 0 0, -x y, x -y
 	for i := 0; i < len(table); i += 2 {
 		if i != len(table)-1 {
-			challenge.Function("quadA", quadA, student.QuadA, table[i], table[i+1])
-			challenge.Function("quadB", quadB, student.QuadB, table[i], table[i+1])
-			challenge.Function("quadC", quadC, student.QuadC, table[i], table[i+1])
-			challenge.Function("quadD", quadD, student.QuadD, table[i], table[i+1])
-			challenge.Function("quadE", quadE, student.QuadE, table[i], table[i+1])
+			challenge.Function("quadA", student.QuadA, quadA, table[i], table[i+1])
+			challenge.Function("quadB", student.QuadB, quadB, table[i], table[i+1])
+			challenge.Function("quadC", student.QuadC, quadC, table[i], table[i+1])
+			challenge.Function("quadD", student.QuadD, quadD, table[i], table[i+1])
+			challenge.Function("quadE", student.QuadE, quadE, table[i], table[i+1])
 		}
 	}
 }
