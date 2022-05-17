@@ -86,23 +86,23 @@ func Monitor(fn interface{}, args []interface{}) (out Output) {
 	return out
 }
 
-func Function(name string, fn1, fn2 interface{}, args ...interface{}) {
-	st1 := Monitor(fn1, args)
-	st2 := Monitor(fn2, args)
-	if !reflect.DeepEqual(st1.Results, st2.Results) {
+func Function(name string, actualFunction, expectedFunction interface{}, args ...interface{}) {
+	actualFunctionCall := Monitor(actualFunction, args)
+	expectedFunctionCall := Monitor(expectedFunction, args)
+	if !reflect.DeepEqual(actualFunctionCall.Results, expectedFunctionCall.Results) {
 		Fatalf("%s(%s) == %s instead of %s\n",
 			name,
 			Format(args...),
-			Format(st1.Results...),
-			Format(st2.Results...),
+			Format(actualFunctionCall.Results...),
+			Format(expectedFunctionCall.Results...),
 		)
 	}
-	if !reflect.DeepEqual(st1.Stdout, st2.Stdout) {
+	if !reflect.DeepEqual(actualFunctionCall.Stdout, expectedFunctionCall.Stdout) {
 		Fatalf("%s(%s) prints:\n%s\ninstead of:\n%s\n",
 			name,
 			Format(args...),
-			Format(st1.Stdout),
-			Format(st2.Stdout),
+			Format(actualFunctionCall.Stdout),
+			Format(expectedFunctionCall.Stdout),
 		)
 	}
 }
