@@ -77,11 +77,11 @@ func Monitor(fn interface{}, args []interface{}) (out Output) {
 	outC := make(chan string)
 	var buf strings.Builder
 	go func() {
-		io.Copy(&buf, r)
+		_, _ = io.Copy(&buf, r)
 		outC <- buf.String()
 	}()
 	os.Stdout = old
-	w.Close()
+	_ = w.Close()
 	out.Stdout = <-outC
 	return out
 }
@@ -108,17 +108,17 @@ func Function(name string, actualFunction, expectedFunction interface{}, args ..
 }
 
 func Fatal(a ...interface{}) {
-	fmt.Fprint(os.Stderr, a...)
+	_, _ = fmt.Fprint(os.Stderr, a...)
 	os.Exit(1)
 }
 
 func Fatalln(a ...interface{}) {
-	fmt.Fprintln(os.Stderr, a...)
+	_, _ = fmt.Fprintln(os.Stderr, a...)
 	os.Exit(1)
 }
 
 func Fatalf(format string, a ...interface{}) {
-	fmt.Fprintf(os.Stderr, format, a...)
+	_, _ = fmt.Fprintf(os.Stderr, format, a...)
 	os.Exit(1)
 }
 
