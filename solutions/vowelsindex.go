@@ -12,5 +12,6 @@ func VowelIdx(str string) []int {
 			}
 		}
 	}
+	
 	return res
 }
