@@ -2,7 +2,7 @@ package solutions
 
 import "github.com/01-edu/z01"
 
-func printRange(n, m int) {
+func PrintRange(n, m int) {
 	if n < 0 && m < 0 || n > 9 && m > 9 {
 		z01.PrintRune('\n')
 		return
