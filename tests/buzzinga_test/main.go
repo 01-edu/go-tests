@@ -10,7 +10,9 @@ import (
 func main() {
     challenge.Function("BuzZinga", student.BuzZinga, solutions.BuzZinga, 20)
     challenge.Function("BuzZinga", student.BuzZinga, solutions.BuzZinga, 15)
+    challenge.Function("BuzZinga", student.BuzZinga, solutions.BuzZinga, -125)
     challenge.Function("BuzZinga", student.BuzZinga, solutions.BuzZinga, 10)
     challenge.Function("BuzZinga", student.BuzZinga, solutions.BuzZinga, 5)
     challenge.Function("BuzZinga", student.BuzZinga, solutions.BuzZinga, 4)
+    challenge.Function("BuzZinga", student.BuzZinga, solutions.BuzZinga, -9)
 }
