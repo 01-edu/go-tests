@@ -19,6 +19,7 @@ func StrisNegative(str string) {
 				fmt.Println("P")
 			}
 		}
+	}else {
+		fmt.Println("!")
 	}
-	fmt.Println("!")
 }

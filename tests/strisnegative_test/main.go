@@ -14,8 +14,11 @@ func main() {
 		"-551",
 		"+551",
 		"hekiii",
-		"sdd",
-		"5898"}
+		"sda",
+		"2147483647",
+		"5898",
+		"697abc8",
+		"-2147483648"}
 	for _, arg := range table {
 		challenge.Function("StrisNegative", student.StrisNegative, solutions.StrisNegative, arg)
 	}
