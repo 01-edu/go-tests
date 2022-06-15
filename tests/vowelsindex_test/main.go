@@ -12,4 +12,5 @@ func main() {
 	for _, arg := range table {
 		challenge.Function("VowelsIndex", student.VowelsIndex, solutions.VowelsIndex, arg)
 	}
+	
 }
