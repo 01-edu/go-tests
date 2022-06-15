@@ -1,6 +1,6 @@
 package solutions
 
-func VowelIdx(str string) []int {
+func VowelsIndex(str string) []int {
 	var res []int
 	k := 0
 	for i := 0; i < len(str); i++ {
