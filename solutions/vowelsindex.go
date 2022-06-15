@@ -8,7 +8,7 @@ func VowelsIndex(str string) []int {
 			j := i
 			if j < len(str) {
 				res = append(res, j)
-				k++
+				k++	
 			}
 		}
 	}
