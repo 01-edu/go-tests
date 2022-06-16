@@ -20,4 +20,3 @@ func main() {
 		challenge.Program("samecase", arg...)
 	}
 }
-/// rah it work n
