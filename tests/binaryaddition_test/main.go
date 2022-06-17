@@ -17,6 +17,7 @@ func main() {
 		{3, 4},
 		{-1, -1},
 		{100, 303},
+		{2147483647,-2147483648},
 	}
 	for _, arg := range table {
 		challenge.Function("BinaryAddition", student.BinaryAddition, solutions.BinaryAddition, arg)
