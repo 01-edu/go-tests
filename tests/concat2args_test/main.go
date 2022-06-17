@@ -16,6 +16,7 @@ func main() {
 		{" ", "		"},
 		{"he", "llo"," !"},
 		{"1 + ", "9 = 10"},
+		{"", ""},
 	}
 	for _, arg := range args {
 		challenge.Program("concat2args", arg...)
