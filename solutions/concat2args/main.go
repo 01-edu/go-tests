@@ -1,8 +1,9 @@
 package main
 
 import (
-	"github.com/01-edu/z01"
 	"os"
+
+	"github.com/01-edu/z01"
 )
 
 func main() {
@@ -14,11 +15,13 @@ func main() {
 	str := ""
 	for i := 0; i < len(args); i++ {
 		for _, v := range args[i] {
-				str += string(v)
+			str += string(v)
 		}
 	}
-	for _, v := range str {
-		z01.PrintRune(v)
+	if len(str) > 0 {
+		for _, v := range str {
+			z01.PrintRune(v)
+		}
 	}
 	z01.PrintRune('\n')
 }
