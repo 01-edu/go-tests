@@ -17,6 +17,7 @@ func main() {
 		{23},
 		{3, -1, -2, -3},
 		{0, -3, -2, -1},
+		{},
 	}
 	for _, arg := range table {
 		challenge.Function("CountNegative", student.CountNegative, solutions.CountNegative, arg)
