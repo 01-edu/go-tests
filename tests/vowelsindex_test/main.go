@@ -9,8 +9,8 @@ import (
 
 func main() {
 	table := []string{"student", "hello Iyan", "world", "Hello! How are you?"}
+
 	for _, arg := range table {
 		challenge.Function("VowelsIndex", student.VowelsIndex, solutions.VowelsIndex, arg)
 	}
-	
 }
