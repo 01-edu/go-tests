@@ -1,5 +1,6 @@
 package solutions
 
+
 func VowelsIndex(str string) []int {
 	var res []int
 	k := 0
@@ -8,7 +9,7 @@ func VowelsIndex(str string) []int {
 			j := i
 			if j < len(str) {
 				res = append(res, j)
-				k++	
+				k++
 			}
 		}
 	}
