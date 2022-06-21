@@ -19,7 +19,7 @@ func main() {
 		"82t4D",
 		"2k5%9.",
 		"",
-		"5w6	2t"
+		"5w6	2t",
 	}
 	for _, s := range arr {
 		challenge.Function("Unzipstring", student.Unzipstring, solutions.Unzipstring, s)
