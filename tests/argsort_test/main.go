@@ -11,6 +11,7 @@ func main() {
 		{"abc", "def", "ghi"},
 		{"125", "wde"},
 		{"125", "wde", "abc"},
+		{"ho",""," "},
 	}
 
 	for _, v := range args {
