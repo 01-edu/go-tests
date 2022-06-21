@@ -4,7 +4,7 @@ import "strconv"
 
 func Unzipstring(str string) string {
     var result string
-	if len(str) == 0{
+	if len(str) == 0 ||  len(str) < 2{
 		return "Invalid output"
 	}
     num, err := strconv.Atoi(string(str[0]))
