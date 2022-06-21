@@ -21,6 +21,7 @@ func main() {
 		10001,
 		10002,
 		-2012,
+		0,
 	}
 	for _, arg := range years {
 		challenge.Function("LeapYear", student.LeapYear, solutions.LeapYear, arg)
