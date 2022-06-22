@@ -18,7 +18,7 @@ func main() {
 		{"13 233 4 23"},
 	}
 	for _, s := range args {
-		challenge.Program("revarg", s...)
+		challenge.Program("revargs", s...)
 	}
-	challenge.Program("revarg", "1", "z")
+	challenge.Program("revargs", "1", "z")
 }
