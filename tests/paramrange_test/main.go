@@ -13,7 +13,8 @@ func main() {
 		{""},
 		{"-10", "10", "20", "30", "40", "50"},
 		{"Hello world"},
-		{10,20,-1},
+		{"10","20","-1"},
+		{"1","-2","3"}
 	}
 	for _, v := range args {
 		challenge.Program("paramrange", v...)
