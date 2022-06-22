@@ -11,6 +11,7 @@ func main() {
 		{"9"},
 		{"24"},
 		{"99"},
+		{"100"},
 	}
 	for _, arg := range args {
 		challenge.Program("pingpong", arg...)
