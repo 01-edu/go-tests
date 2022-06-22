@@ -4,11 +4,11 @@ import "strconv"
 
 func Unzipstring(str string) string {
     var result string
-	if len(str) == 0 ||  len(str) < 2{
-		return "Invalid output"
-	}
+    if  len(str) == 0 || len(str) < 2 {
+        return "Invalid output"
+    }
     num, err := strconv.Atoi(string(str[0]))
-    if err != nil {
+    if err != nil || ( str[1] >= '0' && str[1] <= '9') {
         return "Invalid output"
     }
     for i := 0; i < num; i++ {
