@@ -1,4 +1,4 @@
-package student
+package solutions
 
 func CountChar(str string, c rune) int {
 	var count int
