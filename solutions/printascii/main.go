@@ -6,7 +6,6 @@ import "os"
 func main(){
 	args := os.Args
 	if len(args) != 2 || len(args[1]) != 1 {
-		fmt.Println()
 		return
 	}
 	ascii := int(args[1][0])
