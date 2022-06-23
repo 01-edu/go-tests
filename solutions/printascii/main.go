@@ -3,7 +3,7 @@ package main
 import "fmt"
 import "os"
 
-func main(){
+func main() {
 	args := os.Args
 	if len(args) != 2 || len(args[1]) != 1 {
 		return
