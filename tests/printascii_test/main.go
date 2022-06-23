@@ -17,7 +17,6 @@ func main() {
 		{"1"},
 		{""},
 	}
-
 	for _, v := range args {
 		challenge.Program("printascii", v...)
 	}
