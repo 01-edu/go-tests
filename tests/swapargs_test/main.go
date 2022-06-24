@@ -14,6 +14,6 @@ func main() {
 		{"", " "},
 	}
 	for _, s := range table {
-		challenge.Program("printparams", s...)
+		challenge.Program("swapargs", s...)
 	}
 }
