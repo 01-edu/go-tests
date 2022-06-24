@@ -17,9 +17,9 @@ func main() {
 		{"4 3 2 1 0"},{"A B C D E"},
 		{"13 233 4 23"},
 		{"1"},
+		{"1", "z", "1"},
 	}
 	for _, s := range args {
 		challenge.Program("printmiddle", s...)
 	}
-	challenge.Program("printmiddle", "1", "z", "1")
 }
