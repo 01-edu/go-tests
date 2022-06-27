@@ -16,13 +16,9 @@ func main() {
 	args := []string{
 		"",
 		random.Str(allAscii, 1),
-		random.Str(allAscii, 2),
-		random.Str(allAscii, 3),
-		random.Str(allAscii, 4),
-		random.Str(allAscii, 5),
-		random.Str(allAscii, 6),
-		random.Str(allAscii, 7),
 		random.Str(allAscii, 8),
+		"Instead of this many random tests leave just a few and add some tests with long strings and multiple spaces",
+		"one two  three   four    ",
 	}
 
 	for _, arg := range args {
