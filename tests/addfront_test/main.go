@@ -17,6 +17,6 @@ func main() {
 		{"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"},
 	}
 	for _, arg := range table {
-		challenge.Function("AddFront", student.AddFront, solutions.AddFront, arg[0], arg[1:]...)
+		challenge.Function("AddFront", student.AddFront, solutions.AddFront, arg[0], arg[1:])
 	}
 }
