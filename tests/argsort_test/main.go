@@ -14,9 +14,8 @@ func main() {
 		{""},
 		{"123qa"},
 		{"	 HELLO!"},
-		{" kowz"}
+		{" kowz"},
 	}
-
 	for _, v := range args {
 		challenge.Program("argsort", v...)
 	}
