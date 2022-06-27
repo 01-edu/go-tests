@@ -21,7 +21,7 @@ func main() {
 		{"more", "than", "three", "arguments"},
 		{"What", "are", "you", "doing?"},
 		{"1"},
-		{"née", "changèd", "entrepôt","Zoë", "Māori", "drŏll", "über", "Señor", "João"},
+		{"née", "changèd", "entrepôt", "Zoë", "Māori", "drŏll", "über", "Señor", "João"},
 	}
 	for _, v := range args {
 		challenge.Program("canyoucount", v...)
