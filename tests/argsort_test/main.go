@@ -8,10 +8,13 @@ func main() {
 	args := [][]string{
 		{"abc"},
 		{"abc", "def"},
-		{"abc", "def", "ghi"},
+		{"125"},
 		{"125", "wde"},
-		{"125", "wde", "abc"},
-		{"ho", "", " "},
+		{"def"},
+		{""},
+		{"123qa"},
+		{"	 HELLO!"},
+		{" kowz"}
 	}
 
 	for _, v := range args {
