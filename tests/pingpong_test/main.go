@@ -1,6 +1,11 @@
 package main
 
-import "github.com/01-edu/go-tests/lib/challenge"
+import (
+	"strconv"
+
+	"github.com/01-edu/go-tests/lib/challenge"
+	"github.com/01-edu/go-tests/lib/random"
+)
 
 func main() {
 	args := [][]string{
@@ -12,6 +17,10 @@ func main() {
 		{"24"},
 		{"99"},
 		{"100"},
+	}
+	for i := 0; i < 10; i++ {
+		rand := []string{strconv.Itoa(random.IntBetween(0, 99))}
+		args = append(args, rand)
 	}
 	for _, arg := range args {
 		challenge.Program("pingpong", arg...)
