@@ -8,8 +8,8 @@ func main() {
 
 	args := [][]string{
 		{"John Doe"},
-		{"Hello World"},
-		{""},
+		{"James Davud"},
+		{"Mister Bie"},
 		{" "},
 		{"   Hello World"},
 		{"Hello World   "},
