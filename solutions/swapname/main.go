@@ -2,41 +2,53 @@ package main
 
 import (
 	"fmt"
-	"strings"
 
 	"os"
 )
 
-func isValidName(fullName string) []string {
-	result := make([]string, 0)
-	lastpost := 0
+func isValidName(fullName string) string {
+	result := ""
 	if len(fullName) < 2 {
-		return nil
+		return ""
 	}
 	for i := 0; i < len(fullName); i++ {
-		if fullName[i] >= 'a' && fullName[i] <= 'z' || fullName[i] >= 'A' && fullName[i] <= 'Z' || fullName[i] <= 32 {
-			if fullName[i] == ' ' {
-				if fullName[lastpost:i] != "" {
-					result = append(result, fullName[lastpost:i])
-				}
-				lastpost = i + 1
-			}
+		if fullName[i] >= 'a' && fullName[i] <= 'z' || fullName[i] >= 'A' && fullName[i] <= 'Z' {
+			result += string(fullName[i])
 		} else {
-			return nil
+			return ""
 		}
 	}
-	result = append(result, fullName[lastpost:])
+
 	return result
+}
+
+func deleteSpace(fullName string) []string {
+	str := []string{}
+	nextSpace := 0
+	for i := 0; i < len(fullName); i++ {
+		if fullName[i] == ' ' {
+			str = append(str, fullName[nextSpace:i])
+			nextSpace = i + 1
+		}
+	}
+	str = append(str, fullName[nextSpace:])
+	return str
 }
 
 func main() {
 	argument := os.Args[1:]
 	if len(argument) == 1 {
-		fullName := isValidName(strings.TrimSpace(argument[0]))
-		if fullName != nil && len(fullName) == 2 {
-			fmt.Println(fullName[1] + " " + fullName[0])
-		} else {
+		fullname := deleteSpace(argument[0])
+		if len(fullname) != 2 {
 			fmt.Println("Error")
+			return
 		}
+		name := isValidName(fullname[0])
+		lastname := isValidName(fullname[1])
+		if name == "" || lastname == "" {
+			fmt.Println("Error")
+			return
+		}
+		fmt.Println(lastname + " " + name)
 	}
 }
