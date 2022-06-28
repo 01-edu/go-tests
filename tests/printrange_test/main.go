@@ -17,6 +17,8 @@ func main() {
 		{-1, -10},
 		{-10, -1},
 		{-1, 9},
+		{-10, 15},
+		{10, -15},
 	}
 	for _, arg := range args {
 		challenge.Function("PrintRange", student.PrintRange, solutions.PrintRange, arg[0], arg[1])
