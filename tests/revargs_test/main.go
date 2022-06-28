@@ -20,5 +20,4 @@ func main() {
 	for _, s := range args {
 		challenge.Program("revargs", s...)
 	}
-	challenge.Program("revargs", "1", "z")
 }
