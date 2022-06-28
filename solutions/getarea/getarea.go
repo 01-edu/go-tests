@@ -1,8 +1,10 @@
 package main
 
-import "fmt"
-import "strconv"
-import "os"
+import (
+	"fmt"
+	"os"
+	"strconv"
+)
 
 func main() {
 	args := os.Args
@@ -15,6 +17,6 @@ func main() {
 		fmt.Println("Error")
 		return
 	}
-	var result int = int(float32(area*area) * float32(3.15))
+	var result int = int(float32(area*area) * float32(3.14))
 	fmt.Println(result)
 }
