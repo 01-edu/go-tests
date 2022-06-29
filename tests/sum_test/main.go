@@ -17,6 +17,8 @@ func main() {
 		{"-9", "-9"},
 		{"-3", "7"},
 		{"8", "-7"},
+		{"11", "7"},
+		{"6", "256"},
 	}
 	for _, arg := range args {
 		challenge.Function("Sum", student.Sum, solutions.Sum, arg[0], arg[1])
