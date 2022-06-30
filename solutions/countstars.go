@@ -2,7 +2,6 @@ package solutions
 
 import "strconv"
 
-
 func CountStars(num int) string {
 	res := ""
 	star := " star"
