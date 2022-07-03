@@ -15,8 +15,12 @@ func main() {
 		5,
 		-525,
 		47,
-		85955}
-
+		85955,
+		0,
+		-8,
+		5285,
+		-48,
+	}
 	for i := 0; i < len(ar); i++ {
 		challenge.Function("Numofdigits", student.Numofdigits, solutions.Numofdigits, ar[i])
 	}
