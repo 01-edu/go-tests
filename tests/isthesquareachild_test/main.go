@@ -18,6 +18,8 @@ func main() {
 		{6, 36},
 		{7, 49},
 		{-1, 0},
+		{8, -64},
+		{4,-16},
 	}
 	for _, arg := range args {
 		challenge.Function("IsTheSquareAChild", student.IsTheSquareAChild, solutions.IsTheSquareAChild, arg[0], arg[1])
