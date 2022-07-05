@@ -22,6 +22,6 @@ func main() {
 		{4,-16},
 	}
 	for _, arg := range args {
-		challenge.Function("IsTheSquareAChild", student.IsTheSquareAChild, solutions.IsTheSquareAChild, arg[0], arg[1])
+		challenge.Function("IsSquare", student.IsSquare, solutions.IsSquare, arg[0], arg[1])
 	}
 }
