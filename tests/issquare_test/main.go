@@ -8,7 +8,6 @@ import (
 )
 
 func main() {
-
 	args:= [][]int{
 		{1, 1},
 		{2, 4},
