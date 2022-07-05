@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-	args:= [][]int{
+	args := [][]int{
 		{1, 1},
 		{2, 4},
 		{3, 9},
@@ -18,7 +18,7 @@ func main() {
 		{7, 49},
 		{-1, 0},
 		{8, -64},
-		{4,-16},
+		{4, -16},
 	}
 	for _, arg := range args {
 		challenge.Function("IsSquare", student.IsSquare, solutions.IsSquare, arg[0], arg[1])
