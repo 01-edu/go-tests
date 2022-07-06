@@ -10,7 +10,6 @@ func main() {
 		fmt.Println()
 		return
 	}
-	// rot1 alls the args from the second arg to the end
 	for i := 1; i < len(os.Args); i++ {
 		if i != len(os.Args)-1 {
 			fmt.Print(os.Args[i+1])
