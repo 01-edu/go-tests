@@ -21,5 +21,4 @@ func main() {
 	for _, s := range args {
 		challenge.Program("argrot1", s...)
 	}
-	challenge.Program("argrot1", "1", "z", "2")
 }
