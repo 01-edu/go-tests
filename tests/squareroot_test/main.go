@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-	arr := []int{1, 244, 3, 45,-58,8,2147483647,0,98,7}
+	arr := []int{1, 244, 3, 45, -58, 8, 2147483647, 0, 98, 7}
 	for _, arg := range arr {
 		challenge.Function("SquareRoot", student.SquareRoot, solutions.SquareRoot, arg)
 	}
