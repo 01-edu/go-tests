@@ -11,12 +11,16 @@ func main() {
 		{"talented ", "student"},
 		{"A", "1"},
 		{"Hello", "World"},
+		{""},
 		{"he", "llo"},
 		{"1", "93"},
+		{"he", "llo", " world!"},
 		{" ", "		"},
-		{"he", "llo", " !"},
 		{"1 + ", "9 = 10"},
 		{"", ""},
+		{"01", "zone", "Oujda", "Morroco"},
+		{},
+		{" abc", "def12", "ghk34"},
 	}
 	for _, arg := range args {
 		challenge.Program("concat2args", arg...)
