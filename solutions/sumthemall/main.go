@@ -20,8 +20,8 @@ func main() {
 	}
 	result := 0
 	for _, arg := range os.Args[1:] {
-		num, _ := strconv.Atoi(arg)
-		if num >= MaxInt || num <= MinInt {
+		num, err := strconv.Atoi(arg)
+		if num >= MaxInt || num <= MinInt || err != nil {
 			fmt.Println(0)
 			return
 		}
