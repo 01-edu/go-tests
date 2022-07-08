@@ -7,6 +7,7 @@ import (
 func main() {
 	args := [][]string{
 		{"Hello"},
+		{},
 		{""},
 		{"Hello World", "world"},
 		{"Hello World", "world", "Hello World"},
