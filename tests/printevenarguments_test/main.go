@@ -5,6 +5,7 @@ import "github.com/01-edu/go-tests/lib/challenge"
 func main() {
 	table := [][]string{
 		{},
+		{"a"},
 		{"", "a", "b", "c"},
 		{"a", "b", "c", "d"},
 		{"Hello", "World", "!"},
