@@ -45,7 +45,7 @@ func main() {
 	if len(argument) == 1 {
 		fullName := isValidName(splitWhiteSpace(splitWhiteSpace(argument[0])))
 		if fullName != nil && len(fullName) == 2 {
-			fmt.Println("[" + fullName[1] + " " + fullName[0] + "]")
+			fmt.Println(fullName[1] + " " + fullName[0])
 		} else {
 			fmt.Println("Error")
 		}
