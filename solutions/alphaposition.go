@@ -1,6 +1,6 @@
 package solutions
 
-func AlphaPosition(c rune) int{
+func AlphaPosition(c rune) int {
 	if c >= 'a' && c <= 'z' {
 		return int(c - 'a' + 1)
 	} else if c >= 'A' && c <= 'Z' {
