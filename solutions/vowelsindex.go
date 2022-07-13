@@ -1,6 +1,5 @@
 package solutions
 
-
 func VowelsIndex(str string) []int {
 	var res []int
 	k := 0
