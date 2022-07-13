@@ -20,7 +20,7 @@ func main() {
 
 	for i := 0; i < len(args); i++ {
 		fmt.Print(string(args[(i+n)%len(args)]))
-		if  i < len(args)-1 {
+		if i < len(args)-1 {
 			fmt.Print(" ")
 		}
 	}
