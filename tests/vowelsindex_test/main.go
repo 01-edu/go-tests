@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-	table := []string{"student", "hello Iyan", "world", "Hello! How are you?", "AAEO$%&UOTX", "AEMNOoa*+-aeiou", "wo5opi=ws8;eza"}
+	table := []string{"student", "hello Iyan", "world", "Hello! How are you?", "AAEO$%&UOTX", "", "AEMNOoa*+-aeiou", "wo5opi=ws8;eza"}
 
 	for _, arg := range table {
 		challenge.Function("VowelsIndex", student.VowelsIndex, solutions.VowelsIndex, arg)
