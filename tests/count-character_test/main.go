@@ -9,7 +9,7 @@ import (
 
 func main() {
 	challenge.Function("CountChar", solutions.CountChar, student.CountChar, "hello", 'e')
-	challenge.Function("CountChar", solutions.CountChar, student.CountChar, "     ", ' ')
+	challenge.Function("CountChar", solutions.CountChar, student.CountChar, "	 	", ' ')
 	challenge.Function("CountChar", solutions.CountChar, student.CountChar, "the 7 deadly sins", '7')
 	challenge.Function("CountChar", solutions.CountChar, student.CountChar, "the 7 deadly sins", 's')
 	challenge.Function("CountChar", solutions.CountChar, student.CountChar, "the 7 deadly sins", 'd')
