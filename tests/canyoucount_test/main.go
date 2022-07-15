@@ -8,6 +8,8 @@ func main() {
 	args := [][]string{
 		{},
 		{""},
+		{" "},
+		{"		"},
 		{"One", "ring!"},
 		{"Pirate ipsum"},
 		{
