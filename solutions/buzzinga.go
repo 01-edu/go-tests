@@ -8,7 +8,7 @@ func BuzZinga(n int32) {
 		fmt.Println("Buzzinga")
 	}
 	if n < 0 {
-		fmt.Print("*")
+		fmt.Println("*")
 	}
 	for i = 1; i <= n; i++ {
 		if i%3 == 0 && i%5 == 0 {
