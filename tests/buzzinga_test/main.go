@@ -15,4 +15,11 @@ func main() {
 	challenge.Function("BuzZinga", student.BuzZinga, solutions.BuzZinga, 5)
 	challenge.Function("BuzZinga", student.BuzZinga, solutions.BuzZinga, 4)
 	challenge.Function("BuzZinga", student.BuzZinga, solutions.BuzZinga, -9)
+	challenge.Function("BuzZinga", student.BuzZinga, solutions.BuzZinga, 9)
+	challenge.Function("BuzZinga", student.BuzZinga, solutions.BuzZinga, 24)
+	challenge.Function("BuzZinga", student.BuzZinga, solutions.BuzZinga, 0)
+	challenge.Function("BuzZinga", student.BuzZinga, solutions.BuzZinga, -85)
+	challenge.Function("BuzZinga", student.BuzZinga, solutions.BuzZinga, 06)
+	challenge.Function("BuzZinga", student.BuzZinga, solutions.BuzZinga, 11)
+
 }
