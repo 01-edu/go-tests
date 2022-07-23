@@ -77,48 +77,48 @@ func Monitor(fn interface{}, args []interface{}) (out Output) {
 	outC := make(chan string)
 	var buf strings.Builder
 	go func() {
-		io.Copy(&buf, r)
+		_, _ = io.Copy(&buf, r)
 		outC <- buf.String()
 	}()
 	os.Stdout = old
-	w.Close()
+	_ = w.Close()
 	out.Stdout = <-outC
 	return out
 }
 
-func Function(name string, fn1, fn2 interface{}, args ...interface{}) {
-	st1 := Monitor(fn1, args)
-	st2 := Monitor(fn2, args)
-	if !reflect.DeepEqual(st1.Results, st2.Results) {
+func Function(name string, actualFunction, expectedFunction interface{}, args ...interface{}) {
+	actualFunctionCall := Monitor(actualFunction, args)
+	expectedFunctionCall := Monitor(expectedFunction, args)
+	if !reflect.DeepEqual(actualFunctionCall.Results, expectedFunctionCall.Results) {
 		Fatalf("%s(%s) == %s instead of %s\n",
 			name,
 			Format(args...),
-			Format(st1.Results...),
-			Format(st2.Results...),
+			Format(actualFunctionCall.Results...),
+			Format(expectedFunctionCall.Results...),
 		)
 	}
-	if !reflect.DeepEqual(st1.Stdout, st2.Stdout) {
+	if !reflect.DeepEqual(actualFunctionCall.Stdout, expectedFunctionCall.Stdout) {
 		Fatalf("%s(%s) prints:\n%s\ninstead of:\n%s\n",
 			name,
 			Format(args...),
-			Format(st1.Stdout),
-			Format(st2.Stdout),
+			Format(actualFunctionCall.Stdout),
+			Format(expectedFunctionCall.Stdout),
 		)
 	}
 }
 
 func Fatal(a ...interface{}) {
-	fmt.Fprint(os.Stderr, a...)
+	_, _ = fmt.Fprint(os.Stderr, a...)
 	os.Exit(1)
 }
 
 func Fatalln(a ...interface{}) {
-	fmt.Fprintln(os.Stderr, a...)
+	_, _ = fmt.Fprintln(os.Stderr, a...)
 	os.Exit(1)
 }
 
 func Fatalf(format string, a ...interface{}) {
-	fmt.Fprintf(os.Stderr, format, a...)
+	_, _ = fmt.Fprintf(os.Stderr, format, a...)
 	os.Exit(1)
 }
 
