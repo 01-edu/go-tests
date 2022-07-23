@@ -8,18 +8,9 @@ import (
 )
 
 func main() {
-	challenge.Function("BuzZinga", student.BuzZinga, solutions.BuzZinga, 20)
-	challenge.Function("BuzZinga", student.BuzZinga, solutions.BuzZinga, 15)
-	challenge.Function("BuzZinga", student.BuzZinga, solutions.BuzZinga, -125)
-	challenge.Function("BuzZinga", student.BuzZinga, solutions.BuzZinga, 10)
-	challenge.Function("BuzZinga", student.BuzZinga, solutions.BuzZinga, 5)
-	challenge.Function("BuzZinga", student.BuzZinga, solutions.BuzZinga, 4)
-	challenge.Function("BuzZinga", student.BuzZinga, solutions.BuzZinga, -9)
-	challenge.Function("BuzZinga", student.BuzZinga, solutions.BuzZinga, 9)
-	challenge.Function("BuzZinga", student.BuzZinga, solutions.BuzZinga, 24)
-	challenge.Function("BuzZinga", student.BuzZinga, solutions.BuzZinga, 0)
-	challenge.Function("BuzZinga", student.BuzZinga, solutions.BuzZinga, -85)
-	challenge.Function("BuzZinga", student.BuzZinga, solutions.BuzZinga, 06)
-	challenge.Function("BuzZinga", student.BuzZinga, solutions.BuzZinga, 11)
+	args := []int32{20, 15, -125, 10, 5, 4, -9, 9, 24, 0, -85, 6, 11}
 
+	for i := 0; i < len(args); i++ {
+		challenge.Function("BuzZinga", student.BuzZinga, solutions.BuzZinga, args[i])
+	}
 }
