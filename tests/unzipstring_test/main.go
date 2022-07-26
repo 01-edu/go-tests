@@ -28,6 +28,7 @@ func main() {
 		"1H2o3L3l4A",
 		"8o2d7-1a",
 		"4	1w8*6x",
+		"@q6H8a",
 	}
 	for _, s := range arr {
 		challenge.Function("Unzipstring", student.Unzipstring, solutions.Unzipstring, s)
