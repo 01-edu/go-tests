@@ -19,6 +19,7 @@ func main() {
 		{"Nick Fur y"},
 		{"hello", "world"},
 		{"hello", "world", "nick"},
+		{" Johan "," Paven "}
 	}
 	for _, arg := range args {
 		challenge.Program("swapname", arg...)
