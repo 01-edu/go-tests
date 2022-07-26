@@ -19,8 +19,9 @@ func main() {
 		{-1, 0},
 		{8, -64},
 		{4, -16},
-		{-1,-1},
-		{-4,-4},
+		{-1, 1},
+		{-4, 16},
+		{-5, 25},
 	}
 	for _, arg := range args {
 		challenge.Function("IsSquare", student.IsSquare, solutions.IsSquare, arg[0], arg[1])
