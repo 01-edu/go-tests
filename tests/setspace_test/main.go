@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	student "student"
 
 	"github.com/01-edu/go-tests/lib/challenge"
@@ -20,6 +19,8 @@ func main() {
 		"",
 		" ",
 		"RightWordLargeWorldALotOfWords",
+		"Onecapital",
+		"loWerCaseInBeginning",
 	}
 	for _, arg := range args {
 		challenge.Function("SetSpace", student.SetSpace, solutions.SetSpace, arg)
