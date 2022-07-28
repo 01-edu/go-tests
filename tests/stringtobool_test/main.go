@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	student "student"
 
 	"github.com/01-edu/go-tests/lib/challenge"
@@ -23,6 +22,5 @@ func main() {
 	}
 	for _, s := range args {
 		challenge.Function("StringToBool", student.StringToBool, solutions.StringToBool, s)
-		fmt.Println(solutions.StringToBool(s))
 	}
 }
