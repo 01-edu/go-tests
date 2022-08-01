@@ -27,6 +27,7 @@ func main() {
 	flag.Int64Var(&bytes, "c", 0, "output the last NUM bytes")
 	flag.Parse()
 	filenames := flag.Args()
+	var oneFileHasBeenPrinted bool
 	for i, filename := range filenames {
 		file, err := os.Open(filename)
 		if notNil(err) {
@@ -47,12 +48,13 @@ func main() {
 			continue
 		}
 		if len(filenames) > 1 {
-			if i > 0 {
+			if i > 0 && oneFileHasBeenPrinted {
 				fmt.Println()
 			}
 			fmt.Println("==>", filename, "<==")
 		}
 		os.Stdout.Write(b)
+		oneFileHasBeenPrinted = true
 	}
 	os.Exit(status)
 }
