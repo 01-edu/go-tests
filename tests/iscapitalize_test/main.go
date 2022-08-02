@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	student "student"
 
 	"github.com/01-edu/go-tests/lib/challenge"
@@ -25,7 +24,6 @@ func main() {
 	}
 
 	for _, arg := range table {
-		fmt.Printf("[%s] =>  [%t]\n", arg, student.IsCapitalize(arg))
 		challenge.Function("IsCapitalize", student.IsCapitalize, solutions.IsCapitalize, arg)
 	}
 }
