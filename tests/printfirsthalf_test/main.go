@@ -10,6 +10,6 @@ import (
 func main() {
 	table := []string{"hello", "", "Kimetsu no Yaiba", "Z", "123@live.fr", "write %d ==> 45m$", "-552",}
 	for _, s := range table {
-		challenge.Function("Printfirsthalf", student.Printfirsthalf, solutions.Printfirsthalf, s)
+		challenge.Function("PrintFirstHalf", student.PrintFirstHalf, solutions.PrintFirstHalf, s)
 	}
 }
