@@ -2,7 +2,7 @@ package solutions
 
 import "strings"
 
-func Printfirsthalf(str string) string {
+func PrintFirstHalf(str string) string {
 	if len(str) == 0 {
 		return "Invalid Output\n"
 	} else if len(str) == 1 {
