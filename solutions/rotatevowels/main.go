@@ -38,7 +38,7 @@ func main() {
 }
 
 func IsVowel(s byte) bool {
-	if s == 65 || s == 69 || s == 73 || s == 79 || s == 85 || s == 97 || s == 101 || s == 105 || s == 111 || s == 117 {
+	if s == 'A' || s == 'E' || s == 'I' || s == 'O' || s == 'U' || s == 'a' || s == 'e' || s == 'i' || s == 'o' || s == 'u' {
 		return true
 	}
 	return false
