@@ -1,8 +1,6 @@
 package solutions
 
-import (
-	"strconv"
-)
+import "strconv"
 
 func FromTo(from, to int) string {
 	result := ""
