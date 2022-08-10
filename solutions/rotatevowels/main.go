@@ -1,37 +1,45 @@
 package main
 
 import (
-	"fmt"
 	"os"
-	"strings"
+
+	"github.com/01-edu/z01"
 )
 
 func main() {
-	var a1, a2, rev []rune
-	for _, arg := range os.Args[1:] {
-		for _, k := range arg {
-			if strings.ContainsRune("aeiouAEIOU", k) {
-				a1 = append(a1, k)
+	var vowels []rune
+
+	arguments := os.Args[1:]
+
+	for _, i := range arguments {
+		for j := 0; j < len(i); j++ {
+			if IsVowel(i[j]) {
+				vowels = append(vowels, rune(i[j]))
 			}
 		}
-	}
-	for i := len(a1) - 1; i >= 0; i-- {
-		rev = append(rev, a1[i])
 	}
 
-	m := 0
-	for i, arg := range os.Args[1:] {
-		for _, j := range arg {
-			if strings.ContainsRune("aeiouAEIOU", j) {
-				a2 = append(a2, rev[m])
-				m++
+	counter := len(vowels) - 1
+
+	for s, i := range arguments {
+		for j := 0; j < len(i); j++ {
+			if IsVowel(i[j]) {
+				z01.PrintRune(rune(vowels[counter]))
+				counter--
 			} else {
-				a2 = append(a2, j)
+				z01.PrintRune(rune(i[j]))
 			}
 		}
-		if i != len(os.Args)-1 {
-			a2 = append(a2, ' ')
+		if s != len(arguments)-1 {
+			z01.PrintRune(' ')
 		}
 	}
-	fmt.Println(string(a2))
+	z01.PrintRune('\n')
+}
+
+func IsVowel(s byte) bool {
+	if s == 'A' || s == 'E' || s == 'I' || s == 'O' || s == 'U' || s == 'a' || s == 'e' || s == 'i' || s == 'o' || s == 'u' {
+		return true
+	}
+	return false
 }
