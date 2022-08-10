@@ -1,8 +1,6 @@
 package solutions
 
-import (
-	"strings"
-)
+import "strings"
 
 func ThirdTimeIsACharm(arg string) string {
 	if arg == "" || len(arg) < 3 {
