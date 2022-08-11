@@ -8,15 +8,11 @@ To run the tests make sure the two repositories are right next to each other:
 To test an exercise, run this command in the `go-tests` folder:
 
 ```
-go run github.com/01-edu/go-tests/tests/isnegative_test
+./test_one.sh isnegative
 ```
 
-Relative paths work:
+To run all the exercises, run this command in the `go-tests` folder:
 
 ```
-go run ./tests/printalphabet_test
-cd tests
-go run ./isnegative_test
+./test_all.sh
 ```
-
-No output means success.
