@@ -7,7 +7,7 @@ IFS='
 rm -rf /tmp/binaries/student/
 
 for dir in ./tests/*; do
-    echo $dir
+    echo "$dir executed"
     if ! go run "$dir"; then
         echo "$dir FAILED"
     fi
