@@ -29,6 +29,9 @@ package main
  		{"~"},
  		{"0"},
  		{"*"},
+   {"本"},
+   {"人"},
+   {"的"},
  	}
  	for _, s := range args {
  		challenge.Program("getascii", s...)
