@@ -48,9 +48,6 @@ func main() {
 	table := []nodeTest{{
 		data1: []int{},
 		data2: []int{},
-	}, {
-		data1: []int{3, 5, 7},
-		data2: []int{1, -2, 4, 6},
 	}}
 
 	for i := 0; i < 3; i++ {
