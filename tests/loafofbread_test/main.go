@@ -28,7 +28,7 @@ func main() {
 		"      This     is a l o a f     of   br    ead",
 		"                       "}
 
-		for _, s := range table {
+	for _, s := range table {
 		challenge.Function("LoafOfBread", student.LoafOfBread, solutions.LoafOfBread, s)
 	}
 }
