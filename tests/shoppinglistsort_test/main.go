@@ -8,9 +8,20 @@ import (
 )
 
 func main() {
-	table := []string{"Banana", "Mushroom", "Salt", "Pepper","Tea", "Milk", " Milk", " ", "Peanut-Butter", "Banana  "}
+	array := [][]string{
+	{"Banana", "Mushroom", "Salt", "Pepper","Tea", "Milk"},
+	{"Bna", "Mushroom", "Sabdfdflt", "Peper","Tea", "Milvsdgvdk"},
+	{"", "Musbfgbfgom", "St", "Pepper","Tea", "Miluiyk"},
+	{"", "Mushroom", "Salt", "Pepper","a", "Milk"},
+	{"Banuana", "Mushroom", "185+", "Pepp8er","", "Milkhfghrhr"},
+	{"Bna", "Mm", "Sa", "Peprhtrper","Tea", "Milk"},
+	{""},
+	{"+55","*@Â£%D", "edr8927", "		| cat -e"},
+	{"741", "852","4","58","87","03","-96"},
+	{"kd","jq","hel$lo","a","B","9W"},
+}
 
-	for _, s := range table {
+	for _, s := range array {
 		challenge.Function("ShoppingListSort", student.ShoppingListSort, solutions.ShoppingListSort, s)
 	}
 }
