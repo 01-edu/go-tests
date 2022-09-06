@@ -1,9 +1,6 @@
 package solutions
 
-import ( "piscine"
-
-				 "github.com/01-edu/z01"
-)
+import "github.com/01-edu/z01"
 
 func printInteger(a int) {
 		secondDigits := (a % 10)
