@@ -3,7 +3,7 @@ package solutions
 import "github.com/01-edu/z01"
 
 func printInteger(a int) {
-		secondDigits := (a % 10)
+	secondDigits := (a % 10)
 	firstDigits := (a / 10)
 
 	z01.PrintRune(rune(firstDigits) + 48)
@@ -17,7 +17,6 @@ func DescendComb() {
             z01.PrintRune(' ')
             printInteger(j)
             if i == 01 && j == 00 {
-							z01.PrintRune('\n')
 							break
             }
             z01.PrintRune(',')
