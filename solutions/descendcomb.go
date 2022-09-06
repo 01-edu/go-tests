@@ -1,6 +1,9 @@
 package solutions
 
-import "github.com/01-edu/z01"
+import ( "piscine"
+
+				 "github.com/01-edu/z01"
+)
 
 func printInteger(a int) {
 		secondDigits := (a % 10)
@@ -17,8 +20,8 @@ func DescendComb() {
             z01.PrintRune(' ')
             printInteger(j)
             if i == 01 && j == 00 {
-							break
 							z01.PrintRune('\n')
+							break
             }
             z01.PrintRune(',')
             z01.PrintRune(' ')
