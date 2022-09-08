@@ -1,9 +1,7 @@
 package solutions
 
-import (
-    "fmt"
-    "strings"
-)
+import "strings"
+
 func ShoppingSummaryCounter(str string) map[string]int {
     wordList := strings.Split(str, " ")
     counts := make(map[string]int)
