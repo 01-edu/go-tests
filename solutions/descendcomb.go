@@ -11,17 +11,17 @@ func printInteger(a int) {
 }
 
 func DescendComb() {
-    for i := 99; i >= 0; i-- {
-        for j := i - 1; j >= 0; j-- {
-            printInteger(i)
-            z01.PrintRune(' ')
-            printInteger(j)
-            if i == 01 && j == 00 {
-							break
-            }
-            z01.PrintRune(',')
-            z01.PrintRune(' ')
+  for i := 99; i >= 0; i-- {
+    for j := i - 1; j >= 0; j-- {
+      printInteger(i)
+      z01.PrintRune(' ')
+      printInteger(j)
 
-        }
+      if i == 01 && j == 00 {
+        break
+      }
+      z01.PrintRune(',')
+      z01.PrintRune(' ')
     }
+  }
 }
