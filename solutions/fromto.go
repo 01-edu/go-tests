@@ -17,7 +17,7 @@ func FromTo(from, to int) string {
 			}
 			result += strconv.Itoa(i)
 			if i-1 >= to {
-				result += ","
+				result += ", "
 			}
 		}
 		return result + "\n"
