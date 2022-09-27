@@ -5,7 +5,7 @@ func DescendAppendRange(max, min int) []int {
 	if max <= min {
 		return nil
 	} else {
-		for i := max ; i >= min + 1 ; i-- {
+		for i := max ; i > min; i-- {
 			answer = append(answer, i)
 		}
 	}
