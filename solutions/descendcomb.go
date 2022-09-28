@@ -17,7 +17,7 @@ func DescendComb() {
       z01.PrintRune(' ')
       printInteger(j)
 
-      if i == 01 && j == 00 {
+      if i == 1 && j == 0 {
         break
       }
       z01.PrintRune(',')
