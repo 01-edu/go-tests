@@ -1,6 +1,6 @@
 package solutions
 
-func StringToIntArray(str string) []int {
+func StringToIntSlice(str string) []int {
 	runes := []rune(str)
 
 	var result []int
