@@ -1,12 +1,12 @@
 package solutions
 
-func ShoppingListSort(array[] string)[]string {
-	for i := 0; i < len(array) - 1; i++ {
-		 for j := 0; j < len(array) - i - 1; j++ {
-				if (len(array[j]) > len(array[j + 1])) {
-					 array[j], array[j + 1] = array[j + 1], array[j]
-					}
-      }
-   }
-   return array
+func ShoppingListSort(slice []string) []string {
+	for i := 0; i < len(slice)-1; i++ {
+		for j := 0; j < len(slice)-i-1; j++ {
+			if len(slice[j]) > len(slice[j+1]) {
+				slice[j], slice[j+1] = slice[j+1], slice[j]
+			}
+		}
+	}
+	return slice
 }
