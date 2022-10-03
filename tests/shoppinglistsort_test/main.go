@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-	array := [][]string{
+	slice := [][]string{
 		{"Banana", "Mushroom", "Salt", "Pepper", "Tea", "Milk"},
 		{"Bna", "Mushroom", "Sabdfdflt", "Peper", "Tea", "Milvsdgvdk"},
 		{"", "Musbfgbfgom", "St", "Pepper", "Tea", "Miluiyk"},
@@ -21,7 +21,7 @@ func main() {
 		{"kd", "jq", "hel$lo", "a", "B", "9W"},
 	}
 
-	for _, s := range array {
+	for _, s := range slice {
 		challenge.Function("ShoppingListSort", student.ShoppingListSort, solutions.ShoppingListSort, s)
 	}
 }
