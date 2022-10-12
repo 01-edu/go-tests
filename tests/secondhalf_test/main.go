@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	student "student"
 
 	"github.com/01-edu/go-tests/lib/challenge"
