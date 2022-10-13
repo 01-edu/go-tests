@@ -1,19 +1,19 @@
 package solutions
 
 type food struct {
-  preptime int
+	preptime int
 }
 
 func FoodDeliveryTime(order string) int {
-	burger := food {
+	burger := food{
 		preptime: 15,
 	}
 
-	chips := food {
+	chips := food{
 		preptime: 10,
 	}
 
-	nuggets := food {
+	nuggets := food{
 		preptime: 12,
 	}
 
