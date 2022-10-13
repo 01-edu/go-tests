@@ -5,7 +5,7 @@ import (
 	"strconv"
 )
 
-func Not_decimal(dec string) string {
+func NotDecimal(dec string) string {
 	j := -1
 	n := 0
 	if len(dec) == 0 {
