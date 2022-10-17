@@ -12,5 +12,4 @@ func main() {
 	for i := 0; i < len(args); i++ {
 		challenge.Function("BinaryCheck", student.BinaryCheck, solutions.BinaryCheck, args[i])
 	}
-
 }
