@@ -19,6 +19,8 @@ func main() {
 		"World",
 		"T",
 		"F",
+		"t",
+		"True",
 	}
 	for _, s := range args {
 		challenge.Function("StringToBool", student.StringToBool, solutions.StringToBool, s)
