@@ -24,6 +24,6 @@ func main() {
 	}
 
 	for _, arg := range table {
-		challenge.Function("IsCapitalize", student.IsCapitalize, solutions.IsCapitalize, arg)
+		challenge.Function("IsCapitalized", student.IsCapitalized, solutions.IsCapitalized, arg)
 	}
 }
