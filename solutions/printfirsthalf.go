@@ -10,7 +10,7 @@ func PrintFirstHalf(str string) string {
 	} else {
 		var res strings.Builder
 		i := 0
-		for i = 0; i <= int(len(str)/2); i++ {
+		for i = 0; i < int(len(str)/2); i++ {
 			res.WriteRune(rune(str[i]))
 		}
 		res.WriteRune(rune('\n'))
