@@ -1,6 +1,6 @@
 package solutions
 
-func IsCapitalize(s string) bool {
+func IsCapitalized(s string) bool {
 	if len(s) == 0 {
 		return false
 	}
