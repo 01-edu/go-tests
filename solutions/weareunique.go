@@ -2,7 +2,7 @@ package solutions
 
 import "strings"
 
-func Weareunique(str1 string, str2 string) int {
+func WeAreUnique(str1 string, str2 string) int {
 	var used [127]int
 	if str1 == "" && str2 == "" {
 		return -1

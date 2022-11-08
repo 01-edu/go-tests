@@ -23,9 +23,9 @@ func main() {
 		{"		", "		 "},
 		{"AB$%d.52", "eepqdl.52"},
 		{"", "eveRyone"},
-		{"_55w1se","55w1se"},
+		{"_55w1se", "55w1se"},
 	}
 	for _, arg := range table {
-		challenge.Function("Weareunique", student.Weareunique, solutions.Weareunique, arg[0], arg[1])
+		challenge.Function("WeAreUnique", student.WeAreUnique, solutions.WeAreUnique, arg[0], arg[1])
 	}
 }
