@@ -1,8 +1,6 @@
 package solutions
 
-import (
-	"strconv"
-)
+import "strconv"
 
 func countDuplication(s string, i int) int {
 	var count int = 0
