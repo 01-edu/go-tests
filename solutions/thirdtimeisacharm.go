@@ -8,11 +8,12 @@ func ThirdTimeIsACharm(arg string) string {
 	}
 	var str strings.Builder
 	for i := 0; i < len(arg); i++ {
-		if i != 0 {
-			j := i + 1
-			if j%3 == 0 {
-				str.WriteRune(rune(arg[i]))
-			}
+		if i == 0 {
+			continue
+		}
+		j := i + 1
+		if j%3 == 0 {
+			str.WriteRune(rune(arg[i]))
 		}
 	}
 	str.WriteRune(rune('\n'))
