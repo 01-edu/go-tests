@@ -1,8 +1,6 @@
 package solutions
 
-import (
-	"unicode"
-)
+import "unicode"
 
 func getAlphabetIndex(c byte) int {
 	if c >= 'a' && c <= 'z' {
