@@ -1,6 +1,6 @@
 package solutions
 
-func containOnlyAlphabe(str string) bool {
+func containOnlyAlphabet(str string) bool {
 	for _, c := range str {
 		if (c < 'a' || c > 'z') && (c < 'A' || c > 'Z') {
 			return false
@@ -15,7 +15,7 @@ func isUpper(s rune) bool {
 
 func CamelToSnakeCase(s string) string {
 	result := ""
-	if len(s) == 0 || !containOnlyAlphabe(s) {
+	if len(s) == 0 || !containOnlyAlphabet(s) {
 		return s
 	}
 	for i := 0; i < len(s); i++ {
