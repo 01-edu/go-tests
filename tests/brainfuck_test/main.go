@@ -18,7 +18,7 @@ func main() {
 		strings.Join(
 			[]string{
 				"ld++++++++++++++++++++++++++++++++++++++++++++this+is++a++++comment++++++++++++++[>d+<-]>.+",
-				random.Str(".+", random.IntBetween(1, 10)),
+				random.Str(".+", random.IntBetween(1, 11)),
 				".+.>++++++++++.",
 			},
 			"",
