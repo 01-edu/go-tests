@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	student "student"
 
 	"github.com/01-edu/go-tests/lib/random"
@@ -17,7 +18,22 @@ func listPushBack(l *student.List, data interface{}) {
 	}
 	l.Tail = n
 }
-
+func PrintList(l *student.List) {
+	it := l.Head
+	for it != nil {
+		fmt.Print(it.Data, "->")
+		it = it.Next
+	}
+	fmt.Print("nil", "\n")
+}
+func PrintLists(l *solutions.List) {
+	it := l.Head
+	for it != nil {
+		fmt.Print(it.Data, "->")
+		it = it.Next
+	}
+	fmt.Print("nil", "\n")
+}
 func copyList(listStu *student.List) *solutions.List {
 	listSol := &solutions.List{}
 	for it := listStu.Head; it != nil; it = it.Next {
@@ -32,6 +48,7 @@ func main() {
 	table := []solutions.NodeTest{
 		{Data: []interface{}{"hello", "hello1", "hello2", "hello3"}},
 		{Data: []interface{}{1, "Hello", 1, "There", 1, 1, "How", 1, "are", "you", 1}},
+		{Data: []interface{}{0, "is", 1, "there", 1, 1, "some", 1, "coins", "here", 1}},
 	}
 	table = solutions.ElementsToTest(table)
 
@@ -56,4 +73,17 @@ func main() {
 			solutions.ChallengeList("ListRemoveIf", link1, copyList(link2), arg.Data, chosenOne)
 		}
 	}
+	// Remove more than one node at the begging
+	link1 := &solutions.List{}
+	link2 := &student.List{}
+
+	for _, item := range table[2].Data {
+		solutions.ListPushBack(link1, item)
+		listPushBack(link2, item)
+	}
+	student.ListRemoveIf(link2, 0)
+	student.ListRemoveIf(link2, "is")
+	solutions.ListRemoveIf(link1, 0)
+	solutions.ListRemoveIf(link1, "is")
+	solutions.ChallengeList("ListRemoveIf", link1, copyList(link2), table[2].Data, 0, "is")
 }
