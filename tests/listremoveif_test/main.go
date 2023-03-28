@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	student "student"
 
 	"github.com/01-edu/go-tests/lib/random"
@@ -18,22 +17,7 @@ func listPushBack(l *student.List, data interface{}) {
 	}
 	l.Tail = n
 }
-func PrintList(l *student.List) {
-	it := l.Head
-	for it != nil {
-		fmt.Print(it.Data, "->")
-		it = it.Next
-	}
-	fmt.Print("nil", "\n")
-}
-func PrintLists(l *solutions.List) {
-	it := l.Head
-	for it != nil {
-		fmt.Print(it.Data, "->")
-		it = it.Next
-	}
-	fmt.Print("nil", "\n")
-}
+
 func copyList(listStu *student.List) *solutions.List {
 	listSol := &solutions.List{}
 	for it := listStu.Head; it != nil; it = it.Next {
