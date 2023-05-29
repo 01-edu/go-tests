@@ -17,7 +17,6 @@ func main() {
 	}
 	args = append(args,
 		strconv.Itoa(random.MaxInt),
-		"",
 		"0",
 		"12345",
 		"0000012345",
