@@ -7,7 +7,7 @@ func FifthAndSkip(str string) string {
 		return "\n"
 	}
 	if len(str) < 5 {
-		return "Invalid Output\n"
+		return "Invalid Input\n"
 	}
 	s := strings.ReplaceAll(str, " ", "")
 	var _str strings.Builder
