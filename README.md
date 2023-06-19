@@ -1,4 +1,8 @@
-# go-tests
+# 🐹 go-tests
+
+[![🐳 On Master - Build and Test Docker Image](https://github.com/01-edu/go-tests/actions/workflows/ga-image-build-master.yml/badge.svg?branch=master)](https://github.com/01-edu/go-tests/actions/workflows/ga-image-build-master.yml)
+
+Private repository that holds the files needed to build the Go tests Docker image.
 
 To run the tests make sure the two repositories are right next to each other:
 
