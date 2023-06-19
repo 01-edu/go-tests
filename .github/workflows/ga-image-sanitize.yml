@@ -37,3 +37,4 @@ jobs:
           name: test-go
           token: ${{ secrets.GITHUB_TOKEN }}
           untagged-keep-latest: ${{ github.event.inputs.keep-last }}
+        continue-on-error: true
