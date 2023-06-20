@@ -1,11 +1,8 @@
 package solutions
 
-func PrintAndMiss(arg string, num int) string {
-	if arg == "" || num < 0 {
-		return "Invalid Output\n"
-	}
-	if num == 0 || num > len(arg) {
-		return arg + "\n"
+func SaveAndMiss(arg string, num int) string {
+	if num <= 0 || num > len(arg) {
+		return string(arg)
 	}
 	_str := ""
 	for i := 0; i < len(arg); i++ {
@@ -19,5 +16,5 @@ func PrintAndMiss(arg string, num int) string {
 			_str += string(rune(arg[i]))
 		}
 	}
-	return (_str + "\n")
+	return _str
 }
