@@ -25,6 +25,6 @@ func main() {
 	}
 
 	for _, v := range structs {
-		challenge.Function("PrintAndMiss", student.PrintAndMiss, solutions.PrintAndMiss, v.str, v.itt)
+		challenge.Function("SaveAndMiss", student.SaveAndMiss, solutions.SaveAndMiss, v.str, v.itt)
 	}
 }
