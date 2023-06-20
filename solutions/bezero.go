@@ -1,8 +1,11 @@
 package solutions
 
 func BeZero(slice []int) []int {
-	for i := 0; i < len(slice); i++ {
-		slice[i] = 0
+	dst := make([]int, len(slice))
+	copy(dst, slice)
+
+	for i := 0; i < len(dst); i++ {
+		dst[i] = 0
 	}
-	return slice
+	return dst
 }
