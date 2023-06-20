@@ -1,9 +1,12 @@
 package solutions
 
 func SwapLast(slice []int) []int {
-	if len(slice) < 2 {
-		return slice
+	dst := make([]int, len(slice))
+	copy(dst, slice)
+
+	if len(dst) < 2 {
+		return dst
 	}
-	slice[len(slice)-1], slice[len(slice)-2] = slice[len(slice)-2], slice[len(slice)-1]
-	return slice
+	dst[len(dst)-1], dst[len(dst)-2] = dst[len(dst)-2], dst[len(dst)-1]
+	return dst
 }
