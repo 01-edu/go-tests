@@ -1,15 +1,14 @@
 package solutions
 
-func HashCode(arg string) string {
-	str := ""
-	for i := 0; i < len(arg); i++ {
-		j := int(arg[i]) + len(arg)
-		j %= 127
-		if j < 33 {
-			j += 33
+func HashCode(dec string) string {
+	size := len(dec)
+	hashed := ""
+	for _, char := range dec {
+		hash := (int(char) + size) % 127
+		if hash < 32 || hash > 126 {
+			hash += 33
 		}
-		str += string(rune(j))
-		j = 0
+		hashed += string(hash)
 	}
-	return str
+	return hashed
 }
