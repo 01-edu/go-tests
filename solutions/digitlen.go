@@ -1,16 +1,19 @@
 package solutions
 
-func DigitLen(num, base int) int {
-	if num < 0 {
-		num = -num
-	}
+func DigitLen(n, base int) int {
+
 	if base < 2 || base > 36 {
 		return -1
 	}
-	res := 0
-	for num > 0 {
-		num /= base
-		res++
+
+	if n < 0 {
+		n = -n
 	}
-	return res
+
+	count := 0
+	for n > 0 {
+		n /= base
+		count++
+	}
+	return count
 }
