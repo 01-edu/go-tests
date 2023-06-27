@@ -1,9 +1,12 @@
 package solutions
 
 func SwapFirst(slice []int) []int {
-	if len(slice) < 2 {
-		return slice
+	dst := make([]int, len(slice))
+	copy(dst, slice)
+
+	if len(dst) < 2 {
+		return dst
 	}
-	slice[0], slice[1] = slice[1], slice[0]
-	return slice
+	dst[0], dst[1] = dst[1], dst[0]
+	return dst
 }
