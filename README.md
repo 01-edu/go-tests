@@ -20,3 +20,29 @@ To run all the exercises, run this command in the `go-tests` folder:
 ```
 ./test_all.sh
 ```
+
+### Run an exercise in the Docker container
+
+To run an exercise as close as it can get to production environment you can call `test_with_docker.sh` as follow:
+
+```
+./test_with_docker.sh [EXERCISE_NAME] [EXERCISE_PATH] [ALLOWED_FUNCTION]*
+```
+
+As an example:
+
+```console
+./test_with_docker getalpha getalpha/main.go --allow-builtin github.com/01-edu/z01.PrintRune strconv.Atoi os.Args
+```
+
+For convenience to do bulk tests you may want to store those info in a `meta.txt` file that will separate them with `:` and then use `awk` to run tests on all of them.
+
+As an example:
+
+```console
+# The meta.txt file
+getalpha:getalpha/main.go:--allow-builtin github.com/01-edu/z01.PrintRune strconv.Atoi os.Args
+
+# The command to run
+cat meta.txt | awk -F ":" '{print system("./test_with_docker.sh "$1" "$2" "$3)}'
+```
