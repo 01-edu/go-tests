@@ -4,6 +4,12 @@ IFS='
 '
 cd -P "$(dirname "$0")"
 
+if [[ "$#" -lt  2 ]]; then
+    echo "Error: run with ./test_with_docker.sh EXERCISE_NAME EXERCISE_FILE ALLOWED_FUNCTIONS"
+    echo "ALLOWED_FUNCTIONS is optional"
+    exit 1
+fi
+
 EXERCISE_NAME=$1
 EXERCISE_FILE=$2
 ALLOWED_FUNCTIONS="$(echo "${@:3}")"
