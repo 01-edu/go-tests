@@ -23,7 +23,13 @@ To run all the exercises, run this command in the `go-tests` folder:
 
 ### Run an exercise in the Docker container
 
-To run an exercise as close as it can get to production environment you can call `test_with_docker.sh` as follow:
+First you need to build the image, for example to build it locally you may run:
+
+```
+docker build -t go_tests .
+```
+
+To run an exercise as close as it can get to production environment you can call `test_with_docker.sh` as follows:
 
 ```
 ./test_with_docker.sh [EXERCISE_NAME] [EXERCISE_PATH] [ALLOWED_FUNCTION]*
@@ -35,7 +41,7 @@ As an example:
 ./test_with_docker getalpha getalpha/main.go --allow-builtin github.com/01-edu/z01.PrintRune strconv.Atoi os.Args
 ```
 
-For convenience to do bulk tests you may want to store those info in a `meta.txt` file that will separate them with `:` and then use `awk` to run tests on all of them.
+For convenience to do bulk tests you may want to store this info in a `meta.txt` file that will separate them with `:` and then use `awk` to run tests on all of them.
 
 As an example:
 
