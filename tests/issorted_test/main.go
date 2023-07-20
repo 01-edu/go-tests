@@ -34,8 +34,12 @@ func isSortedByDiff(a, b int) int {
 	return a - b
 }
 
+func isSortedWrong(a, b int) int {
+	return -1
+}
+
 func main() {
-	functions := []func(int, int) int{isSortedByDiff, isSortedBy1, isSortedBy10}
+	functions := []func(int, int) int{isSortedByDiff, isSortedBy1, isSortedBy10, isSortedWrong}
 
 	type node struct {
 		f func(int, int) int
