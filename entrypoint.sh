@@ -5,12 +5,12 @@ set -e
 cp -r student piscine-go
 cd piscine-go
 
-if test "$EXAM_MODE"; then
+if test "$CODE_EDITOR_MODE"; then
 	go mod init main 2>/dev/null
 	GOSUMDB=off go get github.com/01-edu/z01@v0.1.0 2>/dev/null
 fi
 
-if test "$EXAM_RUN_ONLY" = true; then
+if test "$CODE_EDITOR_RUN_ONLY" = true; then
 	if command -v "${EXERCISE}_test" >/dev/null 2>&1; then
 		# The exercise is a program
 		go run "./$EXERCISE" "$@"
@@ -21,7 +21,7 @@ if test "$EXAM_RUN_ONLY" = true; then
 	exit
 fi
 
-if ! test "$EXAM_MODE"; then
+if ! test "$CODE_EDITOR_MODE"; then
 	s=$(gofumpt -d .)
 	if test "$s"; then
 		echo 'Your Go files are not correctly formatted :'
