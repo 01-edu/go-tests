@@ -1,8 +1,11 @@
 package random
 
 import (
+	"fmt"
 	"math/big"
 	"math/rand"
+	"os"
+	"reflect"
 	"time"
 )
 
@@ -14,6 +17,13 @@ const (
 var (
 	nsSince1970 = time.Now().UnixNano()
 	bigRand     = rand.New(rand.NewSource(nsSince1970))
+
+	MinSliceLen = 1
+	MaxSliceLen = 8
+
+	StringCharset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 "
+	MinStringLen  = 0
+	MaxStringLen  = 64
 )
 
 func init() {
@@ -21,7 +31,7 @@ func init() {
 }
 
 func makeIntFunc(f func() int) (s []int) {
-	for i := 0; i < 8; i++ {
+	for i := MinSliceLen; i < MaxSliceLen; i++ {
 		s = append(s, f())
 	}
 	return
@@ -58,24 +68,33 @@ func IntSliceBetween(a, b int) []int {
 }
 
 // Str returns a string with l random characters taken from chars.
-func Str(chars string, length int) (dst string) {
-	if length <= 0 {
-		return ""
-	}
-	if chars == "" {
-		panic("No charset provided")
-	}
-	for ; length > 0; length-- {
-		r := rand.Intn(len(chars))
-		dst += string(chars[r])
+func Str() (dst string) {
+	for length := 0; length < IntBetween(MinStringLen, MaxStringLen); length++ {
+		r := rand.Intn(len(StringCharset))
+		dst += string(StringCharset[r])
 	}
 	return string(dst)
 }
 
-// Str returns a slice of 8 strings with 13 random characters taken from chars.
-func StrSlice(chars string) (s []string) {
-	for i := 0; i < 8; i++ {
-		s = append(s, Str(chars, 13))
+// Str returns a slice of n strings of random sizes with random characters from StringCharset.
+func StrSlice(n int) (s []string) {
+	for i := MinSliceLen; i < MaxSliceLen; i++ {
+		s = append(s, Str())
 	}
 	return
+}
+
+func GenerateValue(i interface{}) interface{} {
+	switch reflect.TypeOf(i).Kind() {
+	case reflect.Int:
+		return Int()
+	case reflect.String:
+		return Str()
+	case reflect.Slice:
+		//TODO:
+		return nil
+	default:
+		fmt.Fprintf(os.Stderr, "Can't create random test arguments for type: %v, %v\n", reflect.TypeOf(i).Kind(), i)
+	}
+	return nil
 }

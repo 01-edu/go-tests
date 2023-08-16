@@ -11,7 +11,25 @@ import (
 	"runtime"
 	"strconv"
 	"strings"
+
+	"github.com/01-edu/go-tests/lib/random"
 )
+
+var (
+	log               = false
+	HasRandomTests    = false
+	RandomTestsNumber = 5
+)
+
+func init() {
+	if os.Getenv("Z01LOGS") == "true" {
+		log = true
+	}
+}
+
+func EnableLogs() { log = true }
+
+func DisableLogs() { log = false }
 
 func Format(a ...interface{}) string {
 	ss := make([]string, len(a))
@@ -89,21 +107,81 @@ func Monitor(fn interface{}, args []interface{}) (out Output) {
 func Function(name string, submittedFunction, expectedFunction interface{}, args ...interface{}) {
 	submitted := Monitor(submittedFunction, args)
 	expected := Monitor(expectedFunction, args)
-	if !reflect.DeepEqual(submitted.Results, expected.Results) {
-		Fatalf("%s(%s) == %s instead of %s\n",
+	eq := reflect.DeepEqual(submitted.Stdout, expected.Stdout) &&
+		reflect.DeepEqual(submitted.Results, expected.Results)
+	if log || !eq {
+		fmt.Fprintf(os.Stderr,
+			"%s(%s)\nStdout:\n> %s\n< %s\n"+
+				"Return values:\n> %s\n< %s\n",
 			name,
 			Format(args...),
-			Format(submitted.Results...),
+			expected.Stdout,
+			submitted.Stdout,
 			Format(expected.Results...),
+			Format(submitted.Results...),
 		)
 	}
-	if !reflect.DeepEqual(submitted.Stdout, expected.Stdout) {
-		Fatalf("%s(%s) prints:\n%s\ninstead of:\n%s\n",
-			name,
-			Format(args...),
-			Format(submitted.Stdout),
-			Format(expected.Stdout),
-		)
+	if !eq {
+		fmt.Fprintf(os.Stderr, "\tFailed!\n\n")
+		os.Exit(1)
+	}
+	if log {
+		fmt.Fprintf(os.Stderr, "OK!\n\n")
+	}
+}
+
+func isSlice(v interface{}) bool {
+	return reflect.TypeOf(v).Kind() == reflect.Slice
+}
+
+func runRandomCases(name string, submittedFunction, expectedFunction interface{}, v reflect.Value) {
+	if reflect.TypeOf(v.Interface()).Kind() == reflect.Slice {
+		for i := 0; i < RandomTestsNumber; i++ {
+			randomArgs := []interface{}{}
+			for i := 0; i < v.Len(); i++ {
+				singleArg := reflect.Value(v.Index(i)).Interface()
+				randomArgs = append(randomArgs, random.GenerateValue(singleArg))
+			}
+			Function(name, submittedFunction, expectedFunction, randomArgs...)
+		}
+	} else {
+		for i := 0; i < RandomTestsNumber; i++ {
+			Function(name, submittedFunction, expectedFunction, random.GenerateValue(v.Interface()))
+		}
+	}
+
+}
+
+func FunctionTestSuite(name string, submittedFunction, expectedFunction, testCases interface{}) {
+	// Runs a series of tests cases
+	// the interface 'i' must be a slice
+	if !isSlice(testCases) {
+		Fatalf("FunctionTestSuite must provide a slice as arguments")
+	}
+
+	// We need to get ValueOf args to be able to access elements by index
+	args := reflect.ValueOf(testCases)
+
+	// Run the provided test cases
+	for i := 0; i < args.Len(); i++ {
+		if isSlice(args.Index(0).Interface()) {
+			// There is more than one arguments
+			// Arguments could be of different types
+			innerArgSlice := reflect.ValueOf(args.Index(i).Interface())
+			newArgSlice := []interface{}{}
+			for j := 0; j < innerArgSlice.Len(); j++ {
+				newArgSlice = append(newArgSlice, innerArgSlice.Index(j).Interface())
+			}
+			Function(name, submittedFunction, expectedFunction, newArgSlice...)
+		} else {
+			// convert back to interface{} to call Function
+			singleArg := reflect.Value(args.Index(i)).Interface()
+			Function(name, submittedFunction, expectedFunction, singleArg)
+		}
+	}
+
+	if HasRandomTests {
+		runRandomCases(name, submittedFunction, expectedFunction, args.Index(0))
 	}
 }
 
