@@ -2,6 +2,8 @@
 
 set -e
 
+echo testing $FILE 
+
 cp -r student piscine-go
 cd piscine-go
 
@@ -45,7 +47,7 @@ fi
 # Check restrictions
 if test "$ALLOWED_FUNCTIONS" && test "$FILE"; then
 	# shellcheck disable=SC2086
-	rc "$FILE" $ALLOWED_FUNCTIONS
+	rc "$FILE" 
 fi
 
 if ! test -e go.mod ; then
@@ -58,10 +60,10 @@ cp -r /go-tests ~
 cd ~/go-tests
 
 # Compile and run test
-if command -v "${EXERCISE}_test" >/dev/null 2>&1; then
+if command -v "${EXERCISE}" >/dev/null 2>&1; then
 	# The exercise is a program
-	"${EXERCISE}_test"
+	"${EXERCISE}"
 else
 	# The exercise is a function
-	go run "./tests/${EXERCISE}_test"
+	go run "./tests/${EXERCISE}"
 fi

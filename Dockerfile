@@ -4,7 +4,8 @@ ENV GIT_TERMINAL_PROMPT=0
 RUN apk add --no-cache git
 
 RUN go install mvdan.cc/gofumpt@v0.1.1
-RUN go install github.com/01-edu/rc@v0.1.0
+
+RUN go install github.com/01-edu/rc@config-file
 
 WORKDIR /piscine-go
 RUN go mod init piscine-go
@@ -14,9 +15,8 @@ WORKDIR /go-tests
 COPY go.* ./
 RUN go mod download
 COPY lib lib
-COPY solutions solutions
 COPY tests tests
-RUN go install $(grep -rl 'challenge.Program' ./tests | rev | cut -d/ -f2- | rev)
+#RUN go install $(grep -rl 'challenge.Program' ./tests | rev | cut -d/ -f2- | rev)
 
 RUN rm -rf /piscine-go
 
