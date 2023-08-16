@@ -1,0 +1,3 @@
+---
+#allow-builtins: true
+allowed-functions: [rune, int, append]
