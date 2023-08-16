@@ -3,6 +3,9 @@
 #set -euo pipefail
 IFS='
 '
+RED="\e[31m"
+GREEN="\e[32m"
+WHT="\e[0m"
 # clear the student folder go binary cache
 # Fix for mac and linux temp directories
 if [ -z "$TMPDIR" ]; then
@@ -14,9 +17,16 @@ else
 fi
 # End of fix
 
+RC=0
 for dir in ./tests/*; do
-    echo "$dir executed"
-    if ! go run "$dir"; then
-        echo "$dir FAILED"
-    fi
+	exercise_name=$(echo $dir | sed 's/.\/tests\///g')
+	if ! ./test_one.sh $exercise_name >/dev/null 2>&1; then
+			echo -en "$RED"
+			echo -e "$dir failed $WHT"
+			RC=1
+	else
+		echo -en "$GREEN"
+		echo -e "$dir success $WHT"
+	fi
 done
+exit $RC

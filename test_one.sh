@@ -3,12 +3,15 @@
 IFS='
 '
 
+RC=rc
+
 if [ -z "$1" ]; then
     echo "No folder supplied"
     exit 1
 else
-    testFile="./tests/$1_test/main.go"
-    if test -f "$testFile"; then
+    testDir="tests/$1"
+	testName=$1
+    if test -d "$testDir"; then
         # Fix for mac and linux temp directories
         if [ -z "$TMPDIR" ]; then
             # Linux
@@ -18,9 +21,33 @@ else
             rm -rf $TMPDIR/binaries/student/
         fi
         # End of fix
-        go run $testFile
-        echo "$1 test executed!"
+
+		# Checking if our solution respects the same restrictions as student's
+		if ! $RC -config "$testDir/rc.yml" "$testDir/$testName.go"; then
+			echo "Our solution doesn't respect restrictions"
+			exit 1
+		fi
+
+		# Check if solution has tests	
+		if ! test -f "./tests/$1/$1_test.go" ; then
+			echo "No tests for our solution"
+			exit 1
+		fi	
+		
+		echo "Testing our solution:"
+		if ! go test "./$testDir"; then
+			exit 1
+		fi
+		
+		# Test the student solution
+		if ! go run "./$testDir"; then
+			echo "$1 tests failed!"
+			exit 1
+		else
+			echo "$1 test executed successfully!"
+			exit 0
+		fi
     else
-        echo "Error: $testFile does not exist."
+        echo "Error: $testDir does not exist."
     fi
 fi
