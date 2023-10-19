@@ -2,26 +2,29 @@
 
 set -e
 
-# support both variables CODE_EDITOR_RUN_ONLY and EXAM_RUN_ONLY
+# ! support both variables CODE_EDITOR_RUN_ONLY and EXAM_RUN_ONLY
 CODE_EDITOR_RUN_ONLY="${CODE_EDITOR_RUN_ONLY:-$EXAM_RUN_ONLY}"
-# support both variables CODE_EDITOR_MODE and EXAM_MODE
+# ! support both variables CODE_EDITOR_MODE and EXAM_MODE
 CODE_EDITOR_MODE="${CODE_EDITOR_MODE:-$EXAM_MODE}"
 
 cp -r student piscine-go
 cd piscine-go
 
 if test "$CODE_EDITOR_MODE"; then
-	go mod init main 2>/dev/null
+	go mod init piscine 2>/dev/null
 	GOSUMDB=off go get github.com/01-edu/z01@v0.1.0 2>/dev/null
 fi
 
 if test "$CODE_EDITOR_RUN_ONLY" = true; then
-	if command -v "${EXERCISE}_test" >/dev/null 2>&1; then
-		# The exercise is a program
+	# ! to support both the old and the new version of the runner we
+	# ! need to check the files in the code editor
+	# if the files in the editor contain the "main.go" we are running a program
+	if echo "$EDITOR_FILES" | tr ',' '\n' | grep -q '/main.go'; then
 		go run "./$EXERCISE" "$@"
 	else
 		# The exercise is a function
 		go run . "$@"
+		fi
 	fi
 	exit
 fi
