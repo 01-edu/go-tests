@@ -15,8 +15,6 @@ func main() {
 				arg[i] = 'Z' - ch + 'A'
 			}
 		}
-		fmt.Print(string(arg))
+		fmt.Println(string(arg))
 	}
-
-	fmt.Println()
 }
