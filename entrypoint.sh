@@ -19,7 +19,7 @@ if test "$CODE_EDITOR_RUN_ONLY" = true; then
 	# ! to support both the old and the new version of the runner we
 	# ! need to check the files in the code editor
 	# if the files in the editor contain the "main.go" we are running a program
-	if echo "$EDITOR_FILES" | tr ',' '\n' | grep -q '/main.go'; then
+	if echo "$EDITOR_FILES" | tr ',' '\n' | grep -q '/main.go' || command -v "${EXERCISE}_test" >/dev/null 2>&1; then
 		go run "./$EXERCISE" "$@"
 	else
 		# The exercise is a function
