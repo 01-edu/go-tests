@@ -11,7 +11,7 @@ cp -r student piscine-go
 cd piscine-go
 
 if test "$CODE_EDITOR_MODE"; then
-	go mod init piscine 2>/dev/null
+	go mod init main 2>/dev/null
 	GOSUMDB=off go get github.com/01-edu/z01@v0.1.0 2>/dev/null
 fi
 
