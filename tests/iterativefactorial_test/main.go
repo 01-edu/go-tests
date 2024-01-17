@@ -16,4 +16,6 @@ func main() {
 	for _, arg := range table {
 		challenge.Function("IterativeFactorial", student.IterativeFactorial, solutions.IterativeFactorial, arg)
 	}
+
+    challenge.Function("IterativeFactorial", student.IterativeFactorial, solutions.IterativeFactorial, 22)
 }
