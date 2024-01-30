@@ -24,13 +24,15 @@ func main() {
 
 	// 15 random pairs of string numbers with valid bases
 	for i := 0; i < 15; i++ {
-		validBaseToInput := base.Valid()
-		val := node{
-			s:    base.StringFrom(validBaseToInput),
-			base: validBaseToInput,
-		}
-		args = append(args, val)
+    		validBaseToInput := base.Valid()
+    		validNumToInput := base.NumFrom(validBaseToInput)
+    		val := node{
+        		s:    base.StringFrom(validNumToInput),
+        		base: validBaseToInput,
+    	}
+    	args = append(args, val)
 	}
+	
 	// 15 random pairs of string numbers with invalid bases
 	for i := 0; i < 15; i++ {
 		invalidBaseToInput := base.Invalid()
