@@ -1,30 +1,32 @@
 package main
 
 import (
-	"strconv"
-
-	"github.com/01-edu/go-tests/lib/challenge"
-	"github.com/01-edu/go-tests/lib/random"
+	"fmt"
+	"os"
+	student "student"
 )
 
 func main() {
-	args := [][]string{
-		{"42", "10"},
-		{"42", "12"},
-		{"14", "77"},
-		{"17", "3"},
-		{"23"},
-		{"12", "23"},
-		{"25", "15"},
-		{"23043", "122"},
-		{"11", "77"},
+	testCases := []struct {
+		a    uint
+		b    uint
+		want uint
+	}{
+		{42, 10, 2},
+		{42, 12, 6},
+		{14, 77, 7},
+		{17, 3, 1},
+		{12, 23, 1},
+		{25, 15, 5},
+		{23043, 122, 1},
+		{11, 77, 11},
 	}
-	for i := 0; i < 5; i++ {
-		a := strconv.Itoa(random.IntBetween(1, 100000))
-		b := strconv.Itoa(random.IntBetween(1, 100))
-		args = append(args, []string{a, b})
-	}
-	for _, v := range args {
-		challenge.Program("gcd", v...)
+
+	for _, tc := range testCases {
+		got := student.Gcd(tc.a, tc.b)
+		if got != tc.want {
+			fmt.Printf("Gcd(%d, %d) = %d instead of %d\n", tc.a, tc.b, got, tc.want)
+			os.Exit(1)
+		}
 	}
 }
