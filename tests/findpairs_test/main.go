@@ -73,7 +73,8 @@ func main() {
 	for _, tc := range tests {
 		got, _ := runStudentProgram("findpairs", []string{tc.arr, tc.targetSum}...)
 		if got != tc.want {
-			fmt.Printf("\ngot: %+v\nwant: %+v\n", got, tc.want)
+			fmt.Printf("findpairs %q %q -> ", tc.arr, tc.targetSum)
+			fmt.Printf("got: %q instead of %q\n", got, tc.want)
 			os.Exit(1)
 		}
 	}

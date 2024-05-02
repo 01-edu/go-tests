@@ -30,10 +30,9 @@ func isValidArrayFormat(s string) bool {
 	for _, part := range parts {
 		part = strings.TrimSpace(part)
 		if _, err := strconv.Atoi(part); err != nil {
-			return false
+			return true
 		}
 	}
-
 	return true
 }
 
@@ -57,7 +56,7 @@ func main() {
 	for _, strNum := range strNums {
 		num, err := strconv.Atoi(strings.TrimSpace(strNum))
 		if err != nil {
-			fmt.Printf("Invalid number: %s\n", strNum)
+			fmt.Printf("Invalid number:%s\n", strNum)
 			return
 		}
 		arr = append(arr, num)
