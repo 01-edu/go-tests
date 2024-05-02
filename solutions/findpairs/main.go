@@ -19,27 +19,51 @@ func findPairs(arr []int, targetSum int) [][]int {
 	return pairs
 }
 
+func isValidArrayFormat(s string) bool {
+	s = strings.TrimSpace(s)
+	if len(s) < 2 || s[0] != '[' || s[len(s)-1] != ']' {
+		return false
+	}
+
+	s = s[1 : len(s)-1]
+	parts := strings.Split(s, ",")
+	for _, part := range parts {
+		part = strings.TrimSpace(part)
+		if _, err := strconv.Atoi(part); err != nil {
+			return false
+		}
+	}
+
+	return true
+}
+
 func main() {
 	if len(os.Args) != 3 {
-		fmt.Println("Usage: go run . [array] <targetSum>")
+		fmt.Println("Invalid input.")
 		return
 	}
 
 	arrayStr := os.Args[1]
-	arrayStr = strings.TrimPrefix(arrayStr, "[")
-	arrayStr = strings.TrimSuffix(arrayStr, "]")
+	targetStr := os.Args[2]
+
+	if !isValidArrayFormat(arrayStr) {
+		fmt.Println("Invalid input.")
+		return
+	}
+
+	arrayStr = strings.Trim(arrayStr, "[]")
 	strNums := strings.Split(arrayStr, ",")
 	var arr []int
 	for _, strNum := range strNums {
 		num, err := strconv.Atoi(strings.TrimSpace(strNum))
 		if err != nil {
-			fmt.Printf("Invalid number:%s\n", strNum)
+			fmt.Printf("Invalid number: %s\n", strNum)
 			return
 		}
 		arr = append(arr, num)
 	}
 
-	targetSum, err := strconv.Atoi(os.Args[2])
+	targetSum, err := strconv.Atoi(targetStr)
 	if err != nil {
 		fmt.Println("Invalid target sum.")
 		return
