@@ -54,6 +54,11 @@ func main() {
 			want:      "Invalid number: p\n",
 		},
 		{
+			arr:       "[1, 2, 3, 4, 20,    p, 5]",
+			targetSum: "5",
+			want:      "Invalid number: p\n",
+		},
+		{
 			arr:       "[1, 2, 3, 4, 20, 5",
 			targetSum: "5",
 			want:      "Invalid input.\n",

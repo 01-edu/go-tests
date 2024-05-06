@@ -25,14 +25,14 @@ func isValidArrayFormat(s string) bool {
 		return false
 	}
 
-	s = s[1 : len(s)-1]
-	parts := strings.Split(s, ",")
-	for _, part := range parts {
-		part = strings.TrimSpace(part)
-		if _, err := strconv.Atoi(part); err != nil {
-			return true
-		}
-	}
+	// s = s[1 : len(s)-1]
+	// parts := strings.Split(s, ",")
+	// for _, part := range parts {
+	// 	part = strings.TrimSpace(part)
+	// 	if _, err := strconv.Atoi(part); err != nil {
+	// 		return true
+	// 	}
+	// }
 	return true
 }
 
@@ -54,9 +54,10 @@ func main() {
 	strNums := strings.Split(arrayStr, ",")
 	var arr []int
 	for _, strNum := range strNums {
-		num, err := strconv.Atoi(strings.TrimSpace(strNum))
+		s := strings.TrimSpace(strNum)
+		num, err := strconv.Atoi(s)
 		if err != nil {
-			fmt.Printf("Invalid number:%s\n", strNum)
+			fmt.Printf("Invalid number:%s\n", s)
 			return
 		}
 		arr = append(arr, num)
