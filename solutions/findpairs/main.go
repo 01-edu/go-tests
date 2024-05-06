@@ -24,15 +24,6 @@ func isValidArrayFormat(s string) bool {
 	if len(s) < 2 || s[0] != '[' || s[len(s)-1] != ']' {
 		return false
 	}
-
-	// s = s[1 : len(s)-1]
-	// parts := strings.Split(s, ",")
-	// for _, part := range parts {
-	// 	part = strings.TrimSpace(part)
-	// 	if _, err := strconv.Atoi(part); err != nil {
-	// 		return true
-	// 	}
-	// }
 	return true
 }
 
