@@ -1,6 +1,6 @@
 package solutions
 
-func CanJump(steps ...int) bool {
+func CanJump(steps []uint) bool {
 	if len(steps) == 0 {
 		return false
 	}
@@ -10,7 +10,7 @@ func CanJump(steps ...int) bool {
 		if i > maxReach {
 			return false
 		}
-		maxReach = max(maxReach, i+steps[i])
+		maxReach = max(maxReach, i+int(steps[i]))
 		if maxReach == len(steps)-1 || len(steps) == 1 {
 			return true
 		}
