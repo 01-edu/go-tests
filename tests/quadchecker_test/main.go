@@ -78,6 +78,17 @@ var testCases = []struct {
 		"AC",
 		"[quadE] [1] [2]\n",
 	},
+	{
+		`o---o
+|   |
+o---o`,
+
+		"[quadA] [3] [5]\n",
+	},
+	{
+		"0 0",
+		"Not a quad function\n",
+	},
 }
 
 func runTests(binName string) bool {
