@@ -48,7 +48,7 @@ func main() {
 		s := strings.TrimSpace(strNum)
 		num, err := strconv.Atoi(s)
 		if err != nil {
-			fmt.Printf("Invalid number:%s\n", s)
+			fmt.Printf("Invalid number: %s\n", s)
 			return
 		}
 		arr = append(arr, num)
