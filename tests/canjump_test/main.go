@@ -3,8 +3,6 @@ package main
 import (
 	"log"
 	"reflect"
-	"strconv"
-	"strings"
 	student "student"
 )
 
@@ -32,20 +30,12 @@ func main() {
 	for _, tc := range tests {
 		got := student.CanJump(tc.args)
 		if !reflect.DeepEqual(got, tc.want) {
-			log.Fatalf("%s(%#v) == %#v instead of %#v\n",
+			log.Fatalf("%s(%+v) == %+v instead of %+v\n",
 				"CanJump",
-				uintSliceToString(tc.args),
+				tc.args,
 				got,
 				tc.want,
 			)
 		}
 	}
-}
-
-func uintSliceToString(nums []uint) string {
-	var strSlice []string
-	for _, num := range nums {
-		strSlice = append(strSlice, strconv.FormatUint(uint64(num), 10))
-	}
-	return "[" + strings.Join(strSlice, ", ") + "]"
 }
