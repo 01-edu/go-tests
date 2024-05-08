@@ -14,22 +14,21 @@ Desktop/
         ⌊ quadC.go
         ⌊ quadD.go
         ⌊ quadE.go
+        ⌊ quadchecker
+            ⌊ main.go
     ⌊ go-tests
         ⌊ tests
             ⌊ quad_test
                 ⌊ main.go
 ```
+
 ### Commands:
 
 To test an exercise, run this command in the `go-tests` folder:
 
 ```
 go run ./tests/quad_test/
-
-// OR
-
-cd tests/
-go run ./quad_test/
+go run ./tests/quadchecker_test
 ```
 
 If you run the test and you don't get any output, it means the solution has successfully passed the test, on the other side if it does return some output, the test is failed and you will get an error message.
