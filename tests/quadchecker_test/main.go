@@ -2,75 +2,109 @@ package main
 
 import (
 	"fmt"
+	"io"
 	"os"
 	"os/exec"
 	"path"
-
-	"github.com/01-edu/go-tests/lib/challenge"
 )
-
-func main() {
-	execFatal := func(name string, arg ...string) string {
-		b, err := exec.Command(name, arg...).CombinedOutput()
-		if err != nil {
-			challenge.Fatalf("%s\n", err)
-		}
-		return string(b)
-	}
-
-	// only one output no matter the arguments
-	// output :
-	// quadA
-	// quadB
-	quadAB := []string{
-		"o",
-		"/",
-	}
-
-	// special cases one output
-	specialCases := []string{
-		// quadC
-		"AA",
-		// quadD
-		"A\nA",
-	}
-
-	multipleOutputs := []string{
-		// tree output : quadC quadD QuadE
-		"A",
-		// two output : quadC quadE
-		"A\nC",
-		// quadD quadE
-		"AC",
-	}
-
-	solBinary := "quadcheckerprog_solution"
-	studBinary := "quadcheckerprog_student"
-
-	defer removeBinary(solBinary, studBinary)
-	execFatal("go", "build", "-o", solBinary, path.Join("github.com/01-edu/go-tests/solutions", "quadchecker"))
-	execFatal("go", "build", "-o", studBinary, path.Join("student", "quadchecker"))
-
-	testCases := [][]string{quadAB, specialCases, multipleOutputs}
-	for _, c := range testCases {
-		for _, s := range c {
-			cmdCorrect := fmt.Sprintf("echo -e '%s' | ./%s ", s, solBinary)
-			cmdStudent := fmt.Sprintf("echo -e '%s' | ./%s", s, studBinary)
-			correct := execFatal("bash", "-c", cmdCorrect)
-			output := execFatal("bash", "-c", cmdStudent)
-			if output != correct {
-				removeBinary(solBinary, studBinary)
-				challenge.Fatalf("./quadchecker prints %q instead of %q\n", output, correct)
-			}
-		}
-	}
-}
 
 func removeBinary(s ...string) {
 	for _, c := range s {
 		e := os.Remove(c)
 		if e != nil {
-			challenge.Fatal(e)
+			fmt.Printf("error: %q\n", e)
 		}
+	}
+}
+
+func buildBin(path, binName string) error {
+	cmd := exec.Command("go", "build", "-o", binName, path)
+	if _, err := cmd.CombinedOutput(); err != nil {
+		return err
+	}
+	return nil
+
+}
+
+func runBin(binName, input string) (string, error) {
+	cmd := exec.Command("./" + binName)
+	stdin, err := cmd.StdinPipe()
+	if err != nil {
+		return "", err
+	}
+
+	go func() {
+		defer stdin.Close()
+		io.WriteString(stdin, input)
+	}()
+
+	out, err := cmd.CombinedOutput()
+	if err != nil {
+		return "", err
+	}
+	return string(out), nil
+}
+
+// only one output no matter the arguments
+var testCases = []struct {
+	input string
+	want  string
+}{
+	{
+		"o",
+		"[quadA] [1] [1]\n",
+	},
+	{
+		"/",
+		"[quadB] [1] [1]\n",
+	},
+	{
+		"A",
+		"[quadC] [1] [1] || [quadD] [1] [1] || [quadE] [1] [1]\n",
+	},
+	{
+		"A\nA",
+		"[quadD] [2] [1]\n",
+	},
+	{
+		"AA",
+		"[quadC] [1] [2]\n",
+	},
+	{
+		"A\nC",
+		"[quadD] [2] [1] || [quadE] [2] [1]\n",
+	},
+	{
+		"AC",
+		"[quadE] [1] [2]\n",
+	},
+}
+
+func runTests(binName string) bool {
+	for _, tc := range testCases {
+		got, err := runBin(binName, tc.input)
+		if err != nil {
+			fmt.Printf("Error running test: %q\n", err)
+			return false
+		}
+		if got != tc.want {
+			fmt.Printf("echo %q | quadchecker\n", tc.input)
+			fmt.Printf("got: %q\nwant: %q\n", got, tc.want)
+			return false
+		}
+	}
+	return true
+}
+
+func main() {
+	binName := "quadchecker"
+	if err := buildBin(path.Join("piscine-go", "quadchecker", "main.go"), binName); err != nil {
+		fmt.Printf("Error building binary: %q\n", err)
+		os.Exit(1)
+	}
+	defer removeBinary(binName)
+
+	if ok := runTests(binName); !ok {
+		os.Exit(1)
 	}
 }

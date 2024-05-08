@@ -7,6 +7,7 @@ import (
 )
 
 func main() {
+	// TODO: replace with a working solution
 	info, err := ioutil.ReadAll(os.Stdin)
 	if err != nil {
 		panic(err)
