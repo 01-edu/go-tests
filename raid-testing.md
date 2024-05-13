@@ -20,7 +20,12 @@ Desktop/
         ⌊ tests
             ⌊ quad_test
                 ⌊ main.go
+            ⌊ quadchecker_test
+                ⌊ main.go
 ```
+
+> IMPORTANT! The solution for `quadchecker` must be in one single file to be
+> tessted with the `go-tests/tests/quadchecker_test/main.go`
 
 ### Commands:
 
