@@ -109,7 +109,7 @@ func runTests(binName string) bool {
 
 func main() {
 	binName := "quadchecker"
-	if err := buildBin(path.Join("piscine-go", "quadchecker", "main.go"), binName); err != nil {
+	if err := buildBin(path.Join("..", "piscine-go", "quadchecker", "main.go"), binName); err != nil {
 		fmt.Printf("Error building binary: %q\n", err)
 		os.Exit(1)
 	}
