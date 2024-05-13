@@ -8,44 +8,6 @@ import (
 	"path"
 )
 
-func removeBinary(s ...string) {
-	for _, c := range s {
-		e := os.Remove(c)
-		if e != nil {
-			fmt.Printf("error: %q\n", e)
-		}
-	}
-}
-
-func buildBin(path, binName string) error {
-	cmd := exec.Command("go", "build", "-o", binName, path)
-	if _, err := cmd.CombinedOutput(); err != nil {
-		return err
-	}
-	return nil
-
-}
-
-func runBin(binName, input string) (string, error) {
-	cmd := exec.Command("./" + binName)
-	stdin, err := cmd.StdinPipe()
-	if err != nil {
-		return "", err
-	}
-
-	go func() {
-		defer stdin.Close()
-		io.WriteString(stdin, input)
-	}()
-
-	out, err := cmd.CombinedOutput()
-	if err != nil {
-		return "", err
-	}
-	return string(out), nil
-}
-
-// only one output no matter the arguments
 var testCases = []struct {
 	input string
 	want  string
@@ -91,9 +53,28 @@ o---o`,
 	},
 }
 
-func runTests(binName string) bool {
+func runProgram(programSource, input string) (string, error) {
+	cmd := exec.Command("go", "run", programSource)
+	stdin, err := cmd.StdinPipe()
+	if err != nil {
+		return "", err
+	}
+
+	go func() {
+		defer stdin.Close()
+		io.WriteString(stdin, input)
+	}()
+
+	out, err := cmd.CombinedOutput()
+	if err != nil {
+		return "", err
+	}
+	return string(out), nil
+}
+
+func runTests(programSource string) bool {
 	for _, tc := range testCases {
-		got, err := runBin(binName, tc.input)
+		got, err := runProgram(programSource, tc.input)
 		if err != nil {
 			fmt.Printf("Error running test: %q\n", err)
 			return false
@@ -108,14 +89,8 @@ func runTests(binName string) bool {
 }
 
 func main() {
-	binName := "quadchecker"
-	if err := buildBin(path.Join("..", "piscine-go", "quadchecker", "main.go"), binName); err != nil {
-		fmt.Printf("Error building binary: %q\n", err)
-		os.Exit(1)
-	}
-	defer removeBinary(binName)
-
-	if ok := runTests(binName); !ok {
+	source := path.Join("..", "piscine-go", "quadchecker", "main.go")
+	if ok := runTests(source); !ok {
 		os.Exit(1)
 	}
 }
