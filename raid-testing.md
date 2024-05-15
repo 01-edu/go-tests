@@ -25,7 +25,7 @@ Desktop/
 ```
 
 > IMPORTANT! The solution for `quadchecker` must be in one single file to be
-> tessted with the `go-tests/tests/quadchecker_test/main.go`
+> tested with the `go-tests/tests/quadchecker_test/main.go`
 
 ### Commands:
 
