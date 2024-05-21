@@ -1,25 +1,43 @@
 package main
 
 import (
-	"github.com/01-edu/go-tests/lib/challenge"
-	"github.com/01-edu/go-tests/lib/chars"
-	"github.com/01-edu/go-tests/lib/random"
+	"log"
+	"reflect"
+	student "student"
 )
 
+var testCases = []struct {
+	in   string
+	want string
+}{
+	{
+		in:   " ",
+		want: "\n",
+	},
+	{
+		in:   "FOR PONY",
+		want: "PONY\n",
+	},
+	{
+		in:   "this ... is sparta, then again, maybe not",
+		want: "not\n",
+	},
+	{
+		in:   " lorem,ipsum ",
+		want: "lorem,ipsum\n",
+	},
+}
+
 func main() {
-	args := []string{
-		"FOR PONY",
-		"this ... is sparta, then again, maybe not",
-		" ",
-		" lorem,ipsum ",
+	for _, tc := range testCases {
+		got := student.LastWord(tc.in)
+		if !reflect.DeepEqual(got, tc.want) {
+			log.Fatalf("%s(%q) == %q instead of %q\n",
+				"RevConcatAlternate",
+				tc.in,
+				got,
+				tc.want,
+			)
+		}
 	}
-
-	args = append(args, random.StrSlice(chars.Words)...)
-
-	for _, v := range args {
-		challenge.Program("lastword", v)
-	}
-
-	challenge.Program("lastword", "a", "b")
-	challenge.Program("lastword")
 }
