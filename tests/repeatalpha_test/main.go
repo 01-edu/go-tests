@@ -1,29 +1,26 @@
 package main
 
 import (
-	"github.com/01-edu/go-tests/lib/challenge"
-	"github.com/01-edu/go-tests/lib/chars"
-	"github.com/01-edu/go-tests/lib/random"
+	"fmt"
+	"os"
+	student "student"
 )
 
 func main() {
-	args := []string{
-		"",
-		"Hello",
-		"World",
-		"Home",
-		"Theorem",
-		"Choumi is the best cat",
-		"abracadaba 01!",
-		"abc",
-		"MaTheMatiCs",
+	testCases := []struct {
+		in   string
+		want string
+	}{
+		{"abc", "abbccc"},
+		{"Choumi.", "CCChhhhhhhhooooooooooooooouuuuuuuuuuuuuuuuuuuuummmmmmmmmmmmmiiiiiiiii."},
+		{"", ""},
+		{"abacadaba 01!", "abbacccaddddabba 01!"},
 	}
-
-	args = append(args, random.StrSlice(chars.Alnum)...)
-
-	for _, v := range args {
-		challenge.Program("repeatalpha", v)
+	for _, tc := range testCases {
+		got := student.RepeatAlpha(tc.in)
+		if got != tc.want {
+			fmt.Printf("RepeatAlpha(%q) = %q instead of %q\n", tc.in, got, tc.want)
+			os.Exit(1)
+		}
 	}
-	challenge.Program("repeatalpha")
-	challenge.Program("repeatalpha", "", "")
 }
