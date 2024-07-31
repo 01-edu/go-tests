@@ -33,7 +33,7 @@ func main() {
 		got := student.LastWord(tc.in)
 		if !reflect.DeepEqual(got, tc.want) {
 			log.Fatalf("%s(%q) == %q instead of %q\n",
-				"RevConcatAlternate",
+				"LastWord",
 				tc.in,
 				got,
 				tc.want,
