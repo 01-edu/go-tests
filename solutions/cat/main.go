@@ -2,7 +2,6 @@ package main
 
 import (
 	"io"
-	"io/ioutil"
 	"os"
 
 	"github.com/01-edu/go-tests/lib/challenge"
@@ -15,7 +14,7 @@ func main() {
 		}
 	} else {
 		for _, arg := range os.Args[1:] {
-			b, err := ioutil.ReadFile(arg)
+			b, err := os.ReadFile(arg)
 			if err != nil {
 				challenge.Fatalln("ERROR:", err)
 			}

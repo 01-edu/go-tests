@@ -1,7 +1,6 @@
 package main
 
 import (
-	"io/ioutil"
 	"os"
 	"strings"
 
@@ -13,10 +12,10 @@ import (
 func main() {
 	file1 := "quest8.txt"
 	file2 := "quest8T.txt"
-	if err := ioutil.WriteFile(file1, []byte(random.Str(chars.Words, 13)+"\n"), os.ModePerm); err != nil {
+	if err := os.WriteFile(file1, []byte(random.Str(chars.Words, 13)+"\n"), os.ModePerm); err != nil {
 		panic(err)
 	}
-	if err := ioutil.WriteFile(file2, []byte(random.Str(chars.Words, 13)+"\n"), os.ModePerm); err != nil {
+	if err := os.WriteFile(file2, []byte(random.Str(chars.Words, 13)+"\n"), os.ModePerm); err != nil {
 		panic(err)
 	}
 	args := []string{
