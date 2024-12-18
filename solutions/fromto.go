@@ -7,8 +7,8 @@ func FromTo(from, to int) string {
 
 	if from > 99 || from < 0 || to > 99 || to < 0 {
 		return "Invalid\n"
-	} else if from == to {
-		return strconv.Itoa(from) + "\n"
+	} else if from == to && from < 10 {
+		return "0" + strconv.Itoa(from) + "\n"
 	}
 	if from > to {
 		for i := from; i >= to; i-- {
