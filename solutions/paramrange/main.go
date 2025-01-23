@@ -1,8 +1,10 @@
 package main
 
-import "fmt"
-import "strconv"
-import "os"
+import (
+	"fmt"
+	"strconv"
+	"os"
+)
 
 func main() {
 	if len(os.Args) < 3 {
